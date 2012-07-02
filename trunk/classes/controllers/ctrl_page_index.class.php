@@ -37,6 +37,9 @@ CLASS ctrl_page_index EXTENDS ctrl_tpl_page {
     * @since ADD MVC 0.5
     */
    public function require_dir($dir,$writable) {
+
+      $this->view()->assign('log',array());
+
       if (!file_exists($dir)) {
          $this->view()->append('log.dirs',$dir);
          if ($writable)
