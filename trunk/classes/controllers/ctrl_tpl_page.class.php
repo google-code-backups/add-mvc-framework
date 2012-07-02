@@ -32,7 +32,7 @@ ABSTRACT CLASS ctrl_tpl_page IMPLEMENTS i_ctrl_with_view {
    public function page() {
 
       try {
-         $this->mode = "$_REQUEST[mode]";
+         $this->mode = isset($_REQUEST['mode']) ? "$_REQUEST[mode]" : '';
          $this->process();
       }
       catch(e_user $e) {
