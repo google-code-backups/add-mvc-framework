@@ -39,6 +39,8 @@ $C->views_dir           = $C->incs_dir.'/views';
 
 $C->assets_dir          = $C->root_dir.'/assets';
 $C->images_dir          = $C->assets_dir.'/images';
+$C->css_dir             = $C->assets_dir.'/css';
+$C->js_dir              = $C->assets_dir.'/js';
 
 $C->domain              = $C->sub_domain.".".$C->super_domain;
 $C->base_url            = "http://$C->domain".$C->path;
