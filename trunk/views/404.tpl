@@ -5,5 +5,6 @@
    Configuration:
    <ul>
       <li>path: {$C->path}</li>
+      <li>controller called: {add::current_controller_basename()}</li>
    </ul>
 {include file="common_footer.tpl"}
