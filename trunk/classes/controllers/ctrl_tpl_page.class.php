@@ -180,7 +180,10 @@ ABSTRACT CLASS ctrl_tpl_page IMPLEMENTS i_ctrl_with_view {
     * @version 0.1
     */
    public function meta_title() {
-      return add::config()->default_meta_title;
+      if (isset(add::config()->default_meta_title))
+         return add::config()->default_meta_title;
+      else
+         return null;
    }
 
    /**
