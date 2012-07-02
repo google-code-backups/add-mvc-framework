@@ -38,7 +38,7 @@ CLASS ctrl_page_index EXTENDS ctrl_tpl_page {
     */
    public function require_dir($dir,$writable) {
 
-      $this->view()->assign('log',array());
+      $this->view()->assign('log',array('warnings'=>array(),'dirs'=>array()));
 
       if (!file_exists($dir)) {
          $this->view()->append('log.dirs',$dir);
