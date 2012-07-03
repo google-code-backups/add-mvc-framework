@@ -1,7 +1,7 @@
 <?php
 
 CLASS debug EXTENDS add_debug {
-   static function current_user_allowed() {
+   public function current_user_allowed() {
 
       add::load_functions('network');
 
