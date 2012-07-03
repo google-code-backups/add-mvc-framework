@@ -181,13 +181,13 @@ CLASS add_encryptor {
     */
 
    public static function generate_key($length = 30) {
-      $key_generated = "";
-
+      $key = "";
+      
       $key_content = "abcdefghijklamnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()_+~";
 
       for ($x=1; $x<=$length; $x++) {
-         $key_generated = $key_content{array_rand(str_split($key_content))};
-         $key .= $key_generated;
+         $random_character = $key_content{array_rand(str_split($key_content))};
+         $key .= $random_character;
       }
 
       return $key;
