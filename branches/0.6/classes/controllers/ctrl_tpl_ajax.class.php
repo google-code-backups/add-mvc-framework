@@ -120,7 +120,4 @@ ABSTRACT CLASS ctrl_tpl_ajax IMPLEMENTS i_ctrl {
    public function print_response($data) {
       echo json_encode($data);
    }
-
-
-   }
 }
