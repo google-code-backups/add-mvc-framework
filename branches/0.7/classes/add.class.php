@@ -405,4 +405,32 @@ CLASS add {
       return redirect("?".http_build_query($query));
    }
 
+   /**
+    * environment check: is live?
+    *
+    * @since ADD MVC 0.7
+    */
+   public static function is_live() {
+      return true;
+   }
+
+
+   /**
+    * environment check: is debugging
+    *
+    * @since ADD MVC 0.7
+    */
+   public static function is_debugging() {
+      return false;
+   }
+
+
+   /**
+    * environment check: is_development()
+    *
+    * @since ADD MVC 0.7
+    */
+   public static function is_development() {
+      return false;
+   }
 }
