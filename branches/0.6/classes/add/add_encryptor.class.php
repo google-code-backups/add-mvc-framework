@@ -152,7 +152,7 @@ CLASS add_encryptor {
     *
     * @since ADD MVC 0.6
     *
-    * brian.requinala@247talk.net
+    * @author Bryan Requinala <brian.requinala@247talk.net>
     */
 
    public static function generate_key($length = 30) {
