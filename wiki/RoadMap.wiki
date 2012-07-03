@@ -14,7 +14,9 @@ Updated classes
 New resource controller system:
  * execute() in replacing page()
  * process_data() in replace of process()
- * print_view in replace of display_view()
+ * print_response() in replace of display_view()
+ * new function: assign()
+ * new function: process_response()
 
 
 = 0.7 =
