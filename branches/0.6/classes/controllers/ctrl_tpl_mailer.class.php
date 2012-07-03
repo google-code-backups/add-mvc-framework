@@ -29,7 +29,8 @@ ABSTRACT CLASS ctrl_tpl_mailer EXTENDS phpMailer IMPLEMENTS i_ctrl, i_ctrl_with_
     */
    abstract public function process_data();
 
-   public function print_response() {
+   public function print_response($data) {
+      $this->view()->assign($data);
       return $this->view()->display($this->view()->fetch(static::view_filepath()));
    }
 
