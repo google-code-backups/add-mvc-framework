@@ -4,7 +4,7 @@
  *
  *
  */
-require 'config.php';
+require '../config.php';
 require_once "$C->add_dir/init.php";
 
 class add_test {
