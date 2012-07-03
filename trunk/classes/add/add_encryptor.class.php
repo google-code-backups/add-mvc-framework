@@ -80,7 +80,7 @@ CLASS add_encryptor {
             $iv
          );
 
-      return $decrypted;
+      return trim($decrypted);
    }
 
    public static function generate_key($length = 30) {
