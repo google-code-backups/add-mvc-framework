@@ -10,3 +10,11 @@ Updated classes
   * ctrl_tpl_page
   * ctrl_tpl_ajax
   * ctrl_tpl_mailer
+
+= 0.7 =
+* environment status
+  * add::is_development()
+  * add::is_live()
+  * add::is_development()
+* exceptions
+  * email configuration improvements
