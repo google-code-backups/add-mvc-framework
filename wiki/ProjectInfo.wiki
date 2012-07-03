@@ -11,6 +11,7 @@ It has been developed since then and turned into a framework this May 2012
  * built in views for index, 404
  * views using smarty template
  * db connection using adodb
+ * mailer controller using phpmailer
  * easy to extend framework classes w/o editing original file
  * Extra classes:
    * custom exception classes
