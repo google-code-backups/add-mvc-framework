@@ -9,7 +9,7 @@ CLASS debug EXTENDS add_debug {
          return true;
       }
       else {
-         return false
+         return false;
       }
 
    }
