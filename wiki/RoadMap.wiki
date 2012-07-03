@@ -1,0 +1,12 @@
+#summary One-sentence summary of this page.
+
+= 0.6 =
+New Classes
+  * add_encryptor
+  * session_entity
+  * session_user
+
+Updated classes
+  * ctrl_tpl_page
+  * ctrl_tpl_ajax
+  * ctrl_tpl_mailer
