@@ -19,7 +19,7 @@ ABSTRACT CLASS ctrl_tpl_mailer EXTENDS phpMailer IMPLEMENTS i_ctrl, i_ctrl_with_
     */
    public function execute() {
       $this->process_data();
-      $this->Send();
+      parent::Send();
    }
 
    /**
@@ -27,11 +27,13 @@ ABSTRACT CLASS ctrl_tpl_mailer EXTENDS phpMailer IMPLEMENTS i_ctrl, i_ctrl_with_
     *
     * @since ADD MVC 0.6
     */
-   abstract public function process_data();
+   public function process_data() {
+      $this->Body = $this->view()->fetch(static::view_filepath());
+   }
 
    public function print_response($data) {
       $this->view()->assign($data);
-      return $this->view()->display($this->view()->fetch(static::view_filepath()));
+      return $this->view()->display(static::view_filepath());
    }
 
    /**
@@ -39,9 +41,7 @@ ABSTRACT CLASS ctrl_tpl_mailer EXTENDS phpMailer IMPLEMENTS i_ctrl, i_ctrl_with_
     * @since ADD MVC 0.2
     */
    public function Send() {
-
-      $this->Body = $this->view()->fetch(static::view_filepath());
-
+      $this->process_data();
       return parent::Send();
    }
 
