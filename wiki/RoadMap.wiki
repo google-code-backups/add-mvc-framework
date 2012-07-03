@@ -26,3 +26,11 @@ New resource controller system:
    * add::is_development()
  * exceptions
    * email configuration improvements
+
+= 0.8
+ * models
+   * block_rules - model support
+ * exceptions
+   * assert() first parameter detection and printing
+ * errors
+   * printing the line codes
