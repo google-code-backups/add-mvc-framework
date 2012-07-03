@@ -45,9 +45,9 @@ CLASS add_encryptor {
     *
     * @since ADD MVC 0.6
     */
-   public $cypher = static::DEFAULT_CYPHER;
+   public $cypher = self::DEFAULT_CYPHER;
 
-   public $mode = static::DEFAULT_MODE;
+   public $mode = self::DEFAULT_MODE;
 
 
    /**
@@ -70,8 +70,32 @@ CLASS add_encryptor {
     *
     * @since ADD MVC 0.6
     */
-   public encrypt() {
+   public function encrypt() {
       return static::string_encrypt($this->string,$this->key,$this->cypher,$this->mode);
+   }
+
+   /**
+    * decrypt the string and create a new instance
+    *
+    * @since ADD MVC 0.6
+    */
+   public static function from_encrypted($encrypted_string, $key, $cypher = false, $mode = false) {
+
+      if ($cypher === false) {
+         $cypher = static::DEFAULT_CYPHER;
+      }
+      if ($mode === false) {
+         $mode = static::DEFAULT_MODE;
+      }
+
+      $decrypted_string = static::string_decrypt($encrypted_string, $key, $cypher, $mode);
+
+      $instance = new static($decrypted_string, $key);
+      $instance -> cypher = $cypher;
+      $instance -> mode   = $mode;
+
+      return $instance;
+
    }
 
    /**
@@ -89,6 +113,7 @@ CLASS add_encryptor {
       if ($cypher === false) {
          $cypher = static::DEFAULT_CYPHER;
       }
+
       if ($mode === false) {
          $mode = static::DEFAULT_MODE;
       }
