@@ -34,3 +34,13 @@ New resource controller system:
    * assert() first parameter detection and printing
  * errors
    * printing the line codes
+
+= 1.0 (foreign key support) = 
+ * models
+   * model-><foreign_model_name>() by using __call and a static array variable
+= 1.1 (foreign key support) = 
+        models
+            Auto foreign key detection
+= 1.2 =
+ * models
+   * Columns fetching and validation on valid_magic_property
