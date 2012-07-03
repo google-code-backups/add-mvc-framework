@@ -82,9 +82,25 @@ CLASS add_encryptor {
 
       return trim($decrypted);
    }
-
+   
+   /**
+    * Key generator
+    *
+    * @since ADD MVC 0.6
+    * brian.requinala@247talk.net
+    */
+   
    public static function generate_key($length = 30) {
-      return 'dwfekiloiytrewqe34567890';
+      $generated_password = "";
+   
+      $password_char="abcdefghijklamnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()_+~";
+      
+      for ($x=1; $x<=$length; $x++) {
+         $password = substr($password_char, rand(0,76)%76, 1);
+         $generated_password .= $password;
+      }
+      
+      return $generated_password;
    }
 
 }
