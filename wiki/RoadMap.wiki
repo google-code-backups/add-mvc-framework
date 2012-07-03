@@ -37,7 +37,7 @@ New resource controller system:
 
 = 1.0 (foreign key support) = 
  * models
-   * model-><foreign_model_name>() by using __call and a static array variable
+   * model->< foreign_model_name >() by using __call and a static array variable
 = 1.1 (foreign key support) = 
         models
             Auto foreign key detection
