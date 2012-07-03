@@ -8,19 +8,19 @@
  * @version 0.1
  * @author albertdiones@gmail.com
  */
-ABSTRACT CLASS ctrl_tpl_ajax {
+ABSTRACT CLASS ctrl_tpl_ajax IMPLEMENTS i_ctrl {
 
    public $mode;
-   
-   
+
+
    /**
     * The view data
     *
     * @since ADD MVC 0.6
     */
    protected $data = array();
-   
-   
+
+
    /**
     * __call() magic function
     *
@@ -51,7 +51,7 @@ ABSTRACT CLASS ctrl_tpl_ajax {
       if (method_exists($this,'page')) {
          return $this->page();
       }
-      
+
       $this->mode = isset($_REQUEST['mode']) ? "$_REQUEST[mode]" : '';
       $this->process_data();
       $this->print_response($this->$data);
@@ -62,7 +62,7 @@ ABSTRACT CLASS ctrl_tpl_ajax {
     * Processes any GPC requests
     *
     * @since ADD MVC 0.6
-    * 
+    *
     */
    public function process_mode() {
       $mode = $this->mode;
@@ -83,21 +83,21 @@ ABSTRACT CLASS ctrl_tpl_ajax {
       }
       return false;
    }
-   
+
     /**
     * The pre-display process of the controller
     * (former $this->process())
     *
     * @since ADD MVC 0.6
-    * 
+    *
     */
    public function process_data() {
-   
+
       return $this->process_mode();
    }
-   
+
    /**
-    * assign $variable to pass in ajax 
+    * assign $variable to pass in ajax
     *
     * @since ADD MVC 0.6
     */
@@ -110,12 +110,12 @@ ABSTRACT CLASS ctrl_tpl_ajax {
       else {
          $this->data[$arg1] = func_get_arg(1);
       }
-   
-   
+
+
    /**
-    * convert $data to json 
+    * convert $data to json
     * @since ADD MVC 0.6
-    * 
+    *
     */
    public function print_response($data) {
       echo json_encode($data);
