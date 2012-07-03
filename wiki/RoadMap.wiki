@@ -11,10 +11,16 @@ Updated classes
   * ctrl_tpl_ajax
   * ctrl_tpl_mailer
 
+New resource controller system:
+ * execute() in replacing page()
+ * process_data() in replace of process()
+ * print_view in replace of display_view()
+
+
 = 0.7 =
-* environment status
-  * add::is_development()
-  * add::is_live()
-  * add::is_development()
-* exceptions
-  * email configuration improvements
+ * environment status
+   * add::is_development()
+   * add::is_live()
+   * add::is_development()
+ * exceptions
+   * email configuration improvements
