@@ -110,7 +110,7 @@ ABSTRACT CLASS ctrl_tpl_ajax IMPLEMENTS i_ctrl {
       else {
          $this->data[$arg1] = func_get_arg(1);
       }
-
+   }
 
    /**
     * convert $data to json
