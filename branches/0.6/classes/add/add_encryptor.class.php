@@ -86,21 +86,24 @@ CLASS add_encryptor {
    /**
     * Key generator
     *
+    * @param int $length an integer to determine the length of key to be generated   
+    *
     * @since ADD MVC 0.6
+    *
     * brian.requinala@247talk.net
     */
    
    public static function generate_key($length = 30) {
-      $generated_password = "";
+      $key_generated = "";
    
-      $password_char="abcdefghijklamnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()_+~";
+      $key_content="abcdefghijklamnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()_+~";
       
       for ($x=1; $x<=$length; $x++) {
-         $password = substr($password_char, rand(0,76)%76, 1);
-         $generated_password .= $password;
+         $key_generated = $key_content{array_rand(str_split($password_content))};
+         $key .= $key_generated;
       }
       
-      return $generated_password;
+      return $key;
    }
 
 }
