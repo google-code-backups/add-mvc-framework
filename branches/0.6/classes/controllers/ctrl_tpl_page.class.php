@@ -10,10 +10,10 @@
  */
 ABSTRACT CLASS ctrl_tpl_page IMPLEMENTS i_ctrl, i_ctrl_with_view {
 
-/**
- * The mode of the process
- * @since ADD MVC 0.3, ctrl_tpl_page 0.2.3
- */
+   /**
+    * The mode of the process
+    * @since ADD MVC 0.3, ctrl_tpl_page 0.2.3
+    */
    protected $mode;
 
    /**
