@@ -186,7 +186,7 @@ CLASS add_encryptor {
       $key_content = "abcdefghijklamnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()_+~";
 
       for ($x=1; $x<=$length; $x++) {
-         $key_generated = $key_content{array_rand(str_split($password_content))};
+         $key_generated = $key_content{array_rand(str_split($key_content))};
          $key .= $key_generated;
       }
 
