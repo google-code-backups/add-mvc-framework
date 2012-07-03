@@ -1,0 +1,19 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+A MVC Framework from the old "db_entity" class Albert used on past projects from April 2011 to April 2012.
+
+It has been developed since then and turned into a framework this May 2012
+
+= Features =
+ * built in abstract controllers for pages, mailers, ajax and auxiliary scripts,
+ * built in abstract model for common kind of tables
+ * built in views for index, 404
+ * views using smarty template
+ * db connection using adodb
+ * easy to extend framework classes w/o editing original file
+ * Extra classes:
+   * custom exception classes
+   * dom wrapper classes
+   * debugging classes
+   * interfaces
