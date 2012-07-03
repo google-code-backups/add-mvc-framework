@@ -23,7 +23,7 @@ New resource controller system:
  * environment status
    * add::is_development()
    * add::is_live()
-   * add::is_development()
+   * add::is_production()
  * exceptions
    * email configuration improvements
 
