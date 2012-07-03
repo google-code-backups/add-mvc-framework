@@ -6,11 +6,32 @@ add::load_lib('phpmailer');
  *
  * @since ADD MVC 0.2
  */
-CLASS ctrl_tpl_mailer EXTENDS phpMailer IMPLEMENTS i_ctrl_with_view {
+ABSTRACT CLASS ctrl_tpl_mailer EXTENDS phpMailer IMPLEMENTS i_ctrl, i_ctrl_with_view {
 
    public $WordWrap          = 70;
 
    protected static $views;
+
+   /**
+    * Execute
+    *
+    * @since ADD MVC 0.6
+    */
+   public function execute() {
+      $this->process_data();
+      $this->Send();
+   }
+
+   /**
+    * Process the data
+    *
+    * @since ADD MVC 0.6
+    */
+   public function process_data();
+
+   public function print_response() {
+      return $this->view()->display($this->view()->fetch(static::view_filepath()));
+   }
 
    /**
     * Before sending
@@ -18,9 +39,7 @@ CLASS ctrl_tpl_mailer EXTENDS phpMailer IMPLEMENTS i_ctrl_with_view {
     */
    public function Send() {
 
-      if (!$this->Body) {
-         $this->Body = $this->fetch_view();
-      }
+      $this->Body = $this->view()->fetch(static::view_filepath());
 
       return parent::Send();
    }
