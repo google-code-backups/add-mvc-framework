@@ -1,6 +1,6 @@
 <?php
 $C = (object) array(
-      'add_dir'            => '/xampp/htdocs/add/trunk',
+      'add_dir'            => realpath('../0.6/'),
       'super_domain'       => $_SERVER['HTTP_HOST'],
       'sub_domain'         => 'www',
       'path'               => '/add/',
