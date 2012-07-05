@@ -4,7 +4,7 @@
  * Every sitewide features and modules should be based from this class
  * @author albertdiones@gmail.com
  * @package ADD MVC
- * @version 0.5
+ * @version 0.5.1
  */
 CLASS add {
 
@@ -358,6 +358,10 @@ CLASS add {
          $current_controller_basename = $relative_path;
          $current_controller_basename = preg_replace('/\-+/','_',$current_controller_basename);
          $current_controller_basename = preg_replace('/\.php$/','',$current_controller_basename);
+
+         if (!preg_match('/^\w+/',$current_controller_basename)) {
+            throw new e_hack("Invalid controller name: $current_controller_basename");
+         }
 
          if (!$current_controller_basename)
             $current_controller_basename = self::$HOME_CONTROLLER;
