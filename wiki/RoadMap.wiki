@@ -30,6 +30,9 @@ New way of setting adodb variable:
  * exceptions
    * email configuration improvements
 
+ * views
+   * view when not found: default-tpl.tpl - shows all the smarty template variables in html table form
+
 = 0.8
  * models
    * block_rules - model support
