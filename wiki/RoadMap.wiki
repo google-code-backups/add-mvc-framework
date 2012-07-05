@@ -10,6 +10,7 @@ Updated classes
   * ctrl_tpl_page
   * ctrl_tpl_ajax
   * ctrl_tpl_mailer
+  * model_rwd
 
 New resource controller system:
  * execute() in replacing page()
@@ -18,6 +19,8 @@ New resource controller system:
  * new function: assign()
  * new function: process_response()
 
+New way of setting adodb variable:
+ * extending model_*->db()
 
 = 0.7 =
  * environment status
