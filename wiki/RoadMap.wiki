@@ -41,12 +41,13 @@ New way of setting adodb variable:
  * errors
    * printing the line codes
 
-= 1.0 (foreign key support) = 
+= Version x.x = 
  * models
-   * model->< foreign_model_name >() by using __call and a static array variable
-= 1.1 (foreign key support) = 
-        models
-            Auto foreign key detection
-= 1.2 =
- * models
+   * model->< foreign_model_name >() by using __call and a static array 
+   * Auto foreign key detection
    * Columns fetching and validation on valid_magic_property
+ * autoloading classes
+   * ::__loaded() pseudo-magic function
+   * i_add_class interface
+
+   
