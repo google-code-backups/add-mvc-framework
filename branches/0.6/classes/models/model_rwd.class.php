@@ -183,7 +183,7 @@ ABSTRACT CLASS model_rwd EXTENDS array_entity IMPLEMENTS Iterator {
          $instances = static::instances_from_sql(
                "
                SELECT %s FROM %s
-               WHERE ".static::db()->meta_quote($field)." = ".static::db()->quote($field_value)
+               WHERE ".static::db()->meta_quote($field)." = ".str_replace('%','%%',static::$D->quote($field_value))
             );
          if (!$instances)
             return false;
