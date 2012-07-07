@@ -16,8 +16,6 @@ ABSTRACT CLASS session_user EXTENDS session_entity {
     */
    public function singleton() {
       if (!isset(static::$singleton[get_called_class()] )) {
-         e_developer::assert(defined('static::session_key()'),get_called_class().'::session_key() constant is undefined!');
-
          if (!isset($_SESSION[static::session_key()]))
             $_SESSION[static::session_key()] = array();
          $session_var = &$_SESSION[static::session_key()];
