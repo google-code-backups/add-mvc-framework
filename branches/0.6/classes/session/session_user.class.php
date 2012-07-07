@@ -16,11 +16,11 @@ ABSTRACT CLASS session_user EXTENDS session_entity {
     */
    public function singleton() {
       if (!isset(static::$singleton[get_called_class()] )) {
-         e_developer::assert(defined('static::SESSION_KEY'),get_called_class().'::SESSION_KEY constant is undefined!');
+         e_developer::assert(defined('static::session_key()'),get_called_class().'::session_key() constant is undefined!');
 
-         if (!isset($_SESSION[static::SESSION_KEY]))
-            $_SESSION[static::SESSION_KEY] = array();
-         $session_var = &$_SESSION[static::SESSION_KEY];
+         if (!isset($_SESSION[static::session_key()]))
+            $_SESSION[static::session_key()] = array();
+         $session_var = &$_SESSION[static::session_key()];
 
          static::$singleton[get_called_class()] = new static($session_var);
       }
@@ -41,14 +41,14 @@ ABSTRACT CLASS session_user EXTENDS session_entity {
    }
 
    public static function current_logged_in() {
-      if (empty($_SESSION[static::SESSION_KEY]))
+      if (empty($_SESSION[static::session_key()]))
          return false;
       else
          return static::singleton();
    }
 
    public static function logout() {
-      unset($_SESSION[static::SESSION_KEY]);
+      unset($_SESSION[static::session_key()]);
    }
 
 
@@ -74,6 +74,11 @@ ABSTRACT CLASS session_user EXTENDS session_entity {
     */
    static function login_redirect() {
       redirect(static::LOGIN_PAGE."?redirect=".urlencode($_SERVER['REQUEST_URI']));
+   }
+
+
+   static function session_key() {
+      return static::SESSION_KEY;
    }
 
 
