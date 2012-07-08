@@ -415,7 +415,7 @@ CLASS add {
     * @since ADD MVC 0.7
     */
    public static function is_live() {
-      return true;
+      return add::config()->environment_status === 'live';
    }
 
 
@@ -425,7 +425,7 @@ CLASS add {
     * @since ADD MVC 0.7
     */
    public static function is_debugging() {
-      return false;
+      return add::config()->environment_status === 'debugging';
    }
 
 
@@ -435,6 +435,6 @@ CLASS add {
     * @since ADD MVC 0.7
     */
    public static function is_development() {
-      return false;
+      return add::config()->environment_status === 'development';
    }
 }

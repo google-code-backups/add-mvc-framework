@@ -120,4 +120,17 @@ CLASS e_add EXTENDS Exception {
    public function handle_exception() {
       die("{$this->getFile()}({$this->getLine()}): ({$this->getCode()}){$this->getMessage()}");
    }
+
+
+   /**
+    * Handling Exceptions
+    *
+    * @since ADD MVC 0.7
+    */
+   public function handle_sensitive_exception($user_message = "An error has occured") {
+      if (!add::is_development()) {
+         $this->mail();
+      }
+      trigger_error($user_message);
+   }
 }
