@@ -1,26 +1,4 @@
-#summary One-sentence summary of this page.
-
-= 0.6 =
-New Classes
-  * add_encryptor
-  * session_entity
-  * session_user
-
-Updated classes
-  * ctrl_tpl_page
-  * ctrl_tpl_ajax
-  * ctrl_tpl_mailer
-  * model_rwd
-
-New resource controller system:
- * execute() in replacing page()
- * process_data() in replace of process()
- * print_response() in replace of display_view()
- * new function: assign()
- * new function: process_response()
-
-New way of setting adodb variable:
- * extending model_*->db()
+#summary Plans for new versions
 
 = 0.7 =
  * environment status
