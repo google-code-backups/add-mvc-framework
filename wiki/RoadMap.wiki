@@ -25,7 +25,7 @@
    * Auto foreign key detection
    * Columns fetching and validation on valid_magic_property
  * autoloading classes
-   * ::__loaded() pseudo-magic function
+   * :: __loaded() pseudo-magic function
    * i_add_class interface
 
    
