@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary Project infos
 
 = Introduction =
 A MVC Framework from the old "db_entity" class Albert used on past projects from April 2011 to April 2012.
