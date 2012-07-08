@@ -5,4 +5,6 @@
 
 Process data is suppose to contain the processing of GPC and the dynamic data needed for the print_response.
 
-Remember to call process_mode() inside it if you expect a `$_REQUEST['mode']`
+Remember to call process_mode() inside it if you expect a {$_REQUEST['mode']}
+
+The reason process_mode() is not automated is that it is still debate-able if it should be called before or after the default actions.
