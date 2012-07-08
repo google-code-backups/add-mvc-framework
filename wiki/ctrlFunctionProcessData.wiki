@@ -1,0 +1,14 @@
+#summary ctrl_*->process_data()
+#labels controller,functions
+
+= Description =
+
+Process data is suppose to contain the processing of GPC and the dynamic data needed for the response
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
