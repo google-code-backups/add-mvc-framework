@@ -3,12 +3,6 @@
 
 = Description =
 
-Process data is suppose to contain the processing of GPC and the dynamic data needed for the response
+Process data is suppose to contain the processing of GPC and the dynamic data needed for the print_response.
 
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+Remember to call process_mode() inside it if you expect a $_REQUEST['mode']
