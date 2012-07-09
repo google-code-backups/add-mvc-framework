@@ -199,4 +199,3 @@
          </div>
 {/block}
          <div id="main">
-{block name=admin_tabs}{/block}
