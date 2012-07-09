@@ -114,8 +114,8 @@ ABSTRACT CLASS add_debug {
    }
 
   /**
-   * Returns the file and line number of the caller of the function
-   * @since ADD MVC 0.0
+   * Returns the debug info of the caller
+   * @since ADD MVC 0.7
    */
    static function caller_backtrace() {
       $backtraces = debug_backtrace();
