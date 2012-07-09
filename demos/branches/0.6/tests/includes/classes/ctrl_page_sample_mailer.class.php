@@ -3,6 +3,7 @@ CLASS ctrl_page_sample_mailer EXTENDS ctrl_tpl_page {
 
    public function execute() {
       error_reporting(E_ALL);
+      ini_set('sendmail_from', 'jezieltabora@247talk.net');
       // Send
       $mail = mail('jezieltabora@247talk.net', 'My Subject', 'test body','From: jezieltabora@247talk.net');
 
