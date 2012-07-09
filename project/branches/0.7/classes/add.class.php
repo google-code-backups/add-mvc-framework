@@ -257,7 +257,8 @@ CLASS add {
       var_dump($G_errors);
       foreach ($G_errors as $error_index => $errors) {
          foreach ($errors as $error) {
-            echo("<div style='margin:5px 10px;border:1px solid #333; background: #faa; padding:5px 10px'><small>$error_index</small><p>$error[message]</p><small>".basename($error['file']).":$error[line]</small></div>");
+            
+            echo("<div style='margin:5px 10px;border:1px solid #333; background: #800517; color: #FFFFFF; padding:5px 10px'><small>$error_index</small><p>$error[message]</p><small>".basename($error['file']).":$error[line]</small></div>");
          }
       }
    }
