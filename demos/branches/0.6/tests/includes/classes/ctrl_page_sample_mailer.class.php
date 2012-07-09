@@ -13,7 +13,7 @@ CLASS ctrl_page_sample_mailer EXTENDS ctrl_tpl_page {
       // Send
       $mail = mail('jezieltabora@247talk.net', 'My Subject', $message);
       
-      var_dump($mail);
+      debug::var_dump($mail);
       
       if (function_exists('mail'))
          echo "Exist";
