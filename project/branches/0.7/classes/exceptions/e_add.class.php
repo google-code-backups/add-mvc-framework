@@ -54,14 +54,16 @@ CLASS e_add EXTENDS Exception {
             $caller_backtrace = debug::caller_backtrace();
             $file_lines = file($caller_backtrace['file']);
             $file_line_content = $file_lines[$caller_backtrace['line']-1];
-            $assert_condition = preg_replace('/^\s*\w+\:\:assert\((.+)(\,.+)?\)\;/','$1',$file_line_content,-1,$);
+            $assert_condition = preg_replace('/^\s*\w+\:\:assert\((.+)(\,.+)?\)\;/','$1',$file_line_content);
             if (preg_match('/(?P<function_name>\w+)\((?P<arguments>.*?)\)/', $assert_condition, $assert_condition_parts)) {
-               $function = $assert_condition_parts['function_name']
+               $function = $assert_condition_parts['function_name'];
                $arguments = $assert_condition_parts['arguments'];
-               switch ($assert_condition_function) {
+               switch ($function) {
                   case 'is_int':
                      $message = "$arguments is not integer";
                   break;
+                  default:
+                     $message ="Failed to validate $function ($arguments) ";
                }
             }
             else {
