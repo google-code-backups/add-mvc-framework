@@ -15,9 +15,9 @@ CLASS ctrl_page_sample_mailer EXTENDS ctrl_tpl_page {
       
       var_dump($mail);
       
-      #$mailer = new ctrl_mailer_test();
+      $mailer = new ctrl_mailer_test();
       
-      #$mailer->Send();
+      $mailer->Send();
       
       if (function_exists('mail'))
          echo "Exist";
