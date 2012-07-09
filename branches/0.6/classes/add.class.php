@@ -60,8 +60,7 @@ CLASS add {
    static function config(STDClass $C = null) {
 
       if ($C) {
-         self::$C = $C;
-         $GLOBALS[self::CONFIG_VARNAME] = self::$C;
+         self::$C = $GLOBALS[self::CONFIG_VARNAME] = (object) array_merge( (array)self::$DEFAULT_C, (array) $C);
       }
 
       return self::$C;
