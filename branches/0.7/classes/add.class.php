@@ -15,28 +15,6 @@ CLASS add {
    protected static $C;
 
    /**
-    * The default config variable
-    *
-    * @since ADD MVC 0.7
-    */
-   protected static $DEFAULT_C = (object) array(
-         'super_domain'       => preg_replace('/^www\./','',$_SERVER['HTTP_HOST']),
-         'sub_domain'         => 'www',
-         'path'               => preg_replace('/\/[^\/]*?$/','/',$_SERVER['REQUEST_URI']),
-         'root_dir'           => realpath('./'),
-
-         /**
-          * Library init files
-          * @author albertdiones@gmail.com
-          */
-         'libs'            => (object) array(
-               'adodb'     => 'adodb/adodb.inc.php',
-               'smarty'    => 'smarty/Smarty.class.php',
-               'phpmailer' => 'phpmailer/class.phpmailer.php',
-            ),
-      );
-
-   /**
     * The config variable name
     * @since ADD MVC 0.0
     */
@@ -60,10 +38,34 @@ CLASS add {
    static function config(STDClass $C = null) {
 
       if ($C) {
-         self::$C = $GLOBALS[self::CONFIG_VARNAME] = (object) array_merge( (array)self::$DEFAULT_C, (array) $C);
+         self::$C = $GLOBALS[self::CONFIG_VARNAME] = (object) array_merge( (array)self::default_config() , (array) $C);
       }
       return self::$C;
 
+   }
+
+   /**
+    * The default config
+    *
+    * @since ADD MVC 0.7
+    */
+   public static function default_config() {
+      return (object) array(
+            'super_domain'       => preg_replace('/^www\./','',$_SERVER['HTTP_HOST']),
+            'sub_domain'         => 'www',
+            'path'               => preg_replace('/\/[^\/]*?$/','/',$_SERVER['REQUEST_URI']),
+            'root_dir'           => realpath('./'),
+
+            /**
+             * Library init files
+             * @author albertdiones@gmail.com
+             */
+            'libs'            => (object) array(
+                  'adodb'     => 'adodb/adodb.inc.php',
+                  'smarty'    => 'smarty/Smarty.class.php',
+                  'phpmailer' => 'phpmailer/class.phpmailer.php',
+               ),
+         );
    }
 
    /**
