@@ -143,6 +143,11 @@ CLASS e_add EXTENDS Exception {
     * @since ADD MVC 0.7
     */
    public function print_exception() {
-      trigger_error($this->getMessage(),E_USER_ERROR);
+      echo "<h1>Error: ".$this->getMessage()."</h1>".
+         "Path: $_SERVER[REQUEST_URI]\r\n".
+         "Referrer: $_SERVER[HTTP_REFERRER]\r\n".
+         "IP: $_SERVER[REMOTE_ADDR]\r\n".
+         "Data:\r\n".
+         print_r($this->data,true)."\r\n";
    }
 }
