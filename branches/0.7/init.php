@@ -42,7 +42,7 @@ $C->views_dir           = $C->incs_dir.'/views';
 $C->caches_dir          = $C->incs_dir.'/caches';
 
 if (add::is_development() && !is_writeable($C->caches_dir)) {
-   $C->caches_dir = sys_get_temp_dir().'/add_mvc_caches'
+   $C->caches_dir = sys_get_temp_dir().'/add_mvc_caches';
    mkdir($C->caches_dir);
 }
 
