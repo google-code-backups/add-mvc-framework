@@ -1,4 +1,6 @@
 <?php
+require 'add.php';
+
 $divisor = 0;
 
 if ($divisor == 0) {
