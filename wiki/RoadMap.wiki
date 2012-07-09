@@ -15,12 +15,15 @@
  * config
    * new required property: environment_status
    * default configuration file
-
-= 0.8
+*0.7.1*
  * exceptions
    * assert() first parameter detection and printing
  * errors
    * printing the line codes
+
+= 0.8 =
+ * controllers
+   * hierachy system
 
 = Version x.x = 
  * models
