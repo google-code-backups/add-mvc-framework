@@ -10,7 +10,7 @@ CLASS ctrl_page_sample_mailer EXTENDS ctrl_tpl_page {
       var_dump($mail);
       var_dump(`sendmail`);
 
-      $mailer = new ctrl_mailer_test();
+      $mailer = new ctrl_mailer_test()->IsSendmail();
 
       $mailer->Send();
 
