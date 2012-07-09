@@ -1,5 +1,5 @@
 <?php
-require 'add.php';
+require 'add_configure.php';
 
 $divisor = 0;
 
