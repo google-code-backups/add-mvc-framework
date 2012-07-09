@@ -5,7 +5,7 @@
  */
 
 $C = (object) array(
-      'add_dir'            => '../../trunk',
+      'add_dir'            => '../../../project/trunk',
       'super_domain'       => preg_replace('/^www\./','',$_SERVER['HTTP_HOST']),
       'sub_domain'         => 'www',
       'path'               => preg_replace('/\/[^\/]*?$/','/',$_SERVER['REQUEST_URI']),
