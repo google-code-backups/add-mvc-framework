@@ -52,7 +52,7 @@ CLASS e_add EXTENDS Exception {
       if (!$condition) {
          if (!$message) {
             $caller_backtrace = debug::caller_backtrace();
-            $file_lines = file($caller_backtrace);
+            $file_lines = file($caller_backtrace['file']);
             $file_line_content = $file_lines[$caller_backtrace['line']-1];
             $message = $file_line_content;
          }
