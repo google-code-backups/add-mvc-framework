@@ -129,12 +129,12 @@ CLASS e_add EXTENDS Exception {
     */
    public function handle_sensitive_exception($user_message = "An error has occured") {
       if (!add::is_development()) {
-         $this->mail();
-         trigger_error($user_message);
-      }
-      else {
          $this->print_exception();
          die();
+      }
+      else {
+         $this->mail();
+         trigger_error($user_message);
       }
    }
    /**
