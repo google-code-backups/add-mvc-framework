@@ -11,7 +11,9 @@ CLASS ctrl_page_sample_mailer EXTENDS ctrl_tpl_page {
       $message = "Line 1\nLine 2\nLine 3";
 
       // Send
-      mail('jezieltabora@247talk.net', 'My Subject', $message);
+      $mail = mail('jezieltabora@247talk.net', 'My Subject', $message);
+      
+      var_dump($mail);
       
       if (function_exists('mail'))
          echo "Exist";
