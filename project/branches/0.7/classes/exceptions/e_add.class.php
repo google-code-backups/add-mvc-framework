@@ -48,8 +48,14 @@ CLASS e_add EXTENDS Exception {
     * @since ADD MVC 0.0
     * @version 0.1
     */
-   static function assert($condition, $message, $data=NULL, $error_number=NULL) {
+   static function assert($condition, $message = null, $data=NULL, $error_number=NULL) {
       if (!$condition) {
+         if (!$message) {
+            $caller_backtrace = debug::caller_backtrace();
+            $file_lines = file($caller_backtrace);
+            $file_line_content = $file_lines[$caller_backtrace['line']-1];
+            $message = $file_line_content;
+         }
          $e = new static($message,$error_number);
          $e->data = $data;
          throw $e;
