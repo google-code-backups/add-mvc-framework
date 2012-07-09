@@ -30,6 +30,8 @@ set_exception_handler('add::handle_exception');
 set_error_handler('add::handle_error');
 register_shutdown_function('add::handle_shutdown');
 
+$GLOBALS[add::CONFIG_VARNAME] = add::config($C);
+
 $C->incs_dir            = $C->root_dir.'/includes';
 
 $C->classes_dir         = $C->incs_dir.'/classes';
@@ -44,8 +46,6 @@ $C->js_dir              = $C->assets_dir.'/js';
 
 $C->domain              = $C->sub_domain.".".$C->super_domain;
 $C->base_url            = "http://$C->domain".$C->path;
-
-$GLOBALS[add::CONFIG_VARNAME] = add::config($C);
 
 set_include_path($C->incs_dir);
 
