@@ -242,6 +242,7 @@ CLASS add {
       if (!isset($G_errors[$error_index]))
          $G_errors[$error_index] = array();
       $G_errors[$error_index][] = array(
+            'errno'   => $errno
             'message' => $errstr,
             'file'    => $errfile,
             'line'    => $errline
