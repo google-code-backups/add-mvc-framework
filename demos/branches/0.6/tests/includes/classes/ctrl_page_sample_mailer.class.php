@@ -4,7 +4,7 @@ CLASS ctrl_page_sample_mailer EXTENDS ctrl_tpl_page {
    public function execute() {
 
       // Send
-      $mail = mail('jezieltabora@247talk.net', 'My Subject', 'test body');
+      $mail = mail('jezieltabora@247talk.net', 'My Subject', 'test body','From: jezieltabora@247talk.net');
 
       var_dump($mail);
 
