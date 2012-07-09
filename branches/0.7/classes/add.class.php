@@ -382,7 +382,7 @@ CLASS add {
          $current_controller_basename = preg_replace('/\-+/','_',$current_controller_basename);
          $current_controller_basename = preg_replace('/\.php$/','',$current_controller_basename);
 
-         if (!preg_match('/^\w+/',$current_controller_basename)) {
+         if (preg_match('/\W+/',$current_controller_basename)) {
             throw new e_hack("Invalid controller name: $current_controller_basename");
          }
 
