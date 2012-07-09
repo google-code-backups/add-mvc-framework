@@ -20,6 +20,7 @@
    * assert() first parameter detection and printing
  * errors
    * printing the line codes
+   * color coded errors
 
 = 0.8 =
  * controllers
