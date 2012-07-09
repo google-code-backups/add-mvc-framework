@@ -1,5 +1,5 @@
 <?php
-CLASS ctrl_page_sample EXTENDS ctrl_tpl_page {
+CLASS ctrl_page_sample_mailer EXTENDS ctrl_tpl_page {
 
    public function execute() {
    
