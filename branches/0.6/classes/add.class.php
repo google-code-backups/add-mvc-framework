@@ -4,7 +4,7 @@
  * Every sitewide features and modules should be based from this class
  * @author albertdiones@gmail.com
  * @package ADD MVC
- * @version 0.7
+ * @version 0.6
  */
 CLASS add {
 
@@ -13,28 +13,6 @@ CLASS add {
     * @since ADD MVC 0.0
     */
    protected static $C;
-
-   /**
-    * The default config variable
-    *
-    * @since ADD MVC 0.7
-    */
-   protected static $DEFAULT_C = (object) array(
-         'super_domain'       => preg_replace('/^www\./','',$_SERVER['HTTP_HOST']),
-         'sub_domain'         => 'www',
-         'path'               => preg_replace('/\/[^\/]*?$/','/',$_SERVER['REQUEST_URI']),
-         'root_dir'           => realpath('./'),
-
-         /**
-          * Library init files
-          * @author albertdiones@gmail.com
-          */
-         'libs'            => (object) array(
-               'adodb'     => 'adodb/adodb.inc.php',
-               'smarty'    => 'smarty/Smarty.class.php',
-               'phpmailer' => 'phpmailer/class.phpmailer.php',
-            ),
-      );
 
    /**
     * The config variable name
@@ -60,7 +38,8 @@ CLASS add {
    static function config(STDClass $C = null) {
 
       if ($C) {
-         self::$C = $GLOBALS[self::CONFIG_VARNAME] = (object) array_merge( (array)self::$DEFAULT_C, (array) $C);
+         self::$C = $C;
+         $GLOBALS[self::CONFIG_VARNAME] = self::$C;
       }
 
       return self::$C;
