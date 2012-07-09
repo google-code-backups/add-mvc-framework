@@ -143,6 +143,6 @@ CLASS e_add EXTENDS Exception {
     * @since ADD MVC 0.7
     */
    public function print_exception() {
-      trigger_error($user_message,E_USER_FATAL);
+      trigger_error($this->getMessage(),E_USER_FATAL);
    }
 }
