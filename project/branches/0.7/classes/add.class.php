@@ -259,9 +259,9 @@ CLASS add {
             E_ERROR        => 'background: #800517',
             E_USER_WARNING => 'background: #C11B17',
             E_USER_ERROR   => 'background: #C11B17',
-            E_USER_NOTICE  => 'background: #B93B8F',
-            E_NOTICE       => 'background: #B93B8F',
-            E_STRICT       => 'background: #B93B8F',
+            E_USER_NOTICE  => 'background: #FAAFBE',
+            E_NOTICE       => 'background: #FAAFBE',
+            E_STRICT       => 'background: #FAAFBE',
       
       );
      
