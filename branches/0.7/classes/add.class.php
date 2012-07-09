@@ -55,6 +55,7 @@ CLASS add {
             'sub_domain'         => 'www',
             'path'               => preg_replace('/\/[^\/]*?$/','/',$_SERVER['REQUEST_URI']),
             'root_dir'           => realpath('./'),
+            'environment_status' => 'live',
 
             /**
              * Library init files
