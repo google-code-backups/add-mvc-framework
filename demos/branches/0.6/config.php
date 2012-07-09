@@ -1,6 +1,6 @@
 <?php
 $C = (object) array(
-      'add_dir'            => dirname(__FILE__).'/../0.6',
+      'add_dir'            => realpath('../../../../project/branches/0.6'),
       'super_domain'       => preg_replace('/^www\./','',$_SERVER['HTTP_HOST']),
       'sub_domain'         => 'www',
       'path'               => preg_replace('/\/[^\/]*?$/','/',$_SERVER['REQUEST_URI']),
