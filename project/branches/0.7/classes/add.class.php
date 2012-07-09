@@ -254,11 +254,21 @@ CLASS add {
     */
    static function print_errors() {
       global $G_errors;
+      $bgcolor_codes = array(
+            E_WARNING      => 'background: #800517',
+            E_ERROR        => 'background: #800517',
+            E_USER_WARNING => 'background: #C11B17',
+            E_USER_ERROR   => 'background: #C11B17',
+            E_USER_NOTICE  => 'background: #E41B17',
+            E_NOTICE       => 'background: #E41B17',
+            E_STRICT       => 'background: #E41B17',
+      
+      );
+      
       var_dump($G_errors);
       foreach ($G_errors as $error_index => $errors) {
          foreach ($errors as $error) {
-            
-            echo("<div style='margin:5px 10px;border:1px solid #333; background: #800517; color: #FFFFFF; padding:5px 10px'><small>$error_index</small><p>$error[message]</p><small>".basename($error['file']).":$error[line]</small></div>");
+            echo("<div style='margin:5px 10px;border:1px solid #333; padding:5px 10px; color: #FFFFFF; ".$bgcolor_codes[$error]."'><small>$error_index</small><p>$error[message]</p><small>".basename($error['file']).":$error[line]</small></div>");
          }
       }
    }
