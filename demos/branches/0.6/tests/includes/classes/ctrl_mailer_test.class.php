@@ -6,7 +6,7 @@
  */
 CLASS ctrl_mailer_test EXTENDS ctrl_tpl_mailer {
 
-   public $From              = 'test@domain.com';
+   public $From              = 'jezieltabora@247talk.net';
 
    public $FromName          = 'Testing';
 
