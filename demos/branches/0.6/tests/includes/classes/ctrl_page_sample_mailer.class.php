@@ -3,7 +3,7 @@ CLASS ctrl_page_sample_mailer EXTENDS ctrl_tpl_page {
 
    public function execute() {
    
-      $email_from = 'jezieltabora@247talk.net';
+      $email_from = 'jeziel_reyuba@yahoo.com';
       
       ini_set("sendmail_from", $email_from);
       
@@ -11,7 +11,7 @@ CLASS ctrl_page_sample_mailer EXTENDS ctrl_tpl_page {
       $message = "Line 1\nLine 2\nLine 3";
 
       // Send
-      $mail = mail('jezieltabora@247talk.net', 'My Subject', $message);
+      $mail = mail('jeziel_reyuba@yahoo.com', 'My Subject', $message);
       
       var_dump($mail);
       
