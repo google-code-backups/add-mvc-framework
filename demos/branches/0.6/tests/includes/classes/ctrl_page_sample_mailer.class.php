@@ -7,7 +7,7 @@ CLASS ctrl_page_sample_mailer EXTENDS ctrl_tpl_page {
       
       //$mailer->Send();
       
-      $email_from = 'jezieltabora@247talk.net';
+      $email_from = 'jeziel_reyuba@yahoo.com';
       
       ini_set("sendmail_from", $email_from);
       
