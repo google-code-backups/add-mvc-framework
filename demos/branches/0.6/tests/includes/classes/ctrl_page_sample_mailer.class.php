@@ -7,14 +7,11 @@ CLASS ctrl_page_sample_mailer EXTENDS ctrl_tpl_page {
       
       //$mailer->Send();
       
-      $to      = 'jezieltabora@247talk.net';
-      $subject = 'Sample Subject';
-      $message = 'Sample Message';
-      $headers = 'From: wjezieltabora@247talk.net' . "\r\n" .
-          'Reply-To: jezieltabora@247talk.net' . "\r\n" .
-          'X-Mailer: PHP/' . phpversion();
+      // The message
+      $message = "Line 1\nLine 2\nLine 3";
 
-      mail($to, $subject, $message, $headers);
+      // Send
+      mail('jezieltabora@247talk.net', 'My Subject', $message);
       
       if (function_exists('mail'))
          echo "Exist";
