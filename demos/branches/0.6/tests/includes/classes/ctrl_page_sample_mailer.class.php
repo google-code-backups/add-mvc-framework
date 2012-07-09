@@ -7,11 +7,10 @@ CLASS ctrl_page_sample_mailer EXTENDS ctrl_tpl_page {
       
       $mailer->Send();
       
-      if (function_exists('mail')) {
+      if (function_exists('mail'))
          echo "Exist";
-      } else {
+      else 
          echo "Not Exist";
-      }
    }
 
 }
