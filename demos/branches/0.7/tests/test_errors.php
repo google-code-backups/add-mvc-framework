@@ -1,8 +1,10 @@
 <?php
 require 'add_configure.php';
 
-$divisor = 0;
 
-if ($divisor == 0) {
-    trigger_error("Cannot divide by zero", E_USER_NOTICE);
-}
+999/0;
+$test;
+gmmktime();
+trigger_error("Cannot divide by zero", E_USER_ERROR);
+trigger_error("Cannot divide by zero", E_USER_WARNING);
+trigger_error("Cannot divide by zero", E_USER_NOTICE);
