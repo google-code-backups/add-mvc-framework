@@ -25,12 +25,13 @@ if (!isset($C))
    die("No config found");
 require $C->add_dir.'/classes/add.class.php';
 
+$GLOBALS[add::CONFIG_VARNAME] = add::config($C);
+
 spl_autoload_register('add::load_class');
 set_exception_handler('add::handle_exception');
 set_error_handler('add::handle_error');
 register_shutdown_function('add::handle_shutdown');
 
-$GLOBALS[add::CONFIG_VARNAME] = add::config($C);
 
 $C->incs_dir            = $C->root_dir.'/includes';
 
