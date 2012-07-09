@@ -255,10 +255,10 @@ CLASS add {
    static function print_errors() {
       global $G_errors;
       $bgcolor_codes = array(
-            E_WARNING      => 'background: #800517',
-            E_ERROR        => 'background: #800517',
-            E_USER_WARNING => 'background: #C11B17',
-            E_USER_ERROR   => 'background: #C11B17',
+            E_WARNING      => 'background: #C11B17',
+            E_ERROR        => 'background: #C11B17',
+            E_USER_WARNING => 'background: #FF002B',
+            E_USER_ERROR   => 'background: #FF002B',
             E_USER_NOTICE  => 'background: #FF0055',
             E_NOTICE       => 'background: #FF0055',
             E_STRICT       => 'background: #FF0055',
