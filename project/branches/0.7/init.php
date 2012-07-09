@@ -43,7 +43,8 @@ $C->caches_dir          = $C->incs_dir.'/caches';
 
 if (add::is_development() && !is_writeable($C->caches_dir)) {
    $C->caches_dir = sys_get_temp_dir().'/add_mvc_caches';
-   mkdir($C->caches_dir);
+   if (!file_exists($C->caches_dir))
+      mkdir($C->caches_dir,0700);
 }
 
 $C->assets_dir          = $C->root_dir.'/assets';
