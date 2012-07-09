@@ -1,5 +1,6 @@
 {*SMARTY*}
-{include file="common_header.tpl"}
+{extends file='common_layout.tpl'}
+{block name=main}
    <h1>Simple Example</h1>
    <p>Hi! This is a very simple implementation of ADD MVC Framework.</p>
 
@@ -9,4 +10,4 @@
 
    <p>current UTC time: <b>{"Y-m-d h:i:s"|date:$utc_timestamp}</b></p>
 
-{include file="common_footer.tpl"}
+{/block}
