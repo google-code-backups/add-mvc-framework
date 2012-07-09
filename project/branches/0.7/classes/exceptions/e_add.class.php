@@ -55,7 +55,7 @@ CLASS e_add EXTENDS Exception {
             $file_lines = file($caller_backtrace['file']);
             $file_line_content = $file_lines[$caller_backtrace['line']-1];
             $assert_condition = preg_replace('/^\s*\w+\:\:assert\((.+)(\,.+)?\)\;/','$1',$file_line_content);
-            $message = $assert_condition;
+            $message = "Failed to validate condition ".$assert_condition;
          }
          $e = new static($message,$error_number);
          $e->data = $data;
