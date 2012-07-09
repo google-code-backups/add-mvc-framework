@@ -128,7 +128,7 @@ CLASS e_add EXTENDS Exception {
     * @since ADD MVC 0.7
     */
    public function handle_sensitive_exception($user_message = "An error has occured") {
-      if (!add::is_development()) {
+      if (add::is_development()) {
          $this->print_exception();
          die();
       }
