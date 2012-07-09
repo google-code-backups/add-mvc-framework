@@ -54,7 +54,7 @@ CLASS e_add EXTENDS Exception {
             $caller_backtrace = debug::caller_backtrace();
             $file_lines = file($caller_backtrace['file']);
             $file_line_content = $file_lines[$caller_backtrace['line']-1];
-            $assert_condition = preg_replace('/^\s*\w+\:\:assert\((.+)(\,.+\)?)\;/','$1',$file_line_content);
+            $assert_condition = preg_replace('/^\s*\w+\:\:assert\((.+)(\,.+)?\)\;/','$1',$file_line_content);
             $message = $assert_condition;
          }
          $e = new static($message,$error_number);
