@@ -7,6 +7,8 @@ CLASS ctrl_page_sample_mailer EXTENDS ctrl_tpl_page {
       
       //$mailer->Send();
       
+      ini_set("sendmail_from", $email_from);
+      
       // The message
       $message = "Line 1\nLine 2\nLine 3";
 
