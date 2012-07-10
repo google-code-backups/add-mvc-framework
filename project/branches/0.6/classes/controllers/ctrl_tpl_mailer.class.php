@@ -12,7 +12,7 @@ ABSTRACT CLASS ctrl_tpl_mailer EXTENDS phpMailer IMPLEMENTS i_ctrl, i_ctrl_with_
 
    protected static $views;
 
-   protected $data;
+   protected $data = array();
 
    /**
     * Execute
@@ -31,8 +31,7 @@ ABSTRACT CLASS ctrl_tpl_mailer EXTENDS phpMailer IMPLEMENTS i_ctrl, i_ctrl_with_
     */
    public function process_data() {
       $this->assign('C',add::config());
-      $this->assign($this->data);
-      debug::var_dump($this->view()->getTemplateVars());
+      $this->view()->assign($this->data);
       $this->Body = $this->view()->fetch(static::view_filepath());
    }
 
