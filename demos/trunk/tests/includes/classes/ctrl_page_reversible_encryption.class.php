@@ -10,9 +10,11 @@ CLASS ctrl_page_reversible_encryption EXTENDS ctrl_tpl_page {
    public function execute() {
       $string = 'Foo Bar Baz';
 
+      echo "Unencrypted String: $string<br />";
+
       $key = add_encryptor::generate_key();
 
-      echo "Unencrypted String: $string<br />";
+      echo "Correct Key: $key<br />";
 
       $encrypted_string = add_encryptor::string_encrypt($string,$key);
 
