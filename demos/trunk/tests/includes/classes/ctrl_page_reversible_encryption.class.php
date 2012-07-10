@@ -8,7 +8,7 @@
 CLASS ctrl_page_reversible_encryption EXTENDS ctrl_tpl_page {
 
    public function execute() {
-      $string = 'Bryan Requinala';
+      $string = 'Foo Bar Baz';
 
       $key = add_encryptor::generate_key();
 
