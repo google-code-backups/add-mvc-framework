@@ -18,7 +18,7 @@ INTERFACE i_singleton {
     * Must return the one and only instance of the class
     * @since ADD MVC 0.0
     */
-   function singleton();
+   public static function singleton();
 
 
    /**
