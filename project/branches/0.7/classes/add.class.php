@@ -27,6 +27,14 @@ CLASS add {
     */
    static $HOME_CONTROLLER = 'index';
 
+
+   /**
+    * Errors Array
+    *
+    * @since ADD MVC 0.7
+    */
+   static $errors = array();
+
    /**
     * Gets the site config
     *
@@ -217,7 +225,6 @@ CLASS add {
     * @see http://www.php.net/manual/en/function.set-error-handler.php
     */
    public static function handle_error($errno , $errstr , $errfile = NULL, $errline = NULL , $errcontext = NULL) {
-      global $G_errors;
 
       static $error_code_strings = array(
             E_ERROR           => 'E_ERROR',
@@ -249,9 +256,6 @@ CLASS add {
             E_USER_NOTICE     => 'Developer Issued Notice'
          );
 
-      if (!isset($G_errors)) {
-         $G_errors = array();
-      }
 
       if (!(error_reporting() & $errno)) {
          return;
@@ -259,9 +263,10 @@ CLASS add {
 
       $error_index = isset($error_code_strings[$errno]) ? $error_code_strings[$errno] : $errno;
 
-      if (!isset($G_errors[$error_index]))
-         $G_errors[$error_index] = array();
-      $G_errors[$error_index][] = array(
+      if (!isset(static::$errors[$error_index]))
+         static::$errors[$error_index] = array();
+
+      static::$errors[$error_index][] = array(
             'type' => isset($error_code_readable_strings [$errno]) ? $error_code_readable_strings [$errno] : $errno,
             'errno'      => $errno,
             'message'    => $errstr,
@@ -274,10 +279,9 @@ CLASS add {
     * Print errors
     */
    static function print_errors() {
-      global $G_errors;
       $default_error_tpl = "errors/default.tpl";
       $smarty = new add_smarty();
-      foreach ($G_errors as $error_index => $errors) {
+      foreach (static::$errors as $error_index => $errors) {
          $error_tpl = "errors/".strtolower($error_index).".tpl";
          if (!$smarty->templateExists($error_tpl)) {
             $error_tpl = $default_error_tpl;
