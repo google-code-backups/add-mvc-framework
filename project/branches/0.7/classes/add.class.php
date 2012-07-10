@@ -273,7 +273,7 @@ CLASS add {
     */
    static function print_errors() {
       global $G_errors;
-      $default_error_tpl = "errors/default.tpl"
+      $default_error_tpl = "errors/default.tpl";
       $smarty = new Smarty();
       foreach ($G_errors as $error_index => $errors) {
 
