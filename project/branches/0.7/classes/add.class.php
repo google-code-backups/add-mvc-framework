@@ -219,14 +219,32 @@ CLASS add {
    public static function handle_error($errno , $errstr , $errfile = NULL, $errline = NULL , $errcontext = NULL) {
       global $G_errors;
 
-      static $error_indexes = array(
-            E_ERROR        => 'error',
-            E_WARNING      => 'warnings',
-            E_NOTICE       => 'notices',
-            E_STRICT       => 'strict',
-            E_USER_ERROR   => 'user_errors',
-            E_USER_WARNING => 'user_warnings',
-            E_USER_NOTICE  => 'user_notices'
+      static $error_code_strings = array(
+            E_ERROR => 'E_ERROR',
+            E_WARNING => 'E_WARNING',
+            E_PARSE => 'E_PARSE',
+            E_NOTICE => 'E_NOTICE',
+            E_CORE_ERROR => 'E_CORE_ERROR',
+            E_CORE_WARNING => 'E_CORE_WARNING',
+            E_COMPILE_ERROR => 'E_COMPILE_ERROR',
+            E_COMPILE_WARNING => 'E_COMPILE_WARNING',
+            E_USER_ERROR => 'E_USER_ERROR',
+            E_USER_WARNING => 'E_USER_WARNING',
+            E_USER_NOTICE => 'E_USER_NOTICE'
+         );
+
+      static $error_code_strings = array(
+            E_ERROR           => 'Fatal Error',
+            E_WARNING         => 'Warning',
+            E_PARSE           => 'Parse Error',
+            E_NOTICE          => 'Notice',
+            E_CORE_ERROR      => 'Core Error',
+            E_CORE_WARNING    => 'Core warning',
+            E_COMPILE_ERROR   => 'Compile Error',
+            E_COMPILE_WARNING => 'Compile Warning',
+            E_USER_ERROR      => 'Developer Issued Error',
+            E_USER_WARNING    => 'Developer Issued Warning',
+            E_USER_NOTICE     => 'Developer Issued Notice'
          );
 
       if (!isset($G_errors)) {
@@ -237,15 +255,16 @@ CLASS add {
          return;
       }
 
-      $error_index = isset($error_indexes[$errno]) ? $error_indexes[$errno] : $errno;
+      $error_index = isset($error_code_strings[$errno]) ? $error_code_strings[$errno] : $errno;
 
       if (!isset($G_errors[$error_index]))
          $G_errors[$error_index] = array();
       $G_errors[$error_index][] = array(
-            'errno'   => $errno,
-            'message' => $errstr,
-            'file'    => $errfile,
-            'line'    => $errline
+            'type' => isset($error_code_strings[$errno]) ? $error_code_strings[$errno] : $errno,
+            'errno'      => $errno,
+            'message'    => $errstr,
+            'file'       => $errfile,
+            'line'       => $errline
          );
    }
 
@@ -254,21 +273,25 @@ CLASS add {
     */
    static function print_errors() {
       global $G_errors;
-      $bgcolor_codes = array(
-            E_WARNING      => 'background: #800517',
-            E_ERROR        => 'background: #800517',
-            E_USER_WARNING => 'background: #C11B17',
-            E_USER_ERROR   => 'background: #C11B17',
-            E_USER_NOTICE  => 'background: #FF3232',
-            E_NOTICE       => 'background: #FF3232',
-            E_STRICT       => 'background: #FF3232', 
-      
-      );
-     
+      $default_error_tpl = "errors/default.tpl"
+      $smarty = new Smarty();
       foreach ($G_errors as $error_index => $errors) {
-         foreach ($errors as $error) {
-            echo("<div style='margin:5px 10px;border:1px solid #333; padding:5px 10px; color: #FFFFFF; ".$bgcolor_codes[$error['errno']]."'><small>$error_index</small><p>$error[message]</p><small>".basename($error['file']).":$error[line]</small></div>");
+
+         $error_tpl = "errors/".strtolower($error_index).".tpl";
+         if (!$smarty->templateExists($error_tpl)) {
+            $error_tpl = $default_error_tpl;
          }
+
+         foreach ($errors as $error) {
+            if ($smarty->templateExists($error_tpl)) {
+               $smarty->assign("error",$error);
+               $smarty->display($error_tpl);
+            }
+            else {
+               echo "<div>$error[file]:$error[line] : <b>$error[message]</b></div>";
+            }
+         }
+
       }
    }
 
