@@ -28,6 +28,7 @@ ABSTRACT CLASS ctrl_tpl_mailer EXTENDS phpMailer IMPLEMENTS i_ctrl, i_ctrl_with_
     * @since ADD MVC 0.6
     */
    public function process_data() {
+      $this->assign('C',add::config());
       $this->Body = $this->view()->fetch(static::view_filepath());
    }
 
