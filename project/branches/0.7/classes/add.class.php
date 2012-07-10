@@ -224,6 +224,7 @@ CLASS add {
             E_WARNING => 'E_WARNING',
             E_PARSE => 'E_PARSE',
             E_NOTICE => 'E_NOTICE',
+            E_STRICT => 'E_STRICT',
             E_CORE_ERROR => 'E_CORE_ERROR',
             E_CORE_WARNING => 'E_CORE_WARNING',
             E_COMPILE_ERROR => 'E_COMPILE_ERROR',
@@ -233,11 +234,12 @@ CLASS add {
             E_USER_NOTICE => 'E_USER_NOTICE'
          );
 
-      static $error_code_strings = array(
+      static $error_code_readable_strings = array(
             E_ERROR           => 'Fatal Error',
             E_WARNING         => 'Warning',
             E_PARSE           => 'Parse Error',
             E_NOTICE          => 'Notice',
+            E_STRICT          => 'PHP Strict Standards',
             E_CORE_ERROR      => 'Core Error',
             E_CORE_WARNING    => 'Core warning',
             E_COMPILE_ERROR   => 'Compile Error',
@@ -260,7 +262,7 @@ CLASS add {
       if (!isset($G_errors[$error_index]))
          $G_errors[$error_index] = array();
       $G_errors[$error_index][] = array(
-            'type' => isset($error_code_strings[$errno]) ? $error_code_strings[$errno] : $errno,
+            'type' => isset($error_code_readable_strings [$errno]) ? $error_code_readable_strings [$errno] : $errno,
             'errno'      => $errno,
             'message'    => $errstr,
             'file'       => $errfile,
@@ -276,20 +278,19 @@ CLASS add {
       $default_error_tpl = "errors/default.tpl";
       $smarty = new add_smarty();
       foreach ($G_errors as $error_index => $errors) {
-
          $error_tpl = "errors/".strtolower($error_index).".tpl";
          if (!$smarty->templateExists($error_tpl)) {
             $error_tpl = $default_error_tpl;
          }
 
          foreach ($errors as $error) {
+            $error['file'] = basename($error['file']);
             if ($smarty->templateExists($error_tpl)) {
-               $error['file'] = basename($error['file']);
                $smarty->assign("error",$error);
                $smarty->display($error_tpl);
             }
             else {
-               echo "<div>$error[file]:$error[line] : <b>$error[message]</b></div>";
+               echo "<div>$error[type] : $error[file]:$error[line] : <b>$error[message]</b></div>";
             }
          }
 
