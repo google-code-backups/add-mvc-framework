@@ -3,7 +3,7 @@
 /**
  * Test add_encryptor reversible encryption class
  *
- * @since
+ * @since ADD MVC 0.6
  */
 CLASS ctrl_page_reversible_encryption EXTENDS ctrl_tpl_page {
 
