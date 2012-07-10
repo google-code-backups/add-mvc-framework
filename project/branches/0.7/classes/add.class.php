@@ -284,6 +284,7 @@ CLASS add {
 
          foreach ($errors as $error) {
             if ($smarty->templateExists($error_tpl)) {
+               $error['file'] = basename($error['file']);
                $smarty->assign("error",$error);
                $smarty->display($error_tpl);
             }
