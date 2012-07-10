@@ -12,6 +12,8 @@ ABSTRACT CLASS ctrl_tpl_mailer EXTENDS phpMailer IMPLEMENTS i_ctrl, i_ctrl_with_
 
    protected static $views;
 
+   protected $data;
+
    /**
     * Execute
     *
