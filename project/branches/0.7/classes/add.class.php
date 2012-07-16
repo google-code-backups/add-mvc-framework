@@ -58,7 +58,6 @@ CLASS add {
     * @since ADD MVC 0.7
     */
    public static function default_config() {
-      var_dump($_SERVER['HTTP_HOST']);
       preg_match('/^(?P<sub_domain>\w+\.)?(?P<super_domain>((\w+\.)+(?P<tld>\w+))|\w+)$/',$_SERVER['HTTP_HOST'],$domain_parts);
       return (object) array(
             'super_domain'       => $domain_parts['super_domain'],
