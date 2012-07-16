@@ -7,9 +7,9 @@
  *
  * @package ADD MVC\Exceptions
  * @since ADD MVC 0.0
- * @version 0.1
+ * @version 0.2
  */
-CLASS e_add EXTENDS Exception {
+CLASS e_add EXTENDS Exception IMPLEMENTS i_with_view {
 
    /**
     * Email adress(es) to send debug email to
@@ -62,87 +62,87 @@ CLASS e_add EXTENDS Exception {
                   case 'is_int':
                      $message = "$arguments is not integer";
                   break;
-                  
+
                   case 'is_array':
                      $message = "$arguments is not array";
                   break;
-                  
+
                   case 'is_bool':
                      $message = "$arguments is not boolean";
-                  break;  
-                  
+                  break;
+
                   case 'is_callable':
                      $message = "$arguments is not callable";
-                  break;  
-                  
+                  break;
+
                   case 'is_double':
                      $message = "$arguments is not double";
-                  break;  
-                  
+                  break;
+
                   case 'is_float':
                      $message = "$arguments is not float";
-                  break;              
-                  
+                  break;
+
                   case 'is_null':
                      $message = "$arguments is not null";
-                  break;  
-                  
+                  break;
+
                   case 'is_numeric':
                      $message = "$arguments is not numeric";
-                  break; 
- 
+                  break;
+
                   case 'is_object':
                      $message = "$arguments is not object";
                   break;
- 
+
                   case 'is_resource':
                      $message = "$arguments is not resource";
                   break;
- 
+
                   case 'is_scalar':
                      $message = "$arguments is not scalar";
                   break;
- 
+
                   case 'is_string':
                      $message = "$arguments is not string";
-                  break; 
-                  
-                   
+                  break;
+
+
                   case 'isset':
                      $message = "$arguments is not set";
                   break;
-                   
+
                   case 'empty':
                      $message = "$arguments is not empty";
                   break;
-                  
-                   
+
+
                   case 'ctype_digit':
                      $message = "$arguments is not numeric";
                   break;
-                  
-                   
+
+
                   case 'is_float':
                      $message = "$arguments is not float";
                   break;
-                  
+
                   case 'filter_var':
                      $message = "$arguments is not accepted";
                   break;
-                  
+
                   case 'filter_has_var':
                      $message = "$arguments does not exist";
                   break;
-                   
+
                   case 'filter_input_array':
                      $message = "$arguments is not accepted";
                   break;
-                   
+
                   case 'filter_has_var':
                      $message = "$arguments does not exist";
                   break;
-                  
-                  
+
+
                   default:
                      $message ="Failed to validate $function ($arguments) ";
                }
@@ -231,6 +231,7 @@ CLASS e_add EXTENDS Exception {
    public function handle_sensitive_exception($user_message = "An error has occured") {
       if (add::is_development()) {
          $this->print_exception();
+         $this->display_view();
          die();
       }
       else {
@@ -246,4 +247,21 @@ CLASS e_add EXTENDS Exception {
    public function print_exception() {
       add::handle_error(E_USER_ERROR, $this->getMessage(), $this->getFile(), $this->getLine(),null);
    }
+
+   /**
+    * The smarty object
+    *
+    * @since ADD MVC 0.7
+    */
+   public function view() {
+      static $view;
+
+      if (!isset($view)) {
+         $view = new e_add_smarty();
+      }
+
+      return $view;
+
+   }
+
 }
