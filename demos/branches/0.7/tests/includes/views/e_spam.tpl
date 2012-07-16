@@ -2,5 +2,9 @@
 {extends file='common_layout.tpl'}
 {block name='main'}
 <h1>Spam Error</h1>
-<p>The system has detected spam attemps.</p>
+   {if $user_message}
+      {$user_message}
+   {else}
+      <p>The system has detected spam attemps.</p>
+   {/if}
 {/block}
