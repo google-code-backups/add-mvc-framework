@@ -275,6 +275,6 @@ CLASS e_add EXTENDS Exception IMPLEMENTS i_with_view {
 
 
    public function display_view() {
-      return $this->view()->display(self::view_filepath);
+      return $this->view()->display(self::view_filepath());
    }
 }
