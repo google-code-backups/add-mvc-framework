@@ -344,6 +344,7 @@ CLASS add {
     */
    public static function php_check_syntax($filepath) {
       exec('php -l '.escapeshellarg($filepath), $output);
+      var_dump($output);
       if ($output) {
          $last_output = array_pop($output);
          if (preg_match('/^PHP Parse error/',$last_output)) {
