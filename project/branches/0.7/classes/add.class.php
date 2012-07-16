@@ -16,6 +16,9 @@ CLASS add {
 
    /**
     * The config variable name
+    *
+    * @todo remove support for $C on ADD MVC 1.0
+    *
     * @since ADD MVC 0.0
     */
    const CONFIG_VARNAME = 'C';
