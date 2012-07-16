@@ -343,11 +343,10 @@ CLASS add {
     * @since ADD MVC 0.7
     */
    public static function php_check_syntax($filepath) {
-      exec('php -l '.escapeshellarg($filepath), $output);
+      $output = shell_exec('php -l '.escapeshellarg($filepath));
       if ($output) {
-         $last_output = array_pop($output);
-         if (preg_match('/^PHP Parse error/',$last_output)) {
-            throw new e_syntax($last_output);
+         if (preg_match('/^PHP Parse error/',$output)) {
+            throw new e_syntax($output);
          }
       }
    }
