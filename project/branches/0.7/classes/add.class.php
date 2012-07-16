@@ -313,11 +313,21 @@ CLASS add {
    /**
     * include() include file path
     * example add::include_include_file('functions/date.functions.php')
+    *
     * @param string $include_path the include path
+    * @param boolean $include_once weather to include it only once
+    *
     * @since ADD MVC 0.0
     */
-   protected static function include_include_file($include_path) {
-      return include(static::include_filepath($include_path));
+   protected static function include_include_file($include_path, $include_once = true) {
+      $filepath = static::include_filepath($include_path);
+
+      e_syntax::assert(!php_check_syntax($filepath,$error_message),$error_message);
+
+      if ($include_once)
+         return include_once($filepath);
+      else
+         return include($filepath);
    }
    /**
     * load_functions($functions_group_name)
