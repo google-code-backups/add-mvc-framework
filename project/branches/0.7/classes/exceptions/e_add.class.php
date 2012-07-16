@@ -231,11 +231,12 @@ CLASS e_add EXTENDS Exception IMPLEMENTS i_with_view {
    public function handle_sensitive_exception($user_message = "An error has occured") {
       if (add::is_development()) {
          $this->print_exception();
-         $this->display_view();
          die();
       }
       else {
          $this->mail();
+         $this->view()->assign('exception',$this);
+         $this->display_view();
          trigger_error($user_message);
       }
    }
