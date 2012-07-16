@@ -291,6 +291,22 @@ CLASS add {
          }
 
          foreach ($errors as $error) {
+
+            # The chunk of code on the location of the error
+            if (!add::is_live()) {
+               $code_on_error = "";
+               $file_codes = file($file);
+
+               $code_on_error_padding = 3;
+
+               for ($code_on_error_x = $file - $code_on_error_padding; $code_on_error_x <= $error['line'] + $code_on_error_padding; $code_on_error_x++) {
+                  $code_on_error = $file_codes[$code_on_error_x+1];
+               }
+
+               $smarty->assign('code_on_error',highlight_string($code_on_error));
+
+            }
+
             $error['file'] = basename($error['file']);
             if ($smarty->templateExists($error_tpl)) {
                $smarty->assign("error",$error);
