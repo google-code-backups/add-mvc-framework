@@ -326,7 +326,7 @@ CLASS add {
       $filepath = static::include_filepath($include_path);
 
       if (!add::is_live()) {
-         if ($error_message = `php -l $filepath`) {
+         if ($error_message = exec('php -l '.escapeshellarg($filepath))) {
             if (preg_match('/^PHP Parse error',$error_message)) {
                throw new e_syntax::assert($error_message);
             }
