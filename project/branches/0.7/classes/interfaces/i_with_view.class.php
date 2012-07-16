@@ -19,12 +19,6 @@ INTERFACE i_with_view {
    public static function view_basename();
 
    /**
-    * The controller's basename
-    * @since ADD MVC 0.7
-    */
-   public static function basename();
-
-   /**
     * The Smarty view object of $this controller
     * @since ADD MVC 0.7
     */
