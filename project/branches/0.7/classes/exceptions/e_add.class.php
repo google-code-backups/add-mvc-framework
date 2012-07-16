@@ -257,7 +257,7 @@ CLASS e_add EXTENDS Exception IMPLEMENTS i_with_view {
       static $view;
 
       if (!isset($view)) {
-         $view = new e_add_smarty();
+         $view = new add_smarty();
       }
 
       return $view;
