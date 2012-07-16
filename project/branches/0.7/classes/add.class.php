@@ -346,7 +346,7 @@ CLASS add {
       $cmd_line = 'php -n -l '.escapeshellarg($filepath);
       $output = shell_exec($cmd_line);
 
-      var_dump($cmd_line);
+      var_dump($cmd_line,$output);
 
       if ($output) {
          if (preg_match('/^PHP Parse error/',$output)) {
