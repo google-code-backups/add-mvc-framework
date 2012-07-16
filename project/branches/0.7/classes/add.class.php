@@ -303,7 +303,7 @@ CLASS add {
                   $code_on_error = $file_codes[$code_on_error_x+1];
                }
 
-               $smarty->assign('code_on_error',highlight_string($code_on_error));
+               $smarty->assign('code_on_error',highlight_string($code_on_error,true));
 
             }
 
