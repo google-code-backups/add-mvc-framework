@@ -9,6 +9,6 @@ else
    echo "Safemode is on";
 
 
-var_dump(`/usr/local/bin/php -l test_e_syntax.php`);
+var_dump(`/usr/local/bin/php -n -l test_e_syntax.php`);
 ?>
 Syntax checked
