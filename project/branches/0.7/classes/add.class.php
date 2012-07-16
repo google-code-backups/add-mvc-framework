@@ -58,9 +58,10 @@ CLASS add {
     * @since ADD MVC 0.7
     */
    public static function default_config() {
+      preg_match('/^(?P<sub_domain>\w+\.)?(?P<super_domain>(\w+\.)+\w+)/',$_SERVER['HTTP_HOST'],$domain_parts);
       return (object) array(
-            'super_domain'       => preg_replace('/^www\./','',$_SERVER['HTTP_HOST']),
-            'sub_domain'         => 'www',
+            'super_domain'       => $domain_parts['super_domain'],
+            'sub_domain'         => $domain_parts['sub_domain'],
             'path'               => preg_replace('/\/[^\/]*?$/','/',$_SERVER['REQUEST_URI']),
             'root_dir'           => realpath('./'),
             'environment_status' => 'live',
