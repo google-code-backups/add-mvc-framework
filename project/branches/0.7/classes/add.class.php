@@ -327,8 +327,8 @@ CLASS add {
 
       if (!add::is_live()) {
          if ($error_message = exec('php -l '.escapeshellarg($filepath))) {
-            if (preg_match('/^PHP Parse error',$error_message)) {
-               throw new e_syntax::assert($error_message);
+            if (preg_match('/^PHP Parse error/',$error_message)) {
+               throw new e_syntax($error_message);
             }
          }
       }
