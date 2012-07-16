@@ -322,7 +322,7 @@ CLASS add {
     *
     * @since ADD MVC 1.0
     */
-   public static function include_include_file($include_path, $include_once = true) {
+   protected static function include_include_file($include_path, $include_once = true) {
       $filepath = static::include_filepath($include_path);
 
       if (!add::is_live()) {
