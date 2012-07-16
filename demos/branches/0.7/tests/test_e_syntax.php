@@ -3,7 +3,12 @@
 require '../config.php';
 require_once "$C->add_dir/init.php";
 
-add::php_check_syntax(realpath('test_e_syntax2.php'));
+if (!ini_get('safe_mode'))
+   add::php_check_syntax(realpath('test_e_syntax2.php'));
+else
+   echo "Safemode is on";
 
+
+var_dump(`/usr/local/bin/php -l test_e_syntax.php`);
 ?>
 Syntax checked
