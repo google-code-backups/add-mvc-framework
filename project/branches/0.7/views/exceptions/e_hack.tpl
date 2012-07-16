@@ -1,5 +1,5 @@
 {*SMARTY*}
-{extends file='common_layout.tpl'}
+{extends file='e_add.tpl'}
 {block name='main'}
 <h1>Authentication Error</h1>
    {if $user_message}
