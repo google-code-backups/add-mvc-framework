@@ -7,6 +7,9 @@
  * @package ADD MVC\Controllers
  * @since ADD MVC 0.3
  * @version 1.0
+ *
+ * @deprecated use i_with_view
+ *
  */
 INTERFACE i_ctrl_with_view EXTENDS i_with_view {
 }
