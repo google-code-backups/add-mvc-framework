@@ -236,8 +236,8 @@ CLASS e_add EXTENDS Exception IMPLEMENTS i_with_view {
       else {
          $this->mail();
          $this->view()->assign('exception',$this);
-         trigger_error('user_message',$user_message);
          $this->display_view();
+         trigger_error('user_message',$user_message);
       }
    }
    /**
