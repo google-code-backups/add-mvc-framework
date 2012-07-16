@@ -299,8 +299,8 @@ CLASS add {
 
                $code_on_error_padding = 3;
 
-               for ($code_on_error_x = $file - $code_on_error_padding; $code_on_error_x <= $error['line'] + $code_on_error_padding; $code_on_error_x++) {
-                  $code_on_error = $file_codes[$code_on_error_x+1];
+               for ($code_on_error_x = $file - $code_on_error_padding; $code_on_error_x <= ($error['line'] + $code_on_error_padding); $code_on_error_x++) {
+                  $code_on_error .= $file_codes[$code_on_error_x+1];
                }
 
                $smarty->assign('code_on_error',highlight_string($code_on_error,true));
