@@ -9,6 +9,6 @@ else
    echo "Safemode is on";
 
 
-var_dump(ini_get('safe_mode'),`/usr/bin/php5 -l `.realpath('test_e_syntax.php'));
+var_dump(ini_get('safe_mode'),exec('/usr/bin/php5 -l '.realpath('test_e_syntax.php')));
 ?>
 Syntax checked
