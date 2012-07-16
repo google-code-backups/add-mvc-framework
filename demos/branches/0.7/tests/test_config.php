@@ -2,4 +2,4 @@
 
 require 'add_configure.php';
 
-var_dump(add:config());
+var_dump(add::config());
