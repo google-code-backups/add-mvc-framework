@@ -325,7 +325,13 @@ CLASS add {
    protected static function include_include_file($include_path, $include_once = true) {
       $filepath = static::include_filepath($include_path);
 
-      e_syntax::assert(!php_check_syntax($filepath,$error_message),$error_message);
+      if (!add::is_live()) {
+         if ($error_message = `php -l $filepath`) {
+            if (preg_match('/^PHP Parse error',$error_message)) {
+               throw new e_syntax::assert($error_message);
+            }
+         }
+      }
 
       if ($include_once)
          return include_once($filepath);
