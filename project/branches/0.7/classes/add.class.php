@@ -338,6 +338,8 @@ CLASS add {
    /**
     * Check php syntax
     *
+    * @param string $filepath to the file
+    *
     * @since ADD MVC 0.7
     */
    public static function php_check_syntax($filepath) {
