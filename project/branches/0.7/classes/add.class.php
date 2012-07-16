@@ -317,7 +317,7 @@ CLASS add {
     * @param string $include_path the include path
     * @param boolean $include_once weather to include it only once
     *
-    * @since ADD MVC 0.0
+    * @since ADD MVC 1.0
     */
    protected static function include_include_file($include_path, $include_once = true) {
       $filepath = static::include_filepath($include_path);
@@ -335,16 +335,16 @@ CLASS add {
     * @param string $functions_group_name the base name of the function file to include
     *
     * example: add::load_functions('date');
-    * @since ADD MVC 0.0
+    * @since ADD MVC 0.1
     */
    static function load_functions($functions_group_name) {
-      return include_once(static::include_filepath("functions/$functions_group_name.functions.php"));
+      return self::include_include_file("functions/$functions_group_name.functions.php");
    }
 
    /**
     * Load library from $C config
     * @param string $lib_name the $C->libs index
-    * @since ADD MVC 0.0
+    * @since ADD MVC 0.1
     */
    static function load_lib($lib_name) {
       static $loaded_libs=array();
@@ -370,13 +370,7 @@ CLASS add {
          throw new logic_exception("Invalid format for $lib_name");
       }
 
-      $file = self::include_filepath('libs/'.$lib_path);
-
-      if (file_exists($file))
-         require_once($file);
-      else
-         throw new e_developer("Failed to load library $lib from ".$file);
-
+      self::include_include_file('libs/'.$lib_path);
    }
 
 
