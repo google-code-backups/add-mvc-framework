@@ -265,7 +265,7 @@ CLASS e_add EXTENDS Exception IMPLEMENTS i_with_view {
    }
 
    public static function view_filepath() {
-      return $self::view_basename().".tpl";
+      return self::view_basename().".tpl";
    }
 
    public static function view_basename() {
