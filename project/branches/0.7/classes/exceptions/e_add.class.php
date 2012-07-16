@@ -264,5 +264,13 @@ CLASS e_add EXTENDS Exception IMPLEMENTS i_with_view {
       return $view;
 
    }
-
+   
+   public function view_filepath() {
+      return $this->view_basename().".tpl";
+   }
+   
+   public function view_basename() {
+      return get_called_class();
+   }
+   
 }
