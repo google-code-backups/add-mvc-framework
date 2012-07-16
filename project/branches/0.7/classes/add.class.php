@@ -69,7 +69,6 @@ CLASS add {
 
             /**
              * Library init files
-             * @author albertdiones@gmail.com
              */
             'libs'            => (object) array(
                   'adodb'     => 'adodb/adodb.inc.php',
