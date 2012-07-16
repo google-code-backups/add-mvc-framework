@@ -326,11 +326,7 @@ CLASS add {
       $filepath = static::include_filepath($include_path);
 
       if (!add::is_live()) {
-         if ($error_message = exec('php -l '.escapeshellarg($filepath))) {
-            if (preg_match('/^PHP Parse error/',$error_message)) {
-               throw new e_syntax($error_message);
-            }
-         }
+         static::php_check_syntax($filepath);
       }
 
       if ($include_once)
@@ -338,6 +334,21 @@ CLASS add {
       else
          return include($filepath);
    }
+
+   /**
+    * Check php syntax
+    *
+    * @since ADD MVC 0.7
+    */
+   public static function php_check_syntax() {
+      if ($error_message = exec('php -l '.escapeshellarg($filepath))) {
+         if (preg_match('/^PHP Parse error/',$error_message)) {
+            throw new e_syntax($error_message);
+         }
+      }
+   }
+
+
    /**
     * load_functions($functions_group_name)
     *
