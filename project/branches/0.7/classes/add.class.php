@@ -359,7 +359,7 @@ CLASS add {
     * @since ADD MVC 0.7
     */
    public static function php_check_syntax($filepath) {
-      $cmd_line = PHP_BINARY.' -n -l '.escapeshellarg($filepath);
+      $cmd_line = 'php -n -l '.escapeshellarg($filepath);
       $output = shell_exec($cmd_line);
 
       if ($output) {
