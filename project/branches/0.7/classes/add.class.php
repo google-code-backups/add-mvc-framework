@@ -49,7 +49,24 @@ CLASS add {
    static function config(STDClass $C = null) {
 
       if ($C) {
-         self::$C = $GLOBALS[self::CONFIG_VARNAME] = (object) array_merge_recursive( (array)self::default_config() , (array) $C);
+         $config_array = (array) $C;
+         $full_default_config_array = (array) self::default_config();
+
+         $default_config_array = array_diff_key($full_default_config_array, $config_array);
+         $merge_config_array = array_intersect_key($config_array,$full_default_config_array);
+
+         $config_array = array_merge( $default_config_array , $config_array );
+
+         foreach ($merge_config_array as $key => $value) {
+            if (is_object($value))
+               $value = (array) $value;
+            if (is_array($value))
+               $config_array[$key] = array_merge((array) $value, (array) $full_default_config_array[$key]);
+            else
+               $config_array[$key] = $value;
+         }
+
+         self::$C = $GLOBALS[self::CONFIG_VARNAME] = (object) $config_array;
 
          # Convert to object
          foreach (self::$C as &$var) {
