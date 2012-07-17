@@ -300,7 +300,7 @@ CLASS add {
             'message'    => $errstr,
             'file'       => $errfile,
             'line'       => $errline,
-            'backtrace'  => debug_backtrace(),
+            'backtrace'  => array_shift(debug_backtrace()),
          );
    }
 
