@@ -1,5 +1,5 @@
 {*SMARTY*}
-{extends file='e_add.tpl'}
+{extends file='exceptions/e_add.tpl'}
 {block name='main'}
 <h1>Spam Error</h1>
    {if $user_message}
