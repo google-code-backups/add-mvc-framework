@@ -7,7 +7,7 @@
       <small>
          {$error.file} : {$error.line}
          {foreach $error['file_lines'] as $error_file_line}
-            &lt; <small>{$error_file_line.file} : {$error_file_line.line}</small>
+            &lt; {$error_file_line.file} : {$error_file_line.line}
          {/foreach}
       </small>
    </div>
