@@ -296,13 +296,15 @@ CLASS add {
 
       $backtrace = debug_backtrace();
 
+      array_shift($backtrace);
+
       static::$errors[$error_index][] = array(
             'type' => isset($error_code_readable_strings [$errno]) ? $error_code_readable_strings [$errno] : $errno,
             'errno'      => $errno,
             'message'    => $errstr,
             'file'       => $errfile,
             'line'       => $errline,
-            'backtrace'  => array_shift($backtrace),
+            'backtrace'  => $backtrace,
          );
    }
 
