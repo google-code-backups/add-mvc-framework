@@ -296,8 +296,10 @@ CLASS add {
 
       $backtrace = debug_backtrace();
 
+      array_shift($backtrace);
+
       while (
-            isset($backtrace[0])
+            isset($backtrace[0]['file'])
             && $backtrace[0]['file'] == $errfile
             && $backtrace[0]['line'] == $errline
          ) {
