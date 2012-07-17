@@ -5,9 +5,9 @@
       <small>{$error.type}</small>
       <p>{$error.message}</p>
       <small>
-         {$error.file} : {$error.line}
+         {$error.file}:{$error.line}
          {foreach $error['file_lines'] as $error_file_line}
-            &lt; {$error_file_line.file} : {$error_file_line.line}
+            &lt; {$error_file_line.file}:{$error_file_line.line}
          {/foreach}
       </small>
    </div>
