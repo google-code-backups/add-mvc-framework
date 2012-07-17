@@ -50,6 +50,14 @@ CLASS add {
 
       if ($C) {
          self::$C = $GLOBALS[self::CONFIG_VARNAME] = (object) array_merge_recursive( (array)self::default_config() , (array) $C);
+
+         # Convert to object
+         foreach (self::$C as &$var) {
+            if (is_array($var)) {
+               $var = (object) $var;
+            }
+         }
+
       }
       return self::$C;
 
