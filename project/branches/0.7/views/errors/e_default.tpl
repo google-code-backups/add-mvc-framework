@@ -1,12 +1,18 @@
 {*SMARTY*}
 
-<div style='margin:5px 10px;border:1px solid #333; background: #FF0000; color: #FFF; padding:5px 10px'>
-   <small>{$error.type}</small>
-   <p>{$error.message}</p>
-   <small>{$error.file} : {$error.line}</small>
-   {foreach $error.file_lines as $file_line}
-      &lt; <small>{$file_line.file} : {$file_line.line}</small>
-   {/foreach}
+<div style="{block name='error.style'}margin:5px 10px;border:1px solid #333; background: #FFAAAA; padding:5px 10px;width:720px{/block}">
+   <div style='float:left;width:40%;'>
+      <small>{$error.type}</small>
+      <p>{$error.message}</p>
+      <small>
+         {$error.file} : {$error.line}
+         {foreach $error.file_lines as $file_line}
+            &lt; <small>{$file_line.file} : {$file_line.line}</small>
+         {/foreach}
+      </small>
+   </div>
+   <div style='float:right;font-size:8px;width:40%;background:#eee;padding:5px 10px;border:1px solid #333;overflow:hidden;'>
+      {$code_on_error}
+   </div>
+   <div style='clear:both'></div>
 </div>
-
-
