@@ -4,7 +4,6 @@ require '../config.php';
 
 require $C->add_dir.'/init.php';
 
-e_add::$email_addresses = 'albertdiones@247talk.net, jezieltabora@247talk.net, brian.requinala@247talk.net';
 date_default_timezone_set('UTC');
 
 session_start();
