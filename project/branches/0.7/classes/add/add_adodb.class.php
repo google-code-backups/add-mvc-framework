@@ -87,4 +87,6 @@ ABSTRACT CLASS add_adodb {
 
    abstract public function Connect();
 
+   abstract public function varname();
+
 }
