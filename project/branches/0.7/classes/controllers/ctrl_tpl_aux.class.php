@@ -6,7 +6,7 @@
  *
  * @since ADD MVC 0.4
  * @author albertdiones@gmail.com
- * @version 0.1
+ * @version 1.0
  *
  */
 ABSTRACT CLASS ctrl_tpl_aux {
@@ -15,21 +15,41 @@ ABSTRACT CLASS ctrl_tpl_aux {
    /**
     * run the page
     *
-    * @since ADD MVC 0.4
+    * @since ADD MVC 0.6.2
     */
-   public function page() {
+   public function execute() {
       header("Content-type: text/plain");
       e_hack::assert($this->can_run(),"Invalid aux script authentication key");
 
       ob_start();
       try {
-         $this->process();
+         $this->process_data();
       }
       catch(Exception $e) {
          add::handle_exception($e);
       }
       $this->response = ob_get_clean();
       $this->handle_response();
+   }
+
+   /**
+    * __call() magic function
+    *
+    * @since ADD MVC 0.6.2
+    */
+   public function __call($function_name,$arguments) {
+      static $renamed_functions = array(
+            'page'         => 'execute',
+            'process'      => 'process_data',
+         );
+
+      if (isset($renamed_functions[$function_name])) {
+         call_user_func_array(array($this,$renamed_functions[$function_name]),$arguments);
+      }
+      else {
+         throw new e_developer("Undefined function: ".get_called_class()." $function_name",func_get_args());
+      }
+
    }
 
    /**
