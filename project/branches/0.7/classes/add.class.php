@@ -300,6 +300,7 @@ CLASS add {
             'message'    => $errstr,
             'file'       => $errfile,
             'line'       => $errline
+            'backtrace'  => debug_backtrace(),
          );
    }
 
@@ -333,6 +334,13 @@ CLASS add {
             }
 
             $error['file'] = basename($error['file']);
+
+
+            foreach ($error['backtrace'] as $backtrace_data) {
+               $error['file_lines'] = array( 'file' => $backtrace_data['file'], 'line' => $backtrace_data['line'] );
+            }
+
+
             if ($smarty->templateExists($error_tpl)) {
                $smarty->assign("error",$error);
                $smarty->display($error_tpl);
