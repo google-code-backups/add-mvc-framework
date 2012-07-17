@@ -49,7 +49,7 @@ CLASS add {
    static function config(STDClass $C = null) {
 
       if ($C) {
-         self::$C = $GLOBALS[self::CONFIG_VARNAME] = (object) array_merge( (array)self::default_config() , (array) $C);
+         self::$C = $GLOBALS[self::CONFIG_VARNAME] = (object) array_merge_recursive( (array)self::default_config() , (array) $C);
       }
       return self::$C;
 
@@ -295,7 +295,7 @@ CLASS add {
             # The chunk of code on the location of the error
             if (!add::is_live()) {
                $code_on_error = "";
-               $file_codes = file($file);
+               $file_codes = file($error['file']);
 
                $code_on_error_padding = 3;
 
