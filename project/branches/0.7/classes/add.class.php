@@ -294,13 +294,15 @@ CLASS add {
       if (!isset(static::$errors[$error_index]))
          static::$errors[$error_index] = array();
 
+      $backtrace = debug_backtrace();
+
       static::$errors[$error_index][] = array(
             'type' => isset($error_code_readable_strings [$errno]) ? $error_code_readable_strings [$errno] : $errno,
             'errno'      => $errno,
             'message'    => $errstr,
             'file'       => $errfile,
             'line'       => $errline,
-            'backtrace'  => array_shift(debug_backtrace()),
+            'backtrace'  => array_shift($backtrace),
          );
    }
 
