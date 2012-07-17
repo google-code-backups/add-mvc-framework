@@ -299,7 +299,7 @@ CLASS add {
             'errno'      => $errno,
             'message'    => $errstr,
             'file'       => $errfile,
-            'line'       => $errline
+            'line'       => $errline,
             'backtrace'  => debug_backtrace(),
          );
    }
