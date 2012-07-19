@@ -1,4 +1,5 @@
 #summary ctrl_*->process_mode_*()
+#labels Phase-Implementation,controllerfunctions
 
 = Description =
 process_mode() calls the process_mode_`$_REQUEST[mode]`() function if existing, it will pass an argument, $gpc, which is the compacted values of $mode_gpc_`$_REQUEST[mode]`
