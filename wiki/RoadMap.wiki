@@ -1,4 +1,5 @@
 #summary RoadMap: Plans for new versions
+#labels Featured,Phase-Design
 
 = 0.7 =
  * environment status
@@ -29,6 +30,8 @@
    * hierachy system
 
 = Version x.x = 
+ * add class
+   * Change add class to add_application.class.php so developers can extend it with add.class.php
  * models
    * model->< foreign_model_name >() by using __call and a static array 
    * Auto foreign key detection
