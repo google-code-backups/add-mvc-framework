@@ -21,6 +21,8 @@
  * errors
    * printing the line codes
    * color coded errors
+*0.7.2*
+ * error_reporting change when live or development
 
 = 0.8 =
  * controllers
