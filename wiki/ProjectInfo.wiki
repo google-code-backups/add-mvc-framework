@@ -1,4 +1,5 @@
 #summary Project infos
+#labels Phase-Design,Featured
 
 = Introduction =
 A MVC Framework from the old "db_entity" class Albert used on past projects from April 2011 to April 2012.
@@ -18,3 +19,7 @@ It has been developed since then and turned into a framework this May 2012
    * dom wrapper classes
    * debugging classes
    * interfaces
+
+Unlike other MVC frameworks, the models on ADD MVC are always associated to a table, and there are already bunch of static functions that will fetch new instance of that model class, that represents a row on the table.
+
+Therefore the model class represents the table(static context), while the instance of that model represents a row of that table (object context)
