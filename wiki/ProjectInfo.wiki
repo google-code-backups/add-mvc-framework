@@ -24,6 +24,9 @@ Unlike other MVC frameworks, the models on ADD MVC are always associated to a ta
 
 Therefore the model class represents the table(static context), while the instance of that model represents a row of that table (object context)
 
+= Views =
+views are create through templating library Smarty, default views are under add/views and you can overwrite it by having the same file on your includes/views directory
+
 = Class Autoloading =
 Unlike other MVC frameworks, class autoloading on ADD MVC framework is not restricted to very specific directory hierarchy, as long as the directory is under the includes/classes of your application.
 
