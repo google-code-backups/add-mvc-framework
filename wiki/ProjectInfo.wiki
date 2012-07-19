@@ -24,6 +24,8 @@ Unlike other MVC frameworks, the models on ADD MVC are always associated to a ta
 
 Therefore the model class represents the table(static context), while the instance of that model represents a row of that table (object context)
 
+However these model is not the connection to the database, instead it's everything that deals with the tables. These models connects using adodb that they contain on there ::db() static function
+
 = Views =
 views are create through templating library Smarty, default views are under add/views and you can overwrite it by having the same file on your includes/views directory
 
