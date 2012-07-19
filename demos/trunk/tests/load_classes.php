@@ -6,13 +6,7 @@
  */
 require '../config.php';
 require_once "$C->add_dir/init.php";
-class add2 extends add {
-   static function load_class($classname) {
-      if (parent::load_class($classname)) {
-         add_test::println("$classname successfully loaded");
-      }
-   }
-}
+
 class add_test {
 
    public static function load_classes() {
@@ -34,7 +28,9 @@ class add_test {
                var_dump($class_file->getPathName());
                die();
             }
-            add2::load_class($class_name);
+            if (add::load_class($class_name)) {
+               static::println("$class_name successfully loaded");
+            }
          }
 
       }
