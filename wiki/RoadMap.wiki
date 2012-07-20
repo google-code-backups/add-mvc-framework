@@ -33,6 +33,9 @@
 = 0.8 =
  * controllers
    * hierachy system
+ * class autoloading
+   * class directory variable
+   * iterate through class directory variable for autoloading
 
 = Version x.x = 
  * add class
