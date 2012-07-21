@@ -12,3 +12,4 @@ The reason process_mode() is not automated is that it is still debate-able if it
 = Code Hierarchy =
 
 executed in: ctrl->execute()
+executes: ctrl->process_mode()
