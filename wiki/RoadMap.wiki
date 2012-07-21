@@ -5,7 +5,7 @@
  * environment status
    * add::is_development()
    * add::is_live()
-   * add::is_production()
+   * add::is_debugging()
  * exceptions
    * email configuration improvements
       * Do not send email if on *development mode*
