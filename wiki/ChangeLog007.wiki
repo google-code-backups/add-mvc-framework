@@ -1,4 +1,5 @@
 #summary ChangeLog of version 0.7
+#labels Phase-Design
 
 = 0.7 =
  * environment status
@@ -8,10 +9,6 @@
  * exceptions
    * email configuration improvements
       * Do not send email if on *development mode*
-
- * views
-   * view when not found: default_tpl.tpl - shows all the smarty template variables in html table form
-
  * config
    * new required property: environment_status
    * default configuration file
@@ -22,6 +19,8 @@
    * printing the line codes
    * color coded errors
 *0.7.2*
+ * views
+  * view when not found: default_tpl.tpl - shows all the smarty template variables in html table form
  * error_reporting change when live or development
  * execution time printing when development
  * developers_ip on config
