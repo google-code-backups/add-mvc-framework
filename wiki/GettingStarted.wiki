@@ -1,0 +1,26 @@
+#summary Getting Started with add mvc
+#labels Phase-Deploy
+= Config =
+First you need a config variable:
+{{{
+$C = (object) array(
+      'add_dir'            => realpath('includes/frameworks/add'),
+      'environment_status' => 'development',
+   );
+}}}
+
+Either you put it on a new file (eg. config.php) or on the main root execution file (eg. add.php)
+
+= Main Execution File =
+*eg. add.php*
+
+{{{
+<?php
+
+require '../config.php';
+
+require $C->add_dir.'/init.php';
+
+add::current_controller()->execute();
+
+}}}
