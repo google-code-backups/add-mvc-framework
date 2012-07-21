@@ -24,3 +24,13 @@ require $C->add_dir.'/init.php';
 add::current_controller()->execute();
 
 }}}
+
+= .htaccess Rewrite =
+{{{
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)$ add.php?add_mvc_path=$1&%{QUERY_STRING} [L]
+RewriteRule ^$ add.php?add_mvc_path=$1&%{QUERY_STRING} [L]
+}}}
