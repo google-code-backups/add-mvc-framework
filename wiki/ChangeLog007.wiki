@@ -1,0 +1,30 @@
+#summary One-sentence summary of this page.
+
+= 0.7 =
+ * environment status
+   * add::is_development() - a function that returns boolean true or false if the environment_status is "development"
+   * add::is_live() - a function that returns boolean true or false weather if the environment status is "live"
+   * add::is_debugging() - a function that returns boolean true or false weather the environment status is "debugging"
+ * exceptions
+   * email configuration improvements
+      * Do not send email if on *development mode*
+
+ * views
+   * view when not found: default_tpl.tpl - shows all the smarty template variables in html table form
+
+ * config
+   * new required property: environment_status
+   * default configuration file
+*0.7.1*
+ * exceptions
+   * assert() first parameter detection and printing
+ * errors
+   * printing the line codes
+   * color coded errors
+*0.7.2*
+ * error_reporting change when live or development
+ * execution time printing when development
+ * developers_ip on config
+ * add::is_developer()
+ * use add::is_developer() on debug::current_user_allowed()
+ * use add::is_developer() to automatically switch to "debugging" environment status
