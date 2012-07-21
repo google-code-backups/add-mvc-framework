@@ -1,5 +1,5 @@
 #summary ctrl_*->process_data()
-#labels Phase-Implementation
+#labels Phase-Implementation,controllerfunctions
 
 = Description =
 
