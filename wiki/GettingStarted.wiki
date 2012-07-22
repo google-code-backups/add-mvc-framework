@@ -46,10 +46,10 @@ Example:
 
 {{{
 <?php
+/**
+ * The home page
+ */
 CLASS ctrl_page_index EXTENDS ctrl_tpl_page {
-   public function process_data() {
-      $this->assign('utc_timestamp',@gmmktime());
-   }
 
 }
 }}}
@@ -82,5 +82,27 @@ CLASS member EXTENDS model_auth {
    public static function db() {
       return my_adodb_mysql::singleton();
    }
+}
+}}}
+
+note that it extends a preset extra model model_auth, but the very basic model you can extend is model_rwd. You can also extend model_r (read only) and other extra models like model_image_rwd
+
+=== Using models ===
+
+{{{
+/**
+ * The homepage
+ */
+CLASS ctrl_page_index EXTENDS ctrl_tpl_page {
+   /**
+    * The pre-response process
+    */
+   public function process_data() {
+      # Getting the current logged in
+      $this->assign('current_member',member::current_logged_in());
+      # Getting member #1
+      $this->assign('featured_member',member::get_instance(1));
+   }
+
 }
 }}}
