@@ -1,6 +1,7 @@
 #summary Getting Started with add mvc
 #labels Phase-Deploy,Featured
-= Config =
+= Basic Files =
+== Config ==
 First you need a config variable:
 {{{
 <?php
@@ -12,7 +13,7 @@ $C = (object) array(
 
 Either you put it on a new file (eg. config.php) or on the main root execution file (eg. add.php)
 
-= Main Execution File =
+== Main Execution File ==
 *eg. add.php*
 Then you'll need to create the main execution file:
 {{{
@@ -26,7 +27,7 @@ add::current_controller()->execute();
 
 }}}
 
-= .htaccess Rewrite =
+== .htaccess Rewrite ==
 and create an htaccess rewrite, notice that "add.php" is used, depending on the name of your _main execution file_
 {{{
 RewriteEngine On
@@ -35,4 +36,19 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.+)$ add.php?add_mvc_path=$1&%{QUERY_STRING} [L]
 RewriteRule ^$ add.php?add_mvc_path=$1&%{QUERY_STRING} [L]
+}}}
+
+= Your First Controller =
+To overwrite the default index page, you should make <ctrl_page_index.class.php> file under your includes/classes directory.
+
+Example:
+
+{{{
+<?php
+CLASS ctrl_page_index EXTENDS ctrl_tpl_page {
+   public function process_data() {
+      $this->assign('utc_timestamp',@gmmktime());
+   }
+
+}
 }}}
