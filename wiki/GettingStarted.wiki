@@ -3,6 +3,7 @@
 = Config =
 First you need a config variable:
 {{{
+<?php
 $C = (object) array(
       'add_dir'            => realpath('includes/frameworks/add'),
       'environment_status' => 'development',
