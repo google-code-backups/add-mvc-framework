@@ -38,7 +38,8 @@ RewriteRule ^(.+)$ add.php?add_mvc_path=$1&%{QUERY_STRING} [L]
 RewriteRule ^$ add.php?add_mvc_path=$1&%{QUERY_STRING} [L]
 }}}
 
-= Your First Controller =
+= Classes =
+== Your First Controller ==
 To overwrite the default index page, you should make <ctrl_page_index.class.php> file under your includes/classes directory.
 
 Example:
@@ -50,5 +51,36 @@ CLASS ctrl_page_index EXTENDS ctrl_tpl_page {
       $this->assign('utc_timestamp',@gmmktime());
    }
 
+}
+}}}
+== Your ADODB connection ==
+before models could work, you will need to get the ADODB connection:
+{{{
+CLASS my_adodb_mysql EXTENDS add_adodb_mysql {
+   /**
+    * googlecode todo: add code here
+    */
+}
+}}}
+== Your First Model ==
+{{{
+/**
+ * A model representing `members` table
+ */
+CLASS member EXTENDS model_auth {
+   /**
+    * The table of this model
+    */
+   const TABLE = 'members';
+   /**
+    * The primary key of this model
+    */
+   const TABLE_PK = 'id';
+   /**
+    * The db abstraction layer
+    */
+   public static function db() {
+      return my_adodb_mysql::singleton();
+   }
 }
 }}}
