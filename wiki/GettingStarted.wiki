@@ -1,5 +1,5 @@
 #summary Getting Started with add mvc
-#labels Phase-Deploy
+#labels Phase-Deploy,Featured
 = Config =
 First you need a config variable:
 {{{
