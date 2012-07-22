@@ -14,7 +14,7 @@ Either you put it on a new file (eg. config.php) or on the main root execution f
 
 = Main Execution File =
 *eg. add.php*
-
+Then you'll need to create the main execution file:
 {{{
 <?php
 
@@ -27,6 +27,7 @@ add::current_controller()->execute();
 }}}
 
 = .htaccess Rewrite =
+and create an htaccess rewrite, notice that "add.php" is used, depending on the name of your `main execution file`
 {{{
 RewriteEngine On
 
