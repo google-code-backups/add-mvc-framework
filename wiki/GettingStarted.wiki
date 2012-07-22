@@ -27,7 +27,7 @@ add::current_controller()->execute();
 }}}
 
 = .htaccess Rewrite =
-and create an htaccess rewrite, notice that "add.php" is used, depending on the name of your `main execution file`
+and create an htaccess rewrite, notice that "add.php" is used, depending on the name of your _main execution file_
 {{{
 RewriteEngine On
 
