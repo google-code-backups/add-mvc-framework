@@ -25,7 +25,7 @@
 *0.7.2*
  * error_reporting change when live or development
  * execution time printing when development
-*0.7.3*
+*0.7.x*
  * developers_ip on config
  * add::is_developer()
  * use add::is_developer() on debug::current_user_allowed()
