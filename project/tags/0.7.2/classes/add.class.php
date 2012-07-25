@@ -7,7 +7,7 @@
  *
  * @author albertdiones@gmail.com
  * @package ADD MVC
- * @version 0.7.1
+ * @version 0.7.2
  */
 CLASS add {
 
