@@ -23,3 +23,11 @@
   * view when not found: default_tpl.tpl - shows all the smarty template variables in html table form
  * error_reporting change when live or development
  * execution time printing when development
+
+*0.7.3*
+ * developers_ip on config
+ * add::is_developer()
+ * use add::is_developer() on debug::current_user_allowed()
+ * use add::is_developer() to automatically switch to "debugging" environment status
+ * trigger_error on deprecated common functions
+ * include network.functions.php on common functions
