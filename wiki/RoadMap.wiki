@@ -8,6 +8,7 @@
  * class autoloading
    * class directory variable
    * iterate through class directory variable for autoloading
+ * add.js
 
 = Version x.x = 
  * add class
