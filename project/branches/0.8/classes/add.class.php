@@ -486,18 +486,29 @@ CLASS add {
     * @since ADD MVC 0.1
     */
    static function load_lib($lib_name) {
-      static $loaded_libs=array();
+      static $loaded_libs = array();
 
       if (in_array($lib_name,$loaded_libs)) {
-         return;
+         return false;
       }
 
-      $C = self::config();
+      require static::lib_init_path($lib_name);
 
-      $lib = $C->libs->$lib_name;
+      $loaded_libs[] = $lib_name;
+
+   }
+
+   /**
+    * library init path from the config
+    * @param string $lib_name the $C->libs index
+    * @since ADD MVC 0.8.0
+    */
+   static function lib_init_path($lib_name) {
+
+      $lib = add::config()->libs->$lib_name;
 
       if (!$lib)
-         throw new Exception("Library $lib_name not found");
+         throw new e_developer("Library $lib_name not found");
 
       if (is_string($lib)) {
          $lib_path = $lib;
@@ -509,9 +520,8 @@ CLASS add {
          throw new e_developer("Invalid format for $lib_name");
       }
 
-      self::include_include_file('libs/'.$lib_path);
+      return static::include_filepath('libs/'.$lib_path);
    }
-
 
    /**
     * current_controller()
