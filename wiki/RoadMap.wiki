@@ -9,7 +9,7 @@
    * class directory variable
    * iterate through class directory variable for autoloading
  * add-usability.js
- * model_*::meta_columns()
+ * model_`*`::meta_columns()
 
 = Version x.x = 
  * add class
