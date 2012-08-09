@@ -8,7 +8,8 @@
  * class autoloading
    * class directory variable
    * iterate through class directory variable for autoloading
- * add.js
+ * add-usability.js
+ * model_*::column_names()
 
 = Version x.x = 
  * add class
