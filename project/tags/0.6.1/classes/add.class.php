@@ -297,7 +297,7 @@ CLASS add {
          $lib_path = $lib->init_path;
       }
       else {
-         throw new logic_exception("Invalid format for $lib_name");
+         throw new e_developer("Invalid format for $lib_name");
       }
 
       $file = self::include_filepath('libs/'.$lib_path);
