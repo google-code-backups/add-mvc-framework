@@ -851,6 +851,6 @@ ABSTRACT CLASS model_rwd EXTENDS array_entity IMPLEMENTS Iterator {
     * @since ADD MVC 0.8.0
     */
    public static function column_names() {
-      return static::db()->MetaFields(static::TABLE);
+      return static::db()->MetaColumns(static::TABLE);
    }
 }
