@@ -11,6 +11,12 @@
  * add-usability.js
  * model_ `*`::meta_columns()
 
+= 0.9 =
+ * sub_modes
+ * common_gpcs
+ * process_mode
+ * includes/views/pages/
+
 = Version x.x = 
  * add class
    * Change add class to add_application.class.php so developers can extend it with add.class.php
