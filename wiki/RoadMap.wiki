@@ -1,7 +1,5 @@
 #summary RoadMap: Plans for new versions
 #labels Featured,Phase-Design
-= 0.7.4 =
- * Environment Status on the bottom when not live
 = 0.8 =
  * controllers
    * hierachy system
