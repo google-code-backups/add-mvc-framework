@@ -31,3 +31,5 @@
  * use add::is_developer() to automatically switch to "debugging" environment status
  * trigger_error on deprecated common functions
  * include network.functions.php on common functions
+*0.7.4 ( < 2012 08 14 )*
+ * Environment Status on the bottom when not live 
