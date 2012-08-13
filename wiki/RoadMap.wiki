@@ -12,11 +12,20 @@
 = 0.9 =
  * sub_modes
  * common_gpcs
- * process_mode
- * includes/views/pages/
+ * process_common_pre_mode
 
 = 0.10 =
- * "user" class that will contain functions for the current user
+ * includes/views/pages/ - directory where all pages will be placed
+ * includes/views/layout/ - directory where all layouts will be placed
+ * ctrl_default_page - a ctrl for undeclared controllers with corresponding views/pages/
+
+= 0.11 =
+ * "add_current_user" & "current_user" class that will contain functions for the current user
+   * ip_in_network()
+   * is_developer()
+   * geoip()
+   * $track_pages = false;
+
 
 = Version x.x = 
  * add class
