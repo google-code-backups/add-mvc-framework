@@ -15,6 +15,9 @@
  * process_mode
  * includes/views/pages/
 
+= 0.10 =
+ * "user" class that will contain functions for the current user
+
 = Version x.x = 
  * add class
    * Change add class to add_application.class.php so developers can extend it with add.class.php
