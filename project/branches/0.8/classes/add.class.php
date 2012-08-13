@@ -676,8 +676,13 @@ CLASS add {
     * @since ADD MVC 0.7.2
     */
    public static function is_developer() {
+
+      # Fix for issue #6
+      if (current_ip_in_network())
+         return true;
+
       if (isset(add::config()->developer_ips) && is_array(add::config()->developer_ips))
-         return in_array(current_user_ip(),add::config()->developer_ips) || current_ip_in_network();
+         return in_array(current_user_ip(),add::config()->developer_ips);
       else
          return add::is_development();
    }
