@@ -31,7 +31,7 @@
  * models
    * model->< foreign_model_name >() by using __call and a static array 
    * Auto foreign key detection
-   * Columns fetching and validation on valid_magic_property
+   * Columns fetching(meta_columns()) and validation on valid_magic_property
 
 = Version x.x = 
  * Debugging
