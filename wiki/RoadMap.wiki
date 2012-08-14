@@ -6,6 +6,7 @@
  * class autoloading
    * class directory variable
    * iterate through class directory variable for autoloading
+   * :: __add_loaded() pseudo-magic function
  * add-usability.js
  * model_ `*`::meta_columns()
 
@@ -26,15 +27,17 @@
    * geoip()
    * $track_pages = false;
 
-
-= Version x.x = 
- * add class
-   * Change add class to add_application.class.php so developers can extend it with add.class.php
+= 0.12 =
  * models
    * model->< foreign_model_name >() by using __call and a static array 
    * Auto foreign key detection
    * Columns fetching and validation on valid_magic_property
-   * block_rules - model support
- * autoloading classes
-   * :: __loaded() pseudo-magic function
+
+= Version x.x = 
+ * Debugging
+   * new environment status: dynamic_live_development
+ * add class
+   * Change add class to add_application.class.php so developers can extend it with add.class.php
+ * block_rules - model support
+
    * i_add_class interface
