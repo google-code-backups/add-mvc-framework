@@ -88,7 +88,7 @@ ABSTRACT CLASS add_debug_timer EXTENDS add_debug {
       $lap1 = array_slice($this->lap_timestamps,0,1);
       $lap2 = array_slice($this->lap_timestamps,-1,1);
 
-      return static::print_lap_difference($lap1, $lap2);
+      return $this->print_lap_difference($lap1, $lap2);
    }
 
 
@@ -100,8 +100,6 @@ ABSTRACT CLASS add_debug_timer EXTENDS add_debug {
    public function print_lap_difference($lap1, $lap2) {
 
       $lap_difference = $lap2['timestamp'] - $lap1['timestamp'];
-
-      debug::var_dump($lap1,$lap2);
 
       self::print_data("Time elapse - $lap1[label] -- $lap2[label]",$lap_difference);
 
