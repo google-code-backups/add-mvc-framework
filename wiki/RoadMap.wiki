@@ -49,3 +49,5 @@
    * path canonicalization
    * https requirement and redirect
    * controller config redirect
+ * Standardization and readability
+   * ctrl_resource_* instead of ctrl_page_*
