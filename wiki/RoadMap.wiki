@@ -45,3 +45,6 @@
      * deprecate ldap_member
    * block_rules - model support
    * i_add_class interface
+ * URLS
+   * path canonicalization
+   * https requirement
