@@ -47,4 +47,4 @@
    * i_add_class interface
  * URLS
    * path canonicalization
-   * https requirement
+   * https requirement and redirect
