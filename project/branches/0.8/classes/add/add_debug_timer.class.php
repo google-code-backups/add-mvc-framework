@@ -85,8 +85,8 @@ ABSTRACT CLASS add_debug_timer EXTENDS add_debug {
 
       $lap_difference = $this->lap($label);
 
-      $lap1 = array_slice($this->lap_timestamps,0,1);
-      $lap2 = array_slice($this->lap_timestamps,-1,1);
+      $lap1 = array_shift(array_slice($this->lap_timestamps,0,1));
+      $lap2 = array_shift(array_slice($this->lap_timestamps,-1,1));
 
       return $this->print_lap_difference($lap1, $lap2);
    }
