@@ -35,13 +35,14 @@
    * model->< foreign_model_name >() by using __call and a static array
    * Auto foreign key detection
    * Columns fetching(meta_columns()) and validation on valid_magic_property
-
-= Version x.x =
+= 0.13 =
  * Debugging
    * new environment status: dynamic_live_development
    * add_debug_class_wrapper: dynamic class debugging wrapper
    * Shorten filenames of smarty compiled files when showing them as errors
    * add::exception($preferred_class, $message, $data)
+
+= Version x.x =
  * add class
    * Change add class to add_application.class.php so developers can extend it with add.class.php
  * Extra classes
