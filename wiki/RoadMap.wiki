@@ -35,6 +35,7 @@
    * model->< foreign_model_name >() by using __call and a static array
    * Auto foreign key detection
    * Columns fetching(meta_columns()) and validation on valid_magic_property
+
 = 0.13 =
  * Debugging
    * new environment status: dynamic_live_development
