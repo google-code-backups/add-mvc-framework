@@ -164,80 +164,46 @@ CLASS add {
          $class_filepath = $incs_class_filepath;
       }
 
-      # Backward support to 0.0
-      if (empty($class_filepath)) {
-         $incs_class_filepath = add::config()->classes_dir."/$classname.php";
-         if (file_exists($incs_class_filepath)) {
-            $class_filepath = $incs_class_filepath;
-            trigger_error("{$class_filepath} format is deprecated",E_USER_NOTICE);
-         }
-      }
 
-      if (empty($class_filepath)) {
-         $class_filepath_wildcard = $C->incs_dir.'/classes/*/'.$classname.'.class.php';
-         $class_filepath_search = glob($class_filepath_wildcard);
+      foreach (add::config()->classes_dirs as $classes_dir) {
 
-         # Backward support to 0.0
-         if (!$class_filepath_search) {
-            $class_filepath_wildcard = $C->incs_dir.'/classes/*/'.$classname.'.php';
-            if ($class_filepath_search = glob($class_filepath_wildcard)) {
-               trigger_error("{$class_filepath_search[0]} format is deprecated",E_USER_NOTICE);
+         # Load it from the application's class dir
+         if (empty($class_filepath)) {
+            $class_filepath_wildcard = "$classes_dir/{*/,}$classname.class.php";
+            $class_filepath_search = glob($class_filepath_wildcard,GLOB_BRACE);
+
+
+            # Backward support to 0.2 (without .class)
+            if (!$class_filepath_search) {
+               $class_filepath_wildcard = "$classes_dir/{*/,}$classname.php";
+               $class_filepath_search = glob($class_filepath_wildcard,GLOB_BRACE);
             }
-         }
 
-         if (!$class_filepath_search) {
-            $class_filepath_wildcard = $C->add_dir.'/classes/*/'.$classname.'.class.php';
-            $class_filepath_search = glob($class_filepath_wildcard);
-         }
-
-         # Backward support to 0.0
-         if (!$class_filepath_search) {
-            $class_filepath_wildcard = $C->add_dir.'/classes/*/'.$classname.'.php';
-            if ($class_filepath_search = glob($class_filepath_wildcard)) {
-               trigger_error("{$class_filepath_search[0]} format is deprecated",E_USER_NOTICE);
-            }
-         }
-
-         if ($class_filepath_search) {
             $class_filepath = $class_filepath_search[0];
+
          }
+
       }
 
-      # Backward support to 0.2
-      if (empty($class_filepath)) {
-         $class_filepath = $C->add_dir.'/classes/'.$classname.'.php';
-         if (file_exists($class_filepath)) {
-            trigger_error("{$class_filepath} format is deprecated",E_USER_NOTICE);
-         }
-         if (!file_exists($class_filepath))
-            $class_filepath = null;
-      }
-
-      /*if (empty($class_filepath)) {
-         $e_class = 'e_developer';
-         if (class_exists($e_class)) {
-            throw new $e_class("$classname not found",array($C->add_dir,add::config()->classes_dir));
-         }
-         else {
-            throw new Exception("$classname not found" . $C->add_dir . " " . add::config()->classes_dir );
-         }
-      }*/
       if ($class_filepath)
-         include_once($class_filepath);
+         $class_loaded = include_once($class_filepath) && ( class_exists($classname) || interface_exists($classname) );
 
-      if ($class_filepath && !class_exists($classname) && !interface_exists($classname)) {
+      # Check if the class is actually loaded
+      if ($class_filepath && !$class_loaded) {
+
          $e_class = 'e_developer';
+
          if (class_exists($e_class)) {
             throw new $e_class("$classname not found from $class_filepath");
          }
          else {
             throw new Exception("$classname not found from $class_filepath");
          }
+
       }
 
-      $class_loaded = class_exists($classname);
-
-      if ($class_loaded && function_exists("$classname::__add_loaded")) {
+      # ADD MVC Class Loaded Event
+      if ($class_loaded && method_exists($classname,'__add_loaded')) {
          $classname::__add_loaded();
       }
 
