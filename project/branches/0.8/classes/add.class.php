@@ -158,35 +158,30 @@ CLASS add {
       if (class_exists('e_developer',false))
          e_developer::assert($classname,"Blank classname");
 
-      $incs_class_filepath = add::config()->classes_dir."/$classname.class.php";
-
-      if (file_exists($incs_class_filepath)) {
-         $class_filepath = $incs_class_filepath;
-      }
-
-
+      # Iterate it through classes directories
       foreach (add::config()->classes_dirs as $classes_dir) {
-
          # Load it from the application's class dir
-         if (empty($class_filepath)) {
-            $class_filepath_wildcard = "$classes_dir/{*/,}$classname.class.php";
+
+         $class_filepath_wildcard = "$classes_dir/{,*/}$classname.class.php";
+         $class_filepath_search = glob($class_filepath_wildcard,GLOB_BRACE);
+
+         # Backward support to 0.2 (without .class)
+         if (!$class_filepath_search) {
+            $class_filepath_wildcard = "$classes_dir/{,*/}$classname.php";
             $class_filepath_search = glob($class_filepath_wildcard,GLOB_BRACE);
+         }
 
-
-            # Backward support to 0.2 (without .class)
-            if (!$class_filepath_search) {
-               $class_filepath_wildcard = "$classes_dir/{*/,}$classname.php";
-               $class_filepath_search = glob($class_filepath_wildcard,GLOB_BRACE);
-            }
-
+         if ($class_filepath_search) {
             $class_filepath = $class_filepath_search[0];
-
+            break;
          }
 
       }
 
-      if ($class_filepath)
-         $class_loaded = include_once($class_filepath) && ( class_exists($classname) || interface_exists($classname) );
+      if ($class_filepath) {
+         $class_loaded = include_once($class_filepath);
+         $class_loaded &= ( class_exists($classname) || interface_exists($classname) );
+      }
 
       # Check if the class is actually loaded
       if ($class_filepath && !$class_loaded) {
