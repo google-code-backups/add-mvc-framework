@@ -235,7 +235,13 @@ CLASS add {
          }
       }
 
-      return class_exists($classname);
+      $class_loaded = class_exists($classname);
+
+      if ($class_loaded && function_exists("$classname::__add_loaded")) {
+         $classname::__add_loaded();
+      }
+
+      return $class_loaded;
    }
 
    /**
