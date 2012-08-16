@@ -51,3 +51,4 @@
    * controller config redirect
  * Standardization and readability
    * ctrl_resource_* instead of ctrl_page_*
+   * ctrl_tpl_resource as parent of ctrl_tpl_page, ctrl_tpl_aux, ctrl_tpl_ajax
