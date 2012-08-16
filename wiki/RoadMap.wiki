@@ -10,6 +10,7 @@
  * add-usability.js
  * model_ `*`::meta_columns()
  * bug fixes
+   * E_USER_ERROR layout fix
    * mime_type - sensitive error/data/debug printing
 
 = 0.9 =
