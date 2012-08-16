@@ -9,6 +9,8 @@
    * :: __add_loaded() pseudo-magic function
  * add-usability.js
  * model_ `*`::meta_columns()
+ * bug fixes
+   * mime_type - sensitive error/data/debug printing
 
 = 0.9 =
  * sub_modes
@@ -29,11 +31,11 @@
 
 = 0.12 =
  * models
-   * model->< foreign_model_name >() by using __call and a static array 
+   * model->< foreign_model_name >() by using __call and a static array
    * Auto foreign key detection
    * Columns fetching(meta_columns()) and validation on valid_magic_property
 
-= Version x.x = 
+= Version x.x =
  * Debugging
    * new environment status: dynamic_live_development
    * add_debug_class_wrapper: dynamic class debugging wrapper
