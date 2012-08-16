@@ -16,7 +16,7 @@
 = 0.9 =
  * sub_modes
  * common_gpcs
- * process_common_pre_mode
+ * pre_mode_process
 
 = 0.10 =
  * includes/views/pages/ - directory where all pages will be placed
