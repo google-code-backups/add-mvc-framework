@@ -145,7 +145,11 @@ ABSTRACT CLASS add_debug {
          $args[0] = debug::get_declared_globals();
       }
       $var = self::return_var_dump($args);
-      $output="<div style='clear:both'><b>".self::caller_file_line()."</b><xmp>".$var."</xmp></div>";
+      if (add::current_controller()->mime_type == 'text/plain')
+         $output="File Line:".self::caller_file_line()."Data-Values".$var;
+      else {
+         $output="<div style='clear:both'><b>".self::caller_file_line()."</b><xmp>".$var."</xmp></div>";
+      }
       self::restricted_echo($output);
       return $args[0];
    }
