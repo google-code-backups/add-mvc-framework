@@ -12,6 +12,12 @@ ABSTRACT CLASS ctrl_tpl_ajax IMPLEMENTS i_ctrl {
 
    public $mode;
 
+   /**
+    * Mime type of this resource
+    *
+    * @since ADD MVC 0.8
+    */
+   public $mime_type = 'text/html';
 
    /**
     * The view data
@@ -54,6 +60,8 @@ ABSTRACT CLASS ctrl_tpl_ajax IMPLEMENTS i_ctrl {
 
       $this->mode = isset($_REQUEST['mode']) ? "$_REQUEST[mode]" : '';
       $this->process_data();
+
+      header("Content-type: ".$this->mime_type);
       $this->print_response($this->data);
    }
 

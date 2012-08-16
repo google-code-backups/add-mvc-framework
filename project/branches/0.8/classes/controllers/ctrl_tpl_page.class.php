@@ -17,6 +17,13 @@ ABSTRACT CLASS ctrl_tpl_page IMPLEMENTS i_ctrl, i_ctrl_with_view {
    protected $mode;
 
    /**
+    * Mime type of this resource
+    *
+    * @since ADD MVC 0.8
+    */
+   public $mime_type = 'text/html';
+
+   /**
     * The views cache
     * @since ADD MVC 0.0
     */
@@ -95,6 +102,7 @@ ABSTRACT CLASS ctrl_tpl_page IMPLEMENTS i_ctrl, i_ctrl_with_view {
       if (add::is_development())
          add::config()->root_timer->lap("Before Printing");
 
+      header("Content-type: ".$this->mime_type);
       $this->print_response($this->data);
    }
 

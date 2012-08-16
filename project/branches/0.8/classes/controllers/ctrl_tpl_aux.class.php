@@ -13,12 +13,18 @@ ABSTRACT CLASS ctrl_tpl_aux {
    protected $response;
 
    /**
+    * Mime type of this resource
+    *
+    * @since ADD MVC 0.8
+    */
+   public $mime_type = 'text/plain';
+
+   /**
     * run the page
     *
     * @since ADD MVC 0.6.2
     */
    public function execute() {
-      header("Content-type: text/plain");
       e_hack::assert($this->can_run(),"Invalid aux script authentication key");
 
       ob_start();
@@ -29,6 +35,9 @@ ABSTRACT CLASS ctrl_tpl_aux {
          add::handle_exception($e);
       }
       $this->response = ob_get_clean();
+
+      header("Content-type: ".$this->mime_type);
+
       $this->handle_response();
    }
 
