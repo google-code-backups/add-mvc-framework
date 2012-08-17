@@ -48,7 +48,7 @@
    * new environment status: dynamic_maintenance
  * add class
    * Change add class to add_application.class.php so developers can extend it with add.class.php
- * Extra classes
+ * Extra Niche classes
    * ldap_entity - LDAP entity object class (extends array_entity)
      * parent class of ldap_cn
      * deprecate ldap_member
