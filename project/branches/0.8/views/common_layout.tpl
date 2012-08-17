@@ -41,15 +41,7 @@
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
       {block name=post_body_scripts}
-
-      <script type="text/javascript">
-         $('*[data-href]').click(
-               function() {
-                  location.href = $(this).attr('data-href');
-               }
-            );
-      </script>
-
+      <script src="https://add-usability.googlecode.com/svn/project/trunk/js/all.js"></script>
       {/block}
 
    </body>
