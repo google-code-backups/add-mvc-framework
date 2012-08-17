@@ -44,6 +44,8 @@
    * add::exception($preferred_class, $message, $data)
 
 = Version x.x =
+ * Debugging
+   * new environment status: dynamic_maintenance
  * add class
    * Change add class to add_application.class.php so developers can extend it with add.class.php
  * Extra classes
