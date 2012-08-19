@@ -111,3 +111,6 @@ CLASS ctrl_page_index EXTENDS ctrl_tpl_page {
 
 }
 }}}
+
+== Views ==
+ADD MVC uses smarty templating engine on the View, the view names are the same as the controller's basename.
