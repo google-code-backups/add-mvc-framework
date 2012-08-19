@@ -16,8 +16,8 @@ Either you put it on a new file (eg. config.php) or on the main root execution f
 In this example it is necessary that to declare "add_dir" so on add.php it can be used to require "init.php" of the add mvc framework.
 
 == Main Execution File ==
-*eg. add.php*
-Then you'll need to create the main execution file:
+
+Then you'll need to create the main execution file (eg. add.php):
 {{{
 <?php
 
@@ -28,6 +28,9 @@ require $C->add_dir.'/init.php';
 add::current_controller()->execute();
 
 }}}
+
+add::current_controller() returns the current controller according to the current path, and execute() is the execution function, as the name implies.
+
 
 == .htaccess Rewrite ==
 and create an htaccess rewrite, notice that "add.php" is used, depending on the name of your _main execution file_
