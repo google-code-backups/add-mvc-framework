@@ -1,0 +1,14 @@
+#summary ADD MVC Tour
+#labels Phase-Design
+
+= Pages/Resources =
+
+== Controllers ==
+Pages are created through controllers. It is stored inside classes/ folder of the application.
+
+Controllers are classes that represents the page/resource. execute() ( formerly page() ) are called on this functions which calls process_data() ( formerly process() ) and print_response().
+
+on the _main execution file_ (eg. add.php) add::current_controller() is called and it's execute() function. add::current_controller() returns the instance of the current controller according to the current url path.
+
+== Views ==
+after process_data(), controllers call the function print_response().
