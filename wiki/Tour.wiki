@@ -45,3 +45,5 @@ foreach ($companies as $company) {
 }
 
 }}}
+
+note that, all the fields on company table are being fetched. This might be adjustable in the future versions, but that's the way it is as of now.
