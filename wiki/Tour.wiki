@@ -35,7 +35,7 @@ CLASS company EXTENDS model_rwd {
 
 model_rwd contains loads of functions for manipulating data from the database.
 
-for example, for getting all the rows from the database (or SELECT * )
+for example, for getting all the rows from the database (or SELECT `*` )
 {{{
 
 $companies = company::get_all();
