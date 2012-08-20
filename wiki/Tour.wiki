@@ -12,3 +12,36 @@ on the _main execution file_ (eg. add.php) add::current_controller() is called a
 
 == Views ==
 after process_data(), controllers call the function print_response().
+
+== Accessing The Database ==
+Accessing database in ADD MVC is done by models, models, in ADD MVC framework represent a table from the database. For example we have a table named "companies"
+
+{{{
+/**
+ * model of company table
+ */
+CLASS company EXTENDS model_rwd {
+   /**
+    * the table of this model
+    */
+   const TABLE = 'companies';
+
+   /**
+    * the primary key of this model
+    */
+   const TABLE_PK = 'company_id';
+}
+}}}
+
+model_rwd contains loads of functions for manipulating data from the database.
+
+for example, for getting all the rows from the database (or SELECT * )
+{{{
+
+$companies = company::get_all();
+
+foreach ($companies as $company) {
+   echo "$company->company_name"; # print the company_name field
+}
+
+}}}
