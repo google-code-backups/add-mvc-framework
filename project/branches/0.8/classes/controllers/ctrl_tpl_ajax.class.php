@@ -63,6 +63,7 @@ ABSTRACT CLASS ctrl_tpl_ajax IMPLEMENTS i_ctrl {
 
       header("Content-type: ".$this->mime_type);
       $this->print_response($this->data);
+      add::$handle_shutdown = false;
    }
 
    /**
