@@ -55,6 +55,7 @@ ABSTRACT CLASS ctrl_tpl_ajax IMPLEMENTS i_ctrl {
    public function execute() {
       # ADD MVC 0.5 backward support
       if (method_exists($this,'page')) {
+         debug::var_dump($this->page());
          return $this->page();
       }
 
