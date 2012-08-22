@@ -1,0 +1,49 @@
+#summary ADD MVC Models
+#labels Phase-Design
+
+= Introduction =
+  on ADD MVC, model classes represents table of the database.
+
+  for each table on the database you want to manipulate, you will have to create a model for it.
+
+
+== Model Names ==
+
+   the class names of models is not restricted, but as a good practice, use the singular form of the table names (eg. member for ``members`` table)
+
+
+== Basic Code ==
+
+{{{
+CLASS company EXTENDS model_rwd {
+   /**
+    * The table
+    */
+   const TABLE = 'company';
+   /**
+    * The table's primary key
+    */
+   const TABLE_PK = 'company_id';
+   /**
+    * The ADODB object 
+    *
+    */
+   public function db() {
+     return my_application_adodb::singleton();
+   }
+}
+}}}
+
+Where: const TABLE is the table of the company and TABLE_PK is the primary key field and db() is the adodb object
+
+== Basic Functions ==
+  * insertion
+    * `company::add_new(array $row)` - inserts a new row and returns the new instance
+  * selections
+    * `company::get_instance(mixed $id)` - gets the row with primary key $id
+    * `company::get_where_order_page(mixed $where, string $order_by, int $page, int $per_page)` - returns array of instances of the model according to the parameters given
+  * updates
+    * `$company->company_name="New Company Name" `
+      assign a new value on the object property and it will updated on script shutdown
+  * delete
+    * `$company->delete()`
