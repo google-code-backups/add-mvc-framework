@@ -182,6 +182,9 @@ CLASS add {
          $class_loaded = include_once($class_filepath);
          $class_loaded &= ( class_exists($classname) || interface_exists($classname) );
       }
+      else {
+         $class_loaded = false;
+      }
 
       # Check if the class is actually loaded
       if ($class_filepath && !$class_loaded) {
