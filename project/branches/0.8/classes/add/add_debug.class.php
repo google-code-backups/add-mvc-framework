@@ -230,29 +230,31 @@ ABSTRACT CLASS add_debug {
     * @since ADD MVC 0.0
     */
    static function print_array_table($array) {
-      $fields = array_keys($array[0]);
-      echo "<table style='min-width:100%;border:1px solid #ccc;background:#e8e8e8' cellspacing=0 cellpadding=5 >";
-      echo "<tr>";
-      foreach ($fields as $field) {
-         echo "<td style='font-weight:bold;background:e0e0e0;'>$field</td>";
-      }
-      echo "</tr>";
-      $count = 0;
-      foreach ($array as $item) {
-         if ($count % 2 == 0) {
-            $background = "#e0e0e0";
-         }
-         else {
-            $background = "#d8d8d8";
-         }
+      if ($array) {
+         $fields = array_keys($array[0]);
+         echo "<table style='min-width:100%;border:1px solid #ccc;background:#e8e8e8' cellspacing=0 cellpadding=5 >";
          echo "<tr>";
          foreach ($fields as $field) {
-            echo "<td style='border:1px solid #e0e0e0;background:$background'>".$item[$field]."</td>";
+            echo "<td style='font-weight:bold;background:e0e0e0;'>$field</td>";
          }
          echo "</tr>";
-         $count++;
+         $count = 0;
+         foreach ($array as $item) {
+            if ($count % 2 == 0) {
+               $background = "#e0e0e0";
+            }
+            else {
+               $background = "#d8d8d8";
+            }
+            echo "<tr>";
+            foreach ($fields as $field) {
+               echo "<td style='border:1px solid #e0e0e0;background:$background'>".$item[$field]."</td>";
+            }
+            echo "</tr>";
+            $count++;
+         }
+         echo "</table>";
       }
-      echo "</table>";
    }
 
    /**
