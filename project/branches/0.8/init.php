@@ -35,7 +35,12 @@ register_shutdown_function('add::handle_shutdown');
 
 $C->incs_dir            = $C->root_dir.'/includes';
 
-$C->classes_dirs        = array_merge( array( $C->incs_dir.'/classes' , $C->add_dir.'/classes'), is_array($C->classes_dirs) ? $C->classes_dirs : array());
+$C->classes_dirs        = array_merge(
+      array( $C->incs_dir.'/classes' , $C->add_dir.'/classes'),
+      isset($C->classes_dirs) && is_array($C->classes_dirs)
+         ? $C->classes_dirs
+         : array()
+   );
 
 $C->configs_dir         = $C->incs_dir.'/configs';
 $C->views_dir           = $C->incs_dir.'/views';
