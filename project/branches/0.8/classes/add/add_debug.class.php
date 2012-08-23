@@ -123,7 +123,7 @@ ABSTRACT CLASS add_debug {
       $backtraces = debug_backtrace();
 
       foreach ($backtraces as $backtrace) {
-         $is_trace_class_debug = ($backtrace['class'] == __CLASS__ || is_subclass_of($backtrace['class'],__CLASS__));
+         $is_trace_class_debug = isset($backtrace['class']) && ($backtrace['class'] == __CLASS__ || is_subclass_of($backtrace['class'],__CLASS__));
          if (empty($backtrace['class']) || !$is_trace_class_debug) {
             break;
          }
