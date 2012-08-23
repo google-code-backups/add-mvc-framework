@@ -2,6 +2,7 @@
 
 {if add::current_controller()->mime_type == 'text/plain'}
 ================================================================================================
+
    {$error.type} - {$error.message}
    {$error.file}:{$error.line}
    {foreach $error['file_lines'] as $error_file_line}{$error_file_line.file}:{$error_file_line.line}
