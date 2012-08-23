@@ -187,7 +187,7 @@ CLASS add {
       }
 
       # Check if the class is actually loaded
-      if ($class_filepath && !$class_loaded) {
+      if (!empty($class_filepath) && !$class_loaded) {
 
          $e_class = 'e_developer';
 
