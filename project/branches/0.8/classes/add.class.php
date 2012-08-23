@@ -178,7 +178,7 @@ CLASS add {
 
       }
 
-      if ($class_filepath) {
+      if (!empty($class_filepath)) {
          $class_loaded = include_once($class_filepath);
          $class_loaded &= ( class_exists($classname) || interface_exists($classname) );
       }
