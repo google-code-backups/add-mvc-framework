@@ -46,7 +46,7 @@ CLASS add {
     *
     * @since ADD MVC 0.7.2
     */
-   static $handle_shutdown = true;
+   static $handle_shutdown = false;
 
    /**
     * Gets the site config
