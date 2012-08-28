@@ -277,15 +277,20 @@ CLASS e_add EXTENDS Exception IMPLEMENTS i_with_view {
     */
    public function handle_sensitive_exception($user_message = "An error has occured") {
       if (add::is_development()) {
-         $this->print_exception();
-         add::shutdown();
+         # Prevent misuse on live exceptions
+         $this->view()->assign('exception',$this);
       }
       else {
          $this->mail();
-         $this->view()->assign('exception',$this);
-         $this->view()->assign('C',add::config());
-         $this->display_view();
       }
+
+      $this->view()->assign('user_message',$user_message);
+
+      # note, to access config on the view, use add::config()
+      #$this->view()->assign('C',add::config());
+
+      $this->display_view();
+
    }
    /**
     * print_exception()
