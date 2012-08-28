@@ -1,2 +1,2 @@
 {*SMARTY*}
-{extends file='../common_layout.tpl'}
+{extends file='common_layout.tpl'}
