@@ -322,11 +322,11 @@ CLASS e_add EXTENDS Exception IMPLEMENTS i_with_view {
 
          $tpl_filepath = "exceptions/development/".self::view_basename().".tpl";
 
-         if (!$this->view()->templateExists($tpl_filepath)) {
+         if (!static::view()->templateExists($tpl_filepath)) {
             $tpl_filepath = "exceptions/development/e_add.tpl";
          }
 
-         if ($this->view()->templateExists($tpl_filepath)) {
+         if (static::view()->templateExists($tpl_filepath)) {
             return $tpl_filepath;
          }
          else {
