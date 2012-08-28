@@ -265,7 +265,8 @@ CLASS e_add EXTENDS Exception IMPLEMENTS i_with_view {
     * @since ADD MVC 0.0
     */
    public function handle_exception() {
-      die("{$this->getFile()}({$this->getLine()}): ({$this->getCode()}){$this->getMessage()}");
+      echo("{$this->getFile()}({$this->getLine()}): ({$this->getCode()}){$this->getMessage()}");
+      add::shutdown();
    }
 
 
@@ -277,7 +278,7 @@ CLASS e_add EXTENDS Exception IMPLEMENTS i_with_view {
    public function handle_sensitive_exception($user_message = "An error has occured") {
       if (add::is_development()) {
          $this->print_exception();
-         die();
+         add::shutdown();
       }
       else {
          $this->mail();
@@ -312,7 +313,25 @@ CLASS e_add EXTENDS Exception IMPLEMENTS i_with_view {
    }
 
    public static function view_filepath() {
-      return "exceptions/".self::view_basename().".tpl";
+      if (add::is_development()) {
+
+         $tpl_filepath = "exceptions/development/".self::view_basename().".tpl";
+
+         if (!$this->view()->templateExists($tpl_filepath)) {
+            $tpl_filepath = "exceptions/development/e_default.tpl";
+         }
+
+         if ($this->view()->templateExists($tpl_filepath)) {
+            return $tpl_filepath;
+         }
+         else {
+            # Throw a default exception cause we are already on a a custom exception
+            throw new Exception("No development view file found for exception ".print_r($this,true));
+         }
+      }
+      else {
+         return "exceptions/".self::view_basename().".tpl";
+      }
    }
 
    public static function view_basename() {
