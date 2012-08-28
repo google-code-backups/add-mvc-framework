@@ -4,7 +4,6 @@
    Uncaught Exception {if $exception->getCode()}({$exception->getCode()}){/if} {$exception->getMessage()}
    {print_r($exception->data,true)}
 {else}
-   {extends file='common_layout.tpl'}
    {block name='main'}
    <h1>Uncaught Exception</h1>
    <h2>{$exception->getMessage()}</h2>
