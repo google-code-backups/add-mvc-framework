@@ -6,5 +6,5 @@
 <h2>{$exception->getMessage()}</h2>
 <small>{$exception->getCode()}</small>
 <h3>Debug Data</h3>
-{$debug_data}
+{add_debug::return_var_dump($exception->data)}
 {/block}
