@@ -1,6 +1,6 @@
 {*SMARTY*}
 {* Exceptions View For Development Environment Status *}
-{if add::current_controller->mime_type == 'text/plain'}
+{if add::current_controller()->mime_type == 'text/plain'}
    Uncaught Exception {if $exception->getCode()}({$exception->getCode()}){/if} {$exception->getMessage()}
    {print_r($exception->data,true)}
 {else}
