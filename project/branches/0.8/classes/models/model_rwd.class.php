@@ -248,6 +248,10 @@ ABSTRACT CLASS model_rwd EXTENDS array_entity IMPLEMENTS Iterator {
       if (!$row)
          return false;
 
+      if (!isset($row[static::TABLE_PK)) {
+         throw new e_developer("Model ".get_called_class()." PK is not existing",array($row, static::TABLE, static::TABLE_PK));
+      }
+
       $cached_instance = static::get_cached_instance(static::cache_main_key(),static::cache_array_main_id($row));
 
       if ($cached_instance) {
