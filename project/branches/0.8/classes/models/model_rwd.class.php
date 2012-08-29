@@ -248,7 +248,7 @@ ABSTRACT CLASS model_rwd EXTENDS array_entity IMPLEMENTS Iterator {
       if (!$row)
          return false;
 
-      if (!isset($row[static::TABLE_PK])) {
+      if (!static::row_pk($row)) {
          throw new e_developer("Model ".get_called_class()." PK is not existing",array($row, static::TABLE, static::TABLE_PK));
       }
 
@@ -263,6 +263,22 @@ ABSTRACT CLASS model_rwd EXTENDS array_entity IMPLEMENTS Iterator {
       }
 
       return $instance;
+   }
+
+
+   /**
+    * row_pk
+    *
+    * Gets the pk from the $row
+    *
+    * @param array $row
+    *
+    * @return string $pk
+    *
+    * @since ADD MVC 0.8
+    */
+   public static function row_pk($row) {
+      return $row[static::TABLE_PK];
    }
 
    /**
