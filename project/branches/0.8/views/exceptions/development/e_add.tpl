@@ -10,6 +10,6 @@
    <small>{$exception->getCode()}</small>
    <h3>Debug Data</h3>
    {add_debug::return_var_dump($exception->data)}
-   {$exception->getTraceAsString()}
+   {nl2br($exception->getTraceAsString())}
    {/block}
 {/if}
