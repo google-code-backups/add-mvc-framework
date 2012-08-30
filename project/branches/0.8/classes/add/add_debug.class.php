@@ -146,7 +146,7 @@ ABSTRACT CLASS add_debug {
       }
       $var = self::return_var_dump($args);
       if (add::current_controller()->mime_type == 'text/plain') {
-         $output="\r\nFile Line:".self::caller_file_line()."\r\nData-Values".$var."\r\n";
+         $output="\r\nFile Line:".self::caller_file_line()."\r\n".$var."\r\n";
       }
       else {
          $output="<div style='clear:both'><b>".self::caller_file_line()."</b><xmp>".$var."</xmp></div>";
