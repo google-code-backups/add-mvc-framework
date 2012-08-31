@@ -591,8 +591,11 @@ CLASS add {
     * @uses redirect()
     */
    function redirect_query($new_query,$merge_current=true) {
-      if ($merge_current)
-         $query = array_merge($_GET,$new_query);
+      if ($merge_current) {
+         $get = $_GET;
+         unset($get['add_mvc_path']);
+         $query = array_merge($get,$new_query);
+      }
       else
          $query = $new_query;
       return redirect("?".http_build_query($query));
