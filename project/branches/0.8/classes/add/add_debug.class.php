@@ -127,9 +127,10 @@ ABSTRACT CLASS add_debug {
          if (empty($backtrace['class']) || !$is_trace_class_debug) {
             break;
          }
+         $caller_backtrace = $backtrace;
       }
 
-      return $backtrace;
+      return $caller_backtrace;
 
    }
 
