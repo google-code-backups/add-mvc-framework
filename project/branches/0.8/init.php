@@ -57,7 +57,7 @@ $C->images_dir          = $C->assets_dir.'/images';
 $C->css_dir             = $C->assets_dir.'/css';
 $C->js_dir              = $C->assets_dir.'/js';
 
-$C->domain              = $C->sub_domain.".".$C->super_domain;
+$C->domain              = ( $C->sub_domain ? "$C->sub_domain." : "" ).$C->super_domain;
 $C->base_url            = "http://$C->domain".$C->path;
 
 set_include_path($C->incs_dir);
