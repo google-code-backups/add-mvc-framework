@@ -5,7 +5,7 @@
  * Aims to be compatible with any databases
  * static variable $D should be declared, and the functions are biased to adodb object class
  * @package ADD MVC\Models
- * @version 1.3
+ * @version 1.4.1
  * @since ADD MVC 0.0
  * @author albertdiones@gmail.com
  *
@@ -25,7 +25,7 @@ ABSTRACT CLASS model_rwd EXTENDS array_entity IMPLEMENTS Iterator {
     *
     * @since ADD MVC 0.0
     */
-   const VERSION = '1.4';
+   const VERSION = '1.4.1';
 
    /**
     * $this->data
@@ -363,11 +363,13 @@ ABSTRACT CLASS model_rwd EXTENDS array_entity IMPLEMENTS Iterator {
          $offset = $numrows = -1;
       }
 
-      $rows       = static::db()->SelectLimit(
+      $result = static::db()->SelectLimit(
             $sql,
             $numrows,
             $offset
          );
+
+      $rows = $result->getArray();
 
       $instances  = array();
 
