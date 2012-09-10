@@ -215,6 +215,9 @@ CLASS add {
     * @since ADD MVC 0.0
     */
    static function handle_exception(Exception $e) {
+      if (add::is_live()) 
+        static::current_controller()->mime_type = 'text/html';
+  
       header("Content-type: ".static::current_controller()->mime_type);
       if (method_exists($e,'handle_exception'))
          return $e->handle_exception();
