@@ -216,7 +216,7 @@ CLASS add {
     */
    static function handle_exception(Exception $e) {
 
-      header("Content-type: ".static::current_controller()->content_type);
+      header("Content-type: ".static::current_controller()->content_type());
       if (method_exists($e,'handle_exception'))
          return $e->handle_exception();
       else {
