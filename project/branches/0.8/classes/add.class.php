@@ -666,4 +666,14 @@ CLASS add {
       else
          return add::is_development();
    }
+
+
+   /**
+    * content_type()
+    *
+    * @since ADD MVC 0.8
+    */
+   public function content_type($new_content_type = null) {
+      return add::current_controller()->content_type($new_content_type);
+   }
 }
