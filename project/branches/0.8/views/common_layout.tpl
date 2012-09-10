@@ -1,4 +1,12 @@
 {block name="response"}
+{if add::content_type() == "text/plain"}{*
+* Plain text layout
+*}
+{block name=header}{block name=meta_title}{/block}{/block}
+{block name=main}{/block}
+{block name=footer}{/block}
+
+{else}
 <!DOCTYPE html>
 <html>
    <head>
@@ -47,4 +55,5 @@
 
    </body>
 </html>
+{/if}
 {/block}
