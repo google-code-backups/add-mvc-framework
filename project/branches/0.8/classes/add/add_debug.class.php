@@ -316,7 +316,7 @@ ABSTRACT CLASS add_debug {
     * @since ADD MVC 0.7.4
     */
    public static function print_config($field, $boolean = false) {
-      $value = add::config()->$field;
+      $value = isset(add::config()->$field) ? add::config()->$field : null;
 
       $label = "config - $field";
 
