@@ -1,6 +1,6 @@
 {*SMARTY*}
 
-{if add::current_controller()->mime_type == 'text/plain'}
+{if add::current_controller()->content_type() == 'text/plain'}
 ================================================================================================
 
    {$error.type} - {$error.message}

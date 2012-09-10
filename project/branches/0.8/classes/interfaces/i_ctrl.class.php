@@ -38,11 +38,11 @@ INTERFACE i_ctrl {
 
 
    /**
-    * sets the mime_type or get the current one
+    * sets the content_type or get the current one
     *
-    * @param string $new_mime_type
+    * @param string $new_content_type
     *
     * @since ADD MVC 0.8
     */
-   public function mime_type($new_mime_type = null);
+   public function content_type($new_content_type = null);
 }
