@@ -21,7 +21,7 @@ ABSTRACT CLASS ctrl_tpl_page IMPLEMENTS i_ctrl, i_ctrl_with_view {
     *
     * @since ADD MVC 0.8
     */
-   public $mime_type = 'text/html';
+   protected $mime_type = 'text/html';
 
    /**
     * The views cache
@@ -102,7 +102,6 @@ ABSTRACT CLASS ctrl_tpl_page IMPLEMENTS i_ctrl, i_ctrl_with_view {
       if (add::is_development())
          add::config()->root_timer->lap("Before Printing");
 
-      header("Content-type: ".$this->mime_type);
       $this->print_response($this->data);
    }
 
@@ -348,5 +347,21 @@ ABSTRACT CLASS ctrl_tpl_page IMPLEMENTS i_ctrl, i_ctrl_with_view {
     */
    public function meta_keywords() {
       return isset(add::config()->default_meta_keywords) ? add::config()->default_meta_keywords : null;
+   }
+
+
+   /**
+    * sets the mime_type or get the current one
+    *
+    * @param string $new_mime_type
+    *
+    * @since ADD MVC 0.8
+    */
+   public function mime_type($new_mime_type = null) {
+      if ($new_mine_type) {
+         $this->mime_type = $new_mime_type;
+         header("Content-type: ".$this->mime_type);
+      }
+      return $this->mime_type;
    }
 }

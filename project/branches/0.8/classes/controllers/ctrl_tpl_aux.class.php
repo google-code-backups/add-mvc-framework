@@ -17,7 +17,7 @@ ABSTRACT CLASS ctrl_tpl_aux {
     *
     * @since ADD MVC 0.8
     */
-   public $mime_type = 'text/plain';
+   protected $mime_type = 'text/plain';
 
    /**
     * run the page
@@ -110,5 +110,20 @@ ABSTRACT CLASS ctrl_tpl_aux {
     */
    public function log_filepath() {
       return $C->incs_dir."/logs/".get_called_class().".log.txt";
+   }
+
+   /**
+    * sets the mime_type or get the current one
+    *
+    * @param string $new_mime_type
+    *
+    * @since ADD MVC 0.8
+    */
+   public function mime_type($new_mime_type = null) {
+      if ($new_mine_type) {
+         $this->mime_type = $new_mime_type;
+         header("Content-type: ".$this->mime_type);
+      }
+      return $this->mime_type;
    }
 }
