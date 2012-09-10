@@ -27,6 +27,9 @@ ABSTRACT CLASS ctrl_tpl_aux {
    public function execute() {
       e_hack::assert($this->can_run(),"Invalid aux script authentication key");
 
+      # Set Content Type
+      $this->content_type($this->content_type);
+
       ob_start();
       try {
          $this->process_data();
@@ -35,8 +38,6 @@ ABSTRACT CLASS ctrl_tpl_aux {
          add::handle_exception($e);
       }
       $this->response = ob_get_clean();
-
-      header("Content-type: ".$this->content_type);
 
       $this->handle_response();
    }

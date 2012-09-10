@@ -72,6 +72,9 @@ ABSTRACT CLASS ctrl_tpl_page IMPLEMENTS i_ctrl, i_ctrl_with_view {
          return $this->page();
       }
 
+      # Set Content Type
+      $this->content_type($this->content_type);
+
       try {
          $this->mode = isset($_REQUEST['mode']) ? "$_REQUEST[mode]" : '';
          $this->process_data();
