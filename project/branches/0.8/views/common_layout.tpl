@@ -1,3 +1,4 @@
+{block name="response"}
 <!DOCTYPE html>
 <html>
    <head>
@@ -46,3 +47,4 @@
 
    </body>
 </html>
+{/block}
