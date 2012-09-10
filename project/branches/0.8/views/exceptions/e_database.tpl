@@ -1,6 +1,7 @@
 {*SMARTY*}
 {extends file='exceptions/e_add.tpl'}
 {block name='main'}
+{add_debug::var_dump(add::current_controller()->content_type)}
 <h1>Database Error</h1>
    {if $user_message}
       {$user_message}
