@@ -215,7 +215,7 @@ CLASS add {
     * @since ADD MVC 0.0
     */
    static function handle_exception(Exception $e) {
-  
+
       header("Content-type: ".static::current_controller()->content_type);
       if (method_exists($e,'handle_exception'))
          return $e->handle_exception();
@@ -543,7 +543,12 @@ CLASS add {
       global $C;
       static $current_controller_basename;
       if (!isset($current_controller_basename)) {
-         $relative_path = isset($_GET['add_mvc_path']) ? "$_GET[add_mvc_path]" : preg_replace('/^.*\/(.+?)(\?.*)?$/','$1',$_SERVER['REQUEST_URI']);
+
+         $relative_path =
+               isset($_GET['add_mvc_path'])
+               ? preg_replace('/^'.preg_quote(add::config()->path,'/').'/','',$_GET['add_mvc_path'])
+               : preg_replace('/^.*\/(.+?)(\?.*)?$/','$1',$_SERVER['REQUEST_URI']);
+
          $current_controller_basename = $relative_path;
          $current_controller_basename = preg_replace('/\-+/','_',$current_controller_basename);
          $current_controller_basename = preg_replace('/\.php$/','',$current_controller_basename);
