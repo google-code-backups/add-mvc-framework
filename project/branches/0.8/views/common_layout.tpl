@@ -3,6 +3,7 @@
 * Plain text layout
 *}
 {block name=header}{block name=meta_title}{/block}{/block}
+
 {block name=main}{/block}
 {block name=footer}{/block}
 
@@ -12,9 +13,9 @@
    <head>
 
 {block name=metas}
-      <title>{$meta_title|escape}</title>
-      <meta name="description" content="{$meta_description|escape}" />
-      <meta name="keywords" content="{$meta_keywords|escape}" />
+      <title>{block name=meta_title}{/block}</title>
+      <meta name="description" content="{block name=meta_description}{/block}" />
+      <meta name="keywords" content="{block name=meta_keywords}{/block}" />
 {/block}
 
 {block name=styles}
