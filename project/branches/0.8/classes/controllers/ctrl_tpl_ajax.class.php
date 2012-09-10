@@ -17,7 +17,7 @@ ABSTRACT CLASS ctrl_tpl_ajax IMPLEMENTS i_ctrl {
     *
     * @since ADD MVC 0.8
     */
-   public $mime_type = 'text/html';
+   protected $mime_type = 'text/html';
 
    /**
     * The view data
@@ -128,5 +128,20 @@ ABSTRACT CLASS ctrl_tpl_ajax IMPLEMENTS i_ctrl {
     */
    public function print_response($data) {
       echo json_encode($data);
+   }
+
+   /**
+    * sets the mime_type or get the current one
+    *
+    * @param string $new_mime_type
+    *
+    * @since ADD MVC 0.8
+    */
+   public function mime_type($new_mime_type = null) {
+      if ($new_mine_type) {
+         $this->mime_type = $new_mime_type;
+         header("Content-type: ".$this->mime_type);
+      }
+      return $this->mime_type;
    }
 }
