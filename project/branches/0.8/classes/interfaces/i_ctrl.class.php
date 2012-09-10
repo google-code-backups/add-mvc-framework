@@ -35,4 +35,14 @@ INTERFACE i_ctrl {
     * @since ADD MVC 0.6
     */
    public function assign(/* Polymorphic */);
+
+
+   /**
+    * sets the mime_type or get the current one
+    *
+    * @param string $new_mime_type
+    *
+    * @since ADD MVC 0.8
+    */
+   public function mime_type($new_mime_type = null);
 }
