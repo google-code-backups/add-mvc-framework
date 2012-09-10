@@ -122,7 +122,7 @@ ABSTRACT CLASS ctrl_tpl_mailer EXTENDS phpMailer IMPLEMENTS i_ctrl, i_ctrl_with_
     * @since ADD MVC 0.8
     */
    public function content_type($new_content_type = null) {
-      if ($new_mine_type) {
+      if ($new_content_type) {
          $this->ContentType = $new_content_type;
       }
       return $this->ContentType;

@@ -358,7 +358,7 @@ ABSTRACT CLASS ctrl_tpl_page IMPLEMENTS i_ctrl, i_ctrl_with_view {
     * @since ADD MVC 0.8
     */
    public function content_type($new_content_type = null) {
-      if ($new_mine_type) {
+      if ($new_content_type) {
          $this->content_type = $new_content_type;
          header("Content-type: ".$this->content_type);
       }
