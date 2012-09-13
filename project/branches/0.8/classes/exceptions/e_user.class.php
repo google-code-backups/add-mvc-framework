@@ -13,7 +13,7 @@ CLASS e_user EXTENDS e_add {
 
    public static assert($condition, $message = null, $data=NULL, $error_number=NULL)  {
       if (!$message) {
-         $message ="Failed to validate $function ($arguments) "
+         $message ="Failed to validate ($condition)"
       }
       parent::assert($condition, $message, $data, $error_number);
    }
