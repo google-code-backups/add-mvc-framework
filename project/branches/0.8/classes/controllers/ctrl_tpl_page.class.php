@@ -179,7 +179,7 @@ ABSTRACT CLASS ctrl_tpl_page IMPLEMENTS i_ctrl, i_ctrl_with_view {
 
          foreach ($array_keys as $array_key) {
             e_developer::assert(is_scalar($array_key),"Invalid GPC array key $array_key");
-            $compact_array[$array_key] = $gpc_array[$array_key]!=="" ? $gpc_array[$array_key] : null;
+            $compact_array[$array_key] = isset($gpc_array[$array_key]) && $gpc_array[$array_key]!=="" ? $gpc_array[$array_key] : null;
          }
 
       }
