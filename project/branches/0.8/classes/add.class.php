@@ -622,7 +622,7 @@ CLASS add {
     *
     * @since ADD MVC 0.8
     */
-   public function environment_status($new_status = null) {
+   public static function environment_status($new_status = null) {
 
       if ($new_status) {
          add::config()->environment_status = $new_status;
