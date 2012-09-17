@@ -281,6 +281,9 @@ CLASS e_add EXTENDS Exception IMPLEMENTS i_with_view {
       }
 
       if (!headers_sent()) {
+         while (ob_get_level()) {
+            ob_end_clean();
+         }
          if (add::is_development()) {
             # Prevent misuse on live exceptions
             $this->view()->assign('exception',$this);
