@@ -1,13 +1,13 @@
 <?php
 
 /**
- * test fatal error
+ * Test exception on live
  *
  * @since ADD MVC Demo 0.8
  */
 CLASS ctrl_page_live_exception EXTENDS ctrl_tpl_page {
    /**
-    * Trigger fatal erro
+    * Throw an exception
     *
     */
    public function process_data() {
