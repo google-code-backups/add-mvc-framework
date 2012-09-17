@@ -42,8 +42,8 @@ CLASS e_add EXTENDS Exception IMPLEMENTS i_with_view {
     *
     * @param mixed $condition
     * @param string $message the error message
-    * @param int $error_number the error code
     * @param mixed $data extra data of the error
+    * @param int $error_number the error code
     *
     * @since ADD MVC 0.0
     * @version 0.1

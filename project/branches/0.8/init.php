@@ -46,6 +46,8 @@ $C->configs_dir         = $C->incs_dir.'/configs';
 $C->views_dir           = $C->incs_dir.'/views';
 $C->caches_dir          = $C->incs_dir.'/caches';
 
+add::environment_status(add::config()->environment_status);
+
 if (add::is_development() && !is_writeable($C->caches_dir)) {
    $C->caches_dir = sys_get_temp_dir().'/add_mvc_caches';
    if (!file_exists($C->caches_dir))
@@ -72,29 +74,6 @@ $C->css_path    = $C->assets_path.'css/';
 $C->js_path     = $C->assets_path.'js/';
 $C->images_path = $C->assets_path.'images/';
 $C->assets_libs_path   = $C->assets_path.'libs/';
-
-/**
- * No errors if live
- *
- * @since ADD MVC 0.7.2
- */
-if (add::is_live()) {
-   error_reporting(0);
-}
-else {
-   error_reporting(E_ALL);
-
-   /**
-    * When development, record the time spent on script execution
-    *
-    * @since ADD MVC 0.7.2
-    */
-   if (add::is_development()) {
-      add::$handle_shutdown          = true;
-      $GLOBALS['add_mvc_root_timer'] = add_development_timer::start("Framework Configuration");
-      add::config()->root_timer      = $GLOBALS['add_mvc_root_timer'];
-   }
-}
 
 add::load_functions('common');
 
