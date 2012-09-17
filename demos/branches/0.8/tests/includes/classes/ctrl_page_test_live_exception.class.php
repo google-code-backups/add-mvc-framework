@@ -12,6 +12,6 @@ CLASS ctrl_page_live_exception EXTENDS ctrl_tpl_page {
     */
    public function process_data() {
       add::config()->environment_status("live");
-      add::config()->
+      throw new e_developer();
    }
 }
