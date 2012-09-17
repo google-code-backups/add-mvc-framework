@@ -288,7 +288,7 @@ CLASS e_add EXTENDS Exception IMPLEMENTS i_with_view {
          $this->view()->assign('user_message',$user_message);
          # note, to access config on the view, use add::config()
          #$this->view()->assign('C',add::config());
-         $this->display_view();
+         $this->print_response();
       }
       else {
          $this->print_exception();
@@ -347,7 +347,7 @@ CLASS e_add EXTENDS Exception IMPLEMENTS i_with_view {
    }
 
 
-   public function display_view() {
+   public function print_response() {
       return $this->view()->display(self::view_filepath());
    }
 }
