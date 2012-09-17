@@ -342,11 +342,29 @@ CLASS e_add EXTENDS Exception IMPLEMENTS i_with_view {
       }
    }
 
+   /**
+    * The basename of the view of the exception
+    *
+    */
    public static function view_basename() {
       return get_called_class();
    }
 
 
+   /**
+    * Backward support
+    *
+    * @since ADD MVC 0.8
+    */
+   public function display_view() {
+      return $this->print_response();
+   }
+
+   /**
+    * Print the exception's response
+    *
+    * @since ADD MVC 0.8
+    */
    public function print_response() {
       return $this->view()->display(self::view_filepath());
    }
