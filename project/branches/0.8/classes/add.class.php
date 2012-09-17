@@ -618,6 +618,43 @@ CLASS add {
    }
 
    /**
+    * Sets and return or return an environment status
+    *
+    * @since ADD MVC 0.8
+    */
+   public function environment_status($new_status = null) {
+
+      if ($new_status) {
+         add::config()->environment_status = $new_status;
+      }
+
+      /**
+       * No errors if live
+       *
+       * @since ADD MVC 0.7.2
+       */
+      if (add::is_live()) {
+         error_reporting(0);
+      }
+      else {
+         error_reporting(E_ALL);
+
+         /**
+          * When development, record the time spent on script execution
+          *
+          * @since ADD MVC 0.7.2
+          */
+         if (add::is_development()) {
+            add::$handle_shutdown          = true;
+            $GLOBALS['add_mvc_root_timer'] = add_development_timer::start("Framework Configuration");
+            add::config()->root_timer      = $GLOBALS['add_mvc_root_timer'];
+         }
+      }
+
+      return add::config()->environment_status;
+   }
+
+   /**
     * environment check: is live?
     *
     * @since ADD MVC 0.7
@@ -673,6 +710,9 @@ CLASS add {
     * @since ADD MVC 0.8
     */
    public function content_type($new_content_type = null) {
+      if ($new_content_type == 'text/plain') {
+         ini_set('html_errors',0);
+      }
       return add::current_controller()->content_type($new_content_type);
    }
 }
