@@ -69,6 +69,45 @@ https://add-mvc-framework.googlecode.com/svn/wiki/assets/images/add-controller.p
       # post_mode_process() (version 0.9) - To be extended to add a process *after* the processing of the $_REQUEST['mode'] 
    # print_response($data)
 
+=== Mode Processing Method ===
+ADD MVC has a built-in support for actions and modes (for consistency both actions and modes are to be referred to as *modes*)
+
+Controllers can be extended to have any modes, the method should be named: `process_mode_$_REQUEST['mode']`($gpc)
+
+Example:
+
+{{{
+<?php
+/**
+ * The home page
+ */
+CLASS ctrl_page_index EXTENDS ctrl_tpl_page {
+   /**
+    * Login Mode Request Variables (aka GPC)
+    */
+   protected static $mode_gpc_login = array(
+         '_POST' => array('username' , 'password')
+      );
+
+   /**
+    * Login Mode
+    *
+    * This function is automatically executed if:
+    *  $_REQUEST['mode'] == 'login'
+    *
+    * @param array $gpc this is passed from process_mode() method
+    *
+    */
+   public function process_mode_login($gpc) {
+      # $gpc contains: { username: "myUsername", password: "myP@ssword" }
+      extract($gpc);
+      member::login($username,$password);
+   }
+
+
+}
+}}}
+
 == Your ADODB connection ==
 before models could work, you will need to get the ADODB connection:
 {{{
