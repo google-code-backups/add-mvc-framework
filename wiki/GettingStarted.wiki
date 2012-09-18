@@ -67,7 +67,8 @@ https://add-mvc-framework.googlecode.com/svn/wiki/assets/images/add-controller.p
       # pre_mode_process() (version 0.9) - To be extended to add a process *before* the processing of the `$_REQUEST['mode']`
       # process_mode() - Creates an array of registered gpc. Calls the applicable `process_mode_$_REQUEST['mode']`($gpc). For best practice this method should not be extended
       # post_mode_process() (version 0.9) - To be extended to add a process *after* the processing of the $_REQUEST['mode'] 
-   # print_response($data)
+   # `print_response($data)` - prints the view. For best practice this method should not be extended
+ # assign($field,$value) - assigns a data to the controller. This will also automatically call `smarty assign()` for the view.
 
 === Mode Processing Method ===
 ADD MVC has a built-in support for actions and modes (for consistency both actions and modes are to be referred to as *modes*)
