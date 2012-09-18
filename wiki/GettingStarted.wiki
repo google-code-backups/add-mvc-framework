@@ -58,6 +58,9 @@ CLASS ctrl_page_index EXTENDS ctrl_tpl_page {
 
 }
 }}}
+
+https://add-mvc-framework.googlecode.com/svn/wiki/assets/images/add-controller.png
+
 == Your ADODB connection ==
 before models could work, you will need to get the ADODB connection:
 {{{
