@@ -61,7 +61,7 @@ CLASS ctrl_page_index EXTENDS ctrl_tpl_page {
 === Controller Methods ===
 https://add-mvc-framework.googlecode.com/svn/wiki/assets/images/add-controller.png
 
- # execute() - the root method of the controller this function calls process_data and print_response() and is called in [GettingStarted#Main_Execution_File]
+ # execute() - the root method of the controller this function calls process_data and print_response() and is called in your [GettingStarted#Main_Execution_File Main Execution File]
 
 == Your ADODB connection ==
 before models could work, you will need to get the ADODB connection:
