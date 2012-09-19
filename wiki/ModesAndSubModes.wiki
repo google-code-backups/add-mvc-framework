@@ -87,12 +87,25 @@ CLASS ctrl_page_pay EXTENDS ctrl_tpl_page {
 }
 }}}
 
+== Mode Process Method ==
+
+ADD MVC has a built-in support for actions and modes (for consistency both actions and modes are to be referred to as modes).
+
+Mode process methods are prefixed with `process_mode` (probably to be renamed to `mode_process_` for consistency with `mode_gpc_` prefix)
+
+Mode process method should accept one argument, an array (to be referred from now on as: $gpc).
+
+$gpc will be a dictionary array (ie. associative array) of the gpc field and the value of the request variable. Note that, this value is not sanitized.
+
+Inside the method, it is recommended for it to be extract()'ed, so it can be accessed like a global variable.
+
+
 == Mode GPC ==
 GPC stands for get, post and cookie, which is, the request variable of PHP. On ADD MVC it refers to the request variables.
 
-For modes, you will have to declare the mode gpc to be able to securely register a request variable and pass it to the mode process method's first argument (to be referred from now as: $gpc).
+For modes, you will have to declare the mode gpc to be able to securely register a request variable and pass it to the mode's $gpc argument.
 
-$gpc will be a dictionary array (ie. associative array) of the gpc field and the value of the request variable. Note that, this value is not sanitized.
+mode gpc keys are prefixed with `mode_gpc_` eg. `$mode_gpc_login`
 
 === Common GPC ===
 
