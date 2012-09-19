@@ -87,7 +87,7 @@ CLASS ctrl_page_pay EXTENDS ctrl_tpl_page {
 }
 }}}
 
-== Mode Process Method ==
+== Controller's Mode Process Method ==
 
 ADD MVC has a built-in support for actions and modes (for consistency both actions and modes are to be referred to as modes).
 
