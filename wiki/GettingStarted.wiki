@@ -70,10 +70,11 @@ https://add-mvc-framework.googlecode.com/svn/wiki/assets/images/add-controller.p
    # `print_response($data)` - prints the view. For best practice this method should not be extended
  # assign($field,$value) - assigns a data to the controller. This will also automatically call `smarty assign()` for the view.
 
-=== Mode Process Method ===
-ADD MVC has a built-in support for actions and modes (for consistency both actions and modes are to be referred to as *modes*)
+=== Modes and Sub Modes ===
 
-This is discussed on this page: [ModesAndSubModes Modes and Sub Modes]
+ADD MVC has built in support for actions or modes (for consistency, we will call these "modes") of pages/resources (for consistency we will call these "resources").
+
+Modes are further discussed on this page: [ModesAndSubModes Modes and Sub Modes]
 
 == Your ADODB connection ==
 before models could work, you will need to get the ADODB connection:
