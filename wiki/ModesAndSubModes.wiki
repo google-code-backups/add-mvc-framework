@@ -23,7 +23,7 @@ CLASS ctrl_page_index EXTENDS ctrl_tpl_page {
    /**
     * Login Mode Request Variables (aka GPC)
     */
-   protected static $mode_gpc_login = array(
+   protected $mode_gpc_login = array(
          '_POST' => array('username' , 'password')
       );
 
@@ -62,7 +62,7 @@ CLASS ctrl_page_pay EXTENDS ctrl_tpl_page {
    /**
     * Credit Card GPC
     */
-   protected static $mode_gpc_login = array(
+   protected $mode_gpc_login = array(
          '_POST' => array('credit_card' , 'expiration_date')
       );
 
@@ -93,3 +93,7 @@ GPC stands for get, post and cookie, which is, the request variable of PHP. On A
 For modes, you will have to declare the mode gpc to be able to securely register a request variable and pass it to the mode process method's first argument (to be referred from now as: $gpc).
 
 $gpc will be a dictionary array (ie. associative array) of the gpc field and the value of the request variable. Note that, this value is not sanitized.
+
+=== Common GPC ===
+
+Since *version 0.9* there is a new convenient way of declaring GPCs, common GPC controller object property will contain GPC that are common for all modes, therefore making it available on  the $gpc variable.
