@@ -8,7 +8,7 @@ ADD MVC has built in support for actions or modes (for consistency, we will only
 The current mode of the resource depends on the `$_REQUEST['mode']` variable.
 
 === Declaring modes ===
-The [GettingStarted#Mode_Process_Method mode process method] has to be declared for the mode to make any custom effect.
+The [ModesAndSubModes#Controller's_Mode_Process_Method mode process method] has to be declared for the mode to make any custom effect.
 
 Controllers can be extended to have any modes, the method should be named: `process_mode_$_REQUEST['mode']`($gpc)
 
