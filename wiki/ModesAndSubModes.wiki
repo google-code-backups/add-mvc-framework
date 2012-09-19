@@ -110,3 +110,5 @@ mode gpc keys are prefixed with `mode_gpc_` eg. `$mode_gpc_login`
 === Common GPC ===
 
 Since *version 0.9* there is a new convenient way of declaring GPCs, common GPC controller object property will contain GPC that are common for all modes, therefore making it available on  the $gpc variable.
+
+This property is declared as `$common_gpc`
