@@ -70,7 +70,7 @@ https://add-mvc-framework.googlecode.com/svn/wiki/assets/images/add-controller.p
    # `print_response($data)` - prints the view. For best practice this method should not be extended
  # assign($field,$value) - assigns a data to the controller. This will also automatically call `smarty assign()` for the view.
 
-=== Mode Processing Method ===
+=== Mode Process Method ===
 ADD MVC has a built-in support for actions and modes (for consistency both actions and modes are to be referred to as *modes*)
 
 Controllers can be extended to have any modes, the method should be named: `process_mode_$_REQUEST['mode']`($gpc)
