@@ -1,0 +1,53 @@
+#summary Controller Modes and Sub Modes
+#labels Phase-Design,Phase-Implementation
+
+= Modes =
+== Introduction ==
+ADD MVC has built in support for actions or modes (for consistency, we will only call these "modes" from now on) of pages/resources (for consistency we will only use the term "resources" from now on).
+
+The current mode of the resource depends on the `$_REQUEST['mode']` variable.
+
+== Declaring modes ==
+The [GettingStarted#Mode_Process_Method mode process method] has to be declared for the mode to make any custom effect.
+
+Controllers can be extended to have any modes, the method should be named: `process_mode_$_REQUEST['mode']`($gpc)
+
+For example, you want a page to have a mode "login"
+
+{{{
+<?php
+/**
+ * The home page
+ */
+CLASS ctrl_page_index EXTENDS ctrl_tpl_page {
+   /**
+    * Login Mode Request Variables (aka GPC)
+    */
+   protected static $mode_gpc_login = array(
+         '_POST' => array('username' , 'password')
+      );
+
+   /**
+    * Login Mode
+    *
+    * This function is automatically executed if:
+    *  $_REQUEST['mode'] == 'login'
+    *
+    * @param array $gpc this is passed from process_mode() method
+    *
+    */
+   public function process_mode_login($gpc) {
+      # $gpc contains: { username: "myUsername", password: "myP@ssword" }
+      extract($gpc);
+      member::login($username,$password);
+   }
+
+
+}
+}}}
+
+
+
+
+
+
