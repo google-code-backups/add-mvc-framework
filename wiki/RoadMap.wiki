@@ -1,7 +1,7 @@
 #summary RoadMap: Plans for new versions
 #labels Featured,Phase-Design
 
-= 0.9 =
+= 0.9 Modes & Sub Modes =
  * sub_modes
  * common_gpcs
  * pre_mode_process
