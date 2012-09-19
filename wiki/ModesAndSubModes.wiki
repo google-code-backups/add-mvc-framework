@@ -98,14 +98,31 @@ Mode process method should accept one argument, an array (to be referred from no
 $gpc will be a dictionary array (ie. associative array) of the gpc field and the value of the request variable. Note that, this value is not sanitized.
 
 Inside the method, it is recommended for it to be extract()'ed, so it can be accessed like a global variable.
+{{{
+<?php
+/**
+ * pay page
+ */
+CLASS ctrl_page_pay EXTENDS ctrl_tpl_page {
+   /**
+    * Credit Card GPC
+    */
+   protected $mode_gpc_login = array(
+         '_POST' => array('credit_card' , 'expiration_date')
+      );
+}
+}}}
 
-
-== Mode GPC ==
+== Mode GPC Property ==
 GPC stands for get, post and cookie, which is, the request variable of PHP. On ADD MVC it refers to the request variables.
 
 For modes, you will have to declare the mode gpc to be able to securely register a request variable and pass it to the mode's $gpc argument.
 
 mode gpc keys are prefixed with `mode_gpc_` eg. `$mode_gpc_login`
+
+Mode GPC property should be a dictionary array (ie. associative array) with first dimension indexes as '_GET','_POST','_COOKIE' or '_REQUEST'. Then the value is a list array (ie. numeric indexes array) with the request variable names to be registered.
+
+
 
 === Common GPC ===
 
