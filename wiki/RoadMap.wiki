@@ -1,17 +1,5 @@
 #summary RoadMap: Plans for new versions
 #labels Featured,Phase-Design
-= 0.8 =
- * controllers
-   * hierachy system
- * class autoloading
-   * class directory variable
-   * iterate through class directory variable for autoloading
-   * :: __add_loaded() pseudo-magic function
- * add-usability.js
- * model_ `*`::meta_columns()
- * bug fixes
-   * E_USER_ERROR layout fix
-   * mime_type - sensitive error/data/debug printing
 
 = 0.9 =
  * sub_modes
