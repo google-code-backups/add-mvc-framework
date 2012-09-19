@@ -47,7 +47,10 @@ CLASS ctrl_page_index EXTENDS ctrl_tpl_page {
 }}}
 
 
+= Sub Modes =
+Since version 0.9, sub modes are new way of segregating actions and modes of the request.
 
+This is automatically registered to the mode process method's first argument ($gpc) . To be used on such situation that a mode requires two kinds of action or non-action is to be done.
 
 
 
