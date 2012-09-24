@@ -25,9 +25,11 @@ INTERFACE i_ctrl {
    /**
     * process_data() - process the data
     *
+    * @param array $gpc the common gpc
+    *
     * @since ADD MVC 0.6
     */
-   public function process_data();
+   public function process_data($gpc);
 
    /**
     * assign data
