@@ -77,7 +77,13 @@ ABSTRACT CLASS ctrl_tpl_page IMPLEMENTS i_ctrl, i_ctrl_with_view {
 
       try {
          $this->mode = isset($_REQUEST['mode']) ? "$_REQUEST[mode]" : '';
-         $this->process_data( array() );
+
+         $this->process_data(
+               isset($this->common_gpc)
+               ? $this->recursive_compact( $this->common_gpc )
+               : array()
+            );
+
       }
       catch(e_user $e) {
 
@@ -124,7 +130,10 @@ ABSTRACT CLASS ctrl_tpl_page IMPLEMENTS i_ctrl, i_ctrl_with_view {
          return $this->process();
       }
 
-      return $this->process_mode( $gpc );
+      $process_mode_result = $this->process_mode( $gpc );
+
+      $this->post_mode_process( $gpc );
+
    }
 
 
@@ -369,12 +378,20 @@ ABSTRACT CLASS ctrl_tpl_page IMPLEMENTS i_ctrl, i_ctrl_with_view {
    }
 
    /**
-    * prepare the gpc for the process mode
+    * Process before the main mode process
     *
     * @param array $gpc
     * @since ADD MVC 0.9
     */
    public function pre_mode_process($gpc) {
+   }
 
+   /**
+    * Process after the main mode process
+    *
+    * @param array $gpc
+    * @since ADD MVC 0.9
+    */
+   public function post_mode_process($gpc) {
    }
 }
