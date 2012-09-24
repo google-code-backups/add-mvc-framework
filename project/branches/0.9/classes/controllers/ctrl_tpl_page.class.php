@@ -123,16 +123,16 @@ ABSTRACT CLASS ctrl_tpl_page IMPLEMENTS i_ctrl, i_ctrl_with_view {
     * @param array $gpc
     * @todo remove version 0.5 support on ADD MVC 1.0
     */
-   public function process_data($gpc) {
-      $this->pre_mode_process( $gpc );
+   public function process_data($common_gpc) {
+      $this->pre_mode_process( $common_gpc );
       # ADD MVC 0.5 backward support
       if (method_exists($this,'process')) {
          return $this->process();
       }
 
-      $process_mode_result = $this->process_mode( $gpc );
+      $process_mode_result = $this->process_mode( $common_gpc );
 
-      $this->post_mode_process( $gpc );
+      $this->post_mode_process( $common_gpc );
 
    }
 
@@ -144,7 +144,7 @@ ABSTRACT CLASS ctrl_tpl_page IMPLEMENTS i_ctrl, i_ctrl_with_view {
     * @since ADD MVC 0.1
     * @version 0.2
     */
-   public function process_mode($gpc) {
+   public function process_mode( $common_gpc ) {
       $mode = $this->mode;
 
       if (!$mode) {
@@ -159,15 +159,16 @@ ABSTRACT CLASS ctrl_tpl_page IMPLEMENTS i_ctrl, i_ctrl_with_view {
 
          if (isset($this->$gpc_key_var)) {
             $compact_array = $this->recursive_compact( $this->$gpc_key_var );
+            $merge_compact_array = array_merge($compact_array, $common_gpc);
          }
          else if ($mode != 'default') {
             throw new e_developer(get_called_class()."->$gpc_key_var not declared");
          }
 
-         $this->view()->assign($compact_array);
+         $this->view()->assign($merge_compact_array);
          $this->view()->assign('mode',$mode);
 
-         return $this->$method_name($compact_array);
+         return $this->$method_name($merge_compact_array);
 
       }
 
@@ -380,18 +381,18 @@ ABSTRACT CLASS ctrl_tpl_page IMPLEMENTS i_ctrl, i_ctrl_with_view {
    /**
     * Process before the main mode process
     *
-    * @param array $gpc
+    * @param array $common_gpc
     * @since ADD MVC 0.9
     */
-   public function pre_mode_process($gpc) {
+   public function pre_mode_process($common_gpc) {
    }
 
    /**
     * Process after the main mode process
     *
-    * @param array $gpc
+    * @param array $common_gpc
     * @since ADD MVC 0.9
     */
-   public function post_mode_process($gpc) {
+   public function post_mode_process($common_gpc) {
    }
 }
