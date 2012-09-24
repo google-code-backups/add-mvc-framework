@@ -36,11 +36,6 @@
 {/block}
          <div class="main">
 {block name=main}{/block}
-
-
-
-
-
          </div>
          <div class="footer">
             <div class="generator">
