@@ -77,7 +77,7 @@ ABSTRACT CLASS ctrl_tpl_page IMPLEMENTS i_ctrl, i_ctrl_with_view {
 
       try {
          $this->mode = isset($_REQUEST['mode']) ? "$_REQUEST[mode]" : '';
-         $this->process_data();
+         $this->process_data( array() );
       }
       catch(e_user $e) {
 
@@ -114,28 +114,28 @@ ABSTRACT CLASS ctrl_tpl_page IMPLEMENTS i_ctrl, i_ctrl_with_view {
     *
     * @since ADD MVC 0.0
     * @version 0.1
-    *
+    * @param array $gpc
     * @todo remove version 0.5 support on ADD MVC 1.0
     */
-   public function process_data() {
-
+   public function process_data($gpc) {
+      $this->pre_mode_process( $gpc );
       # ADD MVC 0.5 backward support
       if (method_exists($this,'process')) {
          return $this->process();
       }
 
-      return $this->process_mode();
+      return $this->process_mode( $gpc );
    }
 
 
    /**
     * process_mode function
     * Processes any GPC requests
-    *
+    * @param array $gpc
     * @since ADD MVC 0.1
     * @version 0.2
     */
-   public function process_mode() {
+   public function process_mode($gpc) {
       $mode = $this->mode;
 
       if (!$mode) {
@@ -366,5 +366,15 @@ ABSTRACT CLASS ctrl_tpl_page IMPLEMENTS i_ctrl, i_ctrl_with_view {
          header("Content-type: ".$this->content_type);
       }
       return $this->content_type;
+   }
+
+   /**
+    * prepare the gpc for the process mode
+    *
+    * @param array $gpc
+    * @since ADD MVC 0.9
+    */
+   public function pre_mode_process($gpc) {
+
    }
 }
