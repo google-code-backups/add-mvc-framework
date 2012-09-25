@@ -157,6 +157,8 @@ ABSTRACT CLASS ctrl_tpl_page IMPLEMENTS i_ctrl, i_ctrl_with_view {
 
          $gpc_key_var = "mode_gpc_$mode";
 
+         $compact_array = array();
+
          if (isset($this->$gpc_key_var)) {
             $compact_array = $this->recursive_compact( $this->$gpc_key_var );
             $merge_compact_array = array_merge($compact_array, $common_gpc);
@@ -164,6 +166,8 @@ ABSTRACT CLASS ctrl_tpl_page IMPLEMENTS i_ctrl, i_ctrl_with_view {
          else if ($mode != 'default') {
             throw new e_developer(get_called_class()."->$gpc_key_var not declared");
          }
+
+         $merge_compact_array = array_merge($compact_array, $common_gpc);
 
          $this->view()->assign($merge_compact_array);
          $this->view()->assign('mode',$mode);
