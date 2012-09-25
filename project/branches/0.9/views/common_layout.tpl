@@ -29,8 +29,8 @@
 
 {block name=header}
          <div class="header">
-            <a href="{$C->base_url}" class="title">
-               {$C->super_domain|upper}
+            <a href="{add::config()->base_url}" class="title">
+               {add::config()->super_domain|upper}
             </a>
          </div>
 {/block}
