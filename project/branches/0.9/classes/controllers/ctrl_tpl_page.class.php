@@ -101,9 +101,9 @@ ABSTRACT CLASS ctrl_tpl_page IMPLEMENTS i_ctrl, i_ctrl_with_view {
       }
 
       $this->assign('ctrl_basename',$this->basename());
-      $this->assign('C',add::config());
+      #$this->assign('C',add::config());# Commented since version 0.9
 
-      $error_messages = $this->view()->getTemplateVars('error_messages');
+      $error_messages = $this->data['error_messages'];
 
       if (is_array($error_messages))
          $this->assign('error_message',$error_messages[0]);
@@ -166,7 +166,7 @@ ABSTRACT CLASS ctrl_tpl_page IMPLEMENTS i_ctrl, i_ctrl_with_view {
             throw new e_developer(get_called_class()."->$gpc_key_var not declared");
          }
 
-         $merge_compact_array = array_merge($compact_array, $common_gpc);
+         $merge_compact_array = array_merge($common_gpc, $compact_array);
 
          $this->assign($merge_compact_array);
          $this->assign('mode',$mode);
@@ -275,13 +275,13 @@ ABSTRACT CLASS ctrl_tpl_page IMPLEMENTS i_ctrl, i_ctrl_with_view {
       $tpl = static::view_filepath();
 
       if ($this->view()->templateExists($tpl)) {
-      $this->view()->assign($data);
+      $this->assign($data);
          $this->view()->display($tpl);
       }
       else {
          $template_vars = $data;
          unset($template_vars['C']);
-         $this->view()->assign('template_vars',$template_vars);
+         $this->assign('template_vars',$template_vars);
          $this->view()->display('debug/list_array_page.tpl');
       }
    }
@@ -310,7 +310,7 @@ ABSTRACT CLASS ctrl_tpl_page IMPLEMENTS i_ctrl, i_ctrl_with_view {
          $error_messages[$label] = $e->getMessage();
       }
 
-      $this->view()->assign('error_messages',$error_messages);
+      $this->assign('error_messages',$error_messages);
    }
 
    /**
