@@ -275,7 +275,7 @@ ABSTRACT CLASS ctrl_tpl_page IMPLEMENTS i_ctrl, i_ctrl_with_view {
       $tpl = static::view_filepath();
 
       if ($this->view()->templateExists($tpl)) {
-      $this->assign($data);
+         $this->view()->assign($data);
          $this->view()->display($tpl);
       }
       else {
