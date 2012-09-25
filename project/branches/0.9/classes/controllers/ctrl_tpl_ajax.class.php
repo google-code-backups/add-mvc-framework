@@ -66,7 +66,7 @@ ABSTRACT CLASS ctrl_tpl_ajax IMPLEMENTS i_ctrl {
 
       $this->process_data(
             isset($this->common_gpc)
-            ? $this->recursive_compact( $this->common_gpc )
+            ? ctrl_tpl_page::recursive_compact( $this->common_gpc )
             : array()
          );
 
@@ -96,7 +96,7 @@ ABSTRACT CLASS ctrl_tpl_ajax IMPLEMENTS i_ctrl {
                $compact_array = ctrl_tpl_page::recursive_compact( $this->$gpc_key_var );
             }
 
-            $merge_compact_array = array_merge($compact_array, $common_gpc);
+            $merge_compact_array = array_merge($common_gpc, $compact_array);
 
             return $this->$method_name($merge_compact_array);
          }
