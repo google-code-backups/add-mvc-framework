@@ -7,11 +7,11 @@ CLASS ctrl_page_common_gpc EXTENDS ctrl_tpl_page {
    );
 
    protected $mode_gpc_my_age = array(
-      '_POST' => array ('age', 'birthday');
+      '_POST' => array ('age', 'birthday'),
    );
 
    protected $mode_gpc_my_address = array(
-      '_POST' => array ('street_number', 'city', 'state');
+      '_POST' => array ('address', 'city', 'state'),
    );
 
 
@@ -23,6 +23,7 @@ CLASS ctrl_page_common_gpc EXTENDS ctrl_tpl_page {
    }
 
    public function process_mode_my_address($gpc) {
+      extract($gpc);
       $this->full_name($first_name, $last_name);
       $this->assign('street_no', $street_number);
       $this->assign('city', $city);
