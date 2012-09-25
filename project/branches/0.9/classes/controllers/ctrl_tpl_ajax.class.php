@@ -8,7 +8,7 @@
  * @version 0.1
  * @author albertdiones@gmail.com
  */
-ABSTRACT CLASS ctrl_tpl_ajax IMPLEMENTS i_ctrl_006 {
+ABSTRACT CLASS ctrl_tpl_ajax IMPLEMENTS i_ctrl {
 
    public $mode;
 
@@ -63,7 +63,12 @@ ABSTRACT CLASS ctrl_tpl_ajax IMPLEMENTS i_ctrl_006 {
 
       $this->mode = isset($_REQUEST['mode']) ? "$_REQUEST[mode]" : '';
       add::$handle_shutdown = false;
-      $this->process_data();
+
+      $this->process_data(
+            isset($this->common_gpc)
+            ? $this->recursive_compact( $this->common_gpc )
+            : array()
+         );
 
       $this->print_response($this->data);
    }
@@ -71,11 +76,11 @@ ABSTRACT CLASS ctrl_tpl_ajax IMPLEMENTS i_ctrl_006 {
    /**
     * process_mode function
     * Processes any GPC requests
-    *
+    * @param array $common_gpc
     * @since ADD MVC 0.6
     *
     */
-   public function process_mode() {
+   public function process_mode( $common_gpc ) {
       $mode = $this->mode;
       if ($mode) {
 
@@ -85,11 +90,15 @@ ABSTRACT CLASS ctrl_tpl_ajax IMPLEMENTS i_ctrl_006 {
 
             $gpc_key_var = "mode_gpc_$mode";
 
+            $compact_array = array();
+
             if (isset($this->$gpc_key_var)) {
                $compact_array = ctrl_tpl_page::recursive_compact( $this->$gpc_key_var );
             }
 
-            return $this->$method_name($compact_array);
+            $merge_compact_array = array_merge($compact_array, $common_gpc);
+
+            return $this->$method_name($merge_compact_array);
          }
       }
       return false;
@@ -98,13 +107,17 @@ ABSTRACT CLASS ctrl_tpl_ajax IMPLEMENTS i_ctrl_006 {
     /**
     * The pre-display process of the controller
     * (former $this->process())
-    *
+    * @param array $common_gpc
     * @since ADD MVC 0.6
     *
     */
-   public function process_data() {
+   public function process_data( $common_gpc ) {
 
-      return $this->process_mode();
+      $this->pre_mode_process($common_gpc);
+
+      $process_mode_result = $this->process_mode( $common_gpc );
+
+      $this->post_mode_process( $common_gpc );
    }
 
    /**
@@ -145,5 +158,23 @@ ABSTRACT CLASS ctrl_tpl_ajax IMPLEMENTS i_ctrl_006 {
          header("Content-type: ".$this->content_type);
       }
       return $this->content_type;
+   }
+
+   /**
+    * Process before the main mode process
+    *
+    * @param array $common_gpc
+    * @since ADD MVC 0.9
+    */
+   public function pre_mode_process($common_gpc) {
+   }
+
+   /**
+    * Process after the main mode process
+    *
+    * @param array $common_gpc
+    * @since ADD MVC 0.9
+    */
+   public function post_mode_process($common_gpc) {
    }
 }
