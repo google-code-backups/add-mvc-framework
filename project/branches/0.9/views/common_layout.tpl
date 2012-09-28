@@ -24,7 +24,7 @@
 
 {block name=head_scripts}{/block}
    </head>
-   <body class="{$ctrl_basename} mode_{$mode}" itemscope itemtype="http://schema.org/WebPage">
+   <body class="{$ctrl_basename} mode_{$mode}" itemscope itemtype="{block name='body.itemtype'}http://schema.org/WebPage{/block}">
       <div class="page">
 
 {block name=header}
