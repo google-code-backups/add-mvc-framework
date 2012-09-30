@@ -56,8 +56,8 @@ Where: const TABLE is the table of the company and TABLE_PK is the primary key f
  === model_rwd::instances_from_sql($sql_format,$page=null,$per_page=null) === 
   gets all the instances from the select sql
   
- * Parameters *
- * $sql_format (required) - must contain 2 %s, the first is for to be replaced with "*" and the table name of the model class.
+ *Parameters*
+ * $sql_format (required) - must contain 2 %s, the first is for to be replaced with "`*`" and the table name of the model class.
  * $page - page number to fetch ($per_page required)
  * $per_page - number of rows per page
 {{{
@@ -66,7 +66,7 @@ Where: const TABLE is the table of the company and TABLE_PK is the primary key f
 note: you have to use %% for % when using this function (eg. `LIKE '%%foo%%'`)
  === get_where_order_page($conditions,$order_by=NULL,$page=NULL,$per_page=NULL) === 
    Centralized select query
- * Parameters *
+ *Parameters*
  * mixed $conditions array or string of conditions
  * string $order_by string to use as order by
  * int $page for limit clause
