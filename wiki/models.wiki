@@ -53,7 +53,7 @@ Where: const TABLE is the table of the company and TABLE_PK is the primary key f
    returns the adodb object. To set this, extend this inside the concrete model class so you can return your own value. (There is no default)
  === $model_rwd->update_db_row() ===
    updates the updated fields of the row (instead of waiting for script shutdown)
- === model_rwd::instances_from_sql($sql_format,$page=null,$per_page=null) === 
+ === model_rwd::instances_from_sql() === 
   gets all the instances from the select sql
   
 *Parameters*
@@ -64,7 +64,7 @@ Where: const TABLE is the table of the company and TABLE_PK is the primary key f
    $company = company::instances_from_sql("SELECT %s FROM %s WHERE category='1'");
 }}}
 note: you have to use %% for % when using this function (eg. `LIKE '%%foo%%'`)
- === get_where_order_page($conditions,$order_by=NULL,$page=NULL,$per_page=NULL) === 
+ === model_rwd::get_where_order_page() === 
    Centralized select query
 *Parameters*
  * mixed $conditions array or string of conditions
