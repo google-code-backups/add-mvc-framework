@@ -58,3 +58,5 @@ gets all the instances from the select sql, you have to use %s on the selected f
 {{{
    $company = company::instances_from_sql("SELECT %s FROM %s WHERE category='1'");
 }}}
+note: you have to use %% for % when using this function (eg. `LIKE '%%foo%%'`
+ === get_where_order_page($conditions,$order_by=NULL,$page=NULL,$per_page=NULL) === 
