@@ -50,7 +50,7 @@ Where: const TABLE is the table of the company and TABLE_PK is the primary key f
 
 == Function List ==
  === model_rwd::db() ===
-   returns the adodb object
+   returns the adodb object. To set this, extend this inside the concrete model class so you can return your own value. (There is no default)
  === $model_rwd->update_db_row() ===
    updates the updated fields of the row (instead of waiting for script shutdown)
  === model_rwd::instances_from_sql($sql_format,$page=null,$per_page=null) === 
