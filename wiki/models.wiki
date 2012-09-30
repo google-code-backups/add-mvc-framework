@@ -47,3 +47,11 @@ Where: const TABLE is the table of the company and TABLE_PK is the primary key f
       assign a new value on the object property and it will updated on script shutdown
   * delete
     * `$company->delete()`
+
+== Function List ==
+ * model_rwd::db() - the adodb object
+ * $model_rwd->update_db_row() - updates the updated fields of the row (instead of waiting for script shutdown)
+ * model_rwd::instances_from_sql($sql_format,$page=null,$per_page=null) - gets all the instances from the select sql, you have to use %s on the selected fields, and another %s for the table name of the model class.  {{{
+<?php
+   $company = company::instances_from_sql("SELECT %s FROM %s WHERE category='1'");
+}}}
