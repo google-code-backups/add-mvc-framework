@@ -68,6 +68,10 @@ note: you have to use %% for % when using this function (eg. `LIKE '%%foo%%'`)
    Centralized select query
 *Parameters*
  * mixed $conditions array or string of conditions
- * string $order_by string to use as order by
- * int $page for limit clause
- * int $per_page number of items per page for limit clause
+ * string $order_by string to use as order by (default: none)
+ * int $page for limit clause (default: gets all)
+ * int $per_page number of items per page for limit clause (default: 10 per page)
+{{{
+# gets the page 2 (20 per page) of all row instances where category is equal to 1
+$companies = get_where_order_page(array('category' => '1'),2,20);
+}}}
