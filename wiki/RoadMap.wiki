@@ -9,7 +9,7 @@
 
 = 0.10 =
  * includes/views/pages/ - directory where all pages will be placed
- * includes/views/layout/ - directory where all layouts will be placed
+ * includes/views/layouts/ - directory where all layouts will be placed
  * ctrl_default_page - a ctrl for undeclared controllers with corresponding views/pages/
 
 = 0.11 =
