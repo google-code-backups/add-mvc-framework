@@ -67,7 +67,7 @@ note: you have to use %% for % when using this function (eg. `LIKE '%%foo%%'`)
  === get_where_order_page($conditions,$order_by=NULL,$page=NULL,$per_page=NULL) === 
    Centralized select query
   *Parameters*
-  * mixed $conditions array or string of conditions
-  * string $order_by string to use as order by
-  * int $page for limit clause
-  * int $per_page number of items per page for limit clause
+ * mixed $conditions array or string of conditions
+ * string $order_by string to use as order by
+ * int $page for limit clause
+ * int $per_page number of items per page for limit clause
