@@ -80,3 +80,11 @@ $companies = company::get_where_order_page(array('category' => '1'),2,20);
    get the count of rows
 * Parameters *
  * mixed $conditions - conditions (where)
+
+ === model_rwd::get_page_instances() ===
+   get all instance from static::TABLE matching ALL $conditions , with pagination of page 1, 10 rows/page
+
+ * int $page to fetch
+ * order by clause
+ * mixed $conditions the where clause conditions
+ * int $per_page instance count per page
