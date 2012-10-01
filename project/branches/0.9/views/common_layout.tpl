@@ -33,6 +33,13 @@
                {add::config()->super_domain|upper}
             </a>
          </div>
+         <nav itemscope itemtype="http://schema.org/SiteNavigationElement">
+            {block name='nav'}
+            <ul>
+               <li><a href="{add::config()->base_url}">Home</a></li>
+            </ul>
+            {/block}
+         </nav>
 {/block}
          <div class="main" itemprop="mainContentOfPage">
 {block name=main}{/block}
