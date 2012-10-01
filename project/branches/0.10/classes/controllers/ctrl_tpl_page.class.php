@@ -205,7 +205,7 @@ ABSTRACT CLASS ctrl_tpl_page IMPLEMENTS i_ctrl, i_ctrl_with_view {
     * @since ADD MVC 0.0
     */
    public static function view_filepath() {
-      return static::view_basename().'.tpl';
+      return 'pages/'.static::view_basename().'.tpl';
    }
    /**
     * The view base file name of $this controller
