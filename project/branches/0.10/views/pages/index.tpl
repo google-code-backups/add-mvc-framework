@@ -1,5 +1,5 @@
 {*SMARTY*}
-{extends file='common_layout.tpl'}
+{add_layout file='common_layout'}
 {block name='main'}
    <h1>New Website</h1>
    Hello, this website is very new, please comeback again later to see contents.
