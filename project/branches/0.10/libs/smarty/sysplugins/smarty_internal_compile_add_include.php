@@ -12,12 +12,12 @@ CLASS Smarty_Internal_Compile_Add_Include EXTENDS Smarty_Internal_Compile_Includ
     *
     * @since ADD MVC 0.10
     */
-   public function getAttributes() {
+   public function getAttributes($compiler, $void) {
       $result = call_user_func_array('parent::'.__FUNCTION__,func_get_args());
       $result['file'] = preg_replace('/^(\\\'|\")/','$0includes/',$result['file']);
       $result['file'] = preg_replace('/(\\\'|\")$/','.tpl$0',$result['file']);
 
-      e_developer::assert($this->smarty->TemplateExists($result['file']),"$result[file] Does not exist!");
+      e_developer::assert($compiler->smarty->TemplateExists($result['file']),"$result[file] Does not exist!");
 
       return $result;
    }
