@@ -49,6 +49,7 @@ Where: const TABLE is the table of the company and TABLE_PK is the primary key f
     * `$company->delete()`
 
 == Function List ==
+ * Maybe it's better to look at the phpdoc included in the framework *
  === model_rwd::db() ===
    returns the adodb object. To set this, extend this inside the concrete model class so you can return your own value. (There is no default)
  === $model_rwd->update_db_row() ===
