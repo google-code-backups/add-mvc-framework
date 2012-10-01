@@ -75,3 +75,7 @@ note: you have to use %% for % when using this function (eg. `LIKE '%%foo%%'`)
 # gets the page 2 (20 per page) of all row instances where category is equal to 1
 $companies = company::get_where_order_page(array('category' => '1'),2,20);
 }}}
+
+ === model_rwd::get_count() ===
+* Parameters *
+ * mixed $conditions - conditions (where)
