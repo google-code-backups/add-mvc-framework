@@ -17,7 +17,7 @@ CLASS Smarty_Internal_Compile_Add_Include EXTENDS Smarty_Internal_Compile_Includ
       $result['file'] = preg_replace('/^(\\\'|\")/','$0includes/',$result['file']);
       $result['file'] = preg_replace('/(\\\'|\")$/','.tpl$0',$result['file']);
 
-      e_developer::assert($compiler->smarty->TemplateExists($result['file']),"$result[file] Does not exist!");
+      e_developer::assert($compiler->smarty->TemplateExists(trim($result['file'],'\'"')),"$result[file] Does not exist!");
 
       return $result;
    }
