@@ -77,5 +77,6 @@ $companies = company::get_where_order_page(array('category' => '1'),2,20);
 }}}
 
  === model_rwd::get_count() ===
+   get the count of rows
 * Parameters *
  * mixed $conditions - conditions (where)
