@@ -8,7 +8,7 @@
  * @version 0.1
  * @author albertdiones@gmail.com
  */
-ABSTRACT CLASS ctrl_tpl_ajax IMPLEMENTS i_ctrl {
+ABSTRACT CLASS ctrl_tpl_ajax IMPLEMENTS i_ctrl_0_9 {
 
    public $mode;
 
