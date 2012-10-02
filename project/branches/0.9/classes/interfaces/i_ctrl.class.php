@@ -28,8 +28,13 @@ INTERFACE i_ctrl {
     * @param array $gpc the common gpc
     *
     * @since ADD MVC 0.6
+    *
+    * This is commented because of backwards compatibility reasons
+    *
+    * @todo Uncomment and implement this on version 0.1
+    *
     */
-   public function process_data($gpc);
+   /* public function process_data($gpc);*/
 
    /**
     * assign data
