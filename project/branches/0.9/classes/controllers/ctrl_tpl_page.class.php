@@ -125,9 +125,9 @@ ABSTRACT CLASS ctrl_tpl_page IMPLEMENTS i_ctrl_with_view {
     * @since ADD MVC 0.0
     * @version 0.1
     * @param array $gpc
-    * @todo remove version 0.5 support on ADD MVC 1.0
+    * @todo ADD MVC 1.0: remove version 0.5 and version 0.8 support
     */
-   public function process_data($common_gpc) {
+   public function process_data( $common_gpc = array()/* ADD MVC 0.8 support */) {
       $this->pre_mode_process( $common_gpc );
       # ADD MVC 0.5 backward support
       if (method_exists($this,'process')) {
@@ -148,7 +148,7 @@ ABSTRACT CLASS ctrl_tpl_page IMPLEMENTS i_ctrl_with_view {
     * @since ADD MVC 0.1
     * @version 0.2
     */
-   public function process_mode( $common_gpc ) {
+   public function process_mode( $common_gpc = array() ) {
       $mode = $this->mode;
 
       if (!$mode) {

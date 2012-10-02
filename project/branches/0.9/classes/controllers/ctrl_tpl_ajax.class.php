@@ -83,7 +83,7 @@ ABSTRACT CLASS ctrl_tpl_ajax IMPLEMENTS i_ctrl_0_9 {
     * @since ADD MVC 0.6
     *
     */
-   public function process_mode( $common_gpc ) {
+   public function process_mode( $common_gpc = array() ) {
       $mode = $this->mode;
       if ($mode) {
 
@@ -114,7 +114,7 @@ ABSTRACT CLASS ctrl_tpl_ajax IMPLEMENTS i_ctrl_0_9 {
     * @since ADD MVC 0.6
     *
     */
-   public function process_data( $common_gpc ) {
+   public function process_data( $common_gpc = array() ) {
 
       $this->pre_mode_process($common_gpc);
 
