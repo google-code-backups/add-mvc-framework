@@ -63,7 +63,8 @@ ABSTRACT CLASS ctrl_tpl_page IMPLEMENTS i_ctrl_with_view {
 
    /**
     * Process the page response (former $this->page())
-    * @todo use a better term that is applicable to all response
+    *
+    * @todo remove the automatic assigning of {$C}
     *
     * @since ADD MVC 0.0
     * @version 0.2
@@ -104,7 +105,7 @@ ABSTRACT CLASS ctrl_tpl_page IMPLEMENTS i_ctrl_with_view {
       }
 
       $this->assign('ctrl_basename',$this->basename());
-      #$this->assign('C',add::config());# Commented since version 0.9
+      $this->assign('C',add::config());
 
       $error_messages = $this->data['error_messages'];
 
