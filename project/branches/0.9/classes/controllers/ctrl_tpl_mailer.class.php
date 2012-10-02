@@ -6,7 +6,7 @@ add::load_lib('phpmailer');
  *
  * @since ADD MVC 0.2
  */
-ABSTRACT CLASS ctrl_tpl_mailer EXTENDS phpMailer IMPLEMENTS i_ctrl_006, i_ctrl_with_view {
+ABSTRACT CLASS ctrl_tpl_mailer EXTENDS phpMailer IMPLEMENTS i_ctrl, i_ctrl_with_view {
 
    public $WordWrap          = 70;
 

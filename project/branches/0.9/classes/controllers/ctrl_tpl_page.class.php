@@ -8,7 +8,7 @@
  * @since ADD MVC 0.0
  * @version 1.0
  */
-ABSTRACT CLASS ctrl_tpl_page IMPLEMENTS i_ctrl, i_ctrl_with_view {
+ABSTRACT CLASS ctrl_tpl_page IMPLEMENTS i_ctrl_0_9, i_ctrl_with_view {
 
    /**
     * The mode of the process
