@@ -31,7 +31,7 @@ INTERFACE i_ctrl {
     *
     * This is commented because of backwards compatibility reasons
     *
-    * @todo Uncomment and implement this on version 0.1
+    * @todo overwrite this with i_ctrl_0_9
     *
     */
    /* public function process_data($gpc);*/
