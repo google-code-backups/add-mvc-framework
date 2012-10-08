@@ -32,10 +32,13 @@ the framework configuration php variable, usually accessed through add::config()
   The presentation file. (eg. the HTML)
 
 === Mode ===
-  (of controllers) A separate process or action of a controller.
+==== Request Mode Variable ====
+  (of controllers) A variable determining which mode of the controller will execute
+==== Mode Process ====
+  (of controllers) A separate method automatically executing if the request mode variable matches.
 
 === Sub Mode ===
-  (of controllers)
+  (of controllers) A variable 
 
 === href ===
 any URL, or path
@@ -46,7 +49,7 @@ any URL, or path
 ==== url ==== 
   the url path, with http/s and the domain
 
-=== filename ==
+=== filename ===
    eg. example.php
 
 === basename ===
