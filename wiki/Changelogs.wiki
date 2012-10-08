@@ -1,4 +1,5 @@
-#summary Version 0.9 Changelog
+#summary Changelogs
+#labels Phase-Design
 = 0.10 =
  * includes/views/pages/ - directory where all pages will be placed
  * includes/views/layouts/ - directory where all layouts will be placed
@@ -9,3 +10,75 @@
  * common_gpcs
  * pre_mode_process
  * post_mode_process
+#summary ChangeLog of version 0.7
+
+= 0.7 =
+ * environment status
+   * add::is_development() - a function that returns boolean true or false if the environment_status is "development"
+   * add::is_live() - a function that returns boolean true or false weather if the environment status is "live"
+   * add::is_debugging() - a function that returns boolean true or false weather the environment status is "debugging"
+ * exceptions
+   * email configuration improvements
+      * Do not send email if on *development mode*
+ * config
+   * new required property: environment_status
+   * default configuration file
+
+#summary Version 0.8 ChangeLog
+
+= 0.8 =
+ * controllers
+   * hierachy system
+ * class autoloading
+   * class directory variable
+   * iterate through class directory variable for autoloading
+   * :: __add_loaded() pseudo-magic function
+ * add-usability.js
+ * model_ `*`::meta_columns()
+ * bug fixes
+   * E_USER_ERROR layout fix
+   * mime_type - sensitive error/data/debug printing
+
+*0.7.1*
+ * exceptions
+   * assert() first parameter detection and printing
+ * errors
+   * printing the line codes
+   * color coded errors
+*0.7.2*
+ * views
+  * view when not found: default_tpl.tpl - shows all the smarty template variables in html table form
+ * error_reporting change when live or development
+ * execution time printing when development
+
+*0.7.3 ( < 2012 08 07 )*
+ * developers_ip on config
+ * add::is_developer()
+ * use add::is_developer() on debug::current_user_allowed()
+ * use add::is_developer() to automatically switch to "debugging" environment status
+ * trigger_error on deprecated common functions
+ * include network.functions.php on common functions
+*0.7.4 ( < 2012 08 14 )*
+ * Environment Status on the bottom when not live 
+
+= 0.6 =
+New Classes
+  * add_encryptor
+  * session_entity
+  * session_user
+
+Updated classes
+  * ctrl_tpl_page
+  * ctrl_tpl_ajax
+  * ctrl_tpl_mailer
+  * model_rwd
+
+New resource controller system:
+ * execute() in replacing page()
+ * process_data() in replace of process()
+ * print_response() in replace of display_view()
+ * new function: assign()
+ * new function: process_response()
+
+New way of setting adodb variable:
+ * extending model_*->db()
