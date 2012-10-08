@@ -6,6 +6,6 @@ Add your content here.
 
 
 = Built in controller templates =
-ctrl_tpl_page - for normal html pages
-ctrl_tpl_ajax - for ajax resources
-ctrl_tpl_aux - for auxiliary controllers
+ * ctrl_tpl_page - for normal html pages
+ * ctrl_tpl_ajax - for ajax resources
+ * ctrl_tpl_aux - for auxiliary controllers
