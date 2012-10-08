@@ -1,5 +1,5 @@
 #summary Version 0.8 ChangeLog
-#labels Phase-Design
+#labels Phase-Design,Deprecated
 
 = 0.8 =
  * controllers
