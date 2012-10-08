@@ -2,7 +2,7 @@
 *under construction*
 = Introduction =
 
-Add your content here.
+Controllers on ADD MVC framework contains the execution process of resources.
 
 
 = Built in controller templates =
