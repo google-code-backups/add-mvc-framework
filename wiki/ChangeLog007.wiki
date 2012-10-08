@@ -1,5 +1,5 @@
 #summary ChangeLog of version 0.7
-#labels Phase-Design
+#labels Phase-Design,Deprecated
 
 = 0.7 =
  * environment status
