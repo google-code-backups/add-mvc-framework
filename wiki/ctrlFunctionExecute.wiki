@@ -1,5 +1,5 @@
 #summary ctrl_*->execute()
-#labels Phase-Implementation,controllerfunction
+#labels Phase-Implementation,Deprecated
 
 
 = Description =
