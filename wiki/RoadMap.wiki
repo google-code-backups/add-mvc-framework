@@ -1,16 +1,6 @@
 #summary RoadMap: Plans for new versions
 #labels Featured,Phase-Design
 
-= 0.9 Modes & Sub Modes =
- * sub_modes
- * common_gpcs
- * pre_mode_process
- * post_mode_process
-
-= 0.10 =
- * includes/views/pages/ - directory where all pages will be placed
- * includes/views/layouts/ - directory where all layouts will be placed
- * ctrl_default_page - a ctrl for undeclared controllers with corresponding views/pages/
 
 = 0.11 =
  * "add_current_user" & "current_user" class that will contain functions for the current user
