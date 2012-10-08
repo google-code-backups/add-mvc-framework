@@ -1,0 +1,30 @@
+#labels Deprecated
+= ADD MVC Framework =
+
+== Introduction ==
+ADD MVC Framework is made from combining a custom made model, controller and a handful of original class concepts with libraries Smarty, adoDB and phpmailer.
+
+In addition to models (and custom models), views and controllers (and custom controllers), ADD MVC also contains additional custom objects classes:
+ # Custom Exceptions
+ # DOM Wrappers
+ # ADODB wrappers
+ # Session classes
+ # Debugging classes
+ # Custom Interfaces
+ # Others: ( cURL, Reversible encryption
+
+Basically this framework aims to supply the needs most web application needs for fast development from development to live.
+
+== Basic Features ==
+ # Model View Controller
+ # Built in debugging support
+ # [ModesAndSubModes Modes and Sub Modes]
+ # Framework class override
+ # Custom Exceptions
+ # Environment Statuses
+
+== Links ==
+ # [GettingStarted Getting Started]
+ # [RoadMap Project Road Map]
+
+
