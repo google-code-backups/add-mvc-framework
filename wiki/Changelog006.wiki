@@ -1,5 +1,5 @@
 #summary Changelog version 0.6
-#labels Changelog
+#labels Changelog,Deprecated
 
 = 0.6 =
 New Classes
