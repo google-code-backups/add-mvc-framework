@@ -27,8 +27,15 @@ the framework configuration php variable, usually accessed through add::config()
 
 ====  Model Instances ====
   Represents and manipulates row from the table
+
 === View Files ===
   The presentation file. (eg. the HTML)
+
+=== Mode ===
+  (of controllers) A separate process or action of a controller.
+
+=== Sub Mode ===
+  (of controllers)
 
 === href ===
 any URL, or path
@@ -39,7 +46,7 @@ any URL, or path
 ==== url ==== 
   the url path, with http/s and the domain
 
-=== file name ==
+=== filename ==
    eg. example.php
 
 === basename ===
@@ -50,9 +57,3 @@ the filename without extension
 
 === file path name ===
 the file system path including the file name eg. /path/to/dir/example.php
-
-=== hash ===
- (suggested sha1) encrypted variable
-
-=== auth ===
-  variable that authenticates permission
