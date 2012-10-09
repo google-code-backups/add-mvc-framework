@@ -1,0 +1,14 @@
+#summary Config Variables
+#labels Phase-Implementation
+
+The config variable is STDClass $C. It has no required property, as of now.
+
+Important Properties:
+
+===path===
+The path (url) of the application, *with trailing slash*
+
+eg. /add-adodb-admin/
+
+===environment_status===
+The current environment status (future name: application mode)
