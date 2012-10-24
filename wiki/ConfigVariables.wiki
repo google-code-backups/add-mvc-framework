@@ -11,4 +11,47 @@ The path (url) of the application, *with trailing slash*
 eg. /add-adodb-admin/
 
 ===environment_status===
-The current environment status (future name: application mode)
+Environment Status (to be called application_status on a future version) is a config property that switches various applications processes for proper handling on live or development status
+
+====Live====
+On "live" status, all errors are not shown. To check if the application is on this mode, use add::is_live() method.
+
+For security purposes, this is the default application status.
+
+====Development====
+"development" status indicates that the only user of the application is the developer himself.
+
+Error reporting is set to E_ALL and some debugging data will show on the end of the script. Mailed exceptions are also not mailed but instead echo'ed
+
+====Example====
+{{{
+<?php
+/**
+ * Register Controller Class
+ */
+CLASS ctrl_page_register EXTENDS ctrl_tpl_page {
+   protected $mode_gpc_register = array(
+         '_POST' => array('email','password') 
+      );
+   
+   /**
+    * Registration mode, checks the email first if the environment status is live
+    *
+    * @param array $gpc
+    *
+    */
+   public function process_mode_register($gpc) {
+      extract($gpc);
+      
+      
+      
+      if (add::is_live()) {
+         filter_var($email, FILTER_VALIDATE_EMAIL);
+      }
+      
+      member::add_new($gpc);
+      
+   }
+}
+
+}}}
