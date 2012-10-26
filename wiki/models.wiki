@@ -25,7 +25,7 @@ CLASS company EXTENDS model_rwd {
     */
    const TABLE_PK = 'company_id';
    /**
-    * The ADODB object 
+    * The ADODB object
     *
     */
    public function db() {
@@ -54,7 +54,10 @@ Where: const TABLE is the table of the company and TABLE_PK is the primary key f
   * model_auth - For model that are meant for tables of users that logs in. or any entity that is authenticated
 
 == Tips ==
- * Table related functions should be static context while row related functions are object.
+ * Table related methods should be static context while row related functions are object.
+ * Model names should be singular, (e.g. member::get_instance())
+ * Methods that will return array of instances should be plural ( e.g. $member->transactions() )
+ * Methods that will get foreign instances should have the same name (plural form) as it's model (e.g. $member->vehicles() // Where vehicle is a model related to member)
 
 == Function List ==
  * Maybe it's better to look at the phpdoc included in the framework *
@@ -62,9 +65,9 @@ Where: const TABLE is the table of the company and TABLE_PK is the primary key f
    returns the adodb object. To set this, extend this inside the concrete model class so you can return your own value. (There is no default)
  === $model_rwd->update_db_row() ===
    updates the updated fields of the row (instead of waiting for script shutdown)
- === model_rwd::instances_from_sql() === 
+ === model_rwd::instances_from_sql() ===
   gets all the instances from the select sql
-  
+
 *Parameters*
  * $sql_format (required) - must contain 2 %s, the first is for to be replaced with "`*`" and the table name of the model class.
  * $page - page number to fetch ($per_page required)
@@ -73,7 +76,7 @@ Where: const TABLE is the table of the company and TABLE_PK is the primary key f
    $company = company::instances_from_sql("SELECT %s FROM %s WHERE category='1'");
 }}}
 note: you have to use %% for % when using this function (eg. `LIKE '%%foo%%'`)
- === model_rwd::get_where_order_page() === 
+ === model_rwd::get_where_order_page() ===
    Centralized select query
 *Parameters*
  * mixed $conditions array or string of conditions
