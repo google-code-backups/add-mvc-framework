@@ -5,15 +5,23 @@ ADD MVC has several built in custom exception that can be throw()n or catch()ed.
 
 They can be found under includes/classes/exceptions
 
- * e_add
-   * e_system - A system error
-     * e_developer - An error probably caused by a mistake of the developer
-       * e_syntax - not used yet
-   * e_unknown - An error with unknown or unsure cause can be both caused by user or the developer's mistake or the system's error
-     * e_database - An error from the database
-   * e_user - An error done by the user
-     * e_user_input - An error on the input(s) or request of the customer
-     * e_user_malicious - An error with suspected malicious intent
-       * e_hack - A suspected hack attempt error done by the user
-       * e_spam - A suspected spam done by the user
+ * `e_add`
+   * `e_system` - A system error
+     * `e_developer` - An error probably caused by a mistake of the developer
+       * `e_syntax` - not used yet
+   * `e_unknown` - An error with unknown or unsure cause can be both caused by user or the developer's mistake or the system's error
+     * `e_database` - An error from the database
+   * `e_user` - An error done by the user
+     * `e_user_input` - An error on the input(s) or request of the customer
+     * `e_user_malicious` - An error with suspected malicious intent
+       * `e_hack` - A suspected hack attempt error done by the user
+       * `e_spam` - A suspected spam done by the user
   
+==Sensitive Exceptions==
+   All these exceptions except e_user that is not under `e_user_malicious` are considered sensitive exceptions that are not shown to the user but instead be sent to the `e_add::$email_addresses`
+
+==User Exceptions==
+   User exceptions are recorded under {$error_messages} array indexed by mode while the latest exception is at {$error_message}.
+*Examples*
+  * latest error message: {$error_message}
+  * error message from mode "register": {$error_message.user_register}
