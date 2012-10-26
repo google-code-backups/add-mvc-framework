@@ -10,6 +10,12 @@ The path (url) of the application, *with trailing slash*
 
 eg. /add-adodb-admin/
 
+
+===classes_dirs===
+Array of class directories aside from your application's classes and framework's application classes directories.
+
+Good for having a class directory common for different applications.
+
 ===environment_status===
 Environment Status (to be called application_status on a future version) is a config property that switches various applications processes for proper handling on live or development status
 
