@@ -4,7 +4,7 @@
 ADD MVC has several built in custom exception that can be throw()n or catch()ed.
 
 They can be found under includes/classes/exceptions
-
+==Exception Classes==
  * `e_add`
    * `e_system` - A system error
      * `e_developer` - An error probably caused by a mistake of the developer
