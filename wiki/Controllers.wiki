@@ -5,7 +5,7 @@
 Controllers on ADD MVC framework contains the execution process of resources.
 
 
-= Built in controller templates =
+= Default Controller Classes =
  * ctrl_tpl_page - for normal html pages
  * ctrl_tpl_ajax - for ajax resources
  * ctrl_tpl_aux - for auxiliary controllers
