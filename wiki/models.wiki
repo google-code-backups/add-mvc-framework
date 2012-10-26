@@ -53,6 +53,9 @@ Where: const TABLE is the table of the company and TABLE_PK is the primary key f
   * model_r - Read Only Model
   * model_auth - For model that are meant for tables of users that logs in. or any entity that is authenticated
 
+== Tips ==
+ * Table related functions should be static context while row related functions are object.
+
 == Function List ==
  * Maybe it's better to look at the phpdoc included in the framework *
  === model_rwd::db() ===
