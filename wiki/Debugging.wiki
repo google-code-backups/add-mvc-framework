@@ -6,6 +6,12 @@
 ADD MVC has built in debugging classes.
 
  * add_debug & debug
+ * add_debug_mailer
  * add_debug_timer
 
+==debug::var_dump()==
 The most common method will be: debug::var_dump($var) which prints the var_dump nicely instead of it being non-html. It will also print the file path and line number
+
+==debug::print_request()==
+Prints in html the get, post, cookie, request, session variables of the current request.
+
