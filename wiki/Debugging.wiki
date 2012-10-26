@@ -1,7 +1,7 @@
-#summary Debugging Classes and functions
+#summary Debugging Classes and Functions
 #labels Phase-Implementation
 
-=Debugging Classes and functions=
+=Debugging Classes and Functions=
 
 ADD MVC has built in debugging classes.
 
