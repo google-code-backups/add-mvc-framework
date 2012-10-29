@@ -18,3 +18,41 @@ ADODB object is returned on model's db() function.
 
 You can make a wrapper for it or use it directly
 
+*example*
+
+{{{
+<?php
+/**
+ * my_application_model.class.php
+ */
+ABSTRACT my_application_model EXTENDS model_rwd {
+   /**
+    * Cache variable
+    */
+   static $D;
+
+   /**
+    * The ADOdb object for class that extends my_application_model class
+    */
+   public static function db() {
+      if (!isset(static::$D)) {
+         static::$D  = ADONewConnection('mysql');
+         $static::$D -> Connect('localhost','root');
+      }
+      return $static::$D;
+   }
+}
+?>
+
+<?php
+/**
+ * member.class.php
+ * member class
+ */
+CLASS member EXTENDS my_application_model {
+   const TABLE = 'members';
+}
+?>
+
+
+}}}
