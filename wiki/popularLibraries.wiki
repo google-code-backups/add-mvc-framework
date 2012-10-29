@@ -11,3 +11,10 @@ ADD MVC uses popular libraries like [http://adodb.sourceforge.net/ ADOdb] and [h
 === Additional Functions ===
  * {add_layout} - a copy of {extends} , but will automatically look on layouts/ directory and appends .tpl ( file= attribute should not have should not have .tpl )
  * {add_include} - a copy of {include} , but will automatically look on includes/ directory and appends .tpl ( file= attribute should not have should not have .tpl )
+
+
+== ADOdb ==
+ADODB object is returned on model's db() function.
+
+You can make a wrapper for it or use it directly
+
