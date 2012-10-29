@@ -14,7 +14,7 @@ ADD MVC uses popular libraries like [http://adodb.sourceforge.net/ ADOdb] and [h
 
 
 == ADOdb ==
-ADODB object is returned on model's db() function.
+An ADODB object should be returned on model's db() function, or else it will not work properly.
 
 You can make a wrapper for it or use it directly
 
