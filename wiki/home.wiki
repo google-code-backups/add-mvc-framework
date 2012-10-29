@@ -37,7 +37,7 @@ ADD MVC Framework is made from combining a custom made model, controller and a h
  * [componentOverride Component Override]
    * Framework Class/Template/Function/Library override
    * Resource Override
- * Component Extension
+ * [componentExtension Component Extension]
    * Object Oriented Programming
    * View extension (by Smarty)
  * [configVariables#classes_dirs Class directories]
