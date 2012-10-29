@@ -1,0 +1,13 @@
+#summary Popular Libraries
+#labels Phase-Design
+
+ADD MVC uses popular libraries like [http://adodb.sourceforge.net/ ADOdb] and [http://www.smarty.net/ Smarty]
+
+== Smarty Customization ==
+=== Directories ===
+ * views/
+  * pages/ - contains all the controller views
+  * layouts/ - contains all the layout
+=== Additional Functions ===
+ * {add_layout} - a copy of {extends} , but will automatically look on layouts/ directory and appends .tpl ( file= attribute should not have should not have .tpl )
+ * {add_include} - a copy of {include} , but will automatically look on includes/ directory and appends .tpl ( file= attribute should not have should not have .tpl )
