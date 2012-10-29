@@ -23,7 +23,7 @@ ADD MVC Framework is made from combining a custom made model, controller and a h
  * Development Tools
    * [configVariables#Development Enviroment Status: development]
    * [debugging#Debugging_Classes_and_Functions Debugging Classes and functions]
- * Popular Libraries
+ * [popularLibraries Popular Libraries]
    * ADODB
    * Smarty
    * PHPMailer
