@@ -1,0 +1,68 @@
+#summary Project Home Page
+#labels Phase-Design
+
+= ADD MVC Framework =
+
+== Introduction ==
+ADD MVC aims to combine *fast development*, *Extensibility* and *security* while also  taking *fast processing* and *technological advancement* in consideration.
+
+ADD MVC Framework is made from combining a custom made model, controller and a handful of original class concepts with libraries Smarty, adoDB and phpmailer.
+
+=== Fast Development ===
+ * Minimal Editing
+   * Defaults
+     * [ConfigVariables#Default_Configs Default Configs]
+     * Default Classes
+       * [Controllers#Default_Controller_Classes Default Controller Classes]
+         * ctrl_tpl_page
+         * ctrl_tpl_ajax
+         * ctrl_tpl_aux
+       * [models#Default_Model_Classes Default Model Classes]
+         * model_rwd
+         * model_r
+         * model_auth
+   * Special Classes
+   * Class Templates
+ * Development Tools
+   * [ConfigVariables#Development Enviroment Status: development]
+   * [Debugging#Debugging_Classes_and_Functions Debugging Classes and functions]
+ * Popular Libraries
+   * ADODB
+   * Smarty
+   * PHPMailer
+ * Suggestive / Compulsive conventions
+   * Resource Modes
+   * Naming Conventions
+   * [FrameworkTerminology Term uniformity]
+
+=== Extensibility ===
+ * [ComponentOverride Component Override]
+   * Framework Class/Template/Function/Library override
+   * Resource Override
+ * Component Extension
+   * Object Oriented Programming
+   * View extension (by Smarty)
+ * [ConfigVariables#classes_dirs Class directories]
+ * Multi Database Support (by ADODB)
+
+=== Security ===
+ * [ADDExceptions#Sensitive_Exceptions Sensitive Exceptions]
+   * e_hack
+   * e_developer
+   * e_system
+ * .htaccess deny
+ * [ModesAndSubModes#Mode_GPC_Property GPC(Request Variables) registration system]
+ * Security functions
+
+=== Process Speed/Load Minimalization ===
+ * On demand loading
+ * Caching
+=== Technological Advancement ===
+ * Aggressive upgrade
+   * Independent library upgrade
+   * Latest PHP Features usage
+
+
+
+
+For any concerns, email albertdiones`[at]`gmail`[dot]`com
