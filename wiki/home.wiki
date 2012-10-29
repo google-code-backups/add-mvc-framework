@@ -43,7 +43,7 @@ ADD MVC Framework is made from combining a custom made model, controller and a h
  * Multi Database Support (by ADODB)
 
 === Security ===
- * [addExceptions#Assertions]
+ * [addExceptions#Assertions Assertions]
  * [addExceptions#Sensitive_Exceptions Sensitive Exceptions]
    * e_hack
    * e_developer
