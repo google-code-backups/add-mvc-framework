@@ -37,9 +37,9 @@ Error reporting is set to E_ALL and some debugging data will show on the end of 
  */
 CLASS ctrl_page_register EXTENDS ctrl_tpl_page {
    protected $mode_gpc_register = array(
-         '_POST' => array('email','password') 
+         '_POST' => array('email','password')
       );
-   
+
    /**
     * Registration mode, checks the email first if the environment status is live
     *
@@ -48,16 +48,37 @@ CLASS ctrl_page_register EXTENDS ctrl_tpl_page {
     */
    public function process_mode_register($gpc) {
       extract($gpc);
-      
-      
-      
+
+
+
       if (add::is_live()) {
          filter_var($email, FILTER_VALIDATE_EMAIL);
       }
-      
+
       member::add_new($gpc);
-      
+
    }
 }
 
+}}}
+
+== Default Configs ==
+{{{
+   array(
+         'super_domain'       => $domain_parts['super_domain'], # extracted from server host
+         'sub_domain'         => $domain_parts['sub_domain'], # extracted from server host
+         'path'               => preg_replace('/\/[^\/]*?$/','/',$_SERVER['REQUEST_URI']),
+         'root_dir'           => realpath('./'),
+         'environment_status' => 'live',
+         'developers_ip'      => array(),
+
+         /**
+          * Library init files
+          */
+         'libs'  => (object) array(
+         'adodb' => 'adodb/adodb.inc.php',
+               'smarty'    => 'smarty/Smarty.class.php',
+               'phpmailer' => 'phpmailer/class.phpmailer.php',
+            ),
+         );
 }}}
