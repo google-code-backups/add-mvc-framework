@@ -28,7 +28,7 @@ ADD MVC Framework is made from combining a custom made model, controller and a h
    * Smarty
    * PHPMailer
  * Suggestive / Compulsive conventions
-   * [adddAndSubModes Resource Modes]
+   * [modesAndSubModes Resource Modes]
    * Naming Conventions
    * [frameworkTerminology Term uniformity]
 
@@ -48,7 +48,7 @@ ADD MVC Framework is made from combining a custom made model, controller and a h
    * e_developer
    * e_system
  * .htaccess deny
- * [adddAndSubModes#Mode_GPC_Property GPC(Request Variables) registration system]
+ * [modesAndSubModes#Mode_GPC_Property GPC(Request Variables) registration system]
  * Security functions
 
 === Process Speed/Load Minimization ===
