@@ -16,6 +16,7 @@ ADD MVC Framework is made from combining a custom made model, controller and a h
      * [configVariables#Default_Configs Default Configs]
      * Default Classes
        * [controllers#Default_Controller_Classes Default Controller Classes]
+     * Default Views & Style
    * Special Classes
    * Class Abstracts
      * [controllers#Abstract_Controller_Classes Abstract Controller Classes]
