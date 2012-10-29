@@ -13,9 +13,9 @@ ADD MVC Framework is made from combining a custom made model, controller and a h
 === Fast Development ===
  * Minimal Editing
    * Defaults
-     * [ConfigVariables#Default_Configs Default Configs]
+     * [configVariables#Default_Configs Default Configs]
      * Default Classes
-       * [Controllers#Default_Controller_Classes Default Controller Classes]
+       * [controllers#Default_Controller_Classes Default Controller Classes]
          * ctrl_tpl_page
          * ctrl_tpl_ajax
          * ctrl_tpl_aux
@@ -26,8 +26,8 @@ ADD MVC Framework is made from combining a custom made model, controller and a h
    * Special Classes
    * Class Templates
  * Development Tools
-   * [ConfigVariables#Development Enviroment Status: development]
-   * [Debugging#Debugging_Classes_and_Functions Debugging Classes and functions]
+   * [configVariables#Development Enviroment Status: development]
+   * [debugging#Debugging_Classes_and_Functions Debugging Classes and functions]
  * Popular Libraries
    * ADODB
    * Smarty
@@ -35,25 +35,25 @@ ADD MVC Framework is made from combining a custom made model, controller and a h
  * Suggestive / Compulsive conventions
    * Resource Modes
    * Naming Conventions
-   * [FrameworkTerminology Term uniformity]
+   * [frameworkTerminology Term uniformity]
 
 === Extensibility ===
- * [ComponentOverride Component Override]
+ * [componentOverride Component Override]
    * Framework Class/Template/Function/Library override
    * Resource Override
  * Component Extension
    * Object Oriented Programming
    * View extension (by Smarty)
- * [ConfigVariables#classes_dirs Class directories]
+ * [configVariables#classes_dirs Class directories]
  * Multi Database Support (by ADODB)
 
 === Security ===
- * [ADDExceptions#Sensitive_Exceptions Sensitive Exceptions]
+ * [addExceptions#Sensitive_Exceptions Sensitive Exceptions]
    * e_hack
    * e_developer
    * e_system
  * .htaccess deny
- * [ModesAndSubModes#Mode_GPC_Property GPC(Request Variables) registration system]
+ * [adddAndSubModes#Mode_GPC_Property GPC(Request Variables) registration system]
  * Security functions
 
 === Process Speed/Load Minimization ===
