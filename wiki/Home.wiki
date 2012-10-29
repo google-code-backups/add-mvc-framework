@@ -56,7 +56,7 @@ ADD MVC Framework is made from combining a custom made model, controller and a h
  * [ModesAndSubModes#Mode_GPC_Property GPC(Request Variables) registration system]
  * Security functions
 
-=== Process Speed/Load Minimalization ===
+=== Process Speed/Load Minimization ===
  * On demand loading
  * Caching
 === Technological Advancement ===
