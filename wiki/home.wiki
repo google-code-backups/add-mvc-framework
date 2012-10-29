@@ -28,7 +28,7 @@ ADD MVC Framework is made from combining a custom made model, controller and a h
    * Smarty
    * PHPMailer
  * Suggestive / Compulsive conventions
-   * Resource Modes
+   * [adddAndSubModes Resource Modes]
    * Naming Conventions
    * [frameworkTerminology Term uniformity]
 
