@@ -41,7 +41,7 @@ ADD MVC Framework is made from combining a custom made model, controller and a h
    * Object Oriented Programming
    * View extension (by Smarty)
  * [configVariables#classes_dirs Class directories]
- * Multi Database Support (by ADODB)
+ * [popularLibraries#ADOdb Multi Database Support (by ADODB)]
 
 === Security ===
  * [addExceptions#Assertions Assertions]
