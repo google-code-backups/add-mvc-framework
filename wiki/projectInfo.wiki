@@ -1,5 +1,5 @@
 #summary Project infos
-#labels Phase-Design,Featured
+#labels Phase-Design,Deprecated
 
 = Introduction =
 A MVC Framework from the old "db_entity" class Albert used on past projects from April 2011 to April 2012.
