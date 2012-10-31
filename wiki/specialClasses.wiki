@@ -1,0 +1,8 @@
+#summary Special Classes
+#labels Phase-Implementation,Phase-Design
+
+ * session_user & session_entity
+ * add_ldap
+ * add_encryptor
+ * array_entity
+ * add_curl, dom_document_wrapper, dom_element_wrapper, dom_wrapper, node_list_wrapper, pagination
