@@ -25,7 +25,7 @@ ABSTRACT CLASS model_rwd EXTENDS array_entity IMPLEMENTS Iterator {
     *
     * @since ADD MVC 0.0
     */
-   const VERSION = '1.4.1';
+   const VERSION = '1.4.2';
 
    /**
     * $this->data
@@ -187,6 +187,12 @@ ABSTRACT CLASS model_rwd EXTENDS array_entity IMPLEMENTS Iterator {
       if ( $arg === null )
          return false;
 
+
+      # http://code.google.com/p/add-mvc-framework/issues/detail?id=3&can=1
+      if (!is_scalar($arg)) {
+         throw new e_developer(get_called_class()."::get_instance() passed with array instead of scalar PK/index value");
+      }
+
       $field = static::get_value_index_field($arg);
       $field_value = $arg; # alias for readability
 
@@ -225,8 +231,9 @@ ABSTRACT CLASS model_rwd EXTENDS array_entity IMPLEMENTS Iterator {
       else {
          $data_type = gettype($arg);
 
-         if (ctype_digit("$arg"))
+         if (ctype_digit("$arg")) {
             $data_type = "int";
+         }
 
          if (isset(static::$type_index_fields[$data_type])) {
             return static::$type_index_fields[$data_type];
@@ -248,6 +255,8 @@ ABSTRACT CLASS model_rwd EXTENDS array_entity IMPLEMENTS Iterator {
       if (!$row)
          return false;
 
+
+      # Fix for issue #3
       if (!static::row_pk($row)) {
          throw new e_developer("Model ".get_called_class()." PK is not existing",array($row, static::TABLE, static::TABLE_PK));
       }
