@@ -49,6 +49,13 @@ CLASS add {
    static $handle_shutdown = false;
 
    /**
+    * Environment status
+    *
+    * @since ADD MVC 0.10
+    */
+   protected static $environment_status = 'live';
+
+   /**
     * Gets the site config
     *
     * @param STDClass $C the config variable
@@ -74,9 +81,10 @@ CLASS add {
                $config_array[$key] = array_merge((array) $value, (array) $full_default_config_array[$key]);
             else
                $config_array[$key] = $value;
-      }
+         }
 
          self::$C = $GLOBALS[self::CONFIG_VARNAME] = (object) $config_array;
+         self::$environment_status = self::$C->environment_status;
 
          # Convert to object
          foreach (self::$C as &$var) {
@@ -329,12 +337,12 @@ CLASS add {
 
                for ($code_on_error_x = $code_on_error_start; $code_on_error_x <= ($error['line'] + $code_on_error_padding); $code_on_error_x++) {
                   $code_on_error .= $file_codes[$code_on_error_x-1];
-         }
+               }
 
                $smarty->assign('code_on_error',highlight_string($code_on_error,true));
                $smarty->assign('code_on_error_end',$code_on_error_x);
 
-      }
+            }
 
             $error['file'] = basename($error['file']);
 
@@ -369,25 +377,25 @@ CLASS add {
     * @since ADD MVC 0.5.1
     */
    static function handle_shutdown() {
-      if (static::$handle_shutdown) {
+      if (static::$handle_shutdown && !add::is_live()) {
          global $add_mvc_root_timer;
 
          $smarty = new add_smarty();
          $smarty->display('debug/handle_shutdown.tpl');
 
          if (isset($add_mvc_root_timer) && $add_mvc_root_timer instanceof add_debug_timer) {
-            if (!add::is_live()) {
-               add_debug::print_config('environment_status');
-               add_debug::print_config('add_dir');
-               add_debug::print_config('path');
-               add_debug::print_config('developer_ips',true);
-               add_debug::print_data('current_user_ip',current_user_ip());
-               add_debug::print_data('POST variable', $_POST);
-               add_debug::print_data('GET variable', $_GET);
-               add_debug::print_data('COOKIE variable', $_COOKIE);
-               add_debug::print_data('REQUEST variable', $_COOKIE);
-               add_debug::print_data('SESSION variable', $_SESSION);
-            }
+
+            add_debug::print_config('environment_status');
+            add_debug::print_config('add_dir');
+            add_debug::print_config('path');
+            add_debug::print_config('developer_ips',true);
+            add_debug::print_data('current_user_ip',current_user_ip());
+            add_debug::print_data('POST variable', $_POST);
+            add_debug::print_data('GET variable', $_GET);
+            add_debug::print_data('COOKIE variable', $_COOKIE);
+            add_debug::print_data('REQUEST variable', $_COOKIE);
+            add_debug::print_data('SESSION variable', $_SESSION);
+
             $add_mvc_root_timer->lap("Shutdown");
             $add_mvc_root_timer->print_all_laps();
          }
@@ -653,34 +661,55 @@ CLASS add {
    public static function environment_status($new_status = null) {
 
       if ($new_status) {
-         add::config()->environment_status = $new_status;
-      }
 
-      /**
-       * No errors if live
-       *
-       * @since ADD MVC 0.7.2
-       */
-      if (add::is_live()) {
-         error_reporting(0);
-         add::$handle_shutdown = false;
-      }
-      else {
-         error_reporting(E_ALL);
+         if (is_string($new_status)) {
+            if ($new_status === 'development') {
+               if (add::is_developer()) {
+                  add::$environment_status = $new_status;
+               }
+               else {
+                  add::$environment_status = "live";
+               }
+            }
+            else if ($new_status === 'live') {
+               add::$environment_status = 'live';
+            }
+            else {
+               throw new e_developer("Invalid environment_status: $new_status");
+            }
+         }
 
          /**
-          * When development, record the time spent on script execution
+          * No errors if live
           *
           * @since ADD MVC 0.7.2
           */
-         if (add::is_development()) {
-            add::$handle_shutdown          = true;
-            $GLOBALS['add_mvc_root_timer'] = add_development_timer::start("Framework Configuration");
-            add::config()->root_timer      = $GLOBALS['add_mvc_root_timer'];
+         if (add::is_live()) {
+            error_reporting(0);
+            add::$handle_shutdown = false;
+         }
+         else {
+            error_reporting(E_ALL);
+
+            /**
+             * When development, record the time spent on script execution
+             *
+             * @since ADD MVC 0.7.2
+             */
+            if (add::is_development()) {
+               add::$handle_shutdown          = true;
+
+               if (!isset($GLOBALS['add_mvc_root_timer'])) {
+                  $GLOBALS['add_mvc_root_timer'] = add_development_timer::start("Framework Configuration");
+               }
+
+               add::config()->root_timer      = $GLOBALS['add_mvc_root_timer'];
+
+            }
          }
       }
 
-      return add::config()->environment_status;
+      return add::$environment_status;
    }
 
    /**
@@ -689,17 +718,7 @@ CLASS add {
     * @since ADD MVC 0.7
     */
    public static function is_live() {
-      return add::config()->environment_status === 'live';
-   }
-
-
-   /**
-    * environment check: is debugging
-    *
-    * @since ADD MVC 0.7
-    */
-   public static function is_debugging() {
-      return add::config()->environment_status === 'debugging';
+      return add::$environment_status === 'live';
    }
 
 
@@ -709,7 +728,7 @@ CLASS add {
     * @since ADD MVC 0.7
     */
    public static function is_development() {
-      return add::config()->environment_status === 'development';
+      return add::$environment_status === 'development';
    }
 
 
