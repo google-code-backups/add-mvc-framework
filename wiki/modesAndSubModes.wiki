@@ -129,3 +129,8 @@ Mode GPC property should be a dictionary array (ie. associative array) with firs
 Since *version 0.9* there is a new convenient way of declaring GPCs, common GPC controller object property will contain GPC that are common for all modes, therefore making it available on  the $gpc variable.
 
 This property is declared as `$common_gpc`
+
+=== GPC Security ===
+==== Things to watch out for ====
+ * Array inputs
+ * XSS and SQL injections
