@@ -69,7 +69,11 @@ For more info go to [controllers Controllers wiki]
 == Views ==
 ADD MVC uses smarty templating engine on the View, the view names are the same as the controller's basename.
 
+
+
 ---------------
+
+
 
 == Accessing the Database ==
 
