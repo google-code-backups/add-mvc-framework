@@ -59,7 +59,7 @@ Example:
  * The home page
  */
 CLASS ctrl_page_index EXTENDS ctrl_tpl_page {
-/* (no dynamic [php] code)
+/* (no dynamic [php] code) */
 }
 }}}
 
