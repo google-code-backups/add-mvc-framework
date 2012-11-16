@@ -85,6 +85,8 @@ ADD MVC uses smarty templating engine on the View, the view names are the same a
 {/block}
 }}}
 
+For more information go to [popularLibraries#Smarty Libraries: Smarty chapter]
+
 
 
 ---------------
