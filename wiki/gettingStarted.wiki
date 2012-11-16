@@ -44,8 +44,9 @@ RewriteRule ^$ add.php?add_mvc_path=$1&%{QUERY_STRING} [L]
 
 = Classes =
 
+== Making Pages/Resources ==
 
-== Your First Controller ==
+=== Your First Controller ===
 To overwrite the default index page, you should make <ctrl_page_index.class.php> file under your includes/classes directory.
 
 Example:
@@ -62,47 +63,19 @@ CLASS ctrl_page_index EXTENDS ctrl_tpl_page {
 
 For more info go to [controllers Controllers wiki]
 
+
+== Views ==
+ADD MVC uses smarty templating engine on the View, the view names are the same as the controller's basename.
+
 ---------------
 
 == Accessing the Database ==
 
 Accessing database in ADD MVC is done by models, models, in ADD MVC framework represent a table from the database. For example we have a table named "companies"
 
-{{{
-/**
- * model of company table
- */
-CLASS company EXTENDS model_rwd {
-   /**
-    * the table of this model
-    */
-   const TABLE = 'companies';
+It is recommended that these models uses ADODB returned by there db() method.
 
-   /**
-    * the primary key of this model
-    */
-   const TABLE_PK = 'company_id';
-}
-}}}
-
-model_rwd contains loads of functions for manipulating data from the database.
-
-for example, for getting all the rows from the database (or SELECT `*` )
-{{{
-
-$companies = company::get_all();
-
-foreach ($companies as $company) {
-   echo "$company->company_name"; # print the company_name field
-}
-
-}}}
-
--------------
-
-note that, all the fields on company table are being fetched. This might be adjustable in the future versions, but that's the way it is as of now.
-
-== Your ADODB connection ==
+=== Your ADODB connection ===
 before models could work, you will need to get the ADODB connection:
 {{{
 CLASS my_adodb_mysql EXTENDS add_adodb_mysql {
@@ -111,7 +84,8 @@ CLASS my_adodb_mysql EXTENDS add_adodb_mysql {
     */
 }
 }}}
-== Your First Model ==
+
+=== Your First Model ===
 {{{
 /**
  * A model representing `members` table
@@ -136,19 +110,55 @@ CLASS member EXTENDS model_auth {
 
 note that it extends a preset extra model model_auth, but the very basic model you can extend is model_rwd. You can also extend model_r (read only) and other extra models like model_image_rwd
 
+Another example:
+{{{
+/**
+ * model of company table
+ */
+CLASS company EXTENDS model_rwd {
+   /**
+    * the table of this model
+    */
+   const TABLE = 'companies';
+
+   /**
+    * the primary key of this model
+    */
+   const TABLE_PK = 'company_id';
+
+   /**
+    * The db abstraction layer
+    */
+   public static function db() {
+      return my_adodb_mssql::singleton();
+   }
+}
+}}}
+
+model_rwd contains loads of functions for manipulating data from the database.
+
+note that, all the fields on company table are being fetched. This might be adjustable in the future versions, but that's the way it is as of now.
+
+
+
 === Using models ===
 
 {{{
 /**
- * The homepage
+ * A homepage of a membership website, getting the current logged in user and a featured member
+ *
+ *
+ * @uses member model
  */
 CLASS ctrl_page_index EXTENDS ctrl_tpl_page {
    /**
     * The pre-response process
     */
    public function process_data() {
+
       # Getting the current logged in
       $this->assign('current_member',member::current_logged_in());
+
       # Getting member #1
       $this->assign('featured_member',member::get_instance(1));
    }
@@ -156,7 +166,15 @@ CLASS ctrl_page_index EXTENDS ctrl_tpl_page {
 }
 }}}
 
-For more information about models, go to [models Models Page]
+getting all the rows from the database (or SELECT `*` )
+{{{
 
-== Views ==
-ADD MVC uses smarty templating engine on the View, the view names are the same as the controller's basename.
+$companies = company::get_all();
+
+foreach ($companies as $company) {
+   echo "$company->company_name"; # print the company_name field
+}
+
+}}}
+
+For more information about models, go to [models Models Page]
