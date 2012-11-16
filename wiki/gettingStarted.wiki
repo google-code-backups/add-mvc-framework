@@ -1,5 +1,5 @@
 #summary Getting Started with add mvc
-#labels Phase-Deploy,Featured
+#labels Phase-Deploy,Phase-Design,Featured
 
 = Skill Requirements =
 
