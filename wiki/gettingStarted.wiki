@@ -30,6 +30,8 @@ add::current_controller()->execute();
 
 add::current_controller() returns the current controller according to the current path, and execute() is the execution function, as the name implies.
 
+If you want to make your own process and just use some functions of ADD MVC (or is not familliar with the MVC environment yet), you can replace the current controller execution ( add::current_controller()->execute() ) with your own code
+
 
 == .htaccess Rewrite ==
 and create an htaccess rewrite, notice that "add.php" is used, depending on the name of your _main execution file_
