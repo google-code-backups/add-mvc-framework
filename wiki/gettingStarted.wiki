@@ -16,6 +16,7 @@ First you need a config variable:
 {{{
 <?php
 $C = (object) array(
+      'path' => '/my-app/', // Relative path from the domain index. optional, but strongly recommended
       'environment_status' => 'development',
    );
 }}}
