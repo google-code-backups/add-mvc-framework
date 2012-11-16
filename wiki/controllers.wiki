@@ -10,7 +10,7 @@ on the main execution file (eg. add.php) add::current_controller() is called and
 
 In simple terms, it is the classes that contain the PHP codes for the pages.
 
-ADD MVC controllers has [modesAndSubModes Modes and Sub Modes] that enables code isolation for different modes and/or actions.
+ADD MVC controllers has [modesAndSubModes Modes and Sub Modes] that enables code isolation for different modes and/or actions. And GPC(or global) variable registration system.
 
 Pages are created through controllers. It is stored inside classes/ folder of the application.
 
