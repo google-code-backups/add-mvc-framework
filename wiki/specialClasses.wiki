@@ -32,3 +32,6 @@ dom::factory() then creates the dom_document_wrapper, dom_element_wrapper and no
 --------------------
 
 ==  pagination ==
+Pagination class is a very useful for paged controllers.
+
+No smarty view support yet.
