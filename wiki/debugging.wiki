@@ -15,3 +15,6 @@ The most common method will be: debug::var_dump($var) which prints the var_dump 
 
 ==debug::print_request()==
 Prints in html the get, post, cookie, request, session variables of the current request.
+
+==debug::print_eval()==
+Evaluates the argument and print the code and the result
