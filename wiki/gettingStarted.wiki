@@ -10,7 +10,7 @@ The required skills to use this framework
 Additional skills that will help:
    * ADOdb PHP database abstraction
    * MVC Framework experience
-
+------------------------------------------
 = Basic Files =
 == Config ==
 First you need a config variable:
@@ -55,6 +55,8 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.+)$ add.php?add_mvc_path=$1&%{QUERY_STRING} [L]
 RewriteRule ^$ add.php?add_mvc_path=$1&%{QUERY_STRING} [L]
 }}}
+
+------------------------------------------
 
 = Making Pages/Resources =
 
@@ -126,7 +128,7 @@ https://add-mvc-framework.googlecode.com/svn/wiki/assets/images/simple-index.png
 With controllers and views alone you can already create pages. But if you want to use the full power of ADD MVC, you will also models, which is on the next chapter [gettingStarted#Accessing_the_Database Accessing the database].
 
 
----------------
+------------------------------------------
 
 
 
