@@ -8,6 +8,7 @@
    * [controllers Controllers]
    * [addExceptions Custom Exceptions]
    * [changelogs Changelog]
+   * [frameworkTerminology Terminology]
    * Incomplete wikis
       * [componentExtension]
       * [componentOverride]
