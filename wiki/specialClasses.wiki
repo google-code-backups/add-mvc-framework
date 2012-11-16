@@ -25,9 +25,13 @@ A wrapper class for DOM classes. Supports CSS selector finding (like JQuery), ht
 dom::factory() then creates the dom_document_wrapper, dom_element_wrapper and node_list_wrapper()
 
 === dom_document_wrapper ===
+Wrapper for DOMDocument
 
 === dom_element_wrapper ===
+Wrapper for DOMElement
+
 === node_list_wrapper ===
+Wrapper for DOMNodeList
 
 --------------------
 
