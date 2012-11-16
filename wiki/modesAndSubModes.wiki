@@ -120,9 +120,9 @@ For modes, you will have to declare the mode gpc to be able to securely register
 
 mode gpc keys are prefixed with `mode_gpc_` eg. `$mode_gpc_login`
 
-Mode GPC property should be a dictionary array (ie. associative array) with first dimension indexes as '_GET','_POST','_COOKIE' or '_REQUEST'. Then the value is a list array (ie. numeric indexes array) with the request variable names to be registered.
+Mode GPC property should be a dictionary (ie. associative array) with first dimension indexes as '_GET','_POST','_COOKIE' or '_REQUEST'. Then the value is a list array (ie. numeric indexes array) with the request variable names to be registered.
 
-
+*Note:* registered GPCs are automatically assign()```d on the controller.
 
 === Common GPC ===
 
