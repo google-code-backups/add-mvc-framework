@@ -31,7 +31,7 @@ Wrapper for DOMDocument
 Wrapper for DOMElement
 
 === node_list_wrapper ===
-Wrapper for DOMNodeList
+Wrapper for [http://php.net/DOMNodeList DOMNodeList]
 
 --------------------
 
