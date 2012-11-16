@@ -12,7 +12,11 @@ This is a class wrapper for significant session variables.
 
 == add_ldap ==
 == add_encryptor==
+A class for reversible encryption
+
 == array_entity ==
+
+A very special class that wraps an array, extended by model_rwd, session_entity and alot other classes.
 
 ------------------
 
