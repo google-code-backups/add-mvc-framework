@@ -7,7 +7,7 @@ The required skills to use this framework
    * Object Oriented PHP
    * Smarty
 
-Additional skills:
+Additional skills that will help:
    * ADOdb
 
 = Basic Files =
