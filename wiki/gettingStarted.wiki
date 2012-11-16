@@ -157,6 +157,8 @@ CLASS my_adodb_mysql EXTENDS add_adodb_mysql {
 }
 }}}
 
+Note that `add_adodb_mysql` and it's parent class is a wrapper for the real adodb object. This was done so the errors are automatically thrown as e_database.
+
 For more information, see the [popularLibraries#ADOdb Libraries ADOdb Chapter]
 
 == Your First Model ==
