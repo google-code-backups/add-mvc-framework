@@ -1,4 +1,5 @@
 #summary Features
+#labels Phase-Design
 = Fast Development =
  * Minimal Editing
    * Defaults
