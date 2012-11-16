@@ -9,7 +9,7 @@ The required skills to use this framework
 
 Additional skills that will help:
    * ADOdb PHP database abstraction
-   * MVC experience
+   * MVC Framework experience
 
 = Basic Files =
 == Config ==
@@ -145,6 +145,7 @@ CLASS my_adodb_mysql EXTENDS add_adodb_mysql {
    public function Connect() {
 
       $this->adodb->Connect(
+            # Variables declared on config file
             add::config()->mysql_host,
             add::config()->mysql_username,
             add::config()->mysql_password,
