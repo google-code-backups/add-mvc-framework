@@ -89,6 +89,8 @@ CLASS my_adodb_mysql EXTENDS add_adodb_mysql {
 }
 }}}
 
+For more information, see the [popularLibraries#ADOdb Libraries ADOdb Chapter]
+
 == Your First Model ==
 {{{
 /**
@@ -170,6 +172,7 @@ CLASS ctrl_page_index EXTENDS ctrl_tpl_page {
 }
 }}}
 
+Another Example:
 getting all the rows from the database (or SELECT `*` )
 {{{
 
