@@ -26,6 +26,8 @@ Either you put it on a new file (eg. config.php) or on the main root execution f
 
 In this example it is necessary that to declare "add_dir" so on add.php it can be used to require "init.php" of the add mvc framework.
 
+for more information go to [configVariables config variables page]
+
 == Main Execution File ==
 
 Then you'll need to create the main execution file (eg. add.php):
