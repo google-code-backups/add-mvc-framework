@@ -15,6 +15,7 @@ ADD MVC Framework is made from combining a custom made model, controller and a h
 = Information =
    * *Status* under development ~ first release target: November 28
    * *Version* 0.10
+   * *Developers* albertdiones`[at]`gmail`[dot]`com
 
 
 For any concerns, email albertdiones`[at]`gmail`[dot]`com
