@@ -24,20 +24,7 @@ Pages are created through controllers. It is stored inside classes/ folder of th
  * ctrl_tpl_ajax - for ajax resources
  * ctrl_tpl_aux - for auxiliary controllers
 
-== Your First Controller ==
-To overwrite the default index page, you should make <ctrl_page_index.class.php> file under your includes/classes directory.
 
-Example:
-
-{{{
-<?php
-/**
- * The home page
- */
-CLASS ctrl_page_index EXTENDS ctrl_tpl_page {
-
-}
-}}}
 === Controller Methods ===
 
 https://add-mvc-framework.googlecode.com/svn/wiki/assets/images/add-controller.png
