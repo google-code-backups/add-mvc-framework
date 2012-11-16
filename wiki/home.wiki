@@ -3,14 +3,15 @@
 
 = ADD MVC Framework =
 
+[http://code.google.com/p/add-mvc-framework/w/list?can=2&q= All Wiki Pages]
+
+[models Models] | [controllers Controllers]
+
 == Introduction ==
 ADD MVC aims to combine *fast development*, *Extensibility* and *security* while also  taking *fast processing* and *technological advancement* in consideration.
 
 ADD MVC Framework is made from combining a custom made model, controller and a handful of original class concepts with libraries Smarty, adoDB and phpmailer.
 
-[http://code.google.com/p/add-mvc-framework/w/list?can=2&q= All Wiki Pages]
-
-[models Models] | [controllers Controllers]
 
 == Features ==
 
