@@ -1,6 +1,5 @@
 #summary ADD MVC Controllers
 #labels Phase-Design
-*under construction*
 = Introduction =
 
 Controllers are classes that represents the page/resource. execute() ( formerly page() ) are called on this functions which calls process_data() ( formerly process() ) and print_response().
