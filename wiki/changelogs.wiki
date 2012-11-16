@@ -14,7 +14,7 @@ Other
  * common_gpcs
  * pre_mode_process
  * post_mode_process
-#summary ChangeLog of version 0.7
+
 
 = 0.7 =
  * environment status
@@ -28,7 +28,6 @@ Other
    * new required property: environment_status
    * default configuration file
 
-#summary Version 0.8 ChangeLog
 
 = 0.8 =
  * controllers
