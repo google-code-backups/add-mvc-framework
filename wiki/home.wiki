@@ -3,71 +3,16 @@
 
 = ADD MVC Framework =
 
-   * [http://code.google.com/p/add-mvc-framework/w/list?can=2&q= All Wiki Pages]
-      * [gettingStarted Getting Started]
-      * [models Models]
-      * [controllers Controllers]
-
-== Introduction ==
 ADD MVC aims to combine *fast development*, *Extensibility* and *security* while also  taking *fast processing* and *technological advancement* in consideration.
 
 ADD MVC Framework is made from combining a custom made model, controller and a handful of original class concepts with libraries Smarty, adoDB and phpmailer.
 
 
-== Features ==
-
-=== Fast Development ===
- * Minimal Editing
-   * Defaults
-     * [configVariables#Default_Configs Default Configs]
-     * Default Classes
-       * [controllers#Default_Controller_Classes Default Controller Classes]
-     * Default Views & Style
-   * Special Classes
-   * Class Abstracts
-     * [controllers#Abstract_Controller_Classes Abstract Controller Classes]
-     * [models#Abstract_Model_Classes Abstract Model Classes]
- * Development Tools
-   * [configVariables#Development Enviroment Status: development]
-   * [debugging#Debugging_Classes_and_Functions Debugging Classes and functions]
- * [popularLibraries Popular Libraries]
-   * ADODB
-   * Smarty
-   * PHPMailer
- * Suggestive / Compulsive conventions
-   * [modesAndSubModes Resource Modes]
-   * Naming Conventions
-   * [frameworkTerminology Term uniformity]
-
-=== Extensibility ===
- * [componentOverride Component Override]
-   * Framework Class/Template/Function/Library override
-   * Resource Override
- * [componentExtension Component Extension]
-   * Object Oriented Programming
-   * View extension (by Smarty)
- * [configVariables#classes_dirs Class directories]
- * [popularLibraries#ADOdb Multi Database Support (by ADODB)]
-
-=== Security ===
- * [addExceptions#Assertions Assertions]
- * [addExceptions#Sensitive_Exceptions Sensitive Exceptions]
-   * e_hack
-   * e_developer
-   * e_system
- * .htaccess deny
- * [modesAndSubModes#Mode_GPC_Property GPC(Request Variables) registration system]
- * Security functions
-
-=== Process Speed/Load Minimization ===
- * On demand loading
- * Caching
-=== Technological Advancement ===
- * Aggressive upgrade
-   * Independent library upgrade
-   * Latest PHP Features usage
-
-
+   * [http://code.google.com/p/add-mvc-framework/w/list?can=2&q= All Wiki Pages]
+      * [gettingStarted Getting Started]
+      * [models Models]
+      * [controllers Controllers]
+      * [features Features]
 
 
 For any concerns, email albertdiones`[at]`gmail`[dot]`com
