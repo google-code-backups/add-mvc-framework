@@ -8,7 +8,10 @@ This is a class wrapper for significant session variables.
 
 === session_user ==
 
+
 --------------------
+
+
 
 == add_ldap ==
 == add_encryptor==
@@ -20,7 +23,11 @@ A very special class that wraps an array, extended by model_rwd, session_entity 
 
 Supports [http://en.wikipedia.org/wiki/Encapsulation_%28object-oriented_programming%29 Encapsulation], [http://www.php.net/manual/en/language.oop5.overloading.php PHP Overloading] ( `__get()`, `__set()`, `__isset()`, `__unset()`)
 
+
+
 ------------------
+
+
 
 == add_curl ==
 A wrapper class for curl. Supports caching, proxies and user agents masking.
@@ -39,7 +46,11 @@ Wrapper for [http://php.net/DOMElement DOMElement]
 === node_list_wrapper ===
 Wrapper for [http://php.net/DOMNodeList DOMNodeList]
 
+
+
 --------------------
+
+
 
 ==  pagination ==
 Pagination class is a very useful for paged controllers.
