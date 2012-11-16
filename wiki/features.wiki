@@ -37,7 +37,7 @@
 
 --------------------------------------------------
 
-==Security =
+= Security =
  * [addExceptions#Assertions Assertions]
  * [addExceptions#Sensitive_Exceptions Sensitive Exceptions]
    * e_hack
@@ -49,7 +49,7 @@
 
 --------------------------------------------------
 
-==Process Speed/Load Minimization =
+= Process Speed/Load Minimization =
  * On demand loading
  * Caching
 = Technological Advancement =
