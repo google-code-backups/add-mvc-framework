@@ -12,6 +12,7 @@ ADD MVC uses popular libraries like [http://adodb.sourceforge.net/ ADOdb] and [h
  * {add_layout} - a copy of {extends} , but will automatically look on layouts/ directory and appends .tpl ( file= attribute should not have should not have .tpl )
  * {add_include} - a copy of {include} , but will automatically look on includes/ directory and appends .tpl ( file= attribute should not have should not have .tpl )
 
+Fore more info go to [http://smarty.net/ Smarty Website]
 
 == ADOdb ==
 An ADODB object should be returned on model's db() function, or else it will not work properly.
