@@ -4,6 +4,8 @@
 
 Controllers on ADD MVC framework contains the execution process of resources.
 
+In simple terms, it is the classes that contain the PHP codes for the pages.
+
 
 = Default Controller Classes =
  * ctrl_page_index - default homepage
