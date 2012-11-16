@@ -45,7 +45,24 @@ RewriteRule ^$ add.php?add_mvc_path=$1&%{QUERY_STRING} [L]
 
 = Classes =
 
-[controllers#Your_First_Controller]
+
+== Your First Controller ==
+To overwrite the default index page, you should make <ctrl_page_index.class.php> file under your includes/classes directory.
+
+Example:
+
+{{{
+<?php
+/**
+ * The home page
+ */
+CLASS ctrl_page_index EXTENDS ctrl_tpl_page {
+/* (no dynamic [php] code)
+}
+}}}
+
+For more info go to [controllers Controllers wiki]
+
 
 == Your ADODB connection ==
 before models could work, you will need to get the ADODB connection:
