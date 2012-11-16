@@ -129,6 +129,8 @@ https://add-mvc-framework.googlecode.com/svn/wiki/assets/images/simple-index.png
 
 With controllers and views alone you can already create pages. But if you want to use the full power of ADD MVC, you will also models, which is on the next chapter [gettingStarted#Accessing_the_Database Accessing the database].
 
+Note: making a page view without controller also works (it'll use `ctrl_default_page` class)
+
 
 ------------------------------------------
 
