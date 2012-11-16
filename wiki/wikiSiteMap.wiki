@@ -7,3 +7,4 @@
    * [controllers Controllers]
    * [features Features]
    * [addExceptions Custom Exceptions]
+   * [changelogs Changelog]
