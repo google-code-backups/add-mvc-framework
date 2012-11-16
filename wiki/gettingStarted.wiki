@@ -57,22 +57,11 @@ RewriteRule ^$ add.php?add_mvc_path=$1&%{QUERY_STRING} [L]
 
 = Making Pages/Resources =
 
+== Controllers ==
 To make pages/resources, a controller and a view (or one of them) with the same basename should be made
 
-== Your First Controller ==
+
 To overwrite the default index page, you should make <ctrl_page_index.class.php> file under your includes/classes directory.
-
-Example:
-
-{{{
-<?php
-/**
- * The home page
- */
-CLASS ctrl_page_index EXTENDS ctrl_tpl_page {
-/* (no dynamic [php] code) */
-}
-}}}
 
 For more info go to [controllers Controllers wiki]
 
@@ -80,26 +69,11 @@ For more info go to [controllers Controllers wiki]
 == Views ==
 ADD MVC uses smarty templating engine on the View, the view names are the same as the controller's basename.
 
-{{{
-{*SMARTY*}
-{extends file='common_layout.tpl'}
-{block name=main}
-   <h1>Simple Example</h1>
-   <p>Hi! This is a very simple implementation of ADD MVC Framework.</p>
-
-   <p>Just edit <b>{add::config()->views_dir|replace:'\\':'/'}/{$current_view}</b> to change the view</p>
-
-   <p>You can also edit the controller: <b>{$current_controller}.class.php</b></p>
-
-   <p>current UTC time: <b>{"Y-m-d h:i:s"|date:$utc_timestamp}</b></p>
-
-{/block}
-}}}
 
 For more information go to [popularLibraries#Smarty Libraries: Smarty chapter]
 
 === Controllers/Views Example ===
-
+==== Your First Controller ====
 `includes/classes/controllers/ctrl_page_index.class.php`
 {{{
 <?php
@@ -129,6 +103,8 @@ CLASS ctrl_page_index EXTENDS ctrl_tpl_page {
 
 }
 }}}
+
+=== Your First View ===
 
 `includes/views/pages/index.tpl`
 {{{
