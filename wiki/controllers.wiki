@@ -1,12 +1,19 @@
 #summary ADD MVC Controllers
+#labels Phase-Design
 *under construction*
 = Introduction =
 
-Controllers on ADD MVC framework contains the execution process of resources.
+Controllers are classes that represents the page/resource. execute() ( formerly page() ) are called on this functions which calls process_data() ( formerly process() ) and print_response().
+
+on the main execution file (eg. add.php) add::current_controller() is called and it's execute() function. add::current_controller() returns the instance of the current controller according to the current url path.
+
+----------
 
 In simple terms, it is the classes that contain the PHP codes for the pages.
 
 ADD MVC controllers supports [modesAndSubModes] that enables code isolation for different modes and/or actions.
+
+Pages are created through controllers. It is stored inside classes/ folder of the application.
 
 
 = Default Controller Classes =
