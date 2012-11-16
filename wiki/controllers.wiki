@@ -54,4 +54,4 @@ https://add-mvc-framework.googlecode.com/svn/wiki/assets/images/add-controller.p
 
 ADD MVC has built in support for actions or modes (for consistency, we will call these "modes") of pages/resources (for consistency we will call these "resources").
 
-Modes are further discussed on this page: [ModesAndSubModes Modes and Sub Modes]
+Modes are further discussed on this page: [modesAndSubModes Modes and Sub Modes]
