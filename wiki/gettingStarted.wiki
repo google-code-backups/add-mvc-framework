@@ -92,7 +92,7 @@ CLASS ctrl_page_index EXTENDS ctrl_tpl_page {
    public function process() {
       $this->view()->assign('current_controller',add::current_controller_class());
       $this->view()->assign('current_view',$this->view_filepath());
-      $this->view()->assign('utc_timestamp',@gmmktime());
+      $this->view()->assign('timestamp',time());
 
    }
 
@@ -113,7 +113,7 @@ CLASS ctrl_page_index EXTENDS ctrl_tpl_page {
 
    <p>You can also edit the controller: <b>{$current_controller}.class.php</b></p>
 
-   <p>current UTC time: <b>{"Y-m-d h:i:s"|date:$utc_timestamp}</b></p>
+   <p>current UTC time: <b>{"Y-m-d h:i:s"|date:$timestamp}</b></p>
 
 {/block}
 }}}
