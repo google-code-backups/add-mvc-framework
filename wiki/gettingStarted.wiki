@@ -6,7 +6,6 @@ First you need a config variable:
 {{{
 <?php
 $C = (object) array(
-      'add_dir'            => realpath('includes/frameworks/add'),
       'environment_status' => 'development',
    );
 }}}
@@ -23,7 +22,7 @@ Then you'll need to create the main execution file (eg. add.php):
 
 require '../config.php';
 
-require $C->add_dir.'/init.php';
+require 'includes/frameworks/add/init.php';
 
 add::current_controller()->execute();
 
