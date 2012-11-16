@@ -44,37 +44,8 @@ RewriteRule ^$ add.php?add_mvc_path=$1&%{QUERY_STRING} [L]
 }}}
 
 = Classes =
-== Your First Controller ==
-To overwrite the default index page, you should make <ctrl_page_index.class.php> file under your includes/classes directory.
 
-Example:
-
-{{{
-<?php
-/**
- * The home page
- */
-CLASS ctrl_page_index EXTENDS ctrl_tpl_page {
-
-}
-}}}
-=== Controller Methods ===
-
-https://add-mvc-framework.googlecode.com/svn/wiki/assets/images/add-controller.png
-
- # execute() - the root method of the controller this function calls by default process_data() and print_response() and is called in your [GettingStarted#Main_Execution_File Main Execution File]. For best practice this method should not be extended.
-   # `process_data()` - this method should contain the data processing of the controller. By default, this calls process_mode()
-      # `pre_mode_process()` (version 0.9) - To be extended to add a process *before* the processing of the `$_REQUEST['mode']`
-      # process_mode() - Creates an array of registered gpc. Calls the applicable `process_mode_$_REQUEST['mode']`($gpc). For best practice this method should not be extended
-      # post_mode_process() (version 0.9) - To be extended to add a process *after* the processing of the `$_REQUEST['mode']`
-   # `print_response($data)` - prints the view. For best practice this method should not be extended
- # assign($field,$value) - assigns a data to the controller. This will also automatically call `smarty assign()` for the view.
-
-=== Modes and Sub Modes ===
-
-ADD MVC has built in support for actions or modes (for consistency, we will call these "modes") of pages/resources (for consistency we will call these "resources").
-
-Modes are further discussed on this page: [ModesAndSubModes Modes and Sub Modes]
+[controllers#Your_First_Controller]
 
 == Your ADODB connection ==
 before models could work, you will need to get the ADODB connection:
