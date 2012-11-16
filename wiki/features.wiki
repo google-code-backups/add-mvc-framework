@@ -1,0 +1,56 @@
+= Fast Development =
+ * Minimal Editing
+   * Defaults
+     * [configVariables#Default_Configs Default Configs]
+     * Default Classes
+       * [controllers#Default_Controller_Classes Default Controller Classes]
+     * Default Views & Style
+   * Special Classes
+   * Class Abstracts
+     * [controllers#Abstract_Controller_Classes Abstract Controller Classes]
+     * [models#Abstract_Model_Classes Abstract Model Classes]
+ * Development Tools
+   * [configVariables#Development Enviroment Status: development]
+   * [debugging#Debugging_Classes_and_Functions Debugging Classes and functions]
+ * [popularLibraries Popular Libraries]
+   * ADODB
+   * Smarty
+   * PHPMailer
+ * Suggestive / Compulsive conventions
+   * [modesAndSubModes Resource Modes]
+   * Naming Conventions
+   * [frameworkTerminology Term uniformity]
+
+--------------------------------------------------
+
+= Extensibility =
+ * [componentOverride Component Override]
+   * Framework Class/Template/Function/Library override
+   * Resource Override
+ * [componentExtension Component Extension]
+   * Object Oriented Programming
+   * View extension (by Smarty)
+ * [configVariables#classes_dirs Class directories]
+ * [popularLibraries#ADOdb Multi Database Support (by ADODB)]
+
+--------------------------------------------------
+
+==Security =
+ * [addExceptions#Assertions Assertions]
+ * [addExceptions#Sensitive_Exceptions Sensitive Exceptions]
+   * e_hack
+   * e_developer
+   * e_system
+ * .htaccess deny
+ * [modesAndSubModes#Mode_GPC_Property GPC(Request Variables) registration system]
+ * Security functions
+
+--------------------------------------------------
+
+==Process Speed/Load Minimization =
+ * On demand loading
+ * Caching
+= Technological Advancement =
+ * Aggressive upgrade
+   * Independent library upgrade
+   * Latest PHP Features usage
