@@ -42,13 +42,11 @@ RewriteRule ^(.+)$ add.php?add_mvc_path=$1&%{QUERY_STRING} [L]
 RewriteRule ^$ add.php?add_mvc_path=$1&%{QUERY_STRING} [L]
 }}}
 
-= Classes =
-
-== Making Pages/Resources ==
+= Making Pages/Resources =
 
 To make pages/resources, a controller and a view (or one of them) with the same basename should be made
 
-=== Your First Controller ===
+== Your First Controller ==
 To overwrite the default index page, you should make <ctrl_page_index.class.php> file under your includes/classes directory.
 
 Example:
@@ -75,13 +73,13 @@ ADD MVC uses smarty templating engine on the View, the view names are the same a
 
 
 
-== Accessing the Database ==
+= Accessing the Database =
 
 Accessing database in ADD MVC is done by models, models, in ADD MVC framework represent a table from the database. For example we have a table named "companies"
 
 It is recommended that these models uses ADODB returned by there db() method.
 
-=== Your ADODB connection ===
+== Your ADODB connection ==
 before models could work, you will need to get the ADODB connection:
 {{{
 CLASS my_adodb_mysql EXTENDS add_adodb_mysql {
@@ -91,7 +89,7 @@ CLASS my_adodb_mysql EXTENDS add_adodb_mysql {
 }
 }}}
 
-=== Your First Model ===
+== Your First Model ==
 {{{
 /**
  * A model representing `members` table
