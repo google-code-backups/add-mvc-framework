@@ -6,3 +6,4 @@
    * [models Models]
    * [controllers Controllers]
    * [features Features]
+   * [addExceptions Custom Exceptions]
