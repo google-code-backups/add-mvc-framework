@@ -116,7 +116,6 @@ CLASS my_adodb_mysql EXTENDS add_adodb_mysql {
    /**
     * Connect
     *
-    * @since AZCCDM
     */
    public function Connect() {
 
@@ -129,16 +128,6 @@ CLASS my_adodb_mysql EXTENDS add_adodb_mysql {
 
       return $this;
    }
-
-   /**
-    * Variable name
-    *
-    * @since
-    */
-   public static function varname() {
-      return self::VARNAME;
-   }
-}
 }
 }}}
 
