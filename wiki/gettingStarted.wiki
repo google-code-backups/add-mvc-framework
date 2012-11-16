@@ -78,21 +78,15 @@ For more information go to [popularLibraries#Smarty Libraries: Smarty chapter]
 {{{
 <?php
 /**
- * ctrl_page_index default index page
+ * ctrl_page_index default index page (home page)
  * A sample index page controller
  *
- * @author albertdiones@gmail.com
- *
- * @package ADD MVC\Controllers\Extras
- * @since ADD MVC 0.0
- * @version 0.0
  */
 CLASS ctrl_page_index EXTENDS ctrl_tpl_page {
 
    /**
     * The pre-view process
     *
-    * @since ADD MVC 0.0
     */
    public function process() {
       $this->view()->assign('current_controller',add::current_controller_class());
