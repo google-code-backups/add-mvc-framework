@@ -1,5 +1,15 @@
 #summary Getting Started with add mvc
 #labels Phase-Deploy,Featured
+
+= Skill Requirements =
+
+The required skills to use this framework
+   * Object Oriented PHP
+   * Smarty
+
+Additional skills:
+   * ADOdb
+
 = Basic Files =
 == Config ==
 First you need a config variable:
