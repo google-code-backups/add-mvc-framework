@@ -18,7 +18,7 @@ A class for reversible encryption
 
 A very special class that wraps an array, extended by model_rwd, session_entity and alot other classes.
 
-Supports [http://en.wikipedia.org/wiki/Encapsulation_%28object-oriented_programming%29 Encapsulation], [http://www.php.net/manual/en/language.oop5.overloading.php PHP Overloading( `__get()`, `__set()`, `__isset()`, `__unset()`)]
+Supports [http://en.wikipedia.org/wiki/Encapsulation_%28object-oriented_programming%29 Encapsulation], [http://www.php.net/manual/en/language.oop5.overloading.php PHP Overloading] ( `__get()`, `__set()`, `__isset()`, `__unset()`)
 
 ------------------
 
