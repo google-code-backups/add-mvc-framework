@@ -5,10 +5,10 @@
 
 The required skills to use this framework
    * Object Oriented PHP
-   * Smarty
+   * Smarty PHP Templating
 
 Additional skills that will help:
-   * ADOdb
+   * ADOdb PHP database abstraction
 
 = Basic Files =
 == Config ==
