@@ -1,18 +1,20 @@
 #summary Project Home Page
 #labels Phase-Design
 
-= ADD MVC Framework =
-
 ADD MVC aims to combine *fast development*, *Extensibility* and *security* while also  taking *fast processing* and *technological advancement* in consideration.
 
 ADD MVC Framework is made from combining a custom made model, controller and a handful of original class concepts with libraries Smarty, adoDB and phpmailer.
 
-
+= Links =
    * [http://code.google.com/p/add-mvc-framework/w/list?can=2&q= All Wiki Pages]
       * [gettingStarted Getting Started]
       * [models Models]
       * [controllers Controllers]
       * [features Features]
+
+= Information =
+   * *Status* under development ~ first release target: November 28
+   * Version 0.10
 
 
 For any concerns, email albertdiones`[at]`gmail`[dot]`com
