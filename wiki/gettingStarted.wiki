@@ -9,6 +9,7 @@ The required skills to use this framework
 
 Additional skills that will help:
    * ADOdb PHP database abstraction
+   * MVC experience
 
 = Basic Files =
 == Config ==
