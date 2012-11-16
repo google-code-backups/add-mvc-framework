@@ -39,7 +39,11 @@ A wrapper class for curl. Supports caching, proxies and user agents masking.
 == dom_wrapper ==
 A wrapper class for DOM classes. Supports CSS selector finding (like JQuery), html() and text().
 
-dom::factory() then creates the dom_document_wrapper, dom_element_wrapper and node_list_wrapper()
+`dom::factory()` then creates the `dom_document_wrapper`, `dom_element_wrapper` and `node_list_wrapper()`
+
+`dom_wrapper::factory($arg1)`
+
+$arg1 is either object of DOMDocument or DOMElement
 
 === dom_document_wrapper ===
 Wrapper for [http://php.net/DOMDocument DOMDocument]
