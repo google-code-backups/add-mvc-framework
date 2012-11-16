@@ -86,7 +86,7 @@ ADD MVC uses smarty templating engine on the View, the view names are the same a
    <h1>Simple Example</h1>
    <p>Hi! This is a very simple implementation of ADD MVC Framework.</p>
 
-   <p>Just edit <b>{$C->views_dir|replace:'\\':'/'}/{$current_view}</b> to change the view</p>
+   <p>Just edit <b>{add::config()->views_dir|replace:'\\':'/'}/{$current_view}</b> to change the view</p>
 
    <p>You can also edit the controller: <b>{$current_controller}.class.php</b></p>
 
@@ -97,6 +97,54 @@ ADD MVC uses smarty templating engine on the View, the view names are the same a
 
 For more information go to [popularLibraries#Smarty Libraries: Smarty chapter]
 
+=== Controllers/Views Example ===
+
+`includes/classes/controllers/ctrl_page_index.class.php`
+{{{
+<?php
+/**
+ * ctrl_page_index default index page
+ * A sample index page controller
+ *
+ * @author albertdiones@gmail.com
+ *
+ * @package ADD MVC\Controllers\Extras
+ * @since ADD MVC 0.0
+ * @version 0.0
+ */
+CLASS ctrl_page_index EXTENDS ctrl_tpl_page {
+
+   /**
+    * The pre-view process
+    *
+    * @since ADD MVC 0.0
+    */
+   public function process() {
+      $this->view()->assign('current_controller',add::current_controller_class());
+      $this->view()->assign('current_view',$this->view_filepath());
+      $this->view()->assign('utc_timestamp',@gmmktime());
+
+   }
+
+}
+}}}
+
+`includes/views/pages/index.tpl`
+{{{
+{*SMARTY*}
+{extends file='common_layout.tpl'}
+{block name=main}
+   <h1>Simple Example</h1>
+   <p>Hi! This is a very simple implementation of ADD MVC Framework.</p>
+
+   <p>Just edit <b>{add::config()->views_dir|replace:'\\':'/'}/{$current_view}</b> to change the view</p>
+
+   <p>You can also edit the controller: <b>{$current_controller}.class.php</b></p>
+
+   <p>current UTC time: <b>{"Y-m-d h:i:s"|date:$utc_timestamp}</b></p>
+
+{/block}
+}}}
 
 
 ---------------
