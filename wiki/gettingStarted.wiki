@@ -46,6 +46,8 @@ RewriteRule ^$ add.php?add_mvc_path=$1&%{QUERY_STRING} [L]
 
 == Making Pages/Resources ==
 
+To make pages/resources, a controller and a view (or one of them) with the same basename should be made
+
 === Your First Controller ===
 To overwrite the default index page, you should make <ctrl_page_index.class.php> file under your includes/classes directory.
 
