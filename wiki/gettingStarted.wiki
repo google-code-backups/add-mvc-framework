@@ -114,8 +114,31 @@ before models could work, you will need to get the ADODB connection:
 {{{
 CLASS my_adodb_mysql EXTENDS add_adodb_mysql {
    /**
-    * googlecode todo: add code here
+    * Connect
+    *
+    * @since AZCCDM
     */
+   public function Connect() {
+
+      $this->adodb->Connect(
+            add::config()->mysql_host,
+            add::config()->mysql_username,
+            add::config()->mysql_password,
+            add::config()->mysql_db_name
+         );
+
+      return $this;
+   }
+
+   /**
+    * Variable name
+    *
+    * @since
+    */
+   public static function varname() {
+      return self::VARNAME;
+   }
+}
 }
 }}}
 
