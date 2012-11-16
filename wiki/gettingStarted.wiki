@@ -12,6 +12,7 @@ Additional skills that will help:
    * MVC Framework experience
 ------------------------------------------
 = Basic Files =
+https://add-mvc-framework.googlecode.com/svn/wiki/assets/images/simple-index.png
 == Config ==
 First you need a config variable:
 {{{
