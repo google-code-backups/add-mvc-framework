@@ -5,6 +5,10 @@
  * includes/views/layouts/ - directory where all layouts will be placed
  * ctrl_default_page - a ctrl for undeclared controllers with corresponding views/pages/
 
+Other
+ * Connected `add::is_developer()`, `add::environment_status()` and `add::handle_shutdown()` so it is dependent and won't be incompatible with each other
+ * bug fix: trailing slash on url (eg. /my-controller-name/ results to finding the `my_controller_name__`)
+
 = 0.9 Modes & Sub Modes =
  * sub_modes
  * common_gpcs
@@ -59,7 +63,7 @@
  * trigger_error on deprecated common functions
  * include network.functions.php on common functions
 *0.7.4 ( < 2012 08 14 )*
- * Environment Status on the bottom when not live 
+ * Environment Status on the bottom when not live
 
 = 0.6 =
 New Classes
