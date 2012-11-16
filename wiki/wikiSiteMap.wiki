@@ -2,10 +2,10 @@
 
 = Links =
    * [http://code.google.com/p/add-mvc-framework/w/list?can=2&q= All Wiki Pages]
+   * [features Features]
    * [gettingStarted Getting Started]
    * [models Models]
    * [controllers Controllers]
-   * [features Features]
    * [addExceptions Custom Exceptions]
    * [changelogs Changelog]
    * Incomplete wikis
