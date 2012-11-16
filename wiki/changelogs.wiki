@@ -6,6 +6,7 @@
  * ctrl_default_page - a ctrl for undeclared controllers with corresponding views/pages/
 
 Other
+ * includes/views/includes/ - directory where all include tpls will be placed
  * Connected `add::is_developer()`, `add::environment_status()` and `add::handle_shutdown()` so it is dependent and won't be incompatible with each other
  * bug fix: trailing slash on url (eg. /my-controller-name/ results to finding the `my_controller_name__`)
 
