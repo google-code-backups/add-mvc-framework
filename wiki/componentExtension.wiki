@@ -32,5 +32,8 @@ Just make sure you call the parent::method() because you will have infinite loop
 [http://www.smarty.net/docs/en/advanced.features.template.inheritance.tpl Smarty Template Inheritance]
 
 
+
+
+
 *Related*
  * [componentOverride Component Override]
