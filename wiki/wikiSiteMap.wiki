@@ -1,9 +1,10 @@
 #summary Wiki Site Map
+#labels Phase-Design
 
 = Links =
    * [home Home]
-   * [features Features]
    * [gettingStarted Getting Started]
+   * [features Features]
    * [models Models]
    * [controllers Controllers]
    * [addExceptions Custom Exceptions]
