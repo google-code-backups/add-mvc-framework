@@ -3,7 +3,7 @@
 
 = ADD MVC Framework=
 
-ADD MVC aims to combine *fast development*, *Extensibility* and *security* while also  taking *fast processing* and *technological advancement* in consideration.
+ADD MVC aims to combine *fast development*, *extensibility* and *security* while also  taking *fast processing* and *technological advancement* in consideration.
 
 ADD MVC Framework is made from combining a custom made model, controller and a handful of original class concepts with libraries Smarty, adoDB and phpmailer.
 
