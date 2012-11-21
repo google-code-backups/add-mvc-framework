@@ -92,10 +92,10 @@ CLASS ctrl_page_index EXTENDS ctrl_tpl_page {
     * The pre-view process
     *
     */
-   public function process() {
-      $this->view()->assign('current_controller',add::current_controller_class());
-      $this->view()->assign('current_view',$this->view_filepath());
-      $this->view()->assign('timestamp',time());
+   public function process_data() {
+      $this->assign('current_controller',add::current_controller_class());
+      $this->assign('current_view',$this->view_filepath());
+      $this->assign('timestamp',time());
 
    }
 
