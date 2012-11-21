@@ -27,6 +27,8 @@ ABSTRACT CLASS ctrl_abstract_admin EXTENDS ctrl_tpl_page {
 
 Just make sure you call the parent::method() because you will have infinite loop if you happen to use the self::method()
 
+[controllers#Controller_Methods more info/tips on controller methods]
+
 == View Extension ==
 
 [http://www.smarty.net/docs/en/advanced.features.template.inheritance.tpl Smarty Template Inheritance]
