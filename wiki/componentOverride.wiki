@@ -10,5 +10,9 @@ For example you want to edit most of the ADD MVC class `model_rwd`, you will hav
 But the downside of this is you'll have to check these overriden classes when you upgrade the framework.
 
 
+
+
+
+
 *Related*
  * [componentExtension Component Extension]
