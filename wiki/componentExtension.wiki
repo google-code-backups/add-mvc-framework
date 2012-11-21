@@ -28,3 +28,7 @@ ABSTRACT CLASS ctrl_abstract_admin EXTENDS ctrl_tpl_page {
 == View Extension ==
 
 [http://www.smarty.net/docs/en/advanced.features.template.inheritance.tpl Smarty Template Inheritance]
+
+
+*Related*
+ * [componentOverride Component Override]
