@@ -19,7 +19,7 @@ Basically this framework aims to supply the needs most web application needs for
  # Model View Controller
  # Built in debugging support
  # [ModesAndSubModes Modes and Sub Modes]
- # Framework class override
+ # Framework class overload
  # Custom Exceptions
  # Environment Statuses
 
