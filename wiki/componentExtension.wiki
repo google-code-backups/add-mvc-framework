@@ -38,4 +38,4 @@ Just make sure you call the parent::method() because you will have infinite loop
 
 
 *Related*
- * [componentOverride Component Override]
+ * [componentOverload Component Overload]

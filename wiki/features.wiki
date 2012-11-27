@@ -26,9 +26,9 @@
 --------------------------------------------------
 
 = Extensibility =
- * [componentOverride Component Override]
+ * [componentOverload Component Overload]
    * Framework Class/Template/Function/Library override
-   * Resource Override
+   * Resource Overload
  * [componentExtension Component Extension]
    * Object Oriented Programming
    * View extension (by Smarty)
