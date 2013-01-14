@@ -10,7 +10,7 @@ ADD MVC Framework is made from combining a custom made model, controller and a h
 = Information =
    * *Status* documentation/wiki under development ~ first release target: November 28
    * *Latest Version* 0.10
-   * *Developers* Albert Diones, Bryan Requinala and Jeziel Tabora
+   * *Developers* [http://blog.add.ph/ Albert Diones], Bryan Requinala and Jeziel Tabora
 
 
 For any concerns, email albertdiones`[at]`gmail`[dot]`com
