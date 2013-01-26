@@ -23,7 +23,7 @@ $C = (object) array(
    );
 }}}
 
-Either you put it on a new file (eg. config.php) or on the main root execution file (eg. add.php)
+Either you put it on a separate file (eg. config.php) or on the main  execution file (eg. add.php)
 
 for more information go to [configVariables config variables page]
 
@@ -32,11 +32,19 @@ for more information go to [configVariables config variables page]
 Then you'll need to create the main execution file (eg. add.php):
 {{{
 <?php
-
+/**
+ * Sample Main Execution File
+ *
+ * This is will act as a gateway, this script will run on all framework controller files
+ *
+ */
+# Require the config file
 require '../config.php';
 
+# Require the add mvc framework's init.php
 require 'includes/frameworks/add/init.php';
 
+# Execute the automatically detected controller
 add::current_controller()->execute();
 
 }}}
