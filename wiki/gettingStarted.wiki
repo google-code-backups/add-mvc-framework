@@ -65,6 +65,11 @@ RewriteRule ^(.+)$ add.php?add_mvc_path=$1&%{QUERY_STRING} [L]
 RewriteRule ^$ add.php?add_mvc_path=$1&%{QUERY_STRING} [L]
 }}}
 
+
+
+And that completes the ADD MVC installation, we can now create our controllers.
+
+
 ------------------------------------------
 
 = Making Pages/Resources =
