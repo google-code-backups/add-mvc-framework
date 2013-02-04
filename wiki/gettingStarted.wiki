@@ -10,6 +10,8 @@ The required skills to use this framework
 Additional skills that will help:
    * ADOdb PHP database abstraction
    * MVC Framework experience
+= System Requirements =
+  * PHP Version >= 5.3.8
 ------------------------------------------
 = Basic Files =
 https://add-mvc-framework.googlecode.com/svn/wiki/assets/images/basic-files.png
