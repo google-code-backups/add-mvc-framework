@@ -7,6 +7,8 @@ ADD MVC aims to combine *fast development*, *extensibility* and *security* while
 
 ADD MVC Framework is made from combining a custom made model, controller and a handful of original class concepts with libraries Smarty, adoDB and phpmailer.
 
+[http://code.google.com/p/add-mvc-framework/issues/entry?prompt_name=Defect%20report%20from%20user Report A Bug]
+
 = Information =
    * *Status* documentation/wiki under development ~ first release target: February 2013
    * *Latest Version* 0.10.2
