@@ -64,6 +64,9 @@ CLASS ctrl_page_register EXTENDS ctrl_tpl_page {
 
 }}}
 
+
+=== developer_ips
+
 == Default Configs ==
 {{{
    array(
@@ -72,7 +75,7 @@ CLASS ctrl_page_register EXTENDS ctrl_tpl_page {
          'path'               => preg_replace('/\/[^\/]*?$/','/',$_SERVER['REQUEST_URI']),
          'root_dir'           => realpath('./'),
          'environment_status' => 'live',
-         'developers_ip'      => array(),
+         'developer_ips'      => array(),
 
          /**
           * Library init files
