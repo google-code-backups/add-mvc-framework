@@ -97,6 +97,21 @@ $C = array(
 
 Note: see [#Development_status_on_non-developer_view]
 
+=== libs ===
+An array of libraries with there "alias" as the index and the path to the initialization path as value.
+
+{{{
+   $C = array(
+         /**
+          * Library init files
+          */
+         'libs'  => (object) array(
+               'adodb' => 'adodb/adodb.inc.php',
+               'smarty'    => 'smarty/Smarty.class.php',
+               'phpmailer' => 'phpmailer/class.phpmailer.php',
+            )
+      );
+}}}
 
 == Default Configs ==
 
