@@ -20,10 +20,13 @@ First you need a config variable:
 {{{
 <?php
 $C = (object) array(
-      'path' => '/my-app/', // Relative path from the domain index. optional, but strongly recommended
+      # Relative path from the domain index. optional, but strongly recommended
+      'path' => '/my-app/',
+      # Set environment status to development. take note that, by default, due to security reasons, it is set to "live" environment status
       'environment_status' => 'development',
    );
 }}}
+
 
 Either you put it on a separate file (eg. config.php) or on the main  execution file (eg. add.php)
 
