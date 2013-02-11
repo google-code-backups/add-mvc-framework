@@ -16,7 +16,7 @@ Array of class directories aside from your application's classes and framework's
 
 Good for having a class directory common for different applications.
 
-====example====
+====classes_dirs example====
 {{{
 $C = array(
       'classes_dirs' => array( 
