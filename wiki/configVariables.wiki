@@ -3,34 +3,12 @@
 
 The config variable is STDClass $C. It has no required property, as of now.
 
-Important Properties:
+==Important Properties==
 
 ===path===
 The path (url) of the application, *with trailing slash*
 
 eg. /add-adodb-admin/
-
-
-===classes_dirs===
-Array of class directories aside from your application's classes and framework's application classes directories.
-
-Good for having a class directory common for different applications.
-
-====classes_dirs example====
-{{{
-$C = array(
-      'classes_dirs' => array( 
-            # First priority includes/classes relative the root directory of the applicaiton
-            'includes/classes',
-            # A directory of common classes among applications
-            '/var/www/my-common-php-classes/'
-         )
-   );
-}}}
-
-Note: the framework class directory is pushed on the end of the directory array.
-
-If the class is not found on the directory *or sub directories* of the class directory, the framework then tries again on the next class directory and so on, the last directory to be checked is the framework `/classes/` directory.
 
 ===environment_status===
 Environment Status (to be called application_status on a future version) is a config property that switches various applications processes for proper handling on live or development status
@@ -96,6 +74,30 @@ $C = array(
 }}}
 
 Note: see [#Development_status_on_non-developer_view]
+
+
+
+===classes_dirs===
+Array of class directories aside from your application's classes and framework's application classes directories.
+
+Good for having a class directory common for different applications.
+
+====classes_dirs example====
+{{{
+$C = array(
+      'classes_dirs' => array( 
+            # First priority includes/classes relative the root directory of the applicaiton
+            'includes/classes',
+            # A directory of common classes among applications
+            '/var/www/my-common-php-classes/'
+         )
+   );
+}}}
+
+Note: the framework class directory is pushed on the end of the directory array.
+
+If the class is not found on the directory *or sub directories* of the class directory, the framework then tries again on the next class directory and so on, the last directory to be checked is the framework `/classes/` directory.
+
 
 === libs ===
 An array of libraries with there "alias" as the index and the path to the initialization path as value.
