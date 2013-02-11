@@ -99,6 +99,11 @@ Note: see [#Development_status_on_non-developer_view]
 
 
 == Default Configs ==
+
+This is how the default config variables when you do not set them on your config variable.
+
+See Code: https://code.google.com/p/add-mvc-framework/source/browse/project/trunk/classes/add.class.php#106
+
 {{{
    array(
          'super_domain'       => $domain_parts['super_domain'], # extracted from server host
