@@ -13,5 +13,5 @@
    * [roadMap Road Map]
    * Incomplete wikis
       * [componentExtension]
-      * [componentOverride]
+      * [componentOverload]
    * [http://code.google.com/p/add-mvc-framework/w/list?can=2&q= All Wiki Pages]
