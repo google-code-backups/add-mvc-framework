@@ -77,7 +77,7 @@ $C = array(
    );
 }}}
 
-Note: 
+Note: see [#Development_status_on_non-developers_view]
 
 
 == Default Configs ==
