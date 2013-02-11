@@ -29,7 +29,7 @@ For security purposes, *"live" is the default application status*.
 
 Error reporting is set to E_ALL and some debugging data will show on the end of the script. Mailed exceptions are also not mailed but instead echo'ed
 
-==== Development status on non-developers view ====
+==== Development status on non-developer view ====
 Since 0.10.4 , "development" environment status is reverted to "live" when the user is not detected as a developer.
 
 ====Example use of add::is_live() ====
@@ -67,7 +67,9 @@ CLASS ctrl_page_register EXTENDS ctrl_tpl_page {
 
 
 === developer_ips ===
-   An array of the ips of the developers.
+   An array of the ips of the developers of the application.
+
+   This is used on built in functions for security, and this can also be used within the application according to your requirements.
 
 example:
 {{{
@@ -77,7 +79,7 @@ $C = array(
    );
 }}}
 
-Note: see [#Development_status_on_non-developers_view]
+Note: see [#Development_status_on_non-developer_view]
 
 
 == Default Configs ==
