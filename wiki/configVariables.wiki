@@ -3,6 +3,8 @@
 
 The config variable is *global STDClass $C*. It has no required property, so it is optional unless:
  * You want hierarchy friendly urls (/parent/child)
+ * You want to enable development environment status
+ * You want to add another class directory
 
 ==Important Properties==
 
