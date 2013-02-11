@@ -33,7 +33,11 @@ $C = (object) array(
 
 Either you put it on a separate file (eg. config.php) or on the main  execution file (eg. add.php)
 
+
+
 for more information go to [configVariables config variables page]
+
+
 
 == Main Execution File ==
 
