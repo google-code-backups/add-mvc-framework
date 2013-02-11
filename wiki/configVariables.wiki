@@ -1,7 +1,7 @@
 #summary Config Variables
 #labels Phase-Implementation
 
-The config variable is STDClass $C. It has no required property, as of now.
+The config variable is *global STDClass $C*. It has no required property, as of now.
 
 ==Important Properties==
 
