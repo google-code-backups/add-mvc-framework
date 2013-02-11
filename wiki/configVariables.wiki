@@ -1,7 +1,8 @@
 #summary Config Variables
 #labels Phase-Implementation
 
-The config variable is *global STDClass $C*. It has no required property, as of now.
+The config variable is *global STDClass $C*. It has no required property, so it is optional unless:
+ * You want hierarchy friendly urls (/parent/child)
 
 ==Important Properties==
 
