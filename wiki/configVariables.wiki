@@ -105,4 +105,4 @@ Note: see [#Development_status_on_non-developer_view]
 
 
 
-[gettingStarted Getting Started With ADD MVC Framework]
+Related: [gettingStarted Getting Started With ADD MVC Framework]
