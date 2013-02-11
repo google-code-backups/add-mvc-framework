@@ -22,7 +22,10 @@ First you need a config variable:
 $C = (object) array(
       # Relative path from the domain index. optional, but strongly recommended
       'path' => '/my-app/',
-      # Set environment status to development. take note that, by default, due to security reasons, it is set to "live" environment status
+      /**
+       * Set environment status to development. 
+       * for security reasons, this is set to "live" environment status by default
+       */
       'environment_status' => 'development',
    );
 }}}
