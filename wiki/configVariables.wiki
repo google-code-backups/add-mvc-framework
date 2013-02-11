@@ -20,14 +20,16 @@ Good for having a class directory common for different applications.
 Environment Status (to be called application_status on a future version) is a config property that switches various applications processes for proper handling on live or development status
 
 ====Live====
-On "live" status, all errors are not shown. To check if the application is on this mode, use add::is_live() method.
+On "live" status, *all errors are not printed*. Programmatically, to check if the application is on this mode, use add::is_live() method.
 
-For security purposes, this is the default application status.
+For security purposes, *"live" is the default application status*.
 
 ====Development====
-"development" status indicates that the only user of the application is the developer himself.
+"development" status indicates that the only user of the application is the developer(s) themselves.
 
 Error reporting is set to E_ALL and some debugging data will show on the end of the script. Mailed exceptions are also not mailed but instead echo'ed
+
+Since 0.10.4 , "development" environment status is reverted to "live" when the user is not detected as a developer.
 
 ====Example====
 {{{
