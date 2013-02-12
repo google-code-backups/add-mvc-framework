@@ -12,6 +12,10 @@ Additional skills that will help:
    * MVC Framework experience
 = System Requirements =
   * PHP Version >= 5.3.8
+  * MySQL >= 5
+  * Other:
+     * [http://www.smarty.net/docs/en/installation.tpl#installation.requirements Smarty system requirements]
+     * [http://adodb.sourceforge.net/#docs AdoDB system requirements]
 ------------------------------------------
 = Basic Files =
 https://add-mvc-framework.googlecode.com/svn/wiki/assets/images/basic-files.png
