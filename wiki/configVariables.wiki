@@ -5,6 +5,7 @@ The config variable is *global STDClass $C*. It has no required property, so it 
  * You want hierarchy friendly urls (/parent/child)
  * You want to enable development environment status [#Development] or you want to see the php errors
  * You want to add another class directory [#classes_dirs]
+ * You want to add a custom config variable (*note: array config variables will be converted to STDClass*)
 
 ==Important Properties==
 
