@@ -52,6 +52,7 @@ Where: const TABLE is the table of the company and TABLE_PK is the primary key f
   * model_rwd - Read Write Delete Model
   * model_r - Read Only Model
   * model_auth - For model that are meant for tables of users that logs in. or any entity that is authenticated
+     * Note: Check the constants before using this class.
 
 == Tips ==
  * Table related methods should be static context while row related functions are object.
