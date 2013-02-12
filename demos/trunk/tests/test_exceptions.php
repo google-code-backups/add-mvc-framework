@@ -13,8 +13,8 @@ if ($exception) {
    add::content_type($_REQUEST['content_type']);
    e_add::$email_addresses = $email;
    $e = new $exception("Test Error Message");
-   debug::var_dump($e->mail_body());
-   #throw new $exception("Test Error Message");
+   #debug::var_dump($e->mail_body());
+   throw $e;
 }
 ?>
 <form method="GET">
