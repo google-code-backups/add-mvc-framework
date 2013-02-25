@@ -167,7 +167,7 @@ Note: making a page view without controller also works (it'll use `ctrl_default_
 
 = Accessing the Database =
 
-Accessing database in ADD MVC is done by models, models, in ADD MVC framework represent a table from the database. For example we have a table named "companies"
+Accessing database in ADD MVC is done by models; models, in ADD MVC framework represent a table from the database. For example we have a table named "companies"
 
 It is recommended that these models uses ADODB returned by there db() method.
 
