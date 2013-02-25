@@ -15,6 +15,7 @@ ADD MVC Framework is made from combining a custom made model, controller and a h
    * *Latest Version* 0.10.4
    * *Developers* [http://blog.add.ph/ Albert Diones], Bryan Requinala and Jeziel Tabora
    * [http://code.google.com/p/add-mvc-framework/issues/entry?prompt_name=Defect%20report%20from%20user Report A Bug]
+   * [https://code.google.com/p/add-mvc-framework/issues/entry?prompt_name=Ask%20a%20Question Ask a question]
 
 <wiki:gadget url="http://www.ohloh.net/p/632892/widgets/project_factoids_stats.xml"  width="500" height="300" border="0"/>
 <wiki:gadget url="http://www.ohloh.net/p/632892/widgets/project_languages.xml"  width="500" height="230" border="0"/>
