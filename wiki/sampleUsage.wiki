@@ -3,8 +3,47 @@
 
 = Making a table from query =
 
-== Summary ==
+== Summary: Making a table from query ==
 Create an html from query results.
 
+
+== Model: Making a table from query ==
+{{{
+<?php
+/**
+ * includes/classes/models/companies.class.php
+ * note: this could also be anywhere under includes/classes directory
+ *
+ */
+CLASS companies EXTENDS model_rwd {
+   const TABLE = 'companies';
+   #const TABLE_PK = 'id';# This is already the default TABLE_PK value
+}
+}}}
+
+== Controller: Making a table from query ==
+{{{
+<?php
+/**
+ * includes/classes/controllers/ctrl_page_companies.class.php
+ * note: this could also be anywhere under includes/classes directory
+ *
+ */
+CLASS ctrl_page_companies EXTENDS ctrl_tpl_page {
+   /**
+    * "Pre mode" process
+    *
+    * Take note that we didn't used process_data() so we can enable modes in the future
+    *
+    */
+   public function pre_mode_process() {
+      $companies = company::get_page_instances(1);
+      $company_rows = array();
+      foreach ($companies as $company) {
+         $company_rows[] = $company->data_array();
+      }
+   }
+}
+}}}
 
 to be continued...
