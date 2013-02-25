@@ -1,0 +1,8 @@
+#summary Sample scenario and implementations of ADD MVC Framework
+#labels Phase-Implementation
+
+= Making a table from query =
+
+== Summary ==
+Create an html from query results.
+
