@@ -272,7 +272,7 @@ CLASS ctrl_page_index EXTENDS ctrl_tpl_page {
       # Getting the current logged in
       $this->assign('current_member',member::current_logged_in());
 
-      # Getting member #1
+      # Getting member with id = 1
       $this->assign('featured_member',member::get_instance(1));
    }
 
