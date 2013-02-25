@@ -25,7 +25,7 @@ First you need a config variable:
 <?php
 $C = (object) array(
       # Relative path from the domain index. optional, but strongly recommended
-      'path' => '/my-app/',
+      'path' => '/my-app/', # e.g. http://add.ph/my-app/
       /**
        * Set environment status to development. 
        * for security reasons, this is set to "live" environment status by default
@@ -36,7 +36,6 @@ $C = (object) array(
 
 
 Either you put it on a separate file (eg. config.php) or on the main  execution file (eg. add.php)
-
 
 
 for more information go to [configVariables config variables page]
