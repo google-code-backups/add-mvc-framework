@@ -12,7 +12,7 @@ ADD MVC Framework is made from combining a custom made model, controller and a h
    * *[gettingStarted Getting Started With ADD MVC Framework]*
    * [https://code.google.com/p/add-mvc-framework/issues/entry?template=Defect%20report%20from%20user Report A Bug]
    * [https://code.google.com/p/add-mvc-framework/issues/entry?template=Ask%20a%20Question Ask a question]
-   * [https://code.google.com/p/add-mvc-framework/issues/list?can=1&q=label:FAQ&colspec=Summary FAQs]
+   * [https://code.google.com/p/add-mvc-framework/issues/list?can=1&q=label%3AFAQ+status%3AVerified&colspec=Summary&cells=tiles FAQs]
 
 = Information =
    * *Status* documentation/wiki under development ~ first release target: February 2013
