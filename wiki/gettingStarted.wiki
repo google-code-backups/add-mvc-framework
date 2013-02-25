@@ -1,6 +1,8 @@
 #summary Getting Started with add mvc
 #labels Phase-Deploy,Phase-Design,Featured
 
+Note: at any point you can [https://code.google.com/p/add-mvc-framework/issues/entry?template=Ask%20a%20Question ask question here]
+
 = Skill Requirements =
 
 The required skills to use this framework
