@@ -21,7 +21,16 @@ CLASS companies EXTENDS model_rwd {
    const TABLE = 'companies';
    #const TABLE_PK = 'id';# This is already the default TABLE_PK value
 
+   /**
+    * The database connection 
+    */
    public static db() {
+     static $db;
+     if (!isset($db)) {
+        $db = NewADOConnection('mysql');
+        $db->Connect('localhost','root');
+     }
+     return $db;
    }
 }
 }}}
