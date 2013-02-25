@@ -1,10 +1,12 @@
 #summary Sample scenario and implementations of ADD MVC Framework
 #labels Phase-Implementation
 
+Note: page is under construction
+
 = Making a table from query =
 
 == Summary: Making a table from query ==
-Create an html from query results.
+There is a table of companies is on the database, we need to create an html table out of the first 10 latest rows of it.
 
 
 == Model: Making a table from query ==
@@ -18,6 +20,9 @@ Create an html from query results.
 CLASS companies EXTENDS model_rwd {
    const TABLE = 'companies';
    #const TABLE_PK = 'id';# This is already the default TABLE_PK value
+
+   public static db() {
+   }
 }
 }}}
 
@@ -37,7 +42,7 @@ CLASS ctrl_page_companies EXTENDS ctrl_tpl_page {
     *
     */
    public function pre_mode_process() {
-      $companies = company::get_page_instances(1);
+      $companies = company::get_where_order_page(null, "id DESC",1);
       $company_rows = array();
       foreach ($companies as $company) {
          $company_rows[] = $company->data_array();
