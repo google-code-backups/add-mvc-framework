@@ -29,6 +29,7 @@
       * ctrl_tpl_resource as parent of ctrl_tpl_page, ctrl_tpl_aux, ctrl_tpl_ajax
       * ctrl_abstract_`*` instead of ctrl_tpl_`*`
    * maximized use of SPL components
+   * drop backward compatiblity support for versions below 0.9
 
 
 = Version x.x =
