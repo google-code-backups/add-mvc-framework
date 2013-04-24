@@ -83,7 +83,7 @@ CLASS array_entity IMPLEMENTS Iterator {
     * @since ADD MVC 0.0
     */
    public function __isset($varname) {
-      return array_key_exists($varname,$this->data);
+      return isset($this->data) && array_key_exists($varname,$this->data);
    }
 
    /**
