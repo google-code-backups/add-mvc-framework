@@ -22,6 +22,15 @@
    * Shorten filenames of smarty compiled files when showing them as errors
    * add::exception($preferred_class, $message, $data)
 
+= 1.0 =
+(from trunk, stable versions of 0.11 to 0.13 will also be merged)
+   * Standardization and readability
+      * ctrl_resource_`*` instead of ctrl_page_`*`
+      * ctrl_tpl_resource as parent of ctrl_tpl_page, ctrl_tpl_aux, ctrl_tpl_ajax
+      * ctrl_abstract_`*` instead of ctrl_tpl_`*`
+   * maximized use of SPL components
+
+
 = Version x.x =
  * Debugging
    * new environment status: dynamic_maintenance
@@ -37,7 +46,3 @@
    * path canonicalization
    * https requirement and redirect
    * controller config redirect
- * Standardization and readability
-   * ctrl_resource_`*` instead of ctrl_page_`*`
-   * ctrl_tpl_resource as parent of ctrl_tpl_page, ctrl_tpl_aux, ctrl_tpl_ajax
-   * ctrl_abstract_`*` instead of ctrl_tpl_`*`
