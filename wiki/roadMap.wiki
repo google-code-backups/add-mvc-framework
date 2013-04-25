@@ -47,3 +47,5 @@
    * path canonicalization
    * https requirement and redirect
    * controller config redirect
+ * Uncategorized
+   * Non error exceptions
