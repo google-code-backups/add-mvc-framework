@@ -39,10 +39,8 @@ ABSTRACT CLASS add_current_user EXTENDS session_entity IMPLEMENTS i_singleton {
     * Singleton constructor
     *
     */
-   protected function __construct() {
-      if (!session_id()) {
-         session_start();
-      }
+   protected function __construct(&$session_var) {
+      parent::__construct($session_var);
       static::load_components();
       if (static::$do_track) {
          static::track();
@@ -54,8 +52,11 @@ ABSTRACT CLASS add_current_user EXTENDS session_entity IMPLEMENTS i_singleton {
     *
     */
    public static function singleton() {
+      if (!session_id()) {
+         session_start();
+      }
       if (!isset(static::$singleton)) {
-         static::$singleton = new static();
+         static::$singleton = new static($_SESSION[static::session_key()]);
       }
       return static::$singleton;
    }
@@ -166,7 +167,7 @@ ABSTRACT CLASS add_current_user EXTENDS session_entity IMPLEMENTS i_singleton {
 
       $track_data = array(
             'url'          => current_url(),
-            'record_time'  => microtime(),
+            'record_time'  => microtime(true),
             'request_time' => $_SERVER['REQUEST_TIME']
          );
 
@@ -216,6 +217,16 @@ ABSTRACT CLASS add_current_user EXTENDS session_entity IMPLEMENTS i_singleton {
 
       $singleton->activities = $activities;
 
+   }
+
+
+
+   /**
+    * session key
+    *
+    */
+   public function session_key() {
+      return get_called_class();
    }
 }
 
