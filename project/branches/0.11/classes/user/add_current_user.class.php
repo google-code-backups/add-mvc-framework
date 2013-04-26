@@ -124,7 +124,7 @@ ABSTRACT CLASS add_current_user EXTENDS session_entity IMPLEMENTS i_singleton {
     * load the libraries
     *
     */
-   public function load_components() {
+   public static function load_components() {
       add::load_functions('url');
    }
 
@@ -180,18 +180,18 @@ ABSTRACT CLASS add_current_user EXTENDS session_entity IMPLEMENTS i_singleton {
 
          $is_referer_recorded = false;
 
-         if ($singleton->activities) {
-            $last_activity = array_pop($singleton->activities);
+         if ($activities) {
+            $last_activity = array_pop($activities);
             if (!empty($last_activity['record_time'])) {
                $is_referer_recorded = $last_activity['url'] == $track_data['referer'];
                if ($is_referer_recorded) {
                   $last_activity['time_on_page'] = $track_data['request_time'] - $last_activity['record_time'];
                }
-               array_push(
-                     $activities,
-                     $last_activity
-                  );
             }
+            array_push(
+                  $activities,
+                  $last_activity
+               );
          }
          # Record the referer data
          if (!$is_referer_recorded) {
