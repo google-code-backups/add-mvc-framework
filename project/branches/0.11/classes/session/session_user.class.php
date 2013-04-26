@@ -6,7 +6,7 @@
  * @since ADD MVC 0.6
  */
 ABSTRACT CLASS session_user EXTENDS session_entity {
-   static $singleton = array();
+   protected static $singleton = array();
    const SESSION_KEY = 'session_user';
 
    /**
