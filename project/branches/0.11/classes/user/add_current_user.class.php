@@ -20,6 +20,7 @@ ABSTRACT CLASS add_current_user EXTENDS session_entity IMPLEMENTS i_singleton {
    const TRACK_REFERER = 2;
    const TRACK_IP      = 4;
    const TRACK_GPC     = 8;
+   const TRACK_SESSION = 16;
 
    /**
     * Whether to track pages or not
@@ -225,6 +226,10 @@ ABSTRACT CLASS add_current_user EXTENDS session_entity IMPLEMENTS i_singleton {
                '_POST'   => $_POST,
                '_COOKIE' => $_COOKIE
             );
+      }
+
+      if (in_array(static::TRACK_SESSION,static::$do_track)) {
+         $track_data['session'] = $_SESSION;
       }
 
       array_push(
