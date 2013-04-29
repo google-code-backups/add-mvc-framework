@@ -16,14 +16,14 @@ CLASS current_user EXTENDS add_current_user {
       );
 }
 
+if ($_REQUEST['mode'] == 'reset') {
+   session_destroy();
+}
+
 debug::print_eval('current_user::ip_in_network()');
 debug::print_eval('current_user::is_developer()');
 debug::print_eval('current_user::track()');
 #debug::print_eval('current_user::v()');
-
-if ($_REQUEST['mode'] == 'reset') {
-   session_destroy();
-}
 
 ?>
 <a href="?rand=<?php echo rand() ?>">Test Referer</a>
