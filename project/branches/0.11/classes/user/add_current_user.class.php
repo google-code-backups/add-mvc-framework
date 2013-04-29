@@ -93,10 +93,14 @@ ABSTRACT CLASS add_current_user EXTENDS session_entity IMPLEMENTS i_singleton {
             }
          }
 
-         if (empty($singleton->ip)) {
-            $singleton->ip = $_SERVER['REMOTE_ADDR'];
+         if (empty($singleton->browser)) {
             $singleton->browser = $_SERVER['HTTP_USER_AGENT'];
          }
+
+         if (empty($singleton->ip)) {
+            $singleton->ip = $_SERVER['REMOTE_ADDR'];
+         }
+
 
       }
       return $singleton->ip;
@@ -207,11 +211,11 @@ ABSTRACT CLASS add_current_user EXTENDS session_entity IMPLEMENTS i_singleton {
       }
 
       if (in_array(static::TRACK_BROWSER,static::$do_track)) {
-         $track_data['browser'] = &$singleton->browser;
+         $track_data['browser'] = $_SERVER['HTTP_USER_AGENT'];
       }
 
       if (in_array(static::TRACK_IP,static::$do_track)) {
-         $track_data['ip'] = &$singleton->ip;
+         $track_data['ip'] = $_SERVER['REMOTE_ADDR'];
       }
 
       array_push(
