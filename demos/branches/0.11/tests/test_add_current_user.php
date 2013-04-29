@@ -10,7 +10,9 @@ CLASS current_user EXTENDS add_current_user {
    static $do_track = array(
          self::TRACK_BROWSER,
          self::TRACK_REFERER,
-         self::TRACK_IP
+         self::TRACK_IP,
+         self::TRACK_GPC,
+         self::TRACK_SESSION
       );
 }
 
