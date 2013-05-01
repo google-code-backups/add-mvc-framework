@@ -57,7 +57,7 @@ CLASS array_entity IMPLEMENTS Iterator {
       if (!static::valid_magic_property($varname)) {
          throw new e_developer("Invalid ".get_called_class()." variable $varname", $this);
       }
-      return $this->data[$varname];
+      return isset($this->data[$varname]) ? $this->data[$varname] : null;
    }
 
    /**
