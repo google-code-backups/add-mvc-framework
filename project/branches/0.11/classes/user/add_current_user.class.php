@@ -42,6 +42,7 @@ ABSTRACT CLASS add_current_user EXTENDS session_entity IMPLEMENTS i_singleton {
     *
     */
    protected function __construct(&$session_var) {
+      #debug::lines_backtrace();
       parent::__construct($session_var);
       static::load_components();
       if (static::$do_track) {
@@ -220,16 +221,16 @@ ABSTRACT CLASS add_current_user EXTENDS session_entity IMPLEMENTS i_singleton {
          $track_data['ip'] = $_SERVER['REMOTE_ADDR'];
       }
 
+      $track_data['superglobals'] = array();
+
       if (in_array(static::TRACK_GPC,static::$do_track)) {
-         $track_data['gpc'] = array(
-               '_GET'    => $_GET,
-               '_POST'   => $_POST,
-               '_COOKIE' => $_COOKIE
-            );
+         $track_data['superglobals']['_GET']    = $_GET;
+         $track_data['superglobals']['_POST']   = $_POST;
+         $track_data['superglobals']['_COOKIE'] = $_COOKIE;
       }
 
       if (in_array(static::TRACK_SESSION,static::$do_track)) {
-         $track_data['session'] = $_SESSION;
+         $track_data['superglobals']['_SESSION'] = $_SESSION;
       }
 
       array_push(
