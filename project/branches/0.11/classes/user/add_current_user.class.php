@@ -224,14 +224,6 @@ ABSTRACT CLASS add_current_user EXTENDS session_entity IMPLEMENTS i_singleton {
 
       $track_data2 = array();
 
-      if (in_array(static::TRACK_BROWSER,static::$do_track)) {
-         $track_data2['browser'] = $_SERVER['HTTP_USER_AGENT'];
-      }
-
-      if (in_array(static::TRACK_IP,static::$do_track)) {
-         $track_data2['ip'] = $_SERVER['REMOTE_ADDR'];
-      }
-
       if (in_array(static::TRACK_REQUEST,static::$do_track)) {
          $track_data2['_POST']    = $_POST;
          $track_data2['_COOKIE']  = $_COOKIE;
