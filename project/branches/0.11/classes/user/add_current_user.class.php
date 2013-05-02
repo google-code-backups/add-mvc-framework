@@ -29,7 +29,7 @@ ABSTRACT CLASS add_current_user EXTENDS session_entity IMPLEMENTS i_singleton {
     *
     */
    protected static $_SERVER_indexes = array(
-         'REQUEST_URI','REMOTE_ADDR'
+         'REQUEST_TIME','REQUEST_URI','REMOTE_ADDR'
       );
 
    /**
@@ -185,8 +185,7 @@ ABSTRACT CLASS add_current_user EXTENDS session_entity IMPLEMENTS i_singleton {
 
       $track_data = array(
             'url'          => current_url(),
-            'record_time'  => microtime(true),
-            'request_time' => $_SERVER['REQUEST_TIME']
+            'record_time'  => microtime(true)
          );
 
       if ($activities) {
@@ -198,19 +197,20 @@ ABSTRACT CLASS add_current_user EXTENDS session_entity IMPLEMENTS i_singleton {
             &&
             isset($_SERVER['HTTP_REFERER'])
          ) {
-         $track_data['referer'] = $_SERVER['HTTP_REFERER'];
 
          $is_referer_recorded = false;
 
+         # If the referer is recorded, then calculate the time stayed on that page
          if ($last_activity) {
             if (!empty($last_activity['record_time'])) {
-               $is_referer_recorded = $last_activity['url'] == $track_data['referer'];
+               $is_referer_recorded = $last_activity['url'] == $_SERVER['HTTP_REFERER'];
                if ($is_referer_recorded) {
-                  $last_activity['time_on_page'] = $track_data['request_time'] - $last_activity['record_time'];
+                  $last_activity['time_on_page'] = $_SERVER['REQUEST_TIME'] - $last_activity['record_time'];
                }
             }
          }
-         # Record the referer data
+
+         # Record the referer data if not recorded by this class
          if (!$is_referer_recorded) {
             $referer_data = array(
                   'url'          => $track_data['referer']
@@ -222,7 +222,7 @@ ABSTRACT CLASS add_current_user EXTENDS session_entity IMPLEMENTS i_singleton {
          }
       }
 
-      $track_data2 = array();
+      $track_data2 = $singleton->track_data();
 
       if (in_array(static::TRACK_REQUEST,static::$do_track)) {
          $track_data2['_POST']    = $_POST;
@@ -295,6 +295,36 @@ ABSTRACT CLASS add_current_user EXTENDS session_entity IMPLEMENTS i_singleton {
     */
    public function session_key() {
       return get_called_class();
+   }
+
+
+   /**
+    * request_data
+    *
+    */
+   public function request_data() {
+      $request_data = array();
+
+      if (in_array(static::TRACK_REQUEST,static::$do_track)) {
+         $request_data['_POST']    = $_POST;
+         $request_data['_COOKIE']  = $_COOKIE;
+         $request_data['_REQUEST'] = $_REQUEST;
+      }
+
+      if (in_array(static::TRACK_SESSION,static::$do_track)) {
+         $request_data['_SESSION'] = $_SESSION;
+      }
+
+      if (in_array(static::TRACK_SERVER,static::$do_track)) {
+         $request_data['_SERVER'] = array();
+         foreach ($_SERVER as $_SERVER_index => $_SERVER_value) {
+            if ( strpos($_SERVER_index,'HTTP_') === 0 || in_array($_SERVER_index, static::$_SERVER_indexes) ) {
+               $request_data['_SERVER'][$_SERVER_index] = $_SERVER_value;
+            }
+         }
+      }
+
+      return $request_data;
    }
 }
 
