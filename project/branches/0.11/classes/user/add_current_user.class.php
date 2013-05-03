@@ -213,7 +213,7 @@ ABSTRACT CLASS add_current_user EXTENDS session_entity IMPLEMENTS i_singleton {
          # Record the referer data if not recorded by this class
          if (!$is_referer_recorded) {
             $referer_data = array(
-                  'url'          => $track_data['referer']
+                  'url'          => $_SERVER['HTTP_REFERER']
                );
             array_push(
                   $activities,
@@ -222,44 +222,26 @@ ABSTRACT CLASS add_current_user EXTENDS session_entity IMPLEMENTS i_singleton {
          }
       }
 
-      $track_data2 = $singleton->track_data();
-
-      if (in_array(static::TRACK_REQUEST,static::$do_track)) {
-         $track_data2['_POST']    = $_POST;
-         $track_data2['_COOKIE']  = $_COOKIE;
-         $track_data2['_REQUEST'] = $_REQUEST;
-      }
-
-      if (in_array(static::TRACK_SESSION,static::$do_track)) {
-         $track_data2['_SESSION'] = $_SESSION;
-      }
-
-      if (in_array(static::TRACK_SERVER,static::$do_track)) {
-         $track_data2['_SERVER'] = array();
-         foreach ($_SERVER as $_SERVER_index => $_SERVER_value) {
-            if ( strpos($_SERVER_index,'HTTP_') === 0 || in_array($_SERVER_index, static::$_SERVER_indexes) ) {
-               $track_data2['_SERVER'][$_SERVER_index] = $_SERVER_value;
-            }
-         }
-      }
-
+      $track_data2 = $singleton->request_data();
       if ($last_activity) {
          foreach ($track_data2 as $track_data2_index => &$track_data2_value) {
-            $track_data2_value = array_diff($track_data2_value, $last_activity[$track_data2_index]);
+            if (isset($last_activity[$track_data2_index]) && is_array($last_activity[$track_data2_index])) {
+               if ($array_diff = array_diff($track_data2_value, $last_activity[$track_data2_index])) {
+                  $track_data2_value = $array_diff;
+               }
+            }
          }
          array_push(
                $activities,
                $last_activity
             );
       }
-
       array_push(
             $activities,
             array_merge($track_data,$track_data2)
          );
 
       $singleton->activities = $activities;
-
    }
 
 
@@ -313,6 +295,7 @@ ABSTRACT CLASS add_current_user EXTENDS session_entity IMPLEMENTS i_singleton {
 
       if (in_array(static::TRACK_SESSION,static::$do_track)) {
          $request_data['_SESSION'] = $_SESSION;
+         unset($request_data['_SESSION'][static::session_key()]);
       }
 
       if (in_array(static::TRACK_SERVER,static::$do_track)) {
