@@ -128,17 +128,9 @@ ABSTRACT CLASS add_debug {
     *
     */
    protected static function protected_caller_backtrace() {
-      $backtraces = debug_backtrace();
+      $backtraces = debug_backtrace(@DEBUG_BACKTRACE_IGNORE_ARGS);
 
-      foreach ($backtraces as $backtrace) {
-         $is_trace_this_function = isset($backtrace['class']) && ($backtrace['class'] == __CLASS__ || is_subclass_of($backtrace['class'],__CLASS__) && $backtrace['function'] == __FUNCTION__);
-
-         if (empty($backtrace['class']) || !$is_trace_class_debug) {
-            break;
-         }
-      }
-
-      $caller_backtrace = next($backtraces);
+      $caller_backtrace = $backtraces[2];
 
       return $caller_backtrace;
 
@@ -191,7 +183,7 @@ ABSTRACT CLASS add_debug {
       static $indentation = 0;
       static $indentation_length = 8;
       static $type_value_indentation = 1;
-      static $key_indentation = 0;
+      static $value_indentation = 0;
       static $indentation_char = "\t";
       $dump = "";
 
@@ -201,13 +193,14 @@ ABSTRACT CLASS add_debug {
             if ($arg) {
                $dump .= "{";
                $indentation++;
-               $max_key_length = max(array_map("strlen",array_keys($arg)));
                $pre_index_string = "* ";
-               $key_indentation = ceil($max_key_length/$indentation_length);
+               $max_key_length = max(array_map("strlen",array_keys($arg))) + strlen($pre_index_string);
+               $value_indentation = ceil(($max_key_length/$indentation_length)+0.1);
+               $current_value_indentation = $value_indentation;
                foreach ($arg as $index => $value) {
 
                   $index_string = $pre_index_string.$index;
-                  $index_value_indentation = $key_indentation - floor(strlen($index_string)/$indentation_length);
+                  $index_value_indentation = $current_value_indentation - floor(strlen($index_string)/$indentation_length);
                   $dump .= "\r\n".str_repeat("$indentation_char",$indentation).$index_string;
                   $dump .= str_repeat("$indentation_char",$index_value_indentation);
                   /**
@@ -222,7 +215,7 @@ ABSTRACT CLASS add_debug {
                   }
                   $index_value_indentation = 0;
                }
-               $key_indentation = 0;
+               $value_indentation = 0;
                $dump .= "\r\n";
                $indentation--;
                $dump .= str_repeat("$indentation_char",$indentation)."}\r\n";
@@ -238,7 +231,7 @@ ABSTRACT CLASS add_debug {
             if (strlen($arg) > 70) {
                $indentation_string = str_repeat("$indentation_char",
                      $indentation
-                     + $key_indentation
+                     + $value_indentation
                   );
                $dump .= " (word-wrapped)\r\n";
                $dump .= $indentation_string.wordwrap($arg,70,"\r\n".$indentation_string)."\r\n";
