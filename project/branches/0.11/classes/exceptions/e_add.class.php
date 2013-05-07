@@ -284,10 +284,9 @@ CLASS e_add EXTENDS Exception IMPLEMENTS i_with_view {
          debug::return_pretty_var_dump($important_info)."\r\n".
          "== Data ==\r\n".debug::return_pretty_var_dump($this->data)."\r\n".
          "== Trace ==\r\n".debug::return_pretty_var_dump($this->getTrace())."\r\n".
-         "== Request Headers ==\r\n".debug::return_pretty_var_dump(function_exists('apache_request_headers') ? apache_request_headers() : false)."\r\n".
-         "== Get ==\r\n".debug::return_pretty_var_dump($_GET)."\r\n".
          "== User Latest Request Data ==\r\n".debug::return_pretty_var_dump(current_user::singleton()->request_data())."\r\n";
-         "== User Activities ==\r\n".debug::return_pretty_var_dump(current_user::singleton()->activities)."\r\n".
+         "== User Activities ==\r\n".debug::return_pretty_var_dump(current_user::singleton()->trimmed_activities())
+         ;
    }
 
    /**
