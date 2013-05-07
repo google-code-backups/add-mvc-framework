@@ -272,15 +272,15 @@ CLASS e_add EXTENDS Exception IMPLEMENTS i_with_view {
       $original_message = $this->getMessage();
       $message = $this->truncated_subject();
 
-      $header = "= $message =\r\n";
+      $mail_body_header = "= $message =\r\n";
 
       if ($original_message != $message) {
-         $header .= "$original_message\r\n\r\n";
+         $mail_body_header .= "$original_message\r\n\r\n";
       }
 
 
       return
-         $header.
+         $mail_body_header.
          debug::return_pretty_var_dump($important_info)."\r\n".
          "== Data ==\r\n".debug::return_pretty_var_dump($this->data)."\r\n".
          "== Trace ==\r\n".debug::return_pretty_var_dump($this->getTrace())."\r\n".
