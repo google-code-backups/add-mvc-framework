@@ -300,7 +300,7 @@ ABSTRACT CLASS add_current_user EXTENDS session_entity IMPLEMENTS i_singleton {
                $request_data['_SERVER'][$_SERVER_index] = $_SERVER_value;
             }
          }
-      }C
+      }
 
       return $request_data;
    }
