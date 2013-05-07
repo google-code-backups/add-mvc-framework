@@ -222,23 +222,18 @@ ABSTRACT CLASS add_current_user EXTENDS session_entity IMPLEMENTS i_singleton {
          }
       }
 
-      $track_data2 = $singleton->request_data();
+      $track_data = array_merge($track_data,$singleton->request_data());
+
       if ($last_activity) {
-         foreach ($track_data2 as $track_data2_index => &$track_data2_value) {
-            if (isset($last_activity[$track_data2_index]) && is_array($last_activity[$track_data2_index])) {
-               if ($array_diff = array_diff($track_data2_value, $last_activity[$track_data2_index])) {
-                  $track_data2_value = $array_diff;
-               }
-            }
-         }
          array_push(
                $activities,
                $last_activity
             );
       }
+
       array_push(
             $activities,
-            array_merge($track_data,$track_data2)
+            $track_data
          );
 
       $singleton->activities = $activities;
@@ -305,9 +300,47 @@ ABSTRACT CLASS add_current_user EXTENDS session_entity IMPLEMENTS i_singleton {
                $request_data['_SERVER'][$_SERVER_index] = $_SERVER_value;
             }
          }
-      }
+      }C
 
       return $request_data;
    }
+
+   /**
+    * trimed_activities
+    *
+    */
+   public function trimmed_activities() {
+      $singleton = isset($this) ? $this : static::singleton();
+
+      $trimmed_activities = array();
+
+      $previous_activity = null;
+
+      foreach ($singleton->activities as $i => $activity) {
+
+         $trimmed_activities[$i] = $activity;
+
+         if ($previous_activity) {
+            foreach ($trimmed_activities[$i] as $trimmed_activity_field => &$trimmed_activity_field_value) {
+               if (isset($previous_activity[$trimmed_activity_field]) && is_array($previous_activity[$trimmed_activity_field])) {
+                  $trimmed_activity_field_value = array_diff($trimmed_activity_field_value, $previous_activity[$trimmed_activity_field]);
+                  if ($array_diff) {
+                     $trimmed_activity_field_value = $array_diff;
+                  }
+                  else {
+                     unset($trimmed_activities[$i][$trimmed_activity_field]);
+                  }
+               }
+            }
+         }
+
+         $previous_activity = $activity;
+      }
+
+      return $trimmed_activities;
+   }
+
+
+
 }
 
