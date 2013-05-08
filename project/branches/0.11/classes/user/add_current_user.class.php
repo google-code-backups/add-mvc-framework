@@ -311,7 +311,12 @@ ABSTRACT CLASS add_current_user EXTENDS session_entity IMPLEMENTS i_singleton {
    }
 
    /**
-    * trimed_activities
+    * Trimmed activities
+    *
+    * A slimmed version of the activities, for printing
+    * The values of the super globals that are not changed from the previous urls
+    *
+    * @param int $limit limit the output to $limit activities
     *
     */
    public function trimmed_activities($limit = 10) {
