@@ -314,14 +314,16 @@ ABSTRACT CLASS add_current_user EXTENDS session_entity IMPLEMENTS i_singleton {
     * trimed_activities
     *
     */
-   public function trimmed_activities() {
+   public function trimmed_activities($limit = 10) {
       $singleton = isset($this) ? $this : static::singleton();
 
       $trimmed_activities = array();
 
       $previous_activity = null;
 
-      foreach ($singleton->activities as $i => $activity) {
+      $activities = array_slice($singleton->activities,-$limit);
+
+      foreach ($activities as $i => $activity) {
 
          $trimmed_activities[$i] = $activity;
 
