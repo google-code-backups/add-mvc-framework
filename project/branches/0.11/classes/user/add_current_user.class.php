@@ -185,6 +185,7 @@ ABSTRACT CLASS add_current_user EXTENDS session_entity IMPLEMENTS i_singleton {
 
       $track_data = array(
             'url'          => current_url(),
+            'type'         => 'page_visit',
             'record_time'  => microtime(true)
          );
 
