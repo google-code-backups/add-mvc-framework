@@ -321,7 +321,12 @@ ABSTRACT CLASS add_current_user EXTENDS session_entity IMPLEMENTS i_singleton {
 
       $previous_activity = null;
 
-      $activities = array_slice($singleton->activities,-$limit);
+      if ($limit) {
+         $activities = array_slice($singleton->activities,-$limit);
+      }
+      else {
+         $activities = $singleton->activities;
+      }
 
       foreach ($activities as $i => $activity) {
 
