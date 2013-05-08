@@ -295,7 +295,11 @@ ABSTRACT CLASS add_current_user EXTENDS session_entity IMPLEMENTS i_singleton {
 
       if (in_array(static::TRACK_SERVER,static::$do_track)) {
          $request_data['_SERVER'] = array();
-         foreach ($_SERVER as $_SERVER_index => $_SERVER_value) {
+         $_SERVER_vars = $_SERVER;
+         # Already on request
+         unset($_SERVER_vars['HTTP_COOKIE']);
+
+         foreach ($_SERVER_vars as $_SERVER_index => $_SERVER_value) {
             if ( strpos($_SERVER_index,'HTTP_') === 0 || in_array($_SERVER_index, static::$_SERVER_indexes) ) {
                $request_data['_SERVER'][$_SERVER_index] = $_SERVER_value;
             }
@@ -321,14 +325,35 @@ ABSTRACT CLASS add_current_user EXTENDS session_entity IMPLEMENTS i_singleton {
          $trimmed_activities[$i] = $activity;
 
          if ($previous_activity) {
-            foreach ($trimmed_activities[$i] as $trimmed_activity_field => &$trimmed_activity_field_value) {
-               if (isset($previous_activity[$trimmed_activity_field]) && is_array($previous_activity[$trimmed_activity_field])) {
-                  $trimmed_activity_field_value = array_diff($trimmed_activity_field_value, $previous_activity[$trimmed_activity_field]);
-                  if ($array_diff) {
-                     $trimmed_activity_field_value = $array_diff;
+            foreach (array('_POST','_COOKIE','_REQUEST','_SERVER','_SESSION') as $activity_field) {
+               if (!empty($previous_activity[$activity_field])) {
+                  if (is_array($previous_activity[$activity_field])) {
+                     $array_diff = array_diff($trimmed_activities[$i][$activity_field], $previous_activity[$activity_field]);
+                     foreach ( $previous_activity[$activity_field] as $previous_activity_field_field => $pactivity_field_field_value) {
+                        # The value of the previous activity field is nulled
+                        if (!isset($trimmed_activities[$i][$activity_field][$previous_activity_field_field])) {
+                           $array_diff[$previous_activity_field_field] = null;
+                        }
+                     }
+
+                     if ($array_diff) {
+                        $trimmed_activities[$i][$activity_field] = $array_diff;
+                     }
+                     else {
+                        unset($trimmed_activities[$i][$activity_field]);
+                     }
                   }
                   else {
-                     unset($trimmed_activities[$i][$trimmed_activity_field]);
+                     throw new e_developer("This shouldn't happen");
+                  }
+               }
+               else {
+                  # If the activity field value is empty, don't include it at all
+                  if (empty($trimmed_activities[$i][$activity_field])) {
+                     unset($trimmed_activities[$i][$activity_field]);
+                  }
+                  else {
+                     # do nothing, get all the value cause the previous value is blank
                   }
                }
             }
