@@ -21,6 +21,9 @@ Additional skills that will help:
 ------------------------------------------
 = Basic Files =
 https://add-mvc-framework.googlecode.com/svn/wiki/assets/images/basic-files.png
+
+   It is required that you have *.htaccess* and main execution file (*add.php*) on your application root directory. And ideally you will also have *config.php*
+
 == Config ==
 First you need a config variable:
 {{{
