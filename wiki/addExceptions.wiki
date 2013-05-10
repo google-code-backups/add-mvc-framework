@@ -25,6 +25,20 @@ They can be found under includes/classes/exceptions
 *Examples*
   * latest error message: {`$error_message`}
   * error message from mode "register": {`$error_message.user_register`}
+{{{
+{*SMARTY*}
+{add_layout file='common_layout'}
+{block name='main'}
+   <form method="post">
+      {$error_message} {* OR {$error_messages.user_register} *}
+      <input name="email" type="text" />
+      <input name="password" type="password" />
+      <input name="name" type="text" />
+      <input name="mode" value="register" type="hidden" />
+      <button type="submit">Register</button>
+   </form>
+{/block}
+}}}
 
 ==Assertions==
    Assertion can be used to prevent or detect unusual situations or user errors.
