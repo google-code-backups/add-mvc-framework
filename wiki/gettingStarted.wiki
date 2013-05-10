@@ -38,7 +38,8 @@ https://add-mvc-framework.googlecode.com/svn/wiki/assets/images/basic-files.png
 
 
 == Config ==
-First you need a config variable:
+
+Ideally you will have config variable:
 {{{
 <?php
 $C = (object) array(
