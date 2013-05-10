@@ -111,6 +111,7 @@ And that completes the ADD MVC installation, we can now create our controllers.
 == Controllers ==
 To make pages/resources, a controller and a view (or one of them) with the same basename should be made
 
+e.g. for page http://add.ph/home you will create ctrl_page_home.class.php class file with ctrl_page_home class declared inside it.
 
 To overwrite the default index page, you should make <ctrl_page_index.class.php> file under your includes/classes directory.
 
