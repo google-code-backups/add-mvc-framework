@@ -24,6 +24,19 @@ https://add-mvc-framework.googlecode.com/svn/wiki/assets/images/basic-files.png
 
    It is required that you have *.htaccess* and main execution file (*add.php*) on your application root directory. And ideally you will also have *config.php* and the include directory (*/includes*) and the assets directory (*/assets*)
 
+   Ideally, the structure of assets and includes directory is:
+
+   * /includes
+      * /includes/classes
+      * /includes/views
+      * /includes/libs
+      * /includes/functions
+   * /assets
+      * /assets/images
+      * /assets/js
+      * /assets/css
+
+
 == Config ==
 First you need a config variable:
 {{{
