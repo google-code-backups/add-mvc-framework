@@ -17,18 +17,18 @@ CLASS user_request_iterator EXTENDS inverted_regex_iterator {
                ^[0-9a-f]{32,40}$
                |
                ^(?:
-                  4\d{12,15}
+                  4(\d{1}|\d{4})         # Visa
                   |
-                  5[1-5]\d{14}
+                  5[1-5]\d{3}            # MasterCard
                   |
-                  6(?:011|5\d{2})[0-9]{12}
+                  6(?:011|5\d{2})\d      # Discover
                   |
-                  3[47]\d{13}
+                  3[47]\d{2}             # American Express
                   |
-                  3(?:0[0-5]|[68]\d)\d{11}
+                  3(?:0[0-5]|[68]\d)     # Diners Club
                   |
-                  (?:2131|1800|35\d{3})\d{11}
-               )$
+                  (?:2131|1800|35\d{3})  # JCB
+               )\d{11} $
          /x';
 
    /**
