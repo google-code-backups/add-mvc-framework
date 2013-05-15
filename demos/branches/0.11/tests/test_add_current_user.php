@@ -9,9 +9,6 @@ if ($_REQUEST['mode'] == 'reset') {
 
 $user = current_user::singleton();
 
-debug::var_dump($user->trimmed_activities());
-
-
 ?>
 <a href="?rand=<?php echo rand() ?>">Test Referer</a>
 <a href="?mode=reset">Reset session</a>
@@ -19,3 +16,29 @@ debug::var_dump($user->trimmed_activities());
    <textarea name="rand<?php echo rand() ?>"></textarea>
    <button type="submit">Submit</button>
 </form>
+<?php
+debug::var_dump(
+      iterator_to_array(
+            new user_request_iterator(
+                  array(
+                        '_GET' => array(
+                              'username' => 'albert',
+                              'password' => 'test123',
+                              'passwd'   => 'test321',
+                              'pass'     => 'test234',
+                           ),
+                        '_POST'  => array(
+                              'credit_card' => '4111111111111111',
+                              'mycc'        => '4111111111111111',
+                           ),
+                        '_COOKIE' => array(
+                              'PHPSESSID' => 'uivtqjg6748rj812fkef9o4u71',
+                              'password' => 'test123'
+                           ),
+                     )
+               )
+         )
+   );
+
+debug::var_dump($user->trimmed_activities());
+?>
