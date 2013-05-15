@@ -25,7 +25,7 @@ CLASS inverted_regex_iterator EXTENDS RecursiveRegexIterator {
       $args[2] == static::MATCH
          || throw new e_developer("Wrong parameter on ".get_called_class(),$args[2]);
 
-      call_user_func_array('parent::'.__FUNCTION__,$args);
+      return call_user_func_array('parent::'.__FUNCTION__,$args);
    }
 
 
