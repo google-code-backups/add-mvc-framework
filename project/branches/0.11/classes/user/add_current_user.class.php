@@ -316,27 +316,9 @@ ABSTRACT CLASS add_current_user EXTENDS session_entity IMPLEMENTS i_singleton {
          }
       }
 
-      return static::security_trim($request_data);
+      return new user_request_iterator($request_data);
    }
 
-
-
-   /**
-    * Remove sensitive items
-    *
-    */
-   public static function security_trim($array) {
-      $index_filtered_array = new inverted_regex_iterator(new RecursiveArrayIterator($array), '/^pa?s?s(wo?r?d)?|c(redit)?_?c(ard)?|PHPSESSID/');
-
-      $index_filtered_array->setFlags(inverted_regex_iterator::USE_KEY);
-
-      foreach ($index_filtered_array as $index => $value) {
-         if (is_array($value)) {
-            $index_filtered_array->offsetSet($index, static::security_trim($value));
-         }
-      }
-      return iterator_to_array($index_filtered_array);
-   }
 
    /**
     * Trimmed activities
