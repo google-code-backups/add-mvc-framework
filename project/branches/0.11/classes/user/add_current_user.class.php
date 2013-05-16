@@ -316,7 +316,7 @@ ABSTRACT CLASS add_current_user EXTENDS session_entity IMPLEMENTS i_singleton {
          }
       }
 
-      return new user_request_iterator($request_data);
+      return iterator_to_array(new user_request_iterator($request_data));
    }
 
 

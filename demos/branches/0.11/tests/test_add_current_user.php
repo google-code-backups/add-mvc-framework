@@ -13,7 +13,11 @@ $user = current_user::singleton();
 <a href="?rand=<?php echo rand() ?>">Test Referer</a>
 <a href="?mode=reset">Reset session</a>
 <form method="post">
-   <textarea name="rand<?php echo rand() ?>"></textarea>
+   <label>
+      Random Text:
+      <textarea name="rand<?php echo rand() ?>"></textarea>
+   </label>
+   <label>Password: <input name="password" type="password" /></label>
    <button type="submit">Submit</button>
 </form>
 <?php
@@ -46,5 +50,5 @@ debug::var_dump(
          )
    );
 
-debug::var_dump($user->trimmed_activities());
+debug::var_dump($user->request_data());
 ?>
