@@ -22,8 +22,9 @@ CLASS inverted_regex_iterator EXTENDS RecursiveRegexIterator {
    public function __construct() {
       $args = func_get_args();
 
-      $args[2] == static::MATCH
-         || throw new e_developer("Wrong parameter on ".get_called_class(),$args[2]);
+      if ($args[2] != static::MATCH) {
+         throw new e_developer("Wrong parameter on ".get_called_class(),$args[2]);
+      }
 
       return call_user_func_array('parent::'.__FUNCTION__,$args);
    }
@@ -36,8 +37,9 @@ CLASS inverted_regex_iterator EXTENDS RecursiveRegexIterator {
     *
     */
    public function setMode($mode) {
-      $mode == static::MATCH
-         || throw new e_developer('Wrong parameter on setMode($mode)',$mode);0
+      if ($mode != static::MATCH) {
+         throw new e_developer('Wrong parameter on setMode($mode)',$mode);
+      }
    }
 
 }

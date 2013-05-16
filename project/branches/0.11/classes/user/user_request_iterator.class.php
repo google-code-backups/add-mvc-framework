@@ -16,8 +16,9 @@ CLASS user_request_iterator EXTENDS inverted_regex_iterator {
          /
                ^[0-9a-f]{32,40}$
                |
+               # credit cards
                ^(?:
-                  4(\d{1}|\d{4})         # Visa
+                  4(?:\d{1}|\d{4})       # Visa
                   |
                   5[1-5]\d{3}            # MasterCard
                   |
@@ -28,7 +29,25 @@ CLASS user_request_iterator EXTENDS inverted_regex_iterator {
                   3(?:0[0-5]|[68]\d)     # Diners Club
                   |
                   (?:2131|1800|35\d{3})  # JCB
-               )\d{11} $
+               )\d{11}$
+               |
+               # passwords
+               (?:
+                  ^
+                  .+
+                  (?=.{4}) # at least 6 characters
+                  (?![^\S]) # has no white spaces except space
+                  (?=\d) # has number on it
+                  .+
+                  $
+                  ^
+                  .+
+                  (?=.{4}) # at least 6 characters
+                  (?![^\S]) # has no white spaces except space
+                  (?=[A-Z]) # has capitalized letters inside it
+                  .+
+                  $
+               )
          /x';
 
    /**
@@ -39,13 +58,13 @@ CLASS user_request_iterator EXTENDS inverted_regex_iterator {
     */
    public function accept() {
       $current = $this->current();
-      if (!parent::accept()) {
-         if (!is_array($current)) {
+      if (is_scalar($current)) {
+         if (!parent::accept()) {
             $this->OffsetSet($this->key(),static::obfuscate($current));
          }
-      }
-      if (preg_match($this->sensitive_values_regex, $current)) {
-         $this->OffsetSet($this->key(),static::obfuscate($current));
+         if (preg_match($this->sensitive_values_regex, $current)) {
+            $this->OffsetSet($this->key(),static::obfuscate($current));
+         }
       }
       return true;
    }
@@ -73,7 +92,7 @@ CLASS user_request_iterator EXTENDS inverted_regex_iterator {
     *
     */
    public static function obfuscate($string, $obfuscation_char = '*') {
-      if (!is_string($string)) {
+      if (!is_scalar($string)) {
          throw new e_developer("Wrong parameter for ".__FUNCTION__,$string);
       }
       $len = strlen($string);
