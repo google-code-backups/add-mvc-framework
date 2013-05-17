@@ -4,7 +4,7 @@ require_once "$C->add_dir/init.php";
 
 
 
-$exceptions = array('e_developer','e_syntax','e_hack','e_spam','e_system');
+$exceptions = array('e_developer','e_syntax','e_hack','e_spam','e_system','e_database');
 $exception = (string) $_GET['exception'];
 $email = (string) $_GET['email'];
 if ($exception) {

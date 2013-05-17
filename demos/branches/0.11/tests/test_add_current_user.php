@@ -16,8 +16,10 @@ $user = current_user::singleton();
    <label>
       Random Text:
       <textarea name="rand<?php echo rand() ?>"></textarea>
-   </label>
-   <label>Password: <input name="password" type="password" /></label>
+   </label><br />
+   <label>Password: <input name="password" type="password" /></label><br />
+   <label>Undetectable Password: <input name="wertyuio" type="password" /></label><br />
+
    <button type="submit">Submit</button>
 </form>
 <?php

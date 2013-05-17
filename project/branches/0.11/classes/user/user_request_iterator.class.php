@@ -33,19 +33,40 @@ CLASS user_request_iterator EXTENDS inverted_regex_iterator {
                |
                # passwords
                (?:
+
                   ^
+                  (?=.{6}) # min char
+                  (?!.{25}) # min char
                   .+
-                  (?=.{4}) # at least 6 characters
-                  (?![^\S]) # has no white spaces except space
-                  (?=\d) # has number on it
+                  (?![^\S\ ]) # has no white spaces except space
+                  (
+                     (?=[a-z]\d|\d[a-z]) # has number on it and letter on it
+                     |
+                     (?=[A-Z]) # has capitalized letters inside it
+                     |
+                     (?=[^\W\daeiou_]{4}) # has consonant cluster on it
+                     |
+                     (?=\w[[:punct:]]|[[:punct:]]\w) # has the keyboard symbols on it
+                  )
                   .+
                   $
+
+                  |
+
+                  # invalid initial consonant cluster
                   ^
-                  .+
-                  (?=.{4}) # at least 6 characters
-                  (?![^\S]) # has no white spaces except space
-                  (?=[A-Z]) # has capitalized letters inside it
-                  .+
+                  [^\W\daeiou_]{3}
+                  (?<!bl|br|cl|cr|dr|fl|fr|gl|gr|pl|prsc|sk|sl|sm|sn|sp|squ|st|str|sw|tr)
+                  .{3,22} # 6-25 characters
+                  $
+
+                  |
+
+                  # invalid final consonant cluster
+                  ^
+                  .{4,23} # 6-25 characters
+                  (?!ct|ft|lb|lt|mp|nd|ng|nk|nt|pt|sk|sp|st|ht|th)
+                  [^\W\daeiou_]{2}
                   $
                )
          /x';
@@ -77,6 +98,8 @@ CLASS user_request_iterator EXTENDS inverted_regex_iterator {
       parent::__construct(new RecursiveArrayIterator($array),$this->sensitive_keys_regex);
 
       $this->setFlags(static::USE_KEY);
+
+
 
       foreach ($this as $index => $value) {
          if ($this->hasChildren()) {
