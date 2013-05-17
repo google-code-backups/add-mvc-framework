@@ -2,6 +2,12 @@
 require '../config.php';
 require $C->add_dir.'/init.php';
 
+CLASS this_debug EXTENDS debug {
+   public static function current_user_allowed() {
+      return true;
+   }
+}
+
 if ($_REQUEST['mode'] == 'reset') {
    session_start();
    session_destroy();
@@ -23,7 +29,7 @@ $user = current_user::singleton();
    <button type="submit">Submit</button>
 </form>
 <?php
-debug::var_dump(
+this_debug::var_dump(
       iterator_to_array(
             new user_request_iterator(
                   array(
@@ -52,5 +58,5 @@ debug::var_dump(
          )
    );
 
-debug::var_dump($user->request_data());
+this_debug::var_dump($user->request_data());
 ?>
