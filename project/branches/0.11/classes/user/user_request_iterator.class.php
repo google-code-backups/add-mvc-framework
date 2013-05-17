@@ -35,38 +35,48 @@ CLASS user_request_iterator EXTENDS inverted_regex_iterator {
                (?:
 
                   ^
-                  (?=.{6}) # min char
-                  (?!.{25}) # min char
+                  (?=.{6}) # min char: 6
+                  (?!.{25}) # max char: 25
                   .+
                   (?![^\S\ ]) # has no white spaces except space
                   (
-                     (?=[a-z]\d|\d[a-z]) # has number on it and letter on it
+                     (?=\D\d|\d\D) # has number on it and letter on it
                      |
-                     (?=[A-Z]) # has capitalized letters inside it
+                     (?=[^A-Z\s][A-Z]|[A-Z][^A-Z\s]) # has capitalized letters inside it
                      |
-                     (?=[^\W\daeiou_]{4}) # has consonant cluster on it
+                     (?=(?i)\S[^\W\daeiou\_]{4}\S) # has consonant cluster on it
                      |
-                     (?=\w[[:punct:]]|[[:punct:]]\w) # has the keyboard symbols on it
+                     (?=\w[[:punct:]]{2}[\B$]|\B[[:punct:]]{2}\w) # has the keyboard symbols on it
                   )
-                  .+
-                  $
 
                   |
 
                   # invalid initial consonant cluster
                   ^
+                  (?i)
+                  (?=.{6}) # min char: 6
+                  (?!.{25}) # max char: 25
+                  .*
+                  \b
                   [^\W\daeiou_]{3}
-                  (?<!bl|br|cl|cr|dr|fl|fr|gl|gr|pl|prsc|sk|sl|sm|sn|sp|squ|st|str|sw|tr)
-                  .{3,22} # 6-25 characters
+                  (?<!bl|br|cl|cr|dr|fl|fr|gl|gr|pl|prsc|sk|sl|sm|sn|sp|squ|st|str|sw|tr|wh)
+                  \B
+                  .*
                   $
 
                   |
 
                   # invalid final consonant cluster
                   ^
-                  .{4,23} # 6-25 characters
-                  (?!ct|ft|lb|lt|mp|nd|ng|nk|nt|pt|sk|sp|st|ht|th)
+                  (?i)
+                  (?=.{6}) # min char: 6
+                  (?!.{25}) # max char: 25
+                  .*
+                  \B
+                  (?!ct|ft|lb|lt|mp|nd|ng|nk|nt|pt|sk|sp|st|ht|th|rd)
                   [^\W\daeiou_]{2}
+                  \b
+                  .*
                   $
                )
          /x';
@@ -114,7 +124,7 @@ CLASS user_request_iterator EXTENDS inverted_regex_iterator {
     * @param string $string
     *
     */
-   public static function obfuscate($string, $obfuscation_char = '*') {
+   public static function obfuscate($string, $obfuscation_char = 'x') {
       if (!is_scalar($string)) {
          throw new e_developer("Wrong parameter for ".__FUNCTION__,$string);
       }
