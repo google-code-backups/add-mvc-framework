@@ -29,7 +29,8 @@ ABSTRACT CLASS add_current_user EXTENDS session_entity IMPLEMENTS i_singleton {
     *
     */
    protected static $_SERVER_indexes = array(
-         'REQUEST_TIME','REQUEST_URI','REMOTE_ADDR'
+         'REQUEST_TIME','REQUEST_URI','REMOTE_ADDR',
+         'CONTENT_TYPE','REQUEST_METHOD'
       );
 
    /**
