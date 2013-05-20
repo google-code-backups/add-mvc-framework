@@ -48,10 +48,21 @@ this_debug::var_dump(
                               'cc_04'       => '378734493671000',    //American Express
                               'cc_05'       => '38520000023237',     //Diners Club
                               'cc_06'       => '3566002020360505',   //JCB
+
+                              # Should be detected as password and obfuscated
+                              'capsyCapsy'  => 'IamAwEirdP',
+                              'simblock'    => 'hey!notsure',
+                              'nomnom'      => 'hoygising6547',
+
+                              # Should not be detected as password
+                              'message'     => "Hey how are you!!!"
+                              '20130520105824+0800' => 'Shalom!',
+                              '1234'                => 'I come in peace!?'
                            ),
                         '_COOKIE' => array(
                               'PHPSESSID' => 'uivtqjg6748rj812fkef9o4u71',
-                              'password' => 'test123'
+                              'password' => 'test123',
+                              'undetectable_s3ssid' => '6jas16vkpp9m87s2h01g9ijdk1'
                            ),
                      )
                )
