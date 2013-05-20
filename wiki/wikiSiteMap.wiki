@@ -9,6 +9,7 @@
       * [popularLibraries#Smarty Libraries: Smarty chapter]
       * [popularLibraries#ADOdb Libraries: ADOdb Chapter]
       * [models Models]
+      * [http://mvc.add.ph/docs/packages/ADD MVC.html Source Code Documentation]
    * [features Features]
    * [models Models]
    * [controllers Controllers]
