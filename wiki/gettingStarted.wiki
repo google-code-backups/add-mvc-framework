@@ -310,3 +310,12 @@ foreach ($companies as $company) {
 }}}
 
 For more information about models, go to [models Models Page]
+
+== Other Classes ==
+   * Debugging classes (debug, add_debug, add_debug_timer, add_debug_mail)
+   * Mailer class (ctrl_abstract_mailer)
+   * DOM and curl (dom_wrapper, add_curl)
+   * Exceptions (e_add)
+   * Interfaces ( i_auth_entity, i_ctrl, i_ctrl_with_view, i_non_overwriteable, i_singleton, i_with_view)
+   * LDAP classes (add_ldap)
+   * session variable based classes (session_entity, session_user)
