@@ -46,8 +46,12 @@ CLASS user_request_iterator EXTENDS inverted_regex_iterator {
                      |
                      (?=(?i)\S[^\W\daeiou\_]{4}\S) # has consonant cluster on it
                      |
-                     (?=\w[[:punct:]]{2}[\B$]|\B[[:punct:]]{2}\w) # has the keyboard symbols on it
+                     (?=(\b|^)[[:punct:]]{1}\b|\b[[:punct:]]{1}(\b|$)) # has the keyboard symbols on it
                   )
+
+                  |
+                  # Pure digit with 6 characters or more
+                  \d{6,}
 
                   |
 
@@ -73,7 +77,7 @@ CLASS user_request_iterator EXTENDS inverted_regex_iterator {
                   (?!.{25}) # max char: 25
                   .*
                   \B
-                  (?!ct|ft|lb|lt|mp|nd|ng|nk|nt|pt|sk|sp|st|ht|th|rd)
+                  (?!ct|ft|lb|lt|mp|nd|ng|nk|nt|pt|sk|sp|st|ht|th|rd|wn)
                   [^\W\daeiou_]{2}
                   \b
                   .*
