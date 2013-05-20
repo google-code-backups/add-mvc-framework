@@ -4,6 +4,11 @@
 = Links =
    * [home Home]
    * [gettingStarted Getting Started]
+      * [configVariables config]
+      * [controllers Controllers]
+      * [popularLibraries#Smarty Libraries: Smarty chapter]
+      * [popularLibraries#ADOdb Libraries: ADOdb Chapter]
+      * [models Models]
    * [features Features]
    * [models Models]
    * [controllers Controllers]
