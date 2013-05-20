@@ -50,14 +50,28 @@ this_debug::var_dump(
                               'cc_06'       => '3566002020360505',   //JCB
 
                               # Should be detected as password and obfuscated
-                              'capsyCapsy'  => 'IamAwEirdP',
-                              'simblock'    => 'hey!notsure',
-                              'nomnom'      => 'hoygising6547',
+                              'capsyCapsy'   => 'IamAwEirdP',
+                              'simblock'     => 'hey!notsure',
+                              'nomnom'       => 'hoygising6547',
+                              'combi'        => 'yeahyeah&23',
+                              'combo'        => 'lolol%^230',
+                              'space'        => 'charlie brown8768',
+                              'space2'       => 'charlie brown8768 123',
+                              'team2'        => 'LALakers',
+                              'nomnomnom'    => '654331254312',
+                              'cell'         => '09123457547',
+                              'badnum1232'   => '12345678',
+                              'sims'         => 'salmon&*^%',
+
 
                               # Should not be detected as password
-                              'message'     => "Hey how are you!!!"
+                              'message'             => "Hey how are you!!!",
                               '20130520105824+0800' => 'Shalom!',
-                              '1234'                => 'I come in peace!?'
+                              'symbian'             => 'I come in peace!?',
+
+                              # These are "bad" passwords anyway
+                              'team'       => 'Chicago',
+                              'name312354' => 'Charlie',
                            ),
                         '_COOKIE' => array(
                               'PHPSESSID' => 'uivtqjg6748rj812fkef9o4u71',
