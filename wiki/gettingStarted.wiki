@@ -43,10 +43,10 @@ Ideally you will have config variable:
 {{{
 <?php
 $C = (object) array(
-      # Relative path from the domain index. optional, but strongly recommended
+      # Relative path(with leading and trailing slashes) from the domain index. optional, but strongly recommended
       'path' => '/my-app/', # e.g. http://add.ph/my-app/
       /**
-       * Set environment status to development. 
+       * Set environment status to development.
        * for security reasons, this is set to "live" environment status by default
        */
       'environment_status' => 'development',
@@ -63,13 +63,13 @@ for more information go to [configVariables config variables page]
 
 == Main Execution File ==
 
-Then you'll need to create the main execution file (eg. add.php):
+Main execution file will act as a gateway, that will be running on all our ADD MVC resources
+
+eg. add.php:
 {{{
 <?php
 /**
  * Sample Main Execution File
- *
- * This is will act as a gateway, this script will run on all framework controller files
  *
  */
 # Require the config file
@@ -82,6 +82,10 @@ require 'includes/frameworks/add/init.php';
 add::current_controller()->execute();
 
 }}}
+
+Graphically that is:
+
+https://add-mvc-framework.googlecode.com/svn/wiki/assets/images/add-mvc-main-execution-file.png
 
 add::current_controller() returns the current controller according to the current path, and execute() is the execution function, as the name implies.
 
@@ -109,11 +113,13 @@ And that completes the ADD MVC installation, we can now create our controllers.
 = Making Pages/Resources =
 
 == Controllers ==
-To make pages/resources, a controller and a view (or one of them) with the same basename should be made
+To make pages/resources, a controller class and a Smarty view file (or one of them) with the same basename.
 
-e.g. for page http://add.ph/home you will create ctrl_page_home.class.php class file with ctrl_page_home class declared inside it.
+e.g. for page http://add.ph/login you will create ctrl_page_login.class.php class file with ctrl_page_login class declared inside it.
 
-To overwrite the default index page, you should make <ctrl_page_index.class.php> file under your includes/classes directory.
+To overwrite the default index page (i.e. the home page), you should make <ctrl_page_index.class.php> file under your includes/classes directory.
+
+note: there is a default index page and it should be replaced
 
 For more info go to [controllers Controllers wiki]
 
@@ -174,7 +180,7 @@ CLASS ctrl_page_index EXTENDS ctrl_tpl_page {
 https://add-mvc-framework.googlecode.com/svn/wiki/assets/images/simple-index.png
 
 
-With controllers and views alone you can already create pages. But if you want to use the full power of ADD MVC, you will also models, which is on the next chapter [gettingStarted#Accessing_the_Database Accessing the database].
+With controllers and views alone you can already create pages. But if you want to use the full power of ADD MVC, you will also use models, which is on the next chapter [gettingStarted#Accessing_the_Database Accessing the database].
 
 Note: making a page view without controller also works (it'll use `ctrl_default_page` class)
 
@@ -212,7 +218,7 @@ CLASS my_adodb_mysql EXTENDS add_adodb_mysql {
 }
 }}}
 
-Note that `add_adodb_mysql` and it's parent class is a wrapper for the real adodb object. This was done so the errors are automatically thrown as e_database.
+Note that `add_adodb_mysql` and it's parent class is a wrapper for the real adodb object. This was done so the errors are automatically thrown as [addExceptions#Exception_Classes e_database].
 
 For more information, see the [popularLibraries#ADOdb Libraries ADOdb Chapter]
 
@@ -239,9 +245,8 @@ CLASS member EXTENDS model_auth {
 }
 }}}
 
-note that it extends a preset extra model model_auth, but the very basic model you can extend is model_rwd. You can also extend model_r (read only) and other extra models like model_image_rwd
+note that it extends a built-in extra model model_auth, but the very basic abstract model you can extend is model_rwd which contains loads of functions for manipulating data from the database.
 
-Another example:
 {{{
 /**
  * model of company table
@@ -266,9 +271,9 @@ CLASS company EXTENDS model_rwd {
 }
 }}}
 
-model_rwd contains loads of functions for manipulating data from the database.
+You can also extend model_r (read only) and other extra models like model_image_rwd
 
-note that, all the fields on company table are being fetched. This might be adjustable in the future versions, but that's the way it is as of now.
+note that, all the fields of the table (e.g. companies table) are being fetched. This might be adjustable in the future versions, but that's the way it is as of now.
 
 
 
