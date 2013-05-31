@@ -60,6 +60,20 @@ Either you put it on a separate file (eg. config.php) or on the main  execution 
 for more information go to [configVariables config variables page]
 
 
+== .htaccess Rewrite ==
+create an htaccess rewrite
+{{{
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)$ add.php?add_mvc_path=$1&%{QUERY_STRING} [L]
+RewriteRule ^$ add.php?add_mvc_path=$1&%{QUERY_STRING} [L]
+}}}
+
+Notice above that "add.php" is used, depending on the name of your _main execution file_
+
+AS you may have noticed it will only rewrite to the main execution file when the original file is not existing. This enables developers to have there own non-framework file to run. This will also enable smooth transistion from another (non-rewriting?) framework to another.
 
 == Main Execution File ==
 
@@ -90,18 +104,6 @@ https://add-mvc-framework.googlecode.com/svn/wiki/assets/images/add-mvc-main-exe
 add::current_controller() returns the current controller according to the current path, and execute() is the execution function, as the name implies.
 
 If you want to make your own process and just use some functions of ADD MVC (or is not familliar with the MVC environment yet), you can replace the current controller execution ( add::current_controller()->execute() ) with your own code
-
-
-== .htaccess Rewrite ==
-and create an htaccess rewrite, notice that "add.php" is used, depending on the name of your _main execution file_
-{{{
-RewriteEngine On
-
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.+)$ add.php?add_mvc_path=$1&%{QUERY_STRING} [L]
-RewriteRule ^$ add.php?add_mvc_path=$1&%{QUERY_STRING} [L]
-}}}
 
 
 
