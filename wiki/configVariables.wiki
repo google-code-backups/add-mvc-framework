@@ -90,7 +90,7 @@ Good for having a class directory common for different applications.
 {{{
 $C = array(
       'classes_dirs' => array( 
-            # First priority includes/classes relative the root directory of the applicaiton
+            # First priority includes/classes relative the root directory of the application
             'includes/classes',
             # A directory of common classes among applications
             '/var/www/my-common-php-classes/'
