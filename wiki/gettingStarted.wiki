@@ -62,6 +62,8 @@ for more information go to [configVariables config variables page]
 
 == .htaccess Rewrite ==
 create an htaccess rewrite
+
+*.htaccess*
 {{{
 RewriteEngine On
 
@@ -79,7 +81,7 @@ AS you may have noticed it will only rewrite to the main execution file when the
 
 Main execution file will act as a gateway, that will be running on all our ADD MVC resources
 
-eg. add.php:
+eg. *add.php*:
 {{{
 <?php
 /**
