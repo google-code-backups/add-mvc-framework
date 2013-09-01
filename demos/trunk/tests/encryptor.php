@@ -1,6 +1,6 @@
 <?php
 /**
- * add_encryptor tset
+ * add_encryptor test
  * @see https://code.google.com/p/add-mvc-framework/issues/detail?id=111
  */
 require 'add_configure.php';
