@@ -44,7 +44,7 @@ $decryptor = my_encryptor2::from_encrypted($encrypted4,'lololo');
 
 $decrypted = $decryptor->string;
 
-debug::var_dump();
+debug::var_dump($decrypted);
 
 $decryptor2 = my_encryptor::from_encrypted($decrypted,'lololo');
 
