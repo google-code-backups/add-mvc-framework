@@ -6,11 +6,11 @@
 require 'add_configure.php';
 
 CLASS my_encryptor EXTENDS add_encryptor {
-   public $salt = 'foo';
+   public $key = 'foo';
 }
 
 CLASS my_encryptor2 EXTENDS add_encryptor {
-   public $salt = 'baz';
+   public $key = 'baz';
 }
 
 $string = 'bar';
