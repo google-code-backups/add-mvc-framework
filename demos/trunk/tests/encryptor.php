@@ -42,25 +42,25 @@ debug::var_dump($encrypted4);
 
 $decryptor = my_encryptor2::from_encrypted($encrypted4,'lololo');
 
-$decrypted = $decryptor->decrypt();
+$decrypted = $decryptor->string;
 
 debug::var_dump();
 
 $decryptor2 = my_encryptor::from_encrypted($decrypted,'lololo');
 
-$decrypted2 = $decryptor2->decrypt();
+$decrypted2 = $decryptor2->string;
 
 debug::var_dump($decrypted2);
 
 $decryptor3 = my_encryptor2::from_encrypted($decrypted2);
 
-$decrypted3 = $decryptor3->decrypt();
+$decrypted3 = $decryptor3->string;
 
 debug::var_dump($decrypted3);
 
 $decryptor4 = my_encryptor::from_encrypted($decrypted3);
 
-$decrypted4 = $decryptor4->decrypt();
+$decrypted4 = $decryptor4->string;
 
 debug::var_dump($decrypted3);
 
