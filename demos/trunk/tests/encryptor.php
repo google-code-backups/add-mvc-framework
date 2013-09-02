@@ -13,7 +13,9 @@ CLASS my_encryptor2 EXTENDS add_encryptor {
    public $key = 'baz';
 }
 
-$string = 'bar';
+$string = 'The way, the truth and the life';
+
+debug::var_dump($string);
 
 $encryptor = new my_encryptor($string);
 
@@ -23,19 +25,19 @@ debug::var_dump($encrypted);
 
 $encryptor2 = new my_encryptor2($encrypted);
 
-$encrypted2 = $encryptor2->encrypt(); 
+$encrypted2 = $encryptor2->encrypt();
 
 debug::var_dump($encrypted2);
 
 $encryptor3 = new my_encryptor($encrypted2,'lalala');
 
-$encrypted3 = $encryptor3->encrypt(); 
+$encrypted3 = $encryptor3->encrypt();
 
 debug::var_dump($encrypted3);
 
 $encryptor4 = new my_encryptor2($encrypted3,'lololo');
 
-$encrypted4 = $encryptor4->encrypt(); 
+$encrypted4 = $encryptor4->encrypt();
 
 debug::var_dump($encrypted4);
 
@@ -46,7 +48,7 @@ $decrypted = $decryptor->string;
 
 debug::var_dump($decrypted);
 
-$decryptor2 = my_encryptor::from_encrypted($decrypted,'lololo');
+$decryptor2 = my_encryptor::from_encrypted($decrypted,'lalala');
 
 $decrypted2 = $decryptor2->string;
 
@@ -62,7 +64,7 @@ $decryptor4 = my_encryptor::from_encrypted($decrypted3);
 
 $decrypted4 = $decryptor4->string;
 
-debug::var_dump($decrypted3);
+debug::var_dump($decrypted4);
 
 
 
