@@ -97,6 +97,37 @@ $decryptor6 = my_encryptor2::from_encrypted($encryptor6->encrypt(),"Nothing is i
 
 debug::var_dump($decryptor6->string);
 
+# Custom Cypher
+echo "<b>Custom Cypher</b><br />";
+CLASS my_encryptor3 EXTENDS my_encryptor2 {
+   public $key = 'DFGJHKLO:FGDSDFGHJKLJHGDFHJKL';
+   public $cypher = MCRYPT_BLOWFISH;
+}
+
+$string = 'The mountains melt like wax';
+
+$encryptor7 = new my_encryptor3($string);
+
+$encryptor8 = new my_encryptor($string);
+
+$encryptor9 = new my_encryptor2($string);
+
+debug::var_dump(
+      $encryptor7 -> encrypt(),
+      $encryptor8 -> encrypt(),
+      $encryptor9 -> encrypt()
+   );
+
+
+$decryptor7 = my_encryptor3::from_encrypted($encryptor7 -> encrypt());
+$decryptor8 = my_encryptor::from_encrypted($encryptor8 -> encrypt());
+$decryptor9 = my_encryptor2::from_encrypted($encryptor9 -> encrypt());
+
+debug::var_dump(
+      $decryptor7 -> string,
+      $decryptor8 -> string,
+      $decryptor9 -> string
+   );
 
 
 echo "<hr><b>Fail Tests</b><br>";
