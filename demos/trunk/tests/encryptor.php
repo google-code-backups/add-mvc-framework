@@ -130,6 +130,44 @@ debug::var_dump(
    );
 
 
+# Post Construct Custom Cypher
+echo "<b>Post Construct Custom Cypher</b><br />";
+CLASS my_encryptor4 EXTENDS my_encryptor2 {
+   public $key = 'DFGJHKLO:FGDSDFGHJKLJHGDFHJKL';
+   public $cypher = MCRYPT_BLOWFISH;
+}
+
+$string = 'The mountains melt like wax';
+
+$encryptor10 = new my_encryptor4($string);
+$encryptor10 -> key = 'barrr';
+$encryptor10 -> cypher = MCRYPT_CAST_128;
+
+$encryptor11 = new my_encryptor($string);
+$encryptor11 -> cypher = MCRYPT_GOST;
+
+$encryptor12 = new my_encryptor2($string);
+$encryptor12 -> cypher = MCRYPT_LOKI97;
+
+debug::var_dump(
+      $encryptor10 -> encrypt(),
+      $encryptor11 -> encrypt(),
+      $encryptor12 -> encrypt()
+   );
+
+
+$decryptor10 = my_encryptor3::from_encrypted($encryptor10 -> encrypt(),'barrr',MCRYPT_CAST_128);
+$decryptor11 = my_encryptor::from_encrypted($encryptor11 -> encrypt(),false,MCRYPT_GOST);
+$decryptor12 = my_encryptor2::from_encrypted($encryptor12 -> encrypt(),false,MCRYPT_LOKI97);
+
+debug::var_dump(
+      $decryptor10 -> string,
+      $decryptor11 -> string,
+      $decryptor12 -> string
+   );
+
+
+
 echo "<hr><b>Fail Tests</b><br>";
 
 
@@ -185,6 +223,28 @@ $decryptor4 = my_encryptor::from_encrypted($decrypted3);
 $decrypted4 = $decryptor4->string;
 
 debug::var_dump($decrypted4);
+
+
+# No key
+
+$encryptor5 = new add_encryptor('of the Great Amen',null);
+try {
+   debug::var_dump($encryptor5->encrypt(),$encryptor5);
+}
+catch (Exception $e) {
+   add::handle_exception($e);
+}
+
+# Invalid key
+
+$encryptor6 = new add_encryptor('of the Great Amen',array());
+
+try {
+   debug::var_dump($encryptor6->encrypt(),$encryptor6);
+}
+catch (Exception $e) {
+   add::handle_exception($e);
+}
 
 
 
