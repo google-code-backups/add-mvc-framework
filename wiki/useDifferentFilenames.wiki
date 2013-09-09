@@ -1,7 +1,7 @@
 #summary Alternative Usage: Use Different Filenames
 #labels Phase-Implementation,Phase-Deploy
 
-= Use Different FileNames =
+=Use Different Filenames=
 You can also use your own filenames aside from listed on [gettingStarted] aside from .htaccess of course.
 
 ==Renamable files examples==
@@ -111,4 +111,3 @@ $C = array(
 
 ?>
 }}}
-
