@@ -1,0 +1,44 @@
+#summary Alternative Usage: Use Different Filenames
+#labels Phase-Implementation,Phase-Deploy
+
+= Use Different FileNames =
+You can also use your own filenames aside from listed on [gettingStarted] aside from .htaccess of course.
+
+==Renamable files examples==
+   # Config file (config.php)
+   # Main execution file (add.php)
+   # ADD Configure file (add_configure.php)
+   # Includes directory
+   # Assets directory
+
+===Config file===
+   You can do this by simply renaming the require()d file on _main execution file_ (add.php) or the _ADD Configure file_
+
+example:
+
+{{{
+<?php
+
+# Config file: settings.php
+require 'settings.php';
+
+# Require the add mvc framework's init.php
+require 'includes/frameworks/add/init.php';
+
+# Execute the automatically detected controller
+add::current_controller()->execute();
+?>
+}}}
+
+===Main Execution File===
+   You can use different file name for the main execution file by editing .htaccess rewrites, say you want to use "add-execute.php" instead:
+
+.htaccess:
+{{{
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)$ add-execute.php?add_mvc_path=$1&%{QUERY_STRING} [L]
+RewriteRule ^$ add-execute.php?add_mvc_path=$1&%{QUERY_STRING} [L]
+}}}
