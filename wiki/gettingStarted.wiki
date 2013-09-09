@@ -105,7 +105,9 @@ https://add-mvc-framework.googlecode.com/svn/wiki/assets/images/add-mvc-main-exe
 
 add::current_controller() returns the current controller according to the current path, and execute() is the execution function, as the name implies.
 
-If you want to make your own process and just use some functions of ADD MVC (or is not familliar with the MVC environment yet), you can replace the current controller execution ( add::current_controller()->execute() ) with your own code
+Before execute() you can add your own processes like setting your timezone etc.
+
+You can also replace it with your own code, for example you just want to use [useAsLibrary ADD framework as library]
 
 
 
