@@ -10,7 +10,7 @@
       * [popularLibraries#ADOdb Libraries: ADOdb Chapter]
       * [models Models]
       * [http://mvc.add.ph/docs.1723/index.html Source Code Documentation]
-   * Alternative Usage: [useAsLibrary As Library]
+   * [useAsLibrary Alternative Usage: As Library]
    * [features Features]
    * [models Models]
    * [controllers Controllers]
