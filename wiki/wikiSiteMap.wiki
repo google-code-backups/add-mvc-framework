@@ -13,6 +13,7 @@
    * Alternative Usages
       * [useAsLibrary As Library]
       * [useDifferentFilenames Different File Names]
+      * [useInlineConfig Inline Config]
    * [features Features]
    * [models Models]
    * [controllers Controllers]
