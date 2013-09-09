@@ -1,0 +1,55 @@
+#summary One-sentence summary of this page.
+#labels Phase-Implementation,Phase-Deploy
+
+= Use ADD framework as library =
+
+You can also use ADD framework as library by including just the init.php and not executing the current controller ( add::current_controller()->execute() see [gettingStarted#Main_Execution_File]) 
+
+You can create a file like this:
+{{{
+
+<?php
+/**
+ * Sample ADD Configure file
+ *
+ */
+# Require the config file
+require 'config.php';
+
+# Require the add mvc framework's init.php, replace "includes/frameworks/add" with your own add mvc framework path. (look for init.php)
+require 'includes/frameworks/add/init.php';
+
+}}}
+
+We will call such file, as "add configure" files so we can name it "add_configure.php".
+
+You can also use inline configs
+
+{{{
+
+<?php
+/**
+ * Sample ADD Configure file : add_configure.php
+ *
+ */
+$C = (object) array(
+      'path' => '/my-app/', 
+      'environment_status' => 'development',
+   );
+
+# Require the add mvc framework's init.php, replace "includes/frameworks/add" with your own add mvc framework path. (look for init.php)
+require 'includes/frameworks/add/init.php';
+
+}}}
+
+
+so if we want to use debug::var_dump, on a test file or another framework, you will do:
+
+{{{
+<?php
+require 'add_configure.php';
+
+debug::var_dump($_SESSION);
+
+?>
+}}}
