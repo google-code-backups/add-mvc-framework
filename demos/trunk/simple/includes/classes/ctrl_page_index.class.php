@@ -19,7 +19,7 @@ CLASS ctrl_page_index EXTENDS ctrl_tpl_page {
    public function process() {
       $this->view()->assign('current_controller',add::current_controller_class());
       $this->view()->assign('current_view',$this->view_filepath());
-      $this->view()->assign('utc_timestamp',@gmmktime());
+      $this->view()->assign('utc_timestamp',time());
 
    }
 
