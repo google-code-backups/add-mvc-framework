@@ -12,7 +12,7 @@
    <br />
    <br />
    {if $member}
-      <p>Hi {$member->username}!</p>
+      <p>Hi {$member->name|default:$member->username}!</p>
       <p><a href="login?mode=logout">logout using the login controller</a></p>
    {else}
       <p>Try the <a href="login">login controller</a></p>
