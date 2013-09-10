@@ -324,8 +324,8 @@ For more information about models, go to [models Models Page]
 
 == Other Classes ==
    * [debugging Debugging classes (debug, add_debug, add_debug_timer, add_debug_mail)]
-   * Mailer class (ctrl_abstract_mailer)
-   * DOM and curl (dom_wrapper, add_curl)
+   * Mailer class ([http://mvc.add.ph/docs/classes/ctrl_mailer_abstract.html ctrl_abstract_mailer])
+   * DOM and curl ([http://mvc.add.ph/docs/classes/dom_wrapper.html dom_wrapper], [http://mvc.add.ph/docs/classes/add_curl.html add_curl])
    * [addExceptions Exceptions (e_add)]
    * Interfaces ( i_auth_entity, i_ctrl, i_ctrl_with_view, i_non_overwriteable, i_singleton, i_with_view)
    * LDAP classes (add_ldap)
