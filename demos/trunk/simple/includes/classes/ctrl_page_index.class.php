@@ -16,7 +16,7 @@ CLASS ctrl_page_index EXTENDS ctrl_tpl_page {
     *
     * @since ADD MVC 0.0
     */
-   public function process() {
+   public function process_mode_default() {
       $this->view()->assign('current_controller',add::current_controller_class());
       $this->view()->assign('current_view',$this->view_filepath());
       $this->view()->assign('utc_timestamp',time());
