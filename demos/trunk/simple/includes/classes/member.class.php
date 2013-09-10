@@ -24,9 +24,16 @@ CLASS member EXTENDS session_user {
       $member -> username = $username;
       $member -> password = $password;
 
-      add::redirect(add::config()->path);
-
-
       return $member;
    }
+
+   /**
+    * login_redirect()
+    *
+    * @since ADD MVC 0.0
+    */
+   static function login_redirect() {
+      add::redirect(add::config()->path.'login?redirect='.urlencode($_SERVER['REQUEST_URI']));
+   }
+
 }
