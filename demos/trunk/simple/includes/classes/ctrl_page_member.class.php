@@ -7,10 +7,10 @@
 CLASS ctrl_page_member EXTENDS ctrl_tpl_page {
 
 /**
- * Request variables for mode edit - username and password
+ * Request variables for mode edit - name and password
  *
  */
-   public $mode_gpc_edit = array( '_REQUEST' => array('username','password') );
+   public $mode_gpc_edit = array( '_REQUEST' => array('name', 'password', 'confirm_password') );
 /**
  * Mode - edit
  *

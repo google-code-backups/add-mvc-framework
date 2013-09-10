@@ -8,7 +8,7 @@ CLASS ctrl_page_login EXTENDS ctrl_tpl_page {
     * Login Request variables - username and password from $_REQUEST
     *
     */
-   protected $mode_gpc_login = array( '_REQUEST' => array( 'username', 'password' ));
+   protected $mode_gpc_login = array( '_REQUEST' => array( 'username', 'password' , 'redirect' ));
 
    /**
     * Login
@@ -27,7 +27,9 @@ CLASS ctrl_page_login EXTENDS ctrl_tpl_page {
       }
 
       # login the session user class
-      member::login($gpc['username'],$gpc['password']);
+      if (member::login($gpc['username'],$gpc['password']) instanceof member) {
+         add::redirect(add::config()->path);
+      }
    }
 
 
