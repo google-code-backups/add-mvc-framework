@@ -12,7 +12,7 @@
 CLASS ctrl_page_index EXTENDS ctrl_tpl_page {
 
    /**
-    * The pre-view process
+    * The default process
     *
     * @since ADD MVC 0.0
     */
@@ -20,7 +20,7 @@ CLASS ctrl_page_index EXTENDS ctrl_tpl_page {
       $this->view()->assign('current_controller',add::current_controller_class());
       $this->view()->assign('current_view',$this->view_filepath());
       $this->view()->assign('utc_timestamp',time());
-
+      $this->view()->assign('member',member::current_logged_in());
    }
 
 }
