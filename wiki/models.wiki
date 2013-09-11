@@ -54,11 +54,42 @@ Where: const TABLE is the table of the company and TABLE_PK is the primary key f
   * [http://mvc.add.ph/docs/classes/model_auth.html model_auth] - For model that are meant for tables of users that logs in. or any entity that is authenticated
      * Note: Check the constants before using this class.
   * [http://mvc.add.ph/docs/classes/model_image_rwd.html model_image_rwd ] For having a filesystem image with 1:1 related database row
+
+=== model_auth example ===
+{{{
+<?php
+
+/**
+ * admin model
+ *
+ */
+CLASS admin EXTENDS model_auth {
+   const TABLE = 'view_admins';
+
+   const USERNAME_FIELD = 'email';
+
+   const SESSION_KEY = 'add.ph_admin';
+
+   const LOGIN_PAGE = 'admin/login';
+
+   /**
+    * The ADODB Object
+    *
+    * @since ADD.PH 2.0
+    */
+   public static function db() {
+      return adodb_addph::singleton();
+   }
+
+}
+}}}
+
 == Tips ==
  * Table related methods should be static context while row related functions are object.
  * Model names should be singular, (e.g. member::get_instance())
  * Methods that will return array of instances should be plural ( e.g. $member->transactions() )
  * Methods that will get foreign instances should have the same name (plural form) as it's model (e.g. $member->vehicles() // Where vehicle is a model related to member)
+
 
 == Function List ==
  * Maybe it's better to look at the phpdoc included in the framework *
