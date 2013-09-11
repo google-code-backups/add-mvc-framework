@@ -81,6 +81,27 @@ EOT;
    debug::var_dump($companies
    #...
 }}}
+     * `company::instances_from_sql($sql_format)` - will return an array of model object instances from a sql format - This function will enable custom queries specially for joins
+{{{
+<?php
+   #...
+   # Gets companies with category "Petroleum"
+   $companies = company::instances_from_sql(
+          "
+          SELECT %s 
+          FROM %s INNER JOIN categories ON category_id = categories.id
+          WHERE categories.name = 'Petroleum'
+          "
+      );
+   #...
+}}}
+  The sql will end up as something like:
+{{{
+          SELECT companies.*
+          FROM companies INNER JOIN categories ON category_id = categories.id
+          WHERE categories.name = 'Petroleum'
+}}}
+  
   * updates example:
     * `$company->name="New Company Name" `
       assign a new value on the object property and it will updated on script shutdown
