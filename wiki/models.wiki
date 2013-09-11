@@ -6,7 +6,7 @@
 
   for each table on the database you want to manipulate, you will have to create a model for it.
 
-  ADD Framework's models uses adodb abstraction layer, or you can also wrap it first, as long as the adodb methods are callable (e.g. getArray, SelectLimit etc.)
+  ADD Framework's models uses adodb abstraction layer, or you can also wrap it first, as long as the adodb methods are callable (e.g. GetArray(), SelectLimit() etc.)
 
 
 == Model Names ==
