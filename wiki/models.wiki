@@ -39,16 +39,95 @@ CLASS company EXTENDS model_rwd {
 Where: const TABLE is the table of the company and TABLE_PK is the primary key field and db() is the adodb object
 
 == Basic Functions ==
-  * insertion
+  * insertion example:
     * `company::add_new(array $row)` - inserts a new row and returns the new instance
-  * selections
+{{{
+<?php
+   #...
+   $company = company::add_new(
+         array(
+               'name' => 'ADD Systems',
+               'address' => '1234 Foo St. Philippines',
+               'category_id' => 12,
+               'insert_time' => time(),
+               'update_time' => time()
+            )
+      );
+   # echos company name
+   echo "Inserted: ".$company->name;
+   #...
+}}}
+  * selection example:
     * `company::get_instance(mixed $id)` - gets the row with primary key $id
+{{{
+<?php
+   #...
+   # Gets the company with id 1234
+   $company = company::get_instance(1234);
+
+   echo <<<EOT
+Company Name: $company->name
+Address: $company->address
+EOT;
+
+   #...
+}}}
     * `company::get_where_order_page(mixed $where, string $order_by, int $page, int $per_page)` - returns array of instances of the model according to the parameters given
-  * updates
-    * `$company->company_name="New Company Name" `
+{{{
+<?php
+   #...
+   # Gets companies with category_id = 12, newest first
+   $companies = company::get_where_order_page( array( 'category_id' => 12 ) 'ORDER BY insert_time DESC');
+   debug::var_dump($companies
+   #...
+}}}
+  * updates example:
+    * `$company->name="New Company Name" `
       assign a new value on the object property and it will updated on script shutdown
-  * delete
+{{{
+<?php
+   #...
+   # Gets the company with id 1234
+   $company = company::get_instance(1234);
+
+   # update fields
+   $company->name = 'ADD Technologies';
+   $company->address = '1234 Baz City Philippines';
+   $company->update_time = time();
+
+   # This row will be automatically updated on script shutdown
+
+   # OR
+
+   $company2 = company::get_instance(2345);
+
+   # update fields
+   $company2->address = '55634 Foo City US';
+   $company2->update_time = time();
+
+
+   # Force update immediately
+   $company2->update_db_row();
+   
+
+   
+
+   #...
+}}}
+  * delete example:
     * `$company->delete()`
+<?php
+   #...
+   # Gets the company with id 1234
+   $company = company::get_instance(1234);
+
+   # Delete this company row
+   $company->delete();
+
+   # note: the object variable will still be useable for reading
+
+   #...
+}}}
 
 == Abstract Model Classes ==
   * [http://mvc.add.ph/docs/classes/model_rwd.html model_rwd] - Read Write Delete Model
