@@ -23,14 +23,14 @@ ADD MVC controllers has [modesAndSubModes Modes and Sub Modes] that enables code
 https://add-mvc-framework.googlecode.com/svn/wiki/assets/images/add-controller.png
 
 The following are few of the methods you will need the most:
- # `execute()` - the root method of the controller. When execute() ( formerly page() ) is called, by default it calls process_data() ( formerly process() ) and print_response(). There will only be a few chance that you will need to extend this method. Instead, see the following methods:
-   # `process_data()` - this method should contain the data processing of the controller. By default, this calls process_mode()
-      # `pre_mode_process()` (version 0.9) - To be extended to add a process *before* the processing of the `$_REQUEST['mode']`
-      # process_mode() - Creates an array of registered gpc. Calls the applicable `process_mode_$_REQUEST['mode']`($gpc). For best practice this method should also not be extended
-      # `post_mode_process`() (version 0.9) - To be extend to add a process *after* the processing of the `$_REQUEST['mode']`
-      # `process_mode_$_REQUEST['mode']` - to be declared to have a custom process for a certain mode. see [modesAndSubModes Modes and Sub Modes]
-   # `print_response($data)` - prints the view. For best practice this method should not be extended
- # assign($field,$value) - assigns a data to the controller. This will also automatically call `smarty assign()` for the view.
+ # *`execute()`* - the root method of the controller. When execute() ( formerly page() ) is called, by default it calls process_data() ( formerly process() ) and print_response(). There will only be a few chance that you will need to extend this method. Instead, see the following methods:
+   # *`process_data()`* - this method should contain the data processing of the controller. By default, this calls process_mode()
+      # *`pre_mode_process()`* (version 0.9) - To be extended to add a process *before* the processing of the `$_REQUEST['mode']`
+      # *`process_mode()`* - Creates an array of registered gpc. Calls the applicable `process_mode_$_REQUEST['mode']`($gpc). For best practice this method should also not be extended
+      # *`post_mode_process()`* (version 0.9) - To be extend to add a process *after* the processing of the `$_REQUEST['mode']`
+      # *`process_mode_$_REQUEST['mode']`* - to be declared to have a custom process for a certain mode. see [modesAndSubModes Modes and Sub Modes]
+   # *`print_response($data)`* - prints the view. For best practice this method should not be extended
+ # *`assign($field,$value)`* - assigns a data to the controller. This will also automatically call `smarty assign()` for the view.
 
 === Modes and Sub Modes ===
 
