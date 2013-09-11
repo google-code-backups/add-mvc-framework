@@ -39,8 +39,8 @@ CLASS company EXTENDS model_rwd {
 Where: const TABLE is the table of the company and TABLE_PK is the primary key field and db() is the adodb object
 
 == Basic Functions ==
-  * insertion example:
-    * `company::add_new(array $row)` - inserts a new row and returns the new instance
+   * insertion example:
+      * `company::add_new(array $row)` - inserts a new row and returns the new instance
 {{{
 <?php
    #...
@@ -57,8 +57,8 @@ Where: const TABLE is the table of the company and TABLE_PK is the primary key f
    echo "Inserted: ".$company->name;
    #...
 }}}
-  * selection example:
-    * `company::get_instance(mixed $id)` - gets the row with primary key $id
+   * selection example:
+      * `company::get_instance(mixed $id)` - gets the row with primary key $id
 {{{
 <?php
    #...
@@ -72,7 +72,7 @@ EOT;
 
    #...
 }}}
-    * `company::get_where_order_page(mixed $where, string $order_by, int $page, int $per_page)` - returns array of instances of the model according to the parameters given
+      * `company::get_where_order_page(mixed $where, string $order_by, int $page, int $per_page)` - returns array of instances of the model according to the parameters given
 {{{
 <?php
    #...
@@ -81,7 +81,7 @@ EOT;
    debug::var_dump($companies
    #...
 }}}
-     * `company::instances_from_sql($sql_format)` - will return an array of model object instances from a sql format - This function will enable custom queries specially for joins
+      * `company::instances_from_sql($sql_format)` - will return an array of model object instances from a sql format - This function will enable custom queries specially for joins
 {{{
 <?php
    #...
@@ -102,8 +102,8 @@ EOT;
           WHERE categories.name = 'Petroleum'
 }}}
   
-  * updates example:
-    * `$company->name="New Company Name" `
+   * updates example:
+      * `$company->name="New Company Name" `
       assign a new value on the object property and it will updated on script shutdown
 {{{
 <?php
@@ -135,8 +135,8 @@ EOT;
 
    #...
 }}}
-  * delete example:
-    * `$company->delete()`
+   * delete example:
+      * `$company->delete()`
 {{{
 <?php
    #...
@@ -152,11 +152,11 @@ EOT;
 }}}
 
 == Abstract Model Classes ==
-  * [http://mvc.add.ph/docs/classes/model_rwd.html model_rwd] - Read Write Delete Model
-  * [http://mvc.add.ph/docs/classes/model_r.html model_r] - Read Only Model
-  * [http://mvc.add.ph/docs/classes/model_auth.html model_auth] - For model that are meant for tables of users that logs in. or any entity that is authenticated
+   * [http://mvc.add.ph/docs/classes/model_rwd.html model_rwd] - Read Write Delete Model
+   * [http://mvc.add.ph/docs/classes/model_r.html model_r] - Read Only Model
+   * [http://mvc.add.ph/docs/classes/model_auth.html model_auth] - For model that are meant for tables of users that logs in. or any entity that is authenticated
      * Note: Check the constants before using this class.
-  * [http://mvc.add.ph/docs/classes/model_image_rwd.html model_image_rwd ] For having a filesystem image with 1:1 related database row
+   * [http://mvc.add.ph/docs/classes/model_image_rwd.html model_image_rwd ] For having a filesystem image with 1:1 related database row
 
 === model_auth example ===
 {{{
