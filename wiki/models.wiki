@@ -95,7 +95,7 @@ EOT;
    $company->address = '1234 Baz City Philippines';
    $company->update_time = time();
 
-   # This row will be automatically updated on script shutdown
+   # ^ $company row will be automatically updated on script shutdown
 
    # OR
 
@@ -106,7 +106,7 @@ EOT;
    $company2->update_time = time();
 
 
-   # Force update immediately
+   # Force update immediately for $company2
    $company2->update_db_row();
    
 
