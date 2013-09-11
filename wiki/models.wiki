@@ -49,11 +49,11 @@ Where: const TABLE is the table of the company and TABLE_PK is the primary key f
     * `$company->delete()`
 
 == Abstract Model Classes ==
-  * model_rwd - Read Write Delete Model
-  * model_r - Read Only Model
-  * model_auth - For model that are meant for tables of users that logs in. or any entity that is authenticated
+  * [http://mvc.add.ph/docs/classes/model_rwd.html model_rwd] - Read Write Delete Model
+  * [http://mvc.add.ph/docs/classes/model_r.html model_r] - Read Only Model
+  * [http://mvc.add.ph/docs/classes/model_auth.html model_auth] - For model that are meant for tables of users that logs in. or any entity that is authenticated
      * Note: Check the constants before using this class.
-
+  * [http://mvc.add.ph/docs/classes/model_image_rwd.html model_image_rwd ] For having a filesystem image with 1:1 related database row
 == Tips ==
  * Table related methods should be static context while row related functions are object.
  * Model names should be singular, (e.g. member::get_instance())
