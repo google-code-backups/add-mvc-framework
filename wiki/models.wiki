@@ -77,7 +77,6 @@ CLASS admin EXTENDS model_auth {
    /**
     * The ADODB Object
     *
-    * @since ADD.PH 2.0
     */
    public static function db() {
       return adodb_addph::singleton();
