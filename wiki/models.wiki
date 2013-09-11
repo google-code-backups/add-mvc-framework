@@ -116,6 +116,7 @@ EOT;
 }}}
   * delete example:
     * `$company->delete()`
+{{{
 <?php
    #...
    # Gets the company with id 1234
