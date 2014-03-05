@@ -24,4 +24,5 @@
    * Incomplete wikis
       * [componentExtension]
       * [componentOverload]
+      * [paginationSupport Pagination]
    * [http://code.google.com/p/add-mvc-framework/w/list?can=2&q= All Wiki Pages]
