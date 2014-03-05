@@ -1,0 +1,6 @@
+#summary Pagination Support
+#labels Phase-Implementation
+
+ADD MVC supports pagination algorithm using the pagination class
+
+[http://mvc.add.ph/docs/classes/pagination.html Pagination Class Docs]
