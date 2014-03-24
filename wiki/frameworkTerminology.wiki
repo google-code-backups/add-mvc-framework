@@ -60,3 +60,6 @@ the filename without extension
 
 === file path name ===
 the file system path including the file name eg. /path/to/dir/example.php
+
+=== overload ===
+   used when overriding (instead of overriding) methods and properties on child classes
