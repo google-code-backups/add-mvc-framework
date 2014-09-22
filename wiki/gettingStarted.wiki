@@ -77,6 +77,20 @@ Notice above that "add.php" is used, depending on the name of your _main executi
 
 AS you may have noticed it will only rewrite to the main execution file when the original file is not existing. This enables developers to have there own non-framework file to run. This will also enable smooth transistion from another (non-rewriting?) framework to another.
 
+=== Alternative home page ===
+You can also have alternative home page by redirecting or rewriting before the _main execution file_ rewrite:
+
+{{{
+RewriteEngine On
+
+RewriteRule ^$ my-page [L,R=302]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)$ add.php?add_mvc_path=$1&%{QUERY_STRING} [L]
+RewriteRule ^$ add.php?add_mvc_path=$1&%{QUERY_STRING} [L]
+}}}
+
 == Main Execution File ==
 
 Main execution file will act as a gateway, that will be running on all our ADD MVC resources
