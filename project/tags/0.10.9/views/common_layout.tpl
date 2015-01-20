@@ -1,0 +1,1 @@
+{add_layout file='common_layout'}
