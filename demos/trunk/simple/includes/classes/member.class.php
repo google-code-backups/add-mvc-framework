@@ -36,4 +36,14 @@ CLASS member EXTENDS session_user {
       add::redirect(add::config()->path.'login?redirect='.urlencode($_SERVER['REQUEST_URI']));
    }
 
+
+   /**
+    * Gets the instance of the user
+    *
+    * @return object
+    */
+   public function user() {
+      return user::get_instance($this->id());
+   }
+
 }
