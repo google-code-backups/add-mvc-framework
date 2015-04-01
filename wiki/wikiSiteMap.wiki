@@ -1,6 +1,6 @@
 #summary Wiki Site Map
 #labels Phase-Design
-*Important: ADD MVC is moved to https://github.com/albertdiones/add-framework*
+*Important: ADD MVC is moved to https://github.com/albertdiones/add-framework *
 = Links =
    * [home Home]
    * [gettingStarted Getting Started]
